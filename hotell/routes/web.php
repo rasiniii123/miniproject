@@ -19,3 +19,6 @@ Route::post('/register', [RegisterController::class, 'store'])->name('auth.store
 
 Route::post('/login', [UserController::class, 'store'])->name('login.submit');
 
+route::middleware('checkrole:admin')->group(function(){
+    
+});

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
-use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
 {
@@ -31,7 +32,12 @@ class RegisterController extends Controller
         // dd( $credentials);
 
         // Create a new user!!
-        $user = User::create($credentials);
+        $user = User::create([
+            'username' => $request['username'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'role' => 'admin',
+        ]);
         return redirect()->route('auth.login')->with('success', 'Data berhasil disimpan');
       
     }
