@@ -44,7 +44,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Login berhasil
-            return redirect()->intended('dashboard');
+            return redirect()->route('dashboard');
         } else {
             // Login gagal, mungkin tampilkan pesan kesalahan
             return back()->withErrors(['email' => 'Login failed. Invalid email or password.']);
