@@ -1,16 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    <!-- PRELOADER -->
-    {{-- <div id="preloader">
-        <span class="preloader-dot"></span>
-    </div> --}}
-    <!-- END / PRELOADER -->
-
-    <!-- PAGE WRAP -->
-
-    <!-- END / HEADER -->
-
-    <!-- ACCOUNT -->
     <section class="section-account parallax bg-11">
         <div class="awe-overlay"></div>
         <div class="container">

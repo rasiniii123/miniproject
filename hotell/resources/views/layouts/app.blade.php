@@ -67,7 +67,7 @@
 
                         <span class="login-register">
                             <a href="{{ route('auth.login') }}">Login</a>
-                            <a href="register.html">register</a>
+                            <a href="{{ route('auth.register') }}">Register</a>
                         </span>
 
                         <div class="dropdown currency">
@@ -378,6 +378,7 @@
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
         <!-- Custom jQuery -->
         <script type="text/javascript" src="js/scripts.js"></script>
+        
 </body>
 
 <!-- Mirrored from landing.engotheme.com/html/lotus/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Feb 2024 12:43:53 GMT -->
