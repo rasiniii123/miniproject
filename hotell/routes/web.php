@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegisterController;
 
-Route::middleware('auth')->group(function () {
+Route::middleware('guest')->group(function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
