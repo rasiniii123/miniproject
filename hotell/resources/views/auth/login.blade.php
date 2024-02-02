@@ -7,16 +7,17 @@
                 <div class="text text-center">
                     <h2>LOGIN ACCOUNT</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing</p>
-                    <form action="#" class="account_form">
+                    <form action="{{ route('login.submit') }}" method="post" class="account_form">
+                        @csrf
                         <div class="field-form">
-                            <input type="text" class="field-text" placeholder="User name">
+                            <input type="text" name="email" class="field-text" placeholder="Email">
                         </div>
                         <div class="field-form">
-                            <input type="password" class="field-text" placeholder="Password">
+                            <input type="password" name="password" class="field-text" placeholder="Password">
                             <span class="view-pass"><i class="lotus-icon-view"></i></span>
                         </div>
                         <div class="field-form field-submit">
-                            <button class="awe-btn awe-btn-13">Login</button>
+                            <button type="submit" class="awe-btn awe-btn-13">Login</button>
                         </div>
                         <span class="account-desc">I don’t have an account - <a href="#">Forgot
                                 Password</a></span>

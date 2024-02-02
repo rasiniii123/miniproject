@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -27,10 +28,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $credentials = $request->validate([
+        // dd($request);
+        $this->validate($request, [
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|min:6|max:255',
+        ], [
+            'email.required' => 'Email Wajib Diisi',
+            'email.email' => 'Format email tidak valid',
+            'password.required' => 'Password harus di isi',
+            'password.min' => 'Password minimal 6 karakter',
+            'password.max' => 'Maksimal panjang password adalah 255 karakter',
         ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Login berhasil
+            return redirect()->intended('dashboard');
+        } else {
+            // Login gagal, mungkin tampilkan pesan kesalahan
+            return back()->withErrors(['email' => 'Login failed. Invalid email or password.']);
+        }
     }
 
     /**
