@@ -62,7 +62,7 @@
                     <div class="header_right float-right">
 
                         <span class="login-register">
-                            <a href="login.html">Login</a>
+                            <a href="{{ route('auth.login') }}">Login</a>
                             <a href="register.html">register</a>
                         </span>
 
