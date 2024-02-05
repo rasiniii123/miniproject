@@ -77,10 +77,14 @@
                             <span>USD <i class="fa fa"></i></span>
                             <ul>
                                 <li class="active"><a href="#">USD</a></li>
-                                <li><a href="#">EUR</a></li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST" class="">
+                                        @csrf
+                                        <button type="submit">LOGOUT</button>
+                                    </form>
+                                </li>
                             </ul>
                         </div>
-
                         <div class="dropdown language">
                             <span>ENG</span>
 
