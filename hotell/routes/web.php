@@ -23,8 +23,5 @@ Route::post('/login', [UserController::class, 'store'])->name('login.submit');
 route::middleware('checkrole:admin')->group(function(){
 
 });
-Route::get('/login', [UserController::class, 'index'])->name('auth.login');
-Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');
 
-Route::post('/login', [UserController::class, 'store'])->name('login.submit');
 

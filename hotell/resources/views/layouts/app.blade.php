@@ -61,11 +61,7 @@
             <!-- HEADER TOP -->
             <div class="header_top">
                 <div class="container">
-                    <div class="header_left float-left">
-                        <span><i class="lotus-icon-cloud"></i> 18 °C</span>
-                        <span><i class="lotus-icon-location"></i> 225 Beach Street, Australian</span>
-                        <span><i class="lotus-icon-phone"></i> 1-548-854-8898</span>
-                    </div>
+
                     <div class="header_right float-right">
 
                         <span class="login-register">
@@ -76,23 +72,19 @@
                         <div class="dropdown currency">
                             <span>USD <i class="fa fa"></i></span>
                             <ul>
-                                <li class="active"><a href="#">USD</a></li>
+                                <li class="{{ Request::is('logout') ? 'active' : '' }}">
                                 <li>
-                                    <form action="{{ route('logout') }}" method="POST" class="">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
-                                        <button type="submit">LOGOUT</button>
-                                    </form>
+                                <li class="active">
+                                    <a href="#" onclick="document.getElementById('logout-form').submit();">Log
+                                        out</a>
+                                </li>
+                                </form>
                                 </li>
                             </ul>
                         </div>
-                        <div class="dropdown language">
-                            <span>ENG</span>
 
-                            <ul>
-                                <li class="active"><a href="#">ENG</a></li>
-                                <li><a href="#">FR</a></li>
-                            </ul>
-                        </div>
 
                     </div>
                 </div>
@@ -154,7 +146,7 @@
                                     <li><a href="reservation-step-4.html">Reservation Step 4</a></li>
                                     <li><a href="reservation-step-5.html">Reservation Step 5</a></li>
                                 </ul> --}}
-                            {{-- </li> --}}
+                                {{-- </li> --}}
                             <li>
                                 <a href="#">Page </a>
                                 {{-- <ul class="sub-menu">
@@ -387,15 +379,25 @@
         <script type="text/javascript" src="js/scripts.js"></script>
 
         @if (session('success'))
+            <script>
+                Swal.fire({
+                    title: 'Registrasi Berhasil',
+                    text: 'Selamat datang di situs kami!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            </script>
+        @endif
 
-        <script>
-            Swal.fire({
-                title: 'Registrasi Berhasil',
-                text: 'Selamat datang di situs kami!',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            });
-         </script>
+        @if (session('logout_success'))
+            <script>
+                Swal.fire({
+                    title: 'Logout Berhasil',
+                    text: 'Anda telah berhasil keluar.',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            </script>
         @endif
 
 </body>
