@@ -12,12 +12,12 @@ class UserMiddlewhare
     public function handle($request,Closure $next)
     {
     if (Auth::check() && Auth::user()->role == 'User') {
-        
+
         return $next($request);
     }
 
 
-    return redirect('/dasbroad')->with('error', 'Anda tidak memiliki akses ke halaman ini');
+    return redirect('/dashboard')->with('error', 'Anda tidak memiliki akses ke halaman ini');
     }
 }
 
