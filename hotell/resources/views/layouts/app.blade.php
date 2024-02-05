@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <!-- TITLE -->
@@ -58,64 +59,75 @@
             <!-- HEADER TOP -->
             <div class="header_top">
                 <div class="container">
-
-                    <div class="header_right float-right">
-
-                        <span class="login-register">
-                            <a href="{{ route('auth.login') }}">Login</a>
-                            <a href="{{ route('auth.register') }}">Register</a>
-                        </span>
-
-                        <div class="dropdown currency">
-                            <span>USD <i class="fa fa"></i></span>
-                            <ul>
-                                <li class="{{ Request::is('logout') ? 'active' : '' }}">
-                                <li>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                <li class="active">
-                                    <a href="#" onclick="document.getElementById('logout-form').submit();">Log
-                                        out</a>
-                                </li>
-                                </form>
-                                </li>
-                            </ul>
+                    <div class="col-xs-12 col-lg-5">
+                        <div class="img">
+                            <a href="#"><img src="images/logologo.png" alt=""></a>
                         </div>
 
+                        <div class="header_right float-right">
 
+                            <span class="login-register">
+                                <a href="{{ route('auth.login') }}">Login</a>
+                                <a href="{{ route('auth.register') }}">Register</a>
+                            </span>
+
+                            <div class="dropdown currency">
+                                <span>USD <i class="fa fa"></i></span>
+                                <ul>
+                                    <li class="{{ Request::is('logout') ? 'active' : '' }}">
+                                    <li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                    <li class="active">
+                                        <a href="#" onclick="document.getElementById('logout-form').submit();">Log
+                                            out</a>
+                                    </li>
+                                    </form>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- END / HEADER TOP -->
+                <!-- END / HEADER TOP -->
 
-            <!-- HEADER LOGO & MENU -->
-            {{-- <div class="header_content" id="header_content"> --}}
+                <!-- HEADER LOGO & MENU -->
+                {{-- <div class="header_content" id="header_content"> --}}
 
                 {{-- <div class="container"> --}}
-                    <!-- HEADER LOGO -->
-                    {{-- <div class="header_logo">
+                <!-- HEADER LOGO -->
+                {{-- <div class="header_logo">
                         <a href="#"><img src="images/everywhere.png" alt="" width="200" height="200"></a>
                     </div> --}}
-                    <!-- END / HEADER LOGO -->
+                <!-- END / HEADER LOGO -->
 
-                    <!-- HEADER MENU -->
-                    {{-- <nav class="header_menu">
+                <!-- HEADER MENU -->
+                <div class="col-xs-12 col-lg-5">
+                    <div class="widget widget_logo">
+                        <div class="widget-logo">
+                            {{-- <div class="img">
+                                    <a href="#"><img src="images/logologo.png" alt=""></a>
+                                </div> --}}
+
+                            {{-- <nav class="header_menu">
                         <ul class="menu">
                             <li class="current-menu-item">
                                 <a href="index.html">Home </a> --}}
-                                {{-- <ul class="sub-menu">
+                            {{-- <ul class="sub-menu">
                                     <li class="current-menu-item"><a href="index.html">Home 1</a></li>
                                     <li><a href="index-2.html">Home 2</a></li>
                                     <li><a href="index-3.html">Home 3</a></li>
                                     <li><a href="index-4.html">Home 4</a></li>
                                 </ul>
-                            </li> --}}
+                            </li>
                             {{-- <li><a href="about.html">About</a></li>
 
                             <li>
                                 <a href="#">Room </a> --}}
-                                {{-- <ul class="sub-menu">
+                            {{-- <ul class="sub-menu">
                                     <li><a href="room-1.html">Room 1</a></li>
                                     <li><a href="room-2.html">Room 2</a></li>
                                     <li><a href="room-3.html">Room 3</a></li>
@@ -126,8 +138,8 @@
                                 </ul> --}}
                             {{-- </li>
                             <li> --}}
-                                {{-- <a href="#">Restaurant</a> --}}
-                                {{-- <ul class="sub-menu">
+                            {{-- <a href="#">Restaurant</a> --}}
+                            {{-- <ul class="sub-menu">
                                     <li><a href="restaurants-1.html">Restaurant 1</a></li>
                                     <li><a href="restaurants-2.html">Restaurant 2</a></li>
                                     <li><a href="restaurants-3.html">Restaurant 3</a></li>
@@ -136,17 +148,17 @@
                             </li> --}}
                             {{-- <li>
                                 <a href="#">Reservation </a> --}}
-                                {{-- <ul class="sub-menu">
+                            {{-- <ul class="sub-menu">
                                     <li><a href="reservation-step-1.html">Reservation Step 1</a></li>
                                     <li><a href="reservation-step-2.html">Reservation Step 2</a></li>
                                     <li><a href="reservation-step-3.html">Reservation Step 3</a></li>
                                     <li><a href="reservation-step-4.html">Reservation Step 4</a></li>
                                     <li><a href="reservation-step-5.html">Reservation Step 5</a></li>
                                 </ul> --}}
-                                {{-- </li> --}}
+                            {{-- </li> --}}
                             {{-- <li>
                                 <a href="#">Page </a> --}}
-                                {{-- <ul class="sub-menu">
+                            {{-- <ul class="sub-menu">
                                     <li>
                                         <a href="#">Guest Book <span class="fa fa-caret-right"></span></a>
                                         <ul class="sub-menu">
@@ -188,7 +200,7 @@
                             </li> --}}
                             {{-- <li>
                                 <a href="#">Gallery </a> --}}
-                                {{-- <ul class="sub-menu">
+                            {{-- <ul class="sub-menu">
                                     <li><a href="gallery.html">Gallery Style 1</a></li>
                                     <li><a href="gallery-2.html">Gallery Style 2</a></li>
                                     <li><a href="gallery-3.html">Gallery Style 3</a></li>
@@ -196,7 +208,7 @@
                             </li> --}}
                             {{-- <li>
                                 <a href="#">Blog </a> --}}
-                                {{-- <ul class="sub-menu">
+                            {{-- <ul class="sub-menu">
                                     <li><a href="blog.html">Blog</a></li>
                                     <li><a href="blog-detail.html">Blog Detail</a></li>
                                     <li><a href="blog-detail-fullwidth.html">Blog Detail Fullwidth</a></li>
@@ -205,17 +217,17 @@
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </nav> --}}
-                    <!-- END / HEADER MENU -->
+                            <!-- END / HEADER MENU -->
 
-                    <!-- MENU BAR -->
-                    {{-- <span class="menu-bars">
+                            <!-- MENU BAR -->
+                            {{-- <span class="menu-bars">
                         <span></span>
                     </span> --}}
-                    <!-- END / MENU BAR -->
-{{--
+                            <!-- END / MENU BAR -->
+                            {{--
                 </div>
             </div> --}}
-            <!-- END / HEADER LOGO & MENU -->
+                            <!-- END / HEADER LOGO & MENU -->
 
         </header>
         <div class="main-content">
