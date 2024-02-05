@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.side')
 @section('content')
     <section class="section-account parallax bg-11">
         <div class="awe-overlay"></div>

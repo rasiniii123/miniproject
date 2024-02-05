@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from landing.engotheme.com/html/lotus/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Feb 2024 12:42:23 GMT -->
-
 <head>
     <meta charset="utf-8">
     <!-- TITLE -->
