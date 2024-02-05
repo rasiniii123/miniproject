@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -24,11 +25,23 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         // Validation
-        $credentials = $request->validate([
-            'username' => 'required',
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|unique:users,username',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
+        ], [
+            'username.required' => 'username wajib diisi',
+            'username.unique' => 'username sudah digunakan',
+            'email.required' => 'email wajib diisi',
+            'email.unique' => 'email sudah digunakan',
+            'password.required' => 'password wajib diisi',
+            'password.min' => 'password minimal 6 digit',
         ]);
+        if ($validator->fails()) {
+
+            return back()->withErrors($validator)->withInput();
+        }
+
         // dd( $credentials);
 
         // Create a new user!!
@@ -39,6 +52,5 @@ class RegisterController extends Controller
             'role' => 'admin',
         ]);
         return redirect()->route('auth.login')->with('success', 'Data berhasil disimpan');
-      
     }
 }

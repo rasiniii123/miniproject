@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.side')
 @section('content')
     <section class="section-account parallax bg-11">
         <div class="awe-overlay"></div>
@@ -11,13 +11,22 @@
                         @csrf
                         <div class="field-form">
                             <input type="text" class="field-text" placeholder="User name*" name="username">
+                            @error('username')
+                            <div class="text-danger">{{ $message }}</p>
+                        @enderror
                         </div>
                         <div class="field-form">
                             <input type="text" class="field-text" placeholder="Email*" name="email">
+                            @error('email')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         </div>
                         <div class="field-form">
                             <input type="password" class="field-text" placeholder="Password*" name="password">
                             <span class="view-pass"><i class="lotus-icon-view"></i></span>
+                            @error('password')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         </div>
                         <div class="field-form field-submit">
                             <button type="submit" class="awe-btn awe-btn-13">REGISTER</button>

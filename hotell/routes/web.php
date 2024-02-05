@@ -8,7 +8,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    
+
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });
 
@@ -22,6 +22,11 @@ Route::post('/login', [UserController::class, 'store'])->name('login.submit');
 
 route::middleware('checkrole:admin')->group(function(){
 
+});
+
+Route::middleware(['semiadmin'])->group(function () {
+    // Rute untuk semiadmin
+    // ...
 });
 
 

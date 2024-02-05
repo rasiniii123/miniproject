@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from landing.engotheme.com/html/lotus/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Feb 2024 12:42:23 GMT -->
-
 <head>
     <meta charset="utf-8">
     <!-- TITLE -->
-    <title>Index 1</title>
+    <title>EveryWhere</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
@@ -61,11 +58,7 @@
             <!-- HEADER TOP -->
             <div class="header_top">
                 <div class="container">
-                    <div class="header_left float-left">
-                        <span><i class="lotus-icon-cloud"></i> 18 °C</span>
-                        <span><i class="lotus-icon-location"></i> 225 Beach Street, Australian</span>
-                        <span><i class="lotus-icon-phone"></i> 1-548-854-8898</span>
-                    </div>
+
                     <div class="header_right float-right">
 
                         <span class="login-register">
@@ -76,19 +69,19 @@
                         <div class="dropdown currency">
                             <span>USD <i class="fa fa"></i></span>
                             <ul>
-                                <li class="active"><a href="#">USD</a></li>
-                                <li><a href="#">EUR</a></li>
+                                <li class="{{ Request::is('logout') ? 'active' : '' }}">
+                                <li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                <li class="active">
+                                    <a href="#" onclick="document.getElementById('logout-form').submit();">Log
+                                        out</a>
+                                </li>
+                                </form>
+                                </li>
                             </ul>
                         </div>
 
-                        <div class="dropdown language">
-                            <span>ENG</span>
-
-                            <ul>
-                                <li class="active"><a href="#">ENG</a></li>
-                                <li><a href="#">FR</a></li>
-                            </ul>
-                        </div>
 
                     </div>
                 </div>
@@ -97,32 +90,32 @@
             <!-- END / HEADER TOP -->
 
             <!-- HEADER LOGO & MENU -->
-            <div class="header_content" id="header_content">
+            {{-- <div class="header_content" id="header_content"> --}}
 
-                <div class="container">
+                {{-- <div class="container"> --}}
                     <!-- HEADER LOGO -->
-                    <div class="header_logo">
-                        <a href="#"><img src="images/logo-header.png" alt=""></a>
-                    </div>
+                    {{-- <div class="header_logo">
+                        <a href="#"><img src="images/everywhere.png" alt="" width="200" height="200"></a>
+                    </div> --}}
                     <!-- END / HEADER LOGO -->
 
                     <!-- HEADER MENU -->
-                    <nav class="header_menu">
+                    {{-- <nav class="header_menu">
                         <ul class="menu">
                             <li class="current-menu-item">
-                                <a href="index.html">Home <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                <a href="index.html">Home </a> --}}
+                                {{-- <ul class="sub-menu">
                                     <li class="current-menu-item"><a href="index.html">Home 1</a></li>
                                     <li><a href="index-2.html">Home 2</a></li>
                                     <li><a href="index-3.html">Home 3</a></li>
                                     <li><a href="index-4.html">Home 4</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="about.html">About</a></li>
+                            </li> --}}
+                            {{-- <li><a href="about.html">About</a></li>
 
                             <li>
-                                <a href="#">Room <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                <a href="#">Room </a> --}}
+                                {{-- <ul class="sub-menu">
                                     <li><a href="room-1.html">Room 1</a></li>
                                     <li><a href="room-2.html">Room 2</a></li>
                                     <li><a href="room-3.html">Room 3</a></li>
@@ -130,30 +123,30 @@
                                     <li><a href="room-5.html">Room 5</a></li>
                                     <li><a href="room-6.html">Room 6</a></li>
                                     <li><a href="room-detail.html">Room Detail</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Restaurant <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                </ul> --}}
+                            {{-- </li>
+                            <li> --}}
+                                {{-- <a href="#">Restaurant</a> --}}
+                                {{-- <ul class="sub-menu">
                                     <li><a href="restaurants-1.html">Restaurant 1</a></li>
                                     <li><a href="restaurants-2.html">Restaurant 2</a></li>
                                     <li><a href="restaurants-3.html">Restaurant 3</a></li>
                                     <li><a href="restaurants-4.html">Restaurant 4</a></li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="#">Reservation <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                            </li> --}}
+                            {{-- <li>
+                                <a href="#">Reservation </a> --}}
+                                {{-- <ul class="sub-menu">
                                     <li><a href="reservation-step-1.html">Reservation Step 1</a></li>
                                     <li><a href="reservation-step-2.html">Reservation Step 2</a></li>
                                     <li><a href="reservation-step-3.html">Reservation Step 3</a></li>
                                     <li><a href="reservation-step-4.html">Reservation Step 4</a></li>
                                     <li><a href="reservation-step-5.html">Reservation Step 5</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Page <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                </ul> --}}
+                                {{-- </li> --}}
+                            {{-- <li>
+                                <a href="#">Page </a> --}}
+                                {{-- <ul class="sub-menu">
                                     <li>
                                         <a href="#">Guest Book <span class="fa fa-caret-right"></span></a>
                                         <ul class="sub-menu">
@@ -192,36 +185,36 @@
                                     <li><a href="page-404.html">404 Page</a></li>
                                     <li><a href="comingsoon.html">Comming Soon</a></li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="#">Gallery <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                            </li> --}}
+                            {{-- <li>
+                                <a href="#">Gallery </a> --}}
+                                {{-- <ul class="sub-menu">
                                     <li><a href="gallery.html">Gallery Style 1</a></li>
                                     <li><a href="gallery-2.html">Gallery Style 2</a></li>
                                     <li><a href="gallery-3.html">Gallery Style 3</a></li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="#">Blog <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                            </li> --}}
+                            {{-- <li>
+                                <a href="#">Blog </a> --}}
+                                {{-- <ul class="sub-menu">
                                     <li><a href="blog.html">Blog</a></li>
                                     <li><a href="blog-detail.html">Blog Detail</a></li>
                                     <li><a href="blog-detail-fullwidth.html">Blog Detail Fullwidth</a></li>
-                                </ul>
-                            </li>
+                                </ul> --}}
+                            {{-- </li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
-                    </nav>
+                    </nav> --}}
                     <!-- END / HEADER MENU -->
 
                     <!-- MENU BAR -->
-                    <span class="menu-bars">
+                    {{-- <span class="menu-bars">
                         <span></span>
-                    </span>
+                    </span> --}}
                     <!-- END / MENU BAR -->
-
+{{--
                 </div>
-            </div>
+            </div> --}}
             <!-- END / HEADER LOGO & MENU -->
 
         </header>
@@ -244,18 +237,18 @@
                                 <div class="mailchimp">
                                     <h4>News &amp; Offers</h4>
                                     <div class="mailchimp-form">
-                                        <form action="#" method="POST">
+                                        {{-- <form action="#" method="POST">
                                             <input type="text" name="email" placeholder="Your email address"
                                                 class="input-text">
                                             <button class="awe-btn">SIGN UP</button>
-                                        </form>
+                                        </form> --}}
                                     </div>
                                 </div>
                             </div>
                             <!-- END / WIDGET MAILCHIMP -->
 
                             <!-- WIDGET SOCIAL -->
-                            <div class="col-lg-3">
+                            {{-- <div class="col-lg-3">
                                 <div class="social">
                                     <div class="social-content">
                                         <a href="#"><i class="fa fa-pinterest"></i></a>
@@ -265,7 +258,7 @@
                                         <a href="#"><i class="fa fa-instagram"></i></a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- END / WIDGET SOCIAL -->
 
                         </div>
@@ -282,7 +275,7 @@
                                 <div class="widget widget_logo">
                                     <div class="widget-logo">
                                         <div class="img">
-                                            <a href="#"><img src="images/logo-footer.png" alt=""></a>
+                                            <a href="#"><img src="images/logoevery.png" alt=""></a>
                                         </div>
                                         <div class="text">
                                             <p><i class="lotus-icon-location"></i> 225 Beach Street, Australian</p>
@@ -303,7 +296,7 @@
                                     <ul>
                                         <li><a href="#">Guest Book</a></li>
                                         <li><a href="#">Gallery</a></li>
-                                        <li><a href="#">Restaurant</a></li>
+                                        {{-- <li><a href="#">Restaurant</a></li> --}}
                                         <li><a href="#">Event</a></li>
                                     </ul>
                                 </div>
@@ -321,7 +314,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-4 col-lg-3">
+                            {{-- <div class="col-xs-4 col-lg-3">
                                 <div class="widget widget_tripadvisor">
                                     <h4 class="widget-title">Tripadvisor</h4>
                                     <div class="tripadvisor">
@@ -336,7 +329,7 @@
                                         </span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
                         </div>
@@ -347,7 +340,7 @@
                 <!-- FOOTER BOTTOM -->
                 <div class="footer_bottom">
                     <div class="container">
-                        <p>&copy; 2016 Lotus Hotel All rights reserved.</p>
+                        <p>&copy; EveryWhere</p>
                     </div>
                 </div>
                 <!-- END / FOOTER BOTTOM -->
@@ -383,15 +376,25 @@
         <script type="text/javascript" src="js/scripts.js"></script>
 
         @if (session('success'))
+            <script>
+                Swal.fire({
+                    title: 'Registrasi Berhasil',
+                    text: 'Selamat datang di situs kami!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            </script>
+        @endif
 
-        <script>
-            Swal.fire({
-                title: 'Registrasi Berhasil',
-                text: 'Selamat datang di situs kami!',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            });
-         </script>
+        @if (session('logout_success'))
+            <script>
+                Swal.fire({
+                    title: 'Logout Berhasil',
+                    text: 'Anda telah berhasil keluar.',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            </script>
         @endif
 
 </body>
