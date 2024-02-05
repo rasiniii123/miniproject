@@ -11,10 +11,16 @@
                         @csrf
                         <div class="field-form">
                             <input type="text" name="email" class="field-text" placeholder="Email">
+                            @error('email')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         </div>
                         <div class="field-form">
                             <input type="password" name="password" class="field-text" placeholder="Password">
                             <span class="view-pass"><i class="lotus-icon-view"></i></span>
+                            @error('password')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         </div>
                         <div class="field-form field-submit">
                             <button type="submit" class="awe-btn awe-btn-13">Login</button>

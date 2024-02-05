@@ -59,7 +59,7 @@
     <!-- END / BANNER SLIDER -->
 
     <!-- CHECK AVAILABILITY -->
-    <section class="section-check-availability">
+    {{-- <section class="section-check-availability">
         <div class="container">
             <div class="check-availability">
                 <div class="row">
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- END / CHECK AVAILABILITY -->
 
     <!-- ACCOMD ODATIONS -->
