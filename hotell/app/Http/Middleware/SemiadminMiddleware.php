@@ -9,14 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SemiadminMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
+
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->role === 'semiadmin') {
+        if (Auth::check() && Auth::user()->role === $role) {
             return $next($request);
         }
 
