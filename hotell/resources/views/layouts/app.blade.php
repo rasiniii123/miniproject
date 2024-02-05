@@ -110,19 +110,19 @@
                     <nav class="header_menu">
                         <ul class="menu">
                             <li class="current-menu-item">
-                                <a href="index.html">Home <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                <a href="index.html">Home </a>
+                                {{-- <ul class="sub-menu">
                                     <li class="current-menu-item"><a href="index.html">Home 1</a></li>
                                     <li><a href="index-2.html">Home 2</a></li>
                                     <li><a href="index-3.html">Home 3</a></li>
                                     <li><a href="index-4.html">Home 4</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li><a href="about.html">About</a></li>
 
                             <li>
-                                <a href="#">Room <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                <a href="#">Room </a>
+                                {{-- <ul class="sub-menu">
                                     <li><a href="room-1.html">Room 1</a></li>
                                     <li><a href="room-2.html">Room 2</a></li>
                                     <li><a href="room-3.html">Room 3</a></li>
@@ -130,30 +130,30 @@
                                     <li><a href="room-5.html">Room 5</a></li>
                                     <li><a href="room-6.html">Room 6</a></li>
                                     <li><a href="room-detail.html">Room Detail</a></li>
-                                </ul>
+                                </ul> --}}
                             </li>
                             <li>
-                                <a href="#">Restaurant <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                <a href="#">Restaurant</a>
+                                {{-- <ul class="sub-menu">
                                     <li><a href="restaurants-1.html">Restaurant 1</a></li>
                                     <li><a href="restaurants-2.html">Restaurant 2</a></li>
                                     <li><a href="restaurants-3.html">Restaurant 3</a></li>
                                     <li><a href="restaurants-4.html">Restaurant 4</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li>
-                                <a href="#">Reservation <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                <a href="#">Reservation </a>
+                                {{-- <ul class="sub-menu">
                                     <li><a href="reservation-step-1.html">Reservation Step 1</a></li>
                                     <li><a href="reservation-step-2.html">Reservation Step 2</a></li>
                                     <li><a href="reservation-step-3.html">Reservation Step 3</a></li>
                                     <li><a href="reservation-step-4.html">Reservation Step 4</a></li>
                                     <li><a href="reservation-step-5.html">Reservation Step 5</a></li>
-                                </ul>
-                            </li>
+                                </ul> --}}
+                            {{-- </li> --}}
                             <li>
-                                <a href="#">Page <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                <a href="#">Page </a>
+                                {{-- <ul class="sub-menu">
                                     <li>
                                         <a href="#">Guest Book <span class="fa fa-caret-right"></span></a>
                                         <ul class="sub-menu">
@@ -192,22 +192,22 @@
                                     <li><a href="page-404.html">404 Page</a></li>
                                     <li><a href="comingsoon.html">Comming Soon</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li>
-                                <a href="#">Gallery <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                <a href="#">Gallery </a>
+                                {{-- <ul class="sub-menu">
                                     <li><a href="gallery.html">Gallery Style 1</a></li>
                                     <li><a href="gallery-2.html">Gallery Style 2</a></li>
                                     <li><a href="gallery-3.html">Gallery Style 3</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li>
-                                <a href="#">Blog <span class="fa fa-caret-down"></span></a>
-                                <ul class="sub-menu">
+                                <a href="#">Blog </a>
+                                {{-- <ul class="sub-menu">
                                     <li><a href="blog.html">Blog</a></li>
                                     <li><a href="blog-detail.html">Blog Detail</a></li>
                                     <li><a href="blog-detail-fullwidth.html">Blog Detail Fullwidth</a></li>
-                                </ul>
+                                </ul> --}}
                             </li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
@@ -358,7 +358,7 @@
         </div>
         <!-- END / PAGE WRAP -->
 
-       
+
         <!-- LOAD JQUERY -->
         <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery-1.11.0.min.js"></script>
@@ -381,9 +381,9 @@
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
         <!-- Custom jQuery -->
         <script type="text/javascript" src="js/scripts.js"></script>
-            
+
         @if (session('success'))
-            
+
         <script>
             Swal.fire({
                 title: 'Registrasi Berhasil',
