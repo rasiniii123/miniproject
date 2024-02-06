@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
     <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha256-TkuZP5anekbHsP5QhG9UcxV1UiN06dF0VrH2eW2vbqA=" crossorigin="anonymous" />
+
 
     <!-- MAIN STYLE -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -251,13 +253,21 @@
                                             <div class="col-md-12 col-lg-12" style="text-align: right;">
                                                 <div class="menu">
                                                     <ul style="display: flex;" >
-                                                        <li style=""><a href="#" style="color: #fff;">Beranda</a></li>
-                                                        <li style=""><a href="#" style="color: #fff;">Hotel</a></li>
+                                                        <li><a href="#" style="color: #fff;">Beranda</a></li>
+                                                        <li><a href="#" style="color: #fff;">Hotel</a></li>
                                                         <li style="white-space: nowrap;"><a href="#" style="color: #fff;">Tentang Kami</a></li>
                                                         <li><a href="#" style="color: #fff;">Kontak</a></li>
                                                     </ul>
                                                     <div class="underline"></div>
+                                                    <div style="display: flex; align-items: center; justify-content: flex-end; margin-top: 10px; margin-right: -700px;">
+                                                        <a href="#" style="color: #fff; margin-right: 5px;"><img src="images/Vector.png" alt="YouTube" style="width: 20px; height: 20px;"></a>
+                                                        <a href="#" style="color: #fff; margin-right: 5px;"><img src="images/instragram.png" alt="Instagram" style="width: 20px; height: 20px; margin-right: 10px;"></a>
+                                                        <a href="#" style="color: #fff; margin-right: 5px;"><img src="images/twiter.png" alt="Twitter" style="width: 20px; height: 20px; margin-right: 10px;"></a>
+                                                        <a href="#" style="color: #fff; margin-right: 5px;"><img src="images/gmail.png" alt="Email" style="width: 20px; height: 20px;"></a>
+                                                    </div>
                                                 </div>
+                                            </div>
+
                                             </div>
                                             </div>
                                             </div>

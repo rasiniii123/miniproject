@@ -9,9 +9,8 @@ use App\Http\Controllers\RegisterController;
         return view('dashboard');
     })->name('dashboard');
 
-Route::middleware('auth')->group(function () {
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-});
+
 
 
 Route::get('/login', [UserController::class, 'index'])->name('auth.login');
