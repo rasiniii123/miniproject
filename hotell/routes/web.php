@@ -9,14 +9,6 @@ use App\Http\Controllers\RegisterController;
         return view('dashboard');
     })->name('dashboard');
 
-
-
-Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-Route::middleware(['auth', ''])->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });
@@ -38,4 +30,5 @@ Route::middleware('checkrole:Semiadmin')->group(function () {
 
 
 });
-});
+
+
