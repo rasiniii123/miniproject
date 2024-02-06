@@ -1,0 +1,102 @@
+.section-slider {
+    position: relative;
+}
+
+.section-slider .logo {
+    top: 2rem;
+    left: 1rem;
+    z-index: 1000;
+}
+
+.section-slider .logo img {
+
+}
+
+.slider-container {
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+}
+
+.menu {
+    position: absolute;
+    top: 25px; /* Sesuaikan dengan jarak dari atas yang diinginkan */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.menu a {
+    text-decoration: none;
+    color: #ffffff; /* Sesuaikan dengan warna teks yang diinginkan */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.menu a:hover {
+    border-bottom: 2px solid #ffffff; /* Sesuaikan dengan warna bawah yang diinginkan saat dihover */
+    padding-bottom: 2px;
+}
+
+.menu li {
+    margin-right: 70px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: normal; /* Menghilangkan efek tebal */
+    font-size: 16px;
+}
+
+.background-container {
+    position: relative;
+    display: inline-block;
+}
+
+.description {
+    position: absolute;
+    top: 50%;
+    left: 10%; /* Sesuaikan dengan jarak ke kiri yang diinginkan */
+    transform: translate(-50%, -50%);
+    color: #fff; /* Warna teks */
+    text-align: center;
+}
+
+.description p em {
+    font-style: italic;
+}
+
+.background-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.hotel-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px; /* Sesuaikan dengan jarak yang diinginkan */
+}
+
+.footer_center {
+    background-color: #2C3E50;
+    padding-top: 5px; /* Mengurangi padding atas */
+    padding-bottom: 5px; /* Mengurangi padding bawah */
+}
+
+.footer_bottom {
+    background-color: #000000;
+    color: #fff;
+}
+.menu .underline {
+    border-bottom: 1px solid #fff;
+    width: 240%; /* Sesuaikan lebar garis bawah dengan kebutuhan Anda */
+}

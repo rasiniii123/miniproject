@@ -28,6 +28,8 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
 
 Route::middleware('checkrole:Semiadmin')->group(function () {
 
+
+
 });
 
 

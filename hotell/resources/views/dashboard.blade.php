@@ -1,35 +1,64 @@
 @extends('layouts.app')
 @section('content')
-    <section class="section-slider">
-        <h1 class="element-invisible">Slider</h1>
-        <div id="slider-revolution">
-            <ul>
-                <li data-transition="fade">
-                    <img src="images/slider/img-5.jpg" data-bgposition="left center" data-duration="14000"
-                        data-bgpositionend="right center" alt="">
+<section>
+{{-- <li data-transition="fade">
+    <img src="images/slider/img-5.jpg" data-bgposition="left center" data-duration="14000"
+    data-bgpositionend="right center" alt="">
 
-                    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="100"
+    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="100"
                         data-speed="700" data-start="1500" data-easing="easeOutBack">
                         <img src="images/slider/hom1-slide1.png" alt="icons">
                     </div>
 
                     <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240"
-                        data-speed="700" data-start="1500" data-easing="easeOutBack">
-                        WELCOME TO
+                    data-speed="700" data-start="1500" data-easing="easeOutBack">
+                    WELCOME TO
+                </div>
+
+
+
+                <a href="#" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center"
+                data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">VIEW NOW</a>
+            </li> --}}
+
+
+            <li data-transition="fade" style="list-style-type: none">
+                <div class="slider-container">
+                    <div class="logo">
+                        <img src="images/kologo.png" alt="Logo" width="100">
                     </div>
+                        <div class="menu">
+                            <ul>
+                                <li><a href="#">Beranda</a></li>
+                                <li><a href="#">Hotel</a></li>
+                                <li><a href="#">Tentang Kami</a></li>
+                                <li><a href="#">Kontak</a></li>
+                           </ul>
+                        </div>
+                </div>
+            </li>
 
-                    <div class="tp-caption sfb fadeout slider-caption slider-caption-sub-1" data-x="center" data-y="280"
-                        data-speed="700" data-easing="easeOutBack" data-start="2000">THE LOTUS HOTEL</div>
 
-                    <a href="#" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center"
-                        data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">VIEW NOW</a>
-                </li>
 
-                <li data-transition="fade">
-                    <img src="images/slider/img-4.jpg" data-bgposition="left center" data-duration="14000"
-                        data-bgpositionend="right center" alt="">
 
-                    <div class="tp-caption sft fadeout" data-x="center" data-y="195" data-speed="700" data-start="1300"
+            {{-- <div style="position: relative; overflow: hidden; margin-top: -50px;"> --}}
+                {{-- <div style="position: relative; overflow: hidden; margin-top: -30px;"> --}}
+                    <img src="images/backround.png" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center" alt="">
+                    <div class="description" style="position: absolute; top: 30%; left: 35%; transform: translateX(-50%); text-align: left; padding: 0 20px;">
+                        <p style="font-size: 24px; font-weight: bold; margin-top: 0;"><em>Selamat Datang Di</em></p>
+                        <p style="font-size: 36px; font-weight: bold; margin-top: 0;">EVERYWHERE HOTEL</p>
+                        <p style="font-size: 18px; max-width: 600px; margin-top: 0;">
+                            Lebih dari Sekadar Penginapan, Kami Mengajak Anda untuk Mengeksplorasi Dunia dengan Pilihan Hotel yang Melimpah.
+                            Temukan Ketenangan, Kenyamanan, dan Inspirasi di Setiap Perjalanan Anda Bersama Kami.
+                        </p>
+                        <button style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">PESAN SEKARANG</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+                    {{-- <div class="tp-caption sft fadeout" data-x="center" data-y="195" data-speed="700" data-start="1300"
                         data-easing="easeOutBack">
                         <img src="images/icon-slider-1.png" alt="">
                     </div>
@@ -53,7 +82,7 @@
                 </li>
 
             </ul>
-        </div>
+        </div> --}}
 
     </section>
 

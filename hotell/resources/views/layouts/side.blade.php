@@ -36,13 +36,12 @@
         <header id="header">
             <div class="header_top">
                 <div class="container">
-                    
 
                     <div class="header_right float-right">
 
                         <span class="login-register">
-                            <a href="{{ route('auth.login') }}">Login</a>
                             <a href="{{ route('auth.register') }}">Register</a>
+                            <a href="{{ route('auth.login') }}">Login</a>
                         </span>
 
                         <div class="dropdown currency">
