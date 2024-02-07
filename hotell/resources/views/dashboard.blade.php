@@ -30,10 +30,16 @@
                         <div class="menu">
                             <ul>
                                 <li><a href="#">Beranda</a></li>
-                                <li><a href="#">Hotel</a></li>
+                                <li><a hreyyf="#">Hotel</a></li>
                                 <li><a href="#">Tentang Kami</a></li>
                                 <li><a href="#">Kontak</a></li>
-                           </ul>
+
+                            </ul>
+                            <div class="user-actions">
+                                <a href="{{ route('auth.register') }}">Register</a>
+                                <a href="{{ route('auth.login') }}">Login</a>
+                            </div>
+
                         </div>
                 </div>
             </li>
@@ -400,7 +406,7 @@
                     <h2 class="heading" style="font-size: 48px; color: white;">LAYANAN KAMI</h2>
                     <p style="font-size: 24px;">Ada kendala? atau ingin memberikan masukan,</p>
                     <p style="font-size: 24px;">silahkan isi kolom dibawah ini.</p>
-                    <button 
+                    <button
                     style="background-color: #283E58; width: 199px; height: 38px; border-radius: 32px;">
                     HUBUNGI KAMI
                 </button>
