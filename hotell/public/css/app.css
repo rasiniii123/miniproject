@@ -100,3 +100,18 @@
     border-bottom: 1px solid #fff;
     width: 240%; /* Sesuaikan lebar garis bawah dengan kebutuhan Anda */
 }
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: -310px;/* Menambahkan margin kanan yang lebih besar */
+    margin-top: -30px;
+}
+
+.user-actions a {
+    margin-left: 10px; /* Memberikan jarak antara tautan */
+    color: #ffffff; /* Warna teks, dapat disesuaikan */
+    text-decoration: none; /* Menghapus dekorasi tautan */
+}
+
