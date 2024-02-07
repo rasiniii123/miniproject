@@ -28,21 +28,19 @@ class RegisterController extends Controller
         $validator = Validator::make($request->all(), [
             'username' => 'required|unique:users,username',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed', // Tambahkan aturan validasi untuk konfirmasi password
         ], [
             'username.required' => 'username wajib diisi',
             'username.unique' => 'username sudah digunakan',
             'email.required' => 'email wajib diisi',
             'email.unique' => 'email sudah digunakan',
             'password.required' => 'password wajib diisi',
-            'password.min' => 'password minimal 6 digit',
+            'password.min' => 'password minimal 6 karakter',
+            'password.confirmed' => 'konfirmasi password tidak cocok', // Pesan validasi untuk konfirmasi password
         ]);
         if ($validator->fails()) {
-
             return back()->withErrors($validator)->withInput();
         }
-
-        // dd( $credentials);
 
         // Create a new user!!
         $user = User::create([

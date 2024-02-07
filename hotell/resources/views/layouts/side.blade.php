@@ -36,32 +36,6 @@
         <header id="header">
             <div class="header_top">
                 <div class="container">
-
-                    <div class="header_right float-right">
-
-                        <span class="login-register">
-                            <a href="{{ route('auth.register') }}">Register</a>
-                            <a href="{{ route('auth.login') }}">Login</a>
-                        </span>
-
-                        <div class="dropdown currency">
-                            <span>USD <i class="fa fa"></i></span>
-                            <ul>
-                                <li class="{{ Request::is('logout') ? 'active' : '' }}">
-                                <li>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                <li class="active">
-                                    <a href="#" onclick="document.getElementById('logout-form').submit();">Log
-                                        out</a>
-                                </li>
-                                </form>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                    </div>
                 </div>
             </div>
 

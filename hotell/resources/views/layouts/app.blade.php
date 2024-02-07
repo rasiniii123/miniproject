@@ -17,7 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Hind:400,300,500,600%7cMontserrat:400,700" rel='stylesheet'
         type='text/css'>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-mCEwHw3x4BjB9Dd9+1a6vefH3vWwT0Y1LpKk1GqG0BnSzJopn8lGgJs2w4q1Tn3d" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- CSS LIBRARY -->
     <link rel="stylesheet" type="text/css" href="css/lib/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/lib/font-lotusicon.css">
@@ -327,6 +329,9 @@
         <script type="text/javascript" src="js/lib/jquery.parallax-1.1.3.js"></script>
         <script type="text/javascript" src="js/lib/jquery.magnific-popup.min.js"></script>
         <script type="text/javascript" src="js/lib/SmoothScroll.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!-- validate -->
         <script type="text/javascript" src="js/lib/jquery.form.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
