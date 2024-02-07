@@ -1,18 +1,10 @@
 @extends('layouts.app')
 @section('content')
-<section>
-{{-- <li data-transition="fade">
-    <img src="images/slider/img-5.jpg" data-bgposition="left center" data-duration="14000"
-    data-bgpositionend="right center" alt="">
-
-    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="100"
-                        data-speed="700" data-start="1500" data-easing="easeOutBack">
-                        <img src="images/slider/hom1-slide1.png" alt="icons">
-                    </div>
-
-                    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240"
-                    data-speed="700" data-start="1500" data-easing="easeOutBack">
-                    WELCOME TO
+    <section>
+        <li data-transition="fade" style="list-style-type: none">
+            <div class="slider-container">
+                <div class="logo">
+                    <img src="images/kologo.png" alt="Logo" width="100">
                 </div>
 
 
@@ -148,7 +140,7 @@
 
 
     <!-- ACCOMD ODATIONS -->
-    <section class="section-accomd awe-parallax bg-14">
+    <section class="section-accomd awe-parallax">
         <div class="container">
             <div id="hotel-section">
             <div class="accomd-modations">
@@ -178,29 +170,54 @@
                                                     HOTEL</a>
                                                 <div>
                                                     <p class="price"
-                                                        style="font-size: 14px; margin-top: 0; font-weight: bold; color: #000000;">
+                                                        style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
                                                         Rp 3.500.000-8.500.000</p>
-                                                    <p style="margin-top: 5px; font-size: 14px;">per malam</p>
+
                                                 </div>
                                             </h2>
-                                            <div style="display: flex; align-items: center;">
-                                                <img src="images/icon-pt.png" alt="icon"
-                                                    style="margin-bottom: -1px; margin-kanan: 2px ;">
+                                            <div style="display: flex; justify-content:">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#B30000"
+                                                        d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
+                                                </svg>
                                                 <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; width: 15px;">
+                                                <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">PER-MALAM</p>
                                             </div>
-                                            <button class="btn btn-primary"
-                                                style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
-                                                Sekarang</button>
+                                            <div class="d-flex" style="display: flex; justify-content: space-between">
+                                                <button class="btn btn-primary"
+                                                    style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                    Sekarang</button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -218,33 +235,58 @@
                                                     HOTEL</a>
                                                 <div>
                                                     <p class="price"
-                                                        style="font-size: 14px; margin-top: 0; font-weight: bold; color: #000000;">
-                                                        Rp 2.200.000-4.500.000</p>
-                                                    <p style="margin-top: 5px; font-size: 14px;">per malam</p>
+                                                        style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
+                                                        Rp 3.500.000-8.500.000</p>
+
                                                 </div>
                                             </h2>
-                                            <div style="display: flex; align-items: center;">
-                                                <img src="images/icon-pt.png" alt="icon"
-                                                    style="margin-bottom: -1px; margin-kanan: 2px ;">
+                                            <div style="display: flex; justify-content:">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#B30000"
+                                                        d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
+                                                </svg>
                                                 <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; width: 15px;">
+                                                <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">PER-MALAM
+                                                </p>
                                             </div>
-                                            <button class="btn btn-primary"
-                                                style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
-                                                Sekarang</button>
+                                            <div class="d-flex" style="display: flex; justify-content: space-between">
+                                                <button class="btn btn-primary"
+                                                    style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                    Sekarang</button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
 
                                 <!-- ITEM -->
                                 <div class="col-xs-4">
@@ -258,29 +300,55 @@
                                                     HOTEL</a>
                                                 <div>
                                                     <p class="price"
-                                                        style="font-size: 14px; margin-top: 0; font-weight: bold; color: #000000;">
-                                                        Rp 3.900.000-6.700.000</p>
-                                                    <p style="margin-top: 5px; font-size: 14px;">per malam</p>
+                                                        style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
+                                                        Rp 3.500.000-8.500.000</p>
+
                                                 </div>
                                             </h2>
-                                            <div style="display: flex; align-items: center;">
-                                                <img src="images/icon-pt.png" alt="icon"
-                                                    style="margin-bottom: -1px; margin-kanan: 2px ;">
+                                            <div style="display: flex; justify-content:">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#B30000"
+                                                        d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
+                                                </svg>
                                                 <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; width: 15px;">
+                                                <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">PER-MALAM
+                                                </p>
                                             </div>
-                                            <button class="btn btn-primary"
-                                                style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
-                                                Sekarang</button>
+                                            <div class="d-flex" style="display: flex; justify-content: space-between">
+                                                <button class="btn btn-primary"
+                                                    style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                    Sekarang</button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -298,29 +366,55 @@
                                                     HOTEL</a>
                                                 <div>
                                                     <p class="price"
-                                                        style="font-size: 14px; margin-top: 0; font-weight: bold; color: #000000;">
-                                                        Rp 5.000.000-9.000.000</p>
-                                                    <p style="margin-top: 5px; font-size: 14px;">per malam</p>
+                                                        style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
+                                                        Rp 3.500.000-8.500.000</p>
+
                                                 </div>
                                             </h2>
-                                            <div style="display: flex; align-items: center;">
-                                                <img src="images/icon-pt.png" alt="icon"
-                                                    style="margin-bottom: -1px; margin-kanan: 2px ;">
+                                            <div style="display: flex; justify-content:">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#B30000"
+                                                        d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
+                                                </svg>
                                                 <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; width: 15px;">
+                                                <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">PER-MALAM
+                                                </p>
                                             </div>
-                                            <button class="btn btn-primary"
-                                                style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
-                                                Sekarang</button>
+                                            <div class="d-flex" style="display: flex; justify-content: space-between">
+                                                <button class="btn btn-primary"
+                                                    style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                    Sekarang</button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -338,29 +432,55 @@
                                                     HOTEL</a>
                                                 <div>
                                                     <p class="price"
-                                                        style="font-size: 14px; margin-top: 0; font-weight: bold; color: #000000;">
-                                                        Rp 5.000.000-3.000.000</p>
-                                                    <p style="margin-top: 5px; font-size: 14px;">per malam</p>
+                                                        style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
+                                                        Rp 3.500.000-8.500.000</p>
+
                                                 </div>
                                             </h2>
-                                            <div style="display: flex; align-items: center;">
-                                                <img src="images/icon-pt.png" alt="icon"
-                                                    style="margin-bottom: -1px; margin-kanan: 2px ;">
+                                            <div style="display: flex; justify-content:">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#B30000"
+                                                        d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
+                                                </svg>
                                                 <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; width: 15px;">
+                                                <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">PER-MALAM
+                                                </p>
                                             </div>
-                                            <button class="btn btn-primary"
-                                                style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
-                                                Sekarang</button>
+                                            <div class="d-flex" style="display: flex; justify-content: space-between">
+                                                <button class="btn btn-primary"
+                                                    style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                    Sekarang</button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -379,43 +499,67 @@
                                                     HOTEL</a>
                                                 <div>
                                                     <p class="price"
-                                                        style="font-size: 14px; margin-top: 0; font-weight: bold; color: #000000;">
-                                                        Rp 4.5000.000-12.000.000</p>
-                                                    <p style="margin-top: 5px; font-size: 14px;">per malam</p>
+                                                        style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
+                                                        Rp 3.500.000-8.500.000</p>
+
                                                 </div>
                                             </h2>
-                                            <div style="display: flex; align-items: center;">
-                                                <img src="images/icon-pt.png" alt="icon"
-                                                    style="margin-bottom: -1px; margin-kanan: 2px ;">
+                                            <div style="display: flex; justify-content:">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#B30000"
+                                                        d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
+                                                </svg>
                                                 <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; margin-right: 2px; width: 15px;">
-                                                <img src="images/vc.png" alt="star"
-                                                    style="margin-bottom: -1px; width: 15px;">
+                                                <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">PER-MALAM
+                                                </p>
                                             </div>
-                                            <button class="btn btn-primary"
-                                                style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
-                                                Sekarang</button>
+                                            <div class="d-flex" style="display: flex; justify-content: space-between">
+                                                <button class="btn btn-primary"
+                                                    style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                    Sekarang</button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-12" style="margin-top: 20px; text-align: center;">
-                                    <p style="font-size: 16px; font-weight: bold;">
-                                        Jelajahi Hotel Lainnya untuk Menemukan Penginapan Impian Anda!
-                                    </p>
-                                    <div>
+                                <div class="col-xs-12" style="margin-top: 70px; text-align: center;">
+                                    <p style="font-size: 16px; font-weight: bold;">Jelajahi Hotel Lainnya untuk Menemukan
+                                        Penginapan Impian Anda!</p>
+                                    <div style="margin-top: 30px;">
                                         <button class="btn btn-primary"
-                                            style="background-color: #382E2E; width: 199px; height: 38px; border-radius: 10px;">
-                                            LIHAT MENU LAINNYA
-                                        </button>
+                                            style="background-color: #382E2E; width: 199px; height: 38px; border-radius: 10px;">LIHAT
+                                            MENU LAINNYA</button>
                                     </div>
-                                    <div>
+                                    <div class="col-xs-12" style="margin-top: 50px; text-align: center;">
                                         <img src="images/icon.png" alt="icon">
                                     </div>
                                 </div>
@@ -437,6 +581,7 @@
                     HUBUNGI KAMI
                 </button>
                 </div>
+                F
             </div>
         </div>
         </div>
