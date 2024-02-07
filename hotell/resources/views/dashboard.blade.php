@@ -20,6 +20,19 @@
                 <a href="#" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center"
                 data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">VIEW NOW</a>
             </li> --}}
+            <script>
+                // Fungsi untuk menambahkan efek loading
+                function addLoadingEffect() {
+                    // Tampilkan elemen loading (Anda perlu memiliki elemen loading dalam HTML)
+                    document.getElementById("loading").style.display = "block";
+
+                    // Set waktu tunggu sebelum menuju ke bagian yang dituju (dalam milidetik)
+                    setTimeout(function() {
+                        // Sembunyikan elemen loading
+                        document.getElementById("loading").style.display = "none";
+                    }, 1500); // Ubah angka ini sesuai kebutuhan waktu tunggu Anda
+                }
+            </script>
 
 
             <li data-transition="fade" style="list-style-type: none">
@@ -29,11 +42,10 @@
                     </div>
                         <div class="menu">
                             <ul>
-                                <li><a href="#">Beranda</a></li>
-                                <li><a hreyyf="#">Hotel</a></li>
-                                <li><a href="#">Tentang Kami</a></li>
-                                <li><a href="#">Kontak</a></li>
-
+                                <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
+                                <li><a href="#hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
+                                <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
+                                <li><a href="#kontak-section" onclick="addLoadingEffect()">Kontak</a></li>
                             </ul>
                             <div class="user-actions">
                                 <a href="{{ route('auth.register') }}">Register</a>
@@ -49,6 +61,7 @@
 
             {{-- <div style="position: relative; overflow: hidden; margin-top: -50px;"> --}}
                 {{-- <div style="position: relative; overflow: hidden; margin-top: -30px;"> --}}
+                    <div id="beranda-section">
                     <img src="images/backround.png" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center" alt="">
                     <div class="description" style="position: absolute; top: 30%; left: 35%; transform: translateX(-50%); text-align: left; padding: 0 20px;">
                         <p style="font-size: 24px; font-weight: bold; margin-top: 0;"><em>Selamat Datang Di</em></p>
@@ -57,9 +70,13 @@
                             Lebih dari Sekadar Penginapan, Kami Mengajak Anda untuk Mengeksplorasi Dunia dengan Pilihan Hotel yang Melimpah.
                             Temukan Ketenangan, Kenyamanan, dan Inspirasi di Setiap Perjalanan Anda Bersama Kami.
                         </p>
-                        <button style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">PESAN SEKARANG</button>
-                    </div>
+                        <a href="{{ route('auth.login') }}">
+                            <button style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+                                PESAN SEKARANG
+                            </button>
+                        </a>
                 </div>
+            </div>
             </div>
 
 
@@ -94,6 +111,7 @@
 
     <section class="section-home-about bg-white">
         <div class="container">
+            <div id="about-section">
             <div class="home-about">
                 <div class="row align-items-start">
                     <div class="col-md-6">
@@ -116,17 +134,23 @@
                                 Jadi, tunggu apalagi? Segera siapkan liburanmu dan pesan hotel pilihanmu di 'everywhere'
                                 sekarang juga!"
                             </p>
+                            <a href="{{ route('auth.login') }}">
+                                <button style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 30px;">
+                                    Baca Selengkapnya
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                </div>
+                </div>
     </section>
 
 
     <!-- ACCOMD ODATIONS -->
     <section class="section-accomd awe-parallax bg-14">
         <div class="container">
+            <div id="hotel-section">
             <div class="accomd-modations">
                 <div class="row">
                     <div class="col-md-12">
@@ -395,9 +419,11 @@
                                         <img src="images/icon.png" alt="icon">
                                     </div>
                                 </div>
+                            </div>
     </section>
     <!-- GALLERY -->
     <section class="section-gallery" style="text-align: center; position: relative;">
+        <div id="kontak-section">
         <div class="gallery no-padding">
             <div style="position: relative; display: flex; justify-content: center;">
                 <img src="images/gp-1.png" alt="Gambar" style="width: 100%; max-width: 1200px;">
@@ -412,6 +438,7 @@
                 </button>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
