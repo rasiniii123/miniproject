@@ -6,7 +6,7 @@
     <div class="container">
         <div class="login-register">
             <div class="text text-center" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-                <div style="width: 500px; background: rgba(217, 217, 217, 0.21); border-radius: 35px; backdrop-filter: blur(30px); padding: 30px;">
+                <div style="width: 500px; background: rgba(217, 217, 217, 0.21); border-radius: 35px; backdrop-filter: blur(30px); padding: 30px; margin-top: -400px;">
                     <!-- Logo -->
                     <div style="text-align: center; margin-bottom: 20px;">
                         <img src="images/logo-1.png" style="width: 200px;">
@@ -26,13 +26,13 @@
                             @enderror
                         </div>
                         <div class="field-form">
-                            <input type="password" name="password" class="field-text" placeholder="Password">
+                            <input type="password" name="password" class="field-text"  placeholder="Password">
                             <span class="view-pass"><i class="lotus-icon-view"></i></span>
                             @error('password')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="field-form field-submit">
+                        <div class="field-form field-submit" style="margin-top: 20px;">
                             <button type="submit" class="awe-btn awe-btn-13">Login</button>
                         </div>
                         <div style="text-align: center; color: white; font-family: Hind; font-size: 13px; font-weight: 400; line-height: 18.57px; letter-spacing: 0.20px; margin-top: 10px;">
