@@ -24,31 +24,26 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation
-        $validator = Validator::make($request->all(), [
+        // Validation rules
+
+        // Validate the request data
+        $validatedData = $request->validate([
             'username' => 'required|unique:users,username',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed', // Tambahkan aturan validasi untuk konfirmasi password
-        ], [
-            'username.required' => 'username wajib diisi',
-            'username.unique' => 'username sudah digunakan',
-            'email.required' => 'email wajib diisi',
-            'email.unique' => 'email sudah digunakan',
-            'password.required' => 'password wajib diisi',
-            'password.min' => 'password minimal 6 karakter',
-            'password.confirmed' => 'konfirmasi password tidak cocok', // Pesan validasi untuk konfirmasi password
+            'password' => 'required|min:6|confirmed',
         ]);
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
 
-        // Create a new user!!
+
+        // Create a new user with the provided data
         $user = User::create([
-            'username' => $request['username'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
+            'username' => $validatedData['username'],
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
             'role' => 'admin',
+            'foto' => 'public/' . $validatedData['foto']->store('foto', 'public'),
         ]);
+
+        // Redirect the user to the login page with a success message
         return redirect()->route('auth.login')->with('success', 'Data berhasil disimpan');
     }
 }
