@@ -15,6 +15,7 @@ Route::middleware('auth')->group(function () {
 });
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/login', [UserController::class, 'index'])->name('auth.login');
 Route::post('/login', [UserController::class, 'store'])->name('login.submit');
