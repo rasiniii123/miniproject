@@ -35,23 +35,25 @@
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
                         <li><a href="#kontak-section" onclick="addLoadingEffect()">Kontak</a></li>
                     </ul>
-                    <div class="user-actions">
+                    <div class="user-actions" style="display: flex; align-items: center;">
                         @auth <!-- Cek apakah pengguna sudah login -->
-                            <a href="{{ route('profile.show') }}">Profile</a> <!-- Tautan untuk profil -->
-                            <span>{{ auth()->user()->name }}</span> <!-- Menampilkan nama pengguna -->
-                            <form action="{{ route('logout') }}" method="post"> <!-- Form untuk logout -->
-                                @csrf
-                                <button type="submit">Logout</button>
-                            </form>
+                         <span style="font-size: 20px; color: #fff;  margin-right: 10px; ">{{ auth()->user()->username }}</span>
+                            <div class="dropdown">
+                                <img onclick="toggleDropdown()" src="{{ asset('user-2.png') }}" width="40" height="40" style="float: left; margin-right: 10px; cursor: pointer;">
+                                <div id="myDropdown" class="dropdown-content">
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button type="submit" style="font-size: 14px;">Logout</button>
+                                    </form>
+                                </div>
+                            </div>
                         @else
                             <!-- Jika pengguna belum login -->
                             <a href="{{ route('auth.register') }}">Register</a> <!-- Tautan untuk register -->
                             <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
                         @endauth
-                    </div>
-                </div>
-            </div>
-        </li>
+                    </div>        
+                </li>                    
 
 
 
@@ -149,7 +151,7 @@
                                     Jadi, tunggu apalagi? Segera siapkan liburanmu dan pesan hotel pilihanmu di 'everywhere'
                                     sekarang juga!"
                                 </p>
-                                <a href="{{ route('auth.login') }}">
+                                <a href="{{ route('tentang.index') }}">
                                     <button
                                         style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 30px;">
                                         Baca Selengkapnya
@@ -597,24 +599,24 @@
                                     </div>
                                 </div>
     </section>
-    <!-- GALLERY -->
-    <section class="section-gallery" style="text-align: center; padding: 0; position: relative;">
-        <div class="gallery" style="padding: 0px;">
-            <div style="position: relative; display: flex; justify-content: center; align-items: flex-end;">
-                <img src="images/gp-1.png" alt="Gambar" style="width: 700%; max-width: 1500px;">
-                <div
-                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-shadow: 2px 2px 4px #000; font-family: 'Poppins', sans-serif;">
-                    <h2 class="heading" style="font-size: 48px; color: white;">LAYANAN KAMI</h2>
-                    <p style="font-size: 24px;">Ada kendala? atau ingin memberikan masukan,</p>
-                    <p style="font-size: 24px;">silahkan isi kolom dibawah ini.</p>
-                    <button
-                    style="background-color: #283E58; width: 199px; height: 38px; border-radius: 32px;">
-                    HUBUNGI KAMI
-                </button>
-                </div>
-            </div>
-        </div>
-    </section>
+                <!-- GALLERY -->
+                <section class="section-gallery" style="text-align: center; position: relative;">
+                    <div id="kontak-section">
+                        <div class="gallery no-padding">
+                            <div style="position: relative; display: flex; justify-content: center;">
+                                <img src="images/gp-1.png" alt="Gambar" style="width: 100%; max-width: 1200px;">
+                                <div
+                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-shadow: 2px 2px 4px #000; font-family: 'Poppins', sans-serif;">
+                                    <h2 class="heading" style="font-size: 48px; color: white;">LAYANAN KAMI</h2>
+                                    <p style="font-size: 24px;">Ada kendala? atau ingin memberikan masukan,</p>
+                                    <p style="font-size: 24px;">silahkan isi kolom dibawah ini.</p>
+                                    <button style="background-color: #283E58; width: 199px; height: 38px; border-radius: 32px;">
+                                        HUBUNGI KAMI
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                </section>
 
 
     <!-- LOAD JQUERY -->

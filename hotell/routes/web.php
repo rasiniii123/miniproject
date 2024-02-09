@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TentangController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminDashboardController;
-
 
     Route::get('/', function () {
         return view('dashboard');
