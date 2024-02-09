@@ -70,13 +70,25 @@
                     Lebih dari Sekadar Penginapan, Kami Mengajak Anda untuk Mengeksplorasi Dunia dengan Pilihan Hotel yang
                     Melimpah.
                     Temukan Ketenangan, Kenyamanan, dan Inspirasi di Setiap Perjalanan Anda Bersama Kami.
-                </p>
-                <a href="{{ route('auth.login') }}">
-                    <button
-                        style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
-                        PESAN SEKARANG
-                    </button>
-                </a>
+                    <p>
+                        @auth
+                            <!-- Jika pengguna sudah login, arahkan ke halaman menu -->
+                            <a href="{{ route('menu') }}">
+                                <button
+                                    style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+                                    PESAN SEKARANG
+                                </button>
+                            </a>
+                        @else
+                            <!-- Jika pengguna belum login, arahkan ke halaman login -->
+                            <a href="{{ route('auth.login') }}">
+                                <button
+                                    style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+                                    PESAN SEKARANG
+                                </button>
+                            </a>
+                            @endauth
+                    </p>
             </div>
         </div>
         </div>

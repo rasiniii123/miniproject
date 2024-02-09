@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $menu = Menu::all();
+        return view('user.menu', compact('menu'));
     }
 
     /**
@@ -33,41 +35,31 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(Menu $menu)
     {
-        // Mendapatkan data pengguna yang sedang login
-        $user = auth()->user();
-
-        // Menampilkan profil pengguna
-        return view('profile.show', compact('user'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(Menu $menu)
     {
-        // Mendapatkan data pengguna yang sedang login
-        $user = auth()->user();
-
-        // Menampilkan formulir pengeditan profil pengguna
-        return view('profile.edit', compact('user'));
+        //
     }
-
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request, Menu $menu)
     {
-        // Mendapatkan data pengguna yang sedang login
-      
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Menu $menu)
     {
         //
     }

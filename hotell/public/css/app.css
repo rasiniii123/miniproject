@@ -115,3 +115,41 @@
     text-decoration: none; /* Menghapus dekorasi tautan */
 }
 
+#header {
+    background-color: #283E58;
+    height: 70px;
+}
+.scrollable-container {
+    max-height: 300px; /* Tambahkan tinggi maksimum sesuai kebutuhan */
+    overflow-y: auto; /* Membuat kontainer dapat digulir */
+    padding-right: 20px; /* Tambahkan padding kanan untuk menghindari tumpang tindih scrollbar */
+}
+
+/* Gaya untuk label checkbox */
+input[type="checkbox"] {
+    display: none; /* Sembunyikan kotak centang asli */
+}
+
+input[type="checkbox"] + label {
+    display: block;
+    margin-left: 20px;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    border-radius: 3px;
+    border: 1px solid #382E2E;
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-color: #382E2E;
+}
