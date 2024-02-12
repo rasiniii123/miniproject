@@ -39,10 +39,11 @@
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
 </head>
+
 <body>
-    <header id="header">
-        <div class="header-wrap">
-                    <div class="header-wrap" style="background-color: #283E58;">
+    <!-- HEADER -->
+    <menu id="menu">
+        <div class="menu-wrap" style="background-color: #283E58;">
             <div class="slider-container">
                 <div class="logo">
                     <img src="images/kologo.png" alt="Logo" width="100">
@@ -54,22 +55,26 @@
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
                         <li><a href="#kontak-section" onclick="addLoadingEffect()">Kontak</a></li>
                     </ul>
-                    <div class="user-actions">
+                    <div class="user-actions" style="display: flex; align-items: center;">
                         @auth <!-- Cek apakah pengguna sudah login -->
-                            <a href="{{ route('profile.show') }}">Profile</a> <!-- Tautan untuk profil -->
-                            <span>{{ auth()->user()->name }}</span> <!-- Menampilkan nama pengguna -->
-                            <form action="{{ route('logout') }}" method="post"> <!-- Form untuk logout -->
-                                @csrf
-                                <button type="submit">Logout</button>
-                            </form>
+                            <span
+                                style="font-size: 20px; color: #fff;  margin-right: 10px; ">{{ auth()->user()->username }}</span>
+                            <div class="dropdown">
+                                <img onclick="toggleDropdown()" src="{{ asset('user-2.png') }}" width="40" height="40"
+                                    style="float: left; margin-right: 10px; cursor: pointer;">
+                                <div id="myDropdown" class="dropdown-content">
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button type="submit" style="font-size: 14px;">Logout</button>
+                                    </form>
+                                </div>
+                            </div>
                         @else
                             <!-- Jika pengguna belum login -->
                             <a href="{{ route('auth.register') }}">Register</a> <!-- Tautan untuk register -->
                             <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
                         @endauth
-                        </div>
-                </div>
-            </header>
+                    </div>
                 </div>
             </div>
         </div>
@@ -181,16 +186,6 @@
     });
     </script>
     @endif
-<script>
-    function toggleDropdown() {
-        var dropdown = document.getElementById("myDropdown");
-        if (dropdown.style.display === "none" || dropdown.style.display === "") {
-            dropdown.style.display = "block";
-        } else {
-            dropdown.style.display = "none";
-        }
-    }
-</script>
 
 </body>
 

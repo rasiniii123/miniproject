@@ -603,9 +603,25 @@
                                             Menemukan
                                             Penginapan Impian Anda!</p>
                                         <div style="margin-top: 30px;">
-                                            <button class="btn btn-primary"
-                                                style="background-color: #382E2E; width: 199px; height: 38px; border-radius: 10px;">LIHAT
-                                                MENU LAINNYA</button>
+                                            <p>
+                                                @auth
+                                                    <!-- Jika pengguna sudah login, arahkan ke halaman menu -->
+                                                    <a href="{{ route('menu') }}">
+                                                        <button
+                                                            style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+                                                            PESAN SEKARANG
+                                                        </button>
+                                                    </a>
+                                                @else
+                                                    <!-- Jika pengguna belum login, arahkan ke halaman login -->
+                                                    <a href="{{ route('auth.login') }}">
+                                                        <button
+                                                            style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+                                                            PESAN SEKARANG
+                                                        </button>
+                                                    </a>
+                                                @endauth
+                                            </p>
                                         </div>
                                         <div class="col-xs-12" style="margin-top: 50px; text-align: center;">
                                             <img src="images/icon.png" alt="icon">
@@ -624,7 +640,7 @@
                         <h2 class="heading" style="font-size: 48px; color: white;">LAYANAN KAMI</h2>
                         <p style="font-size: 24px;">Ada kendala? atau ingin memberikan masukan,</p>
                         <p style="font-size: 24px;">silahkan isi kolom dibawah ini.</p>
-                        @auth 
+                        @auth
                             <a href="{{ route('kontak.index') }}">
                                 <button style="background-color: #283E58; width: 199px; height: 38px; border-radius: 32px;">
                                     <span style="color: white; font-weight: bold;">HUBUNGI KAMI</span>

@@ -7,7 +7,7 @@
                 <!-- Menu content -->
                 <div style="width: 350px; padding-right: 10px;">
                     <div style="color: black; font-size: 20px; font-family: Poppins; font-weight: 600; word-wrap: break-word;">MALANG</div>
-                    <div style="color: #F43131; font-size: 20px; font-family: Poppins; font-weight: 600; word-wrap: break-word;">RESET</div>
+                    <div style="color: #F43131; font-size: 20px; font-family: Poppins; font-weight: 600; word-wrap: break-word; text-align: right; margin-top: -30px;">RESET</div>
                     <div style="display: flex; flex-direction: column; padding: 10px;">
                         <div style="color: black; font-size: 15px; font-family: Poppins; font-weight: bold; word-wrap: break-word; margin-top: 20px;">HARGA</div>
                         <input type="checkbox" id="harga1" name="harga1" value="Rp. 0 - Rp. 500.000" style="margin-top: 10px;">
