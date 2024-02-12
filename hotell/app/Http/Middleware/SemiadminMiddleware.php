@@ -12,10 +12,10 @@ class SemiadminMiddleware
 
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role === $role) {
+        if (Auth::check() && Auth::user()->role === 'semiadmin') {
             return $next($request);
         }
 
-        return redirect()->route('/dashboard')->with('error', 'Anda tidak memiliki izin sebagai semiadmin.');
+        return redirect()->route('dashboard')->with('error', 'Anda tidak memiliki izin sebagai semiadmin.');
     }
 }

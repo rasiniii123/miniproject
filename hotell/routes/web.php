@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\SemiadminController;
 
     Route::get('/', function () {
         return view('dashboard');
@@ -29,17 +30,14 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.e
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('menu', [MenuController::class, 'index'])->name('menu');
-
+Route::get('tentangkita',[TentangController::class, 'index'])->name('tentang.index');
 
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::middleware('checkrole:Semiadmin')->group(function () {
-
-
-
+Route::middleware(['auth', 'checkrole:semiadmin'])->group(function () {
+    Route::get('/semiadmin/dashboard', [SemiadminController::class, 'index'])->name('semiadmin.dashboard');
 });
-
 
