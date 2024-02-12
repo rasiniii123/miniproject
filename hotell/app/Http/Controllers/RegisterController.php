@@ -39,8 +39,7 @@ class RegisterController extends Controller
             'username' => $validatedData['username'],
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
-            'role' => 'admin',
-            'foto' => 'public/' . $validatedData['foto']->store('foto', 'public'),
+            'role' => 'admin',  
         ]);
 
         // Redirect the user to the login page with a success message

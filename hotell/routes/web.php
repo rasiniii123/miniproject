@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DetailController;
+use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\AdminDashboardController;
 
     Route::get('/', function () {
         return view('dashboard');
@@ -30,10 +32,12 @@ Route::put('/profile/update', [ProfileController::class, 'update'])->name('profi
 
 Route::get('menu', [MenuController::class, 'index'])->name('menu');
 
-
+Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
+Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
+Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
 Route::middleware('checkrole:Semiadmin')->group(function () {
