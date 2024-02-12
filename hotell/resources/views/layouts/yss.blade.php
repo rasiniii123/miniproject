@@ -39,11 +39,10 @@
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
 </head>
-
 <body>
-    <!-- HEADER -->
-    <menu id="menu">
-        <div class="menu-wrap" style="background-color: #283E58;">
+    <header id="header">
+        <div class="header-wrap">
+                    <div class="header-wrap" style="background-color: #283E58;">
             <div class="slider-container">
                 <div class="logo">
                     <img src="images/kologo.png" alt="Logo" width="100">
@@ -68,7 +67,9 @@
                             <a href="{{ route('auth.register') }}">Register</a> <!-- Tautan untuk register -->
                             <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
                         @endauth
-                    </div>
+                        </div>
+                </div>
+            </header>
                 </div>
             </div>
         </div>
@@ -180,6 +181,16 @@
     });
     </script>
     @endif
+<script>
+    function toggleDropdown() {
+        var dropdown = document.getElementById("myDropdown");
+        if (dropdown.style.display === "none" || dropdown.style.display === "") {
+            dropdown.style.display = "block";
+        } else {
+            dropdown.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 
