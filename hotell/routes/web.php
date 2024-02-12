@@ -9,6 +9,7 @@ use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SemiadminController;
 
     Route::get('/', function () {
         return view('dashboard');
@@ -40,10 +41,7 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::middleware('checkrole:Semiadmin')->group(function () {
-
-
-
+Route::middleware(['auth', 'checkrole:semiadmin'])->group(function () {
+    Route::get('/semiadmin/dashboard', [SemiadminController::class, 'index'])->name('semiadmin.dashboard');
 });
-
 
