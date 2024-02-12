@@ -9,7 +9,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminDashboardController;
 
     Route::get('/', function () {
-        return view('dashboard');
+        return view ('dashboard');
     })->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -29,6 +29,8 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.e
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('menu', [MenuController::class, 'index'])->name('menu');
+
+Route::get('tentangkita',[TentangController::class, 'index'])->name('tentang.index');
 
 
 

@@ -42,42 +42,37 @@
 
 <body>
     <!-- HEADER -->
-    <header id="header">
-        <div class="header-wrap">
-            <body>
-                <!-- HEADER -->
-                <header id="header" >
-                    <div class="header-wrap" style="background-color: #283E58;">
-                        <div class="slider-container">
-                            <div class="logo">
-                                <img src="images/kologo.png" alt="Logo" width="100">
-                            </div>
-                            <div class="menu">
-                                <ul>
-                                    <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
-                                    <li><a href="#hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
-                                    <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
-                                    <li><a href="#kontak-section" onclick="addLoadingEffect()">Kontak</a></li>
-                                </ul>
-                                <div class="user-actions">
-                                    @auth <!-- Cek apakah pengguna sudah login -->
-                                        <a href="{{ route('profile.show') }}">Profile</a> <!-- Tautan untuk profil -->
-                                        <span>{{ auth()->user()->name }}</span> <!-- Menampilkan nama pengguna -->
-                                        <form action="{{ route('logout') }}" method="post"> <!-- Form untuk logout -->
-                                            @csrf
-                                            <button type="submit">Logout</button>
-                                        </form>
-                                    @else
-                                        <!-- Jika pengguna belum login -->
-                                        <a href="{{ route('auth.register') }}">Register</a> <!-- Tautan untuk register -->
-                                        <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
-                                    @endauth
-                                </div>
-                            </div>
-                        </div>
+    <menu id="menu">
+        <div class="menu-wrap" style="background-color: #283E58;">
+            <div class="slider-container">
+                <div class="logo">
+                    <img src="images/kologo.png" alt="Logo" width="100">
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
+                        <li><a href="#hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
+                        <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
+                        <li><a href="#kontak-section" onclick="addLoadingEffect()">Kontak</a></li>
+                    </ul>
+                    <div class="user-actions">
+                        @auth <!-- Cek apakah pengguna sudah login -->
+                            <a href="{{ route('profile.show') }}">Profile</a> <!-- Tautan untuk profil -->
+                            <span>{{ auth()->user()->name }}</span> <!-- Menampilkan nama pengguna -->
+                            <form action="{{ route('logout') }}" method="post"> <!-- Form untuk logout -->
+                                @csrf
+                                <button type="submit">Logout</button>
+                            </form>
+                        @else
+                            <!-- Jika pengguna belum login -->
+                            <a href="{{ route('auth.register') }}">Register</a> <!-- Tautan untuk register -->
+                            <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
+                        @endauth
                     </div>
-                </header>
-
+                </div>
+            </div>
+        </div>
+    </menu>
     <!-- END / HEADER -->
 
     <!-- MAIN CONTENT -->
