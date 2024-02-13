@@ -10,9 +10,17 @@ class MenuController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $menu = Menu::all();
+        $query = Menu::query();
+
+        // Filter berdasarkan harga jika checkbox harga dipilih
+        if ($request->has('harga')) {
+            $harga = $request->harga;
+            $query->whereBetwee('harga', $harga)->get();
+        }
+
+        $menu = $query->get();
         return view('user.menu', compact('menu'));
     }
 
