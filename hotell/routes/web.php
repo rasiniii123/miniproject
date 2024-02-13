@@ -10,6 +10,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SemiadminController;
+use App\Http\Controllers\DetailmenuController;
+use App\Http\Controllers\AdminDashboardController;
 
     Route::get('/', function () {
         return view ('dashboard');
@@ -32,6 +34,10 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.e
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('menu', [MenuController::class, 'index'])->name('menu');
+
+Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
+
+Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
 
 Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
