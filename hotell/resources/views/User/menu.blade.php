@@ -98,10 +98,11 @@
 
                     <img src="images/waktu.png" alt="Gambar Baru" style="max-width: 20px; max-height: 20px; margin-left: 290px; margin-top: 15px;">
                     <div style="margin-left: 315px; margin-top: -20px; font-family: Poppins;">174 review</div>
-
+                        <a href="{{ route('detailmenu') }}">
                     <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
                         <button style="background-color: #283E58; color: white; font-family: Poppins; font-size: 16px; font-weight: 600; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 700px;">DETAIL</button>
                     </div>
+                        </a>
                     <div style="border-bottom: 1px solid #ACACAC; width: 100%; margin-left: -15px; margin-top: 10px;"></div>
                 </div>
                     </div>
