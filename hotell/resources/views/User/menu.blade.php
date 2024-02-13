@@ -14,7 +14,7 @@
                 <!-- Menu content -->
                 <div style="width: 350px; padding-right: 10px;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div style="color: black; font-size: 20px; font-family: Poppins; font-weight: 600; word-wrap: break-word; margin-top: 50px;">MALANG</div>
+                        <div style="color: black; font-size: 20px; font-family: Poppins; font-weight: 600; word-wrap: break-word; margin-top: 50px; margin left: 40px">MALANG</div>
                         <button id="resetButton" type="button" style="color: white; font-size: 20px; font-family: Poppins; font-weight: 600; word-wrap: break-word; cursor: pointer; background-color: #F43131; padding: 5px 10px; border-radius: 5px; border: none; margin-top: 50px;">RESET</button>
                     </div>
                     <div style="display: flex; flex-direction: column; padding: 10px;">
