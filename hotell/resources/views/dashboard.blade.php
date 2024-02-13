@@ -88,7 +88,7 @@
                         <a href="{{ route('auth.login') }}">
                             <button
                                 style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
-                                PESAN SEKARANG
+                                MENU LAINNYA
                             </button>
                         </a>
                     @endauth

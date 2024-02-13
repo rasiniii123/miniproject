@@ -5,6 +5,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
@@ -49,5 +50,13 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
 
 Route::middleware(['auth', 'checkrole:semiadmin'])->group(function () {
     Route::get('/semiadmin/dashboard', [SemiadminController::class, 'index'])->name('semiadmin.dashboard');
+    Route::get('/semiadmin/rooms/create', [RoomController::class, 'create'])->name('rooms.create');
+
+    Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
+    Route::post('/rooms', [RoomController::class, 'store'])->name('rooms.store');
+    Route::get('/rooms/{room}', [RoomController::class, 'show'])->name('rooms.show');
+    Route::get('/rooms/{room}/edit', [RoomController::class, 'edit'])->name('rooms.edit');
+    Route::put('/rooms/{room}', [RoomController::class, 'update'])->name('rooms.update');
+    Route::delete('/rooms/{room}', [RoomController::class, 'destroy'])->name('rooms.destroy');
 });
 
