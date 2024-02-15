@@ -9,7 +9,6 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\SemiadminController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
 
@@ -44,11 +43,7 @@ Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-});
-
-Route::middleware(['auth', 'checkrole:semiadmin'])->group(function () {
-    Route::get('/semiadmin/dashboard', [SemiadminController::class, 'index'])->name('semiadmin.dashboard');
-    Route::get('/semiadmin/rooms/create', [RoomController::class, 'create'])->name('rooms.create');
+    Route::get('/admin/rooms/create', [RoomController::class, 'create'])->name('rooms.create');
 
     Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
     Route::post('/rooms', [RoomController::class, 'store'])->name('rooms.store');

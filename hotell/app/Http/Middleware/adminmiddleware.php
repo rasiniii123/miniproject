@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdminMiddleware
 {
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role === $role) {
+        if (Auth::check() && Auth::user()->role === 'admin') {
             return $next($request);
         }
 
-        return redirect('/dashboard')->with('error', 'Anda tidak memiliki akses ke halaman ini');
+        return redirect()->route('dashboard')->with('error', 'Anda tidak memiliki izin sebagai semiadmin.');
     }
 }

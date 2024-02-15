@@ -25,6 +25,9 @@ class RoomController extends Controller
         'alamat' => 'required|string',
         'harga_permalam' => 'required|numeric',
         'type_kamar' => 'required|string',
+        // 'rating' => 'required|numeric|min:1|max:5', // Validasi untuk rating (1-5)
+        'keterangan' => 'required|string',
+        'fasilitas' => 'required|string',
         'foto.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk setiap file gambar
     ]);
 
@@ -44,8 +47,10 @@ class RoomController extends Controller
         'alamat' => $request->alamat,
         'harga_permalam' => $request->harga_permalam,
         'type_kamar' => $request->type_kamar,
-        // Convert the array of image paths into a comma-separated string
-        'foto' => implode(',', $imagePaths),
+        // 'rating' => $request->rating,
+        'keterangan' => $request->keterangan,
+        'fasilitas' => $request->fasilitas,
+        'foto' => implode(',', $imagePaths), // Convert the array of image paths into a comma-separated string
     ]);
     $room->save();
 
@@ -60,44 +65,54 @@ class RoomController extends Controller
 
     public function edit(Room $room)
     {
-        return view('rooms.edit', compact('room'));
+        return view('semiRoom.edit', compact('room'));
     }
 
     public function update(Request $request, Room $room)
-    {
-        $request->validate([
-            'alamat' => 'required|string',
-            'harga_permalam' => 'required|numeric',
-            'type_kamar' => 'required|string',
-            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk gambar (opsional)
-        ]);
+{
+    $request->validate([
+        'alamat' => 'required|string',
+        'harga_permalam' => 'required|numeric',
+        'type_kamar' => 'required|string',
+        // 'rating' => 'required|numeric|min:1|max:5', // Validasi untuk rating (1-5)
+        'keterangan' => 'required|string',
+        'fasilitas' => 'required|string',
+        'foto.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk setiap file gambar (opsional)
+    ]);
 
-        // Jika ada gambar yang diunggah
-        if ($request->hasFile('foto')) {
-            // Menghapus gambar lama
-            $oldImage = public_path('images').'/'.$room->foto;
-            if (file_exists($oldImage)) {
-                unlink($oldImage);
+    // Jika ada gambar yang diunggah
+    if ($request->hasFile('foto')) {
+        // Menghapus gambar lama
+        $oldImages = explode(',', $room->foto);
+        foreach ($oldImages as $oldImage) {
+            $oldImagePath = public_path('images').'/'.$oldImage;
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
             }
-
-            // Menyimpan gambar baru
-            $imageName = time().'.'.$request->foto->extension();
-            $request->foto->move(public_path('images'), $imageName);
-            $room->foto = $imageName;
         }
 
-        // Memperbarui informasi kamar
-        $room->alamat = $request->alamat;
-        $room->harga_permalam = $request->harga_permalam;
-        $room->type_kamar = $request->type_kamar;
-        $room->keterangan = $request->keterangan;
-        $room->fasilitas = $request->fasilitas;
-        $room->save();
-
-        return redirect()->route('rooms.index')
-            ->with('success', 'Room updated successfully.');
+        // Menyimpan gambar baru
+        $imagePaths = [];
+        foreach ($request->file('foto') as $image) {
+            $imageName = time().'.'.$image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $imagePaths[] = $imageName;
+        }
+        $room->foto = implode(',', $imagePaths);
     }
 
+    // Memperbarui informasi kamar
+    $room->alamat = $request->alamat;
+    $room->harga_permalam = $request->harga_permalam;
+    $room->type_kamar = $request->type_kamar;
+    $room->keterangan = $request->keterangan;
+    $room->fasilitas = $request->fasilitas;
+    // $room->rating = $request->rating; // Tambahkan jika memperbarui rating
+    $room->save();
+
+    return redirect()->route('rooms.index')
+        ->with('success', 'Room updated successfully.');
+}
     public function destroy(Room $room)
 {
     // Hapus gambar terkait jika ada

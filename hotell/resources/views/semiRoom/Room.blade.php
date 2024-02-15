@@ -1,4 +1,4 @@
-@extends('layouts.semi')
+@extends('layouts.side')
 
 @section('content')
     <div class="container">
@@ -9,10 +9,10 @@
                 <table class="table mt-3">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            {{-- <th>ID</th> --}}
                             <th>Address</th>
                             <th>Price</th>
-                            <th>Rating</th>
+                            {{-- <th>Rating</th> --}}
                             <th>Type</th>
                             <th>Description</th>
                             <th>Facilities</th>
@@ -23,18 +23,17 @@
                     <tbody>
                         @foreach ($rooms as $room)
                             <tr>
-                                <td>{{ $room->id }}</td>
-                                <td>{{ $room->address }}</td>
-                                <td>{{ $room->price_per_night }}</td>
-                                <td>{{ $room->rating }}</td>
-                                <td>{{ $room->type }}</td>
-                                <td>{{ $room->description }}</td>
-                                <td>{{ $room->facilities }}</td>
+                                {{-- <td>{{ $room->id }}</td> --}}
+                                <td>{{ $room->alamat }}</td>
+                                <td>{{ $room->harga_permalam }}</td>
+                                {{-- <td>{{ $room->rating }}</td> --}}
+                                <td>{{ $room->type_kamar }}</td>
+                                <td>{{ $room->keterangan }}</td>
+                                <td>{{ $room->fasilitas }}</td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm view-images" data-toggle="modal" data-target="#roomImagesModal{{ $room->id }}">View</button>
                                 </td>
                                 <td>
-                                    <a href="{{ route('rooms.show', $room->id) }}" class="btn btn-info btn-sm">View</a>
                                     <a href="{{ route('rooms.edit', $room->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                     <form action="{{ route('rooms.destroy', $room->id) }}" method="POST" style="display: inline;">
                                         @csrf
