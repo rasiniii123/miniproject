@@ -28,20 +28,18 @@
                 <div class="logo">
                     <img src="images/kologo.png" alt="Logo" width="100">
                 </div>
-                <div class="menu">
+                <div class="menu" style="margin-left: 100px;">
                     <ul>
                         <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
                         <li><a href="#hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
-                        <li><a href="#kontak-section" onclick="addLoadingEffect()">Kontak</a></li>
                     </ul>
-                    <div class="user-actions" style="display: flex; align-items: center;">
+                    <div class="user-actions" style="display: flex; align-items: center; margin-left: 500px;">
                         @auth <!-- Cek apakah pengguna sudah login -->
-                            <span
-                                style="font-size: 20px; color: #fff;  margin-right: 10px; ">{{ auth()->user()->username }}</span>
+                            <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
                             <div class="dropdown">
                                 <img onclick="toggleDropdown()" src="{{ asset('user-2.png') }}" width="40" height="40"
-                                    style="float: left; margin-right: 10px; cursor: pointer;">
+                                    style="margin-right: 10px; cursor: pointer;">
                                 <div id="myDropdown" class="dropdown-content">
                                     <form action="{{ route('logout') }}" method="post">
                                         @csrf
@@ -51,10 +49,11 @@
                             </div>
                         @else
                             <!-- Jika pengguna belum login -->
-                            <a href="{{ route('auth.register') }}">Register</a> <!-- Tautan untuk register -->
+                            <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Register</a> <!-- Tautan untuk register -->
                             <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
                         @endauth
                     </div>
+                    
                 </li>
 
 
@@ -96,35 +95,6 @@
             </div>
         </div>
         </div>
-
-
-
-        {{-- <div class="tp-caption sft fadeout" data-x="center" data-y="195" data-speed="700" data-start="1300"
-                        data-easing="easeOutBack">
-                        <img src="images/icon-slider-1.png" alt="">
-                    </div>
-
-                    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
-                        data-y="220" data-speed="700" data-start="1500" data-easing="easeOutBack">
-                        EACH HOTEL IS
-                    </div>
-
-                    <div class="tp-caption sfb fadeout slider-caption slider-caption-3" data-x="center" data-y="260"
-                        data-speed="700" data-easing="easeOutBack" data-start="2000">
-                        UNIQUE 60%
-                    </div>
-
-                    <div class="tp-caption sfb fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
-                        data-y="365" data-easing="easeOutBack" data-speed="700" data-start="2200">JUST LIKE YOU</div>
-
-                    <div class="tp-caption sfb fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
-                        data-y="395" data-easing="easeOutBack" data-speed="700" data-start="2400"><img
-                            src="images/icon-slider-2.png" alt=""></div>
-                </li>
-
-            </ul>
-        </div> --}}
-
     </section>
 
     <section class="section-home-about bg-white">
@@ -628,7 +598,7 @@
                                 </div>
     </section>
                 <!-- GALLERY -->
-                <section class="section-gallery" style="text-align: center; position: relative;">
+                {{-- <section class="section-gallery" style="text-align: center; position: relative;">
                     <div id="kontak-section">
                         <div class="gallery no-padding">
                             <div style="position: relative; display: flex; justify-content: center;">
@@ -654,7 +624,7 @@
                                 </div>
                             </div>
                         </div>
-                </section>
+                </section> --}}
 
 
     <!-- LOAD JQUERY -->

@@ -33,9 +33,10 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="field-form field-submit" style="margin-top: 20px;">
-                                <button type="submit" class="awe-btn awe-btn-13" style="background-color: #283E58; border: 1px solid #283E58; text-align: center;">
-                                    <span>Login</span>
+                            <div class="field-form field-submit" style="margin-top: 20px; text-align: center;">
+                                <button type="submit" class="awe-btn awe-btn-13 rounded"
+                                    style="background-color: #283E58; border-color: #283E58; color: #fff; width: 400px; border-radius: 10px;">
+                                    <span style="display: inline-block; width: 50%;">Login</span>
                                 </button>
                             </div>
 

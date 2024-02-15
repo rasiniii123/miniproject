@@ -1,14 +1,14 @@
 @extends('layouts.yss')
 
 @section('content')
-<section class="section-home-about bg-white">
+<section style="margin-top: 50px;">
     <div class="container">
         <div id="about-section">
             <div class="home-about">
                 <div class="row align-items-start">
                     <div class="col-md-6">
-                        <div class="img mb-4">
-                            <a><img src="images/about/img-1.png" alt="" style="margin-top: 16px"></a>
+                        <div class="img mb-4" style="margin-bottom: 20px;">
+                            <a><img src="images/about/img-1.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -27,8 +27,11 @@
                                 Dengan booking hotel di Everywhere, kamu tidak perlu repot lagi menghubungi pihak hotel untuk bertannya tentang fasilitas setiap jenis kamar,
                                  karena semua informasi lengkap terkait fasilitas hotel telah tersedia. 
                             </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-                </div>
-    @endsection
+    </div>
+</section>
+@endsection
