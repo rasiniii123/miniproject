@@ -93,7 +93,7 @@
     <!-- FOOTER -->
     <footer id="footer">
         <!-- Footer Top -->
-        <div class="footer-top" style="background: #283646;padding: 2rem 0;">
+        <div class="footer-top" style="background: #283646; padding: 2rem 0;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -113,7 +113,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6" style="display: flex; justify-content: flex-end;  margin-top: 50px;">
+                    <div class="col-md-6" style="display: flex; justify-content: flex-end; margin-top: 50px;">
                         <div style="width: 300px; height: 70px; padding-bottom: 10px; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; gap: 10px; margin-top: -20px;">
                             <div style="width: 300px; color: white; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; text-align: right; margin-right: -80px;">Hubungi Kami</div>
                         </div>
@@ -133,7 +133,7 @@
         </div>
         <!-- Footer Bottom -->
         <footer>
-            <div class="footer-bottom" style="padding: 7px 0;"> <!-- Atur padding untuk memperbesar footer -->
+            <div class="footer-bottom" style="padding: 7px 0; margin-top: 20px;"> <!-- Tambahkan margin-top disini -->
                 <div class="container">
                     <div class="text-center" style="color: white;">Design with love © TanahAirStudio 2020. All right reserved</div>
                 </div>
