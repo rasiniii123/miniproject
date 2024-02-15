@@ -43,10 +43,12 @@
                     <p style="font-size: 25px; font-weight: bold;">Rp. 4.500.000 <span style="font-style: italic; color: #D88F00;">/ malam</span></p>
                 </div>
             </div>
+            <a href="{{ route('detail.index') }}">
             <div style="margin-top: 10px;">
                 <button type="button" class="btn btn-primary btn-lg"
                     style="width: 200px; margin-left: 1150px;">DETAIL</button>
             </div>
+            </a>
         </div>
     </div>
     <br>

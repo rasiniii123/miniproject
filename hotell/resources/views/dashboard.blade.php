@@ -225,11 +225,9 @@
                                                     </p>
                                                 </div>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
-                                                    <a href="{{ route('detail.index') }}">
                                                     <button class="btn btn-primary"
                                                         style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
                                                         Sekarang</button>
-                                                    </a>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#FFBF43"

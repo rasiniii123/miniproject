@@ -64,30 +64,42 @@
                             <path fill="currentColor"
                                 d="M3 3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h4v-4H3V5h18v2h2V5c0-1.1-.9-2-2-2zm18 6h-5c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h5c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2m-2.5 1.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5S17 12.8 17 12s.7-1.5 1.5-1.5m0 10c-1.7 0-3-1.3-3-3c0-1.6 1.3-3 2.9-3h.1c1.7 0 3 1.3 3 3s-1.3 3-3 3m0-4.5c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5s1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5" />
                         </svg>
-                        <div style="color: #5A5A5A; font-size: 20px; font-family: Poppins; font-weight: 400;">
-                            Televisi
-                        </div>
+                        <div style="color: #5A5A5A; font-size: 20px; font-family: Poppins; font-weight: 400;">Televisi</div>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-                        style="margin-top: 50px; margin-right: 1200px;">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="M22 3.6V11H2V3.6a.6.6 0 0 1 .6-.6h18.8a.6.6 0 0 1 .6.6M18 7h1M2 11l.79 2.584A2 2 0 0 0 4.702 15H6m16-4l-.79 2.584A2 2 0 0 1 19.298 15H18m-8.5-.5s0 7-3.5 7m8.5-7s0 7 3.5 7m-6-7v7" />
-                    </svg>
                     <div
-                        style="float: left; color: #5A5A5A; font-size: 20px; font-family: Poppins; font-weight: 400; word-wrap: break-word; clear: both; margin-left: 50px; margin-top:-35px;">
-                        Pendingin Ruangan</div>
-                </div>
-                <div
-                    style="display: flex; align-items: center; margin-top: -35px; justify-content: flex-start; margin-left: 500px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
-                        <path fill="currentColor"
-                            d="M182 98.48V88a30 30 0 0 0-30-30h-18V30h34a10 10 0 0 1 10 10a6 6 0 0 0 12 0a22 22 0 0 0-22-22h-64a6 6 0 0 0 0 12h18v28h-18a30 30 0 0 0-30 30v10.48A38.05 38.05 0 0 0 42 136v80a14 14 0 0 0 14 14h144a14 14 0 0 0 14-14v-80a38.05 38.05 0 0 0-32-37.52M104 70h48a18 18 0 0 1 18 18v10H86V88a18 18 0 0 1 18-18m98 146a2 2 0 0 1-2 2H56a2 2 0 0 1-2-2v-80a26 26 0 0 1 26-26h96a26 26 0 0 1 26 26Z" />
-                    </svg>
-                    <div style="color: #5A5A5A; font-size: 20px; font-family: Poppins; font-weight: 400;">
-                        Perlengkapan Mandi
+                        style="display: flex; align-items: center; margin-top: -35px; justify-content: flex-start; margin-left: 900px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                            <path fill="currentColor"
+                                d="M21 1a2 2 0 0 0-2 2v9H3.5A2.5 2.5 0 0 0 1 14.5v2a1.5 1.5 0 0 0 1.414 1.498a11 11 0 0 0 3.396 5.327c.549.474 1.145.896 1.782 1.256L6.097 27.57c-.093.186-.227.453-.328.733c-.1.277-.21.678-.158 1.11c.06.5.332.959.832 1.25c.44.254.982.337 1.557.337h14c.825 0 1.567-.402 2.082-.918c.515-.515.918-1.257.918-2.082v-8c0-.268.155-.627.445-1.024A4 4 0 0 0 29 15V3a2 2 0 0 0-2-2zM9.416 25.403A10.99 10.99 0 0 0 13 26c4.22 0 8.114-2.081 10-5.582V28c0 .175-.098.433-.332.668c-.235.235-.493.332-.668.332H8c-.146 0-.261-.008-.349-.02c.058-.159.142-.33.243-.533zM20.5 17c.334.445.814.775 1.368.92C20.811 21.587 17.223 24 13 24c-2.29 0-4.38-.855-5.968-2.263A9.002 9.002 0 0 1 4.222 17zm-.45-1H3v-1.5a.5.5 0 0 1 .5-.5H20v1.5c0 .171.017.338.05.5M27 15a2 2 0 0 1-2 2h-2.5a1.5 1.5 0 0 1-1.5-1.5V3h6z" />
+                        </svg>
+                        <div style="color: #5A5A5A; font-size: 20px; font-family: Poppins; font-weight: 400;">Toilet</div>
                     </div>
+
+                    <div style="display: flex; align-items: center; margin-top: 100px; margin-left: 150px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"
+                            style="margin-left: 350px;">
+                            <path fill="currentColor"
+                                d="M182 98.48V88a30 30 0 0 0-30-30h-18V30h34a10 10 0 0 1 10 10a6 6 0 0 0 12 0a22 22 0 0 0-22-22h-64a6 6 0 0 0 0 12h18v28h-18a30 30 0 0 0-30 30v10.48A38.05 38.05 0 0 0 42 136v80a14 14 0 0 0 14 14h144a14 14 0 0 0 14-14v-80a38.05 38.05 0 0 0-32-37.52M104 70h48a18 18 0 0 1 18 18v10H86V88a18 18 0 0 1 18-18m98 146a2 2 0 0 1-2 2H56a2 2 0 0 1-2-2v-80a26 26 0 0 1 26-26h96a26 26 0 0 1 26 26Z" />
+                        </svg>
+                        <div
+                            style="color: #5A5A5A; font-size: 20px; font-family: Poppins; font-weight: 400; margin-left:   px;">
+                            Perlengkapan Mandi</div>
+                    </div>
+
+
+                    <div style="display: flex; align-items: center; margin-top: -30px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                            style="margin-right: 20px;">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M22 3.6V11H2V3.6a.6.6 0 0 1 .6-.6h18.8a.6.6 0 0 1 .6.6M18 7h1M2 11l.79 2.584A2 2 0 0 0 4.702 15H6m16-4l-.79 2.584A2 2 0 0 1 19.298 15H18m-8.5-.5s0 7-3.5 7m8.5-7s0 7 3.5 7m-6-7v7" />
+                        </svg>
+                        <div style="color: #5A5A5A; font-size: 20px; font-family: Poppins; font-weight: 400;">Pendingin
+                            Ruangan <span style="font-size: 12px; margin-left: 5px;"></span></div>
+                    </div>
+                    <img src="images/Vector-2.png" alt="Garis bawah"
+                    style="width: 100%; margin-top: 20px; margin-bottom: 20px; color:#92989F">
+                    <h2 style="font-weight: bold; float: left; margin-top: 10px;">PENILAIAN DAN ULASAN</h2>
                 </div>
-            </div>
     </section>
 @endsection
