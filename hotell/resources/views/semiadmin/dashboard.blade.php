@@ -1,4 +1,4 @@
-@extends('layouts.semi')
+@extends('layouts.side')
 @section('content')
     <section>
         <li data-transition="fade" style="list-style-type: none">
