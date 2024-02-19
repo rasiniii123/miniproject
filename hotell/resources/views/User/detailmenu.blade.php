@@ -8,11 +8,8 @@
             <br>
             <h2 style="font-size: 20px; font-weight: bold; margin-left : 100px;">LUXURY ROOM</h2>
             <div style="position: absolute; top: 100px; left: 20px;">
-                <a href="{{ route('menu') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"
-                        style="transform: rotate(180deg);">
-                        <path fill="currentColor" d="M10 17l5-5-5-5v10z" />
-                    </svg>
+                <a href="{{ route('menu') }}" style="color:  #000000; text-decoration: none; position: absolute; top: -25px; left: 10px; font-size: 30px; font-weight: bold;">
+                    <span style="margin-right: 5px; font-weight: bold;">&larr;</span>
                 </a>
             </div>
             <div style="display: flex; align-items: center; margin-top: 10px;">
@@ -24,6 +21,7 @@
                         menawarkan fasilitas dan layanan tambahan yang dirancang untuk meningkatkan kenyamanan dan kepuasan
                         tamu.
                     </p>
+                </div>
                     <div style="margin-left: -2px;">
                         <div style="margin-left: 10px;">
                             <p style="display: inline-block; margin-top: 5px; font-family: 'Poppins', sans-serif;">

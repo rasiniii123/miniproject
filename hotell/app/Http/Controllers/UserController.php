@@ -44,9 +44,9 @@ class UserController extends Controller
 
     if (Auth::attempt($credentials)) {
         // Jika pengguna berhasil login, periksa peran mereka
-        if (Auth::user()->role === 'semiadmin') {
+        if (Auth::user()->role === 'admin') {
             // Jika pengguna memiliki peran semiadmin, arahkan ke dashboard semiadmin
-            return redirect()->route('semiadmin.dashboard');
+            return redirect()->route('admin.dashboard');
         } else {
             // Jika pengguna memiliki peran lain, arahkan ke dashboard utama
             return redirect()->route('dashboard');

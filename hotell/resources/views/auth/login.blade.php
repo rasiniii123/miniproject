@@ -35,9 +35,10 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="field-form field-submit" style="margin-top: 20px;">
-                                <button type="submit" class="awe-btn awe-btn-13" style="background-color: #283E58; border: 1px solid #283E58; text-align: center;">
-                                    <span>Login</span>
+                            <div class="field-form field-submit" style="margin-top: 20px; text-align: center;">
+                                <button type="submit" class="awe-btn awe-btn-13 rounded"
+                                    style="background-color: #283E58; border-color: #283E58; color: #fff; width: 400px; border-radius: 10px;">
+                                    <span style="display: inline-block; width: 50%;">Login</span>
                                 </button>
                             </div>
 
@@ -46,20 +47,56 @@
                                 <div style="width: 50px; height: 22px; left: 208px; top: 50px; position: absolute; background: #D9D9D9"></div>
                                 <div style="left: 217px; top: 45px;; position: absolute; color: #283E58; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 30.60px; letter-spacing: 0.36px; word-wrap: break-word">OR</div>
                               </div>
-                              {{-- <div style="display: flex; justify-content: center;">
-                                <span style="background-color: #283E58; padding: 5px; border-radius: 4px; margin-right: 40px; width: 150px;">
-                                    <img src="images/facebook.png" alt="Facebook" style="width: 24px; height: 24px;">
-                                </span>
-                                <span style="background-color: #283E58; padding: 5px; border-radius: 4px; margin-right: -20px; width: 150px;">
-                                    <img src="images/google.png" alt="Google" style="width: 24px; height: 24px;">
-                                </span>
-                            </div> --}}
                             <div style="text-align: center; font-family: Hind; font-size: 13px; font-weight: 400; line-height: 18.57px; letter-spacing: 0.20px; margin-top: 50px;">
                                 Saya tidak punya akun - <a href="{{ route('auth.register') }}" style="text-decoration: none;"> <span style="color: #00A3FF;">Daftar di sini</span> </a>
                             </div>
-                            <div style="height: 0px;"></div> <!-- Untuk menambahkan ruang kosong agar card menjadi lebih panjang -->
+                            <div style="height: 0px;"></div>
                         </form>
                     </div>
                 </div>
             </div>
+        </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.20/sweetalert2.all.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.account_form').on('submit', function(e) {
+                e.preventDefault();
+                var form = this;
+                $.ajax({
+                    type: $(form).attr('method'),
+                    url: $(form).attr('action'),
+                    data: $(form).serialize(),
+                    success: function(response) {
+                        // Tampilkan SweetAlert setelah berhasil login
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Login Berhasil!',
+                            text: 'Selamat datang kembali.',
+                            confirmButtonColor: '#283E58',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            // Redirect ke halaman dashboard setelah menekan tombol OK
+                            if (result.isConfirmed) {
+                                window.location.href = "{{ route('dashboard') }}";
+                            }
+                        });
+                    },
+                    error: function(xhr) {
+                        // Tangani kesalahan jika ada
+                        console.log(xhr.responseText);
+                        // Contoh penanganan kesalahan dengan menampilkan pesan error dari server
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Email atau password salah. Silakan coba lagi.',
+                            confirmButtonColor: '#283E58',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+@endsection

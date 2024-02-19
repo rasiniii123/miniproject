@@ -80,4 +80,43 @@
             </div>
         </div>
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.20/sweetalert2.all.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.account_form').on('submit', function(e) {
+                e.preventDefault();
+                var form = this;
+                $.ajax({
+                    type: $(form).attr('method'),
+                    url: $(form).attr('action'),
+                    data: $(form).serialize(),
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Registrasi Berhasil!',
+                            text: 'Selamat datang di Everywhere, Anda berhasil terdaftar.',
+                            confirmButtonColor: '#283E58',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "{{ route('auth.login') }}";
+                            }
+                        });
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Terjadi kesalahan. Silakan coba lagi.',
+                            confirmButtonColor: '#283E58',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
