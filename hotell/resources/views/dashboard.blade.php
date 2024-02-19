@@ -596,7 +596,7 @@
                                 </div>
     </section>
     <!-- GALLERY -->
-    <section class="section-gallery" style="text-align: center; position: relative; margin-top: -90px;">
+    {{-- <section class="section-gallery" style="text-align: center; position: relative; margin-top: -90px;">
         <div id="kontak-section">
             <div class="gallery" style="padding-top: 10px; margin-button: 50px">
                 <div style="position: relative; display: flex; justify-content: center;">
@@ -623,7 +623,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 
@@ -637,7 +637,7 @@
     <script type="text/javascript" src="js/lib/isotope.pkgd.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery.themepunch.revolution.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="js/lib/owl.carousel.js"></script>
+    {{-- <script type="text/javascript" src="js/lib/owl.carousel.js"></script> --}}
     <script type="text/javascript" src="js/lib/jquery.appear.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery.countTo.js"></script>
     <script type="text/javascript" src="js/lib/jquery.countdown.min.js"></script>
