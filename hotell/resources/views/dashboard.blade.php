@@ -34,37 +34,41 @@
                         <li><a href="#hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
                     </ul>
-                    <div class="user-actions" style="display: flex; align-items: center; margin-left: 500px;">
+                    <div class="user-actions" style="display: flex; align-items: center;">
                         @auth <!-- Cek apakah pengguna sudah login -->
-                            <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
-                            <div class="dropdown">
-                                <button class="nav-link dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="ti-settings text-primary"></i>
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="ti-power-off text-primary"></i>
-                                            Logout
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            </div>
-                            
+                        <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
+                        <div class="dropdown" onclick="toggleDropdown()">
+                            <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
+                            <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="display: none;">
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item bg-transparent btn-primary btn-lg">
+                                            <i class="fas fa-sign-out-alt fa-lg text-primary"></i> Keluar
+                                        </button>
+                                    </form>                                    
+                                </li>
+                            </ul>
+                        </div>
                         @else
-                            <!-- Jika pengguna belum login -->
-                            <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Register</a> <!-- Tautan untuk register -->
-                            <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
+                        <!-- Jika pengguna belum login -->
+                        <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Register</a>
+                        <!-- Tautan untuk register -->
+                        <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
                         @endauth
                     </div>
+                </div>
+                
+                <script>
+                    function toggleDropdown() {
+                        var dropdown = document.getElementById("userDropdown");
+                        if (dropdown.style.display === "none") {
+                            dropdown.style.display = "block";
+                        } else {
+                            dropdown.style.display = "none";
+                        }
+                    }
+                </script>               
         </li>
 
 
@@ -609,7 +613,7 @@
                                 </div>
     </section>
     <!-- GALLERY -->
-    <section class="section-gallery" style="text-align: center; position: relative; margin-top: -90px;">
+    {{-- <section class="section-gallery" style="text-align: center; position: relative; margin-top: -90px;">
         <div id="kontak-section">
             <div class="gallery" style="padding-top: 10px; margin-button: 50px">
                 <div style="position: relative; display: flex; justify-content: center;">
@@ -636,7 +640,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 
@@ -650,7 +654,7 @@
     <script type="text/javascript" src="js/lib/isotope.pkgd.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery.themepunch.revolution.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="js/lib/owl.carousel.js"></script>
+    {{-- <script type="text/javascript" src="js/lib/owl.carousel.js"></script> --}}
     <script type="text/javascript" src="js/lib/jquery.appear.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery.countTo.js"></script>
     <script type="text/javascript" src="js/lib/jquery.countdown.min.js"></script>
