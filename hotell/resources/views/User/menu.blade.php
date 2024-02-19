@@ -468,6 +468,16 @@
                     </div>
 
 
+                <script>
+                    // Function to reset checkboxes
+                    function resetCheckboxes() {
+                        // Get all checkboxes
+                        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                        // Loop through checkboxes and uncheck them
+                        checkboxes.forEach(function(checkbox) {
+                            checkbox.checked = false;
+                        });
+                    }
 
                     <script>
                         // Function to reset checkboxes
@@ -515,6 +525,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 

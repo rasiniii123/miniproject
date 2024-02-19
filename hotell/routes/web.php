@@ -6,7 +6,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\RoomController;
-use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\RegisterController;
@@ -40,7 +39,6 @@ Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
 Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
 
 Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
-Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
 Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {

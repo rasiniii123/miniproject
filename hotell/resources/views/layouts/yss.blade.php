@@ -53,7 +53,6 @@
                         <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
                         <li><a href="#hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
-                        <li><a href="#kontak-section" onclick="addLoadingEffect()">Kontak</a></li>
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth <!-- Cek apakah pengguna sudah login -->
@@ -102,7 +101,6 @@
                             <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Beranda</div>
                             <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Hotel</div>
                             <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Tentang Kami</div>
-                            <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Kontak</div>
                         </div>
                         <div style="width: 1170px; height: 2.67px; border: 1px #71777D solid"></div>
                         <div style="display: flex; align-items: center; justify-content: flex-end; margin-top: 10px; margin-right: -600px;">
@@ -119,9 +117,6 @@
                         </div>
                         <div style="width: 300px; height: 40px; position: relative;">
                             <div style="width: 90px; height: 40px; position: absolute; right: 0; top: 0; display: flex; justify-content: center; align-items: center;">
-                                <div style="width: 90px; height: 40px; background: #3A86FF; border-radius: 6px; margin-right: 10px; display: flex; justify-content: center; align-items: center;">
-                                    <span style="color: white; font-size: 14px;">Kontak</span>
-                                </div>
                                 <div style="width: 210px; height: 40px; position: absolute; right: 100px; top: 0; background: white; border-radius: 6px; border: 1px #B3BDC7 solid; display: flex; justify-content: center; align-items: center;">
                                     <span style="color: #333; font-size: 14px;">hello@everywhere.com</span>
                                 </div>
