@@ -31,24 +31,27 @@
                 <div class="menu" style="margin-left: 100px;">
                     <ul>
                         <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
-                        <li><a href="#hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
+                        <li><a href="#kamar-section" onclick="addLoadingEffect()">Kamar</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center; margin-left: 500px;">
                         @auth <!-- Cek apakah pengguna sudah login -->
-                        <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
-                        <div class="dropdown">
-                            <img onclick="toggleDropdown()" src="{{ asset('user-2.png') }}" width="40" height="40" style="float: left; margin-right: 10px; cursor: pointer;">
-                            <div id="myDropdown" class="dropdown-content">
-                                <form action="{{ route('logout') }}" method="post">
-                                    @csrf
-                                    <button type="submit" style="font-size: 14px;">Logout</button>
-                                </form>
+                            <span
+                                style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
+                            <div class="dropdown">
+                                <img onclick="toggleDropdown()" src="{{ asset('user-2.png') }}" width="40" height="40"
+                                    style="float: left; margin-right: 10px; cursor: pointer;">
+                                <div id="myDropdown" class="dropdown-content">
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button type="submit" style="font-size: 14px;">Logout</button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
                         @else
                             <!-- Jika pengguna belum login -->
-                            <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Register</a> <!-- Tautan untuk register -->
+                            <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Register</a>
+                            <!-- Tautan untuk register -->
                             <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
                         @endauth
                     </div>
@@ -68,7 +71,7 @@
                 <p style="font-size: 24px; font-weight: bold; margin-top: 0;"><em>Selamat Datang Di</em></p>
                 <p style="font-size: 36px; font-weight: bold; margin-top: 0;">EVERYWHERE HOTEL</p>
                 <p style="font-size: 18px; max-width: 600px; margin-top: 0;">
-                    Lebih dari Sekadar Penginapan, Kami Mengajak Anda untuk Mengeksplorasi Dunia dengan Pilihan Hotel yang
+                    Lebih dari Sekadar Penginapan, Kami Mengajak Anda untuk Mengeksplorasi Dunia dengan Pilihan kamar yang
                     Melimpah.
                     Temukan Ketenangan, Kenyamanan, dan Inspirasi di Setiap Perjalanan Anda Bersama Kami.
                 <p>
@@ -109,16 +112,16 @@
                             <div class="text">
                                 <h2 class="heading">TENTANG KAMI</h2>
                                 <p>
-                                    "Kami menawarkan berbagai Pilihan Hotel Terbaik di 'everywhere',
+                                    "Kami menawarkan berbagai Pilihan kamar Terbaik di 'everywhere',
                                     memberikanmu kemudahan dan kenyamanan dalam merencanakan liburan impianmu.
                                     Tak perlu ribet, karena hanya dengan satu aplikasi khusus,
-                                    kamu bisa dengan mudah melakukan pemesanan hotel sesuai dengan destinasi pilihanmu.
+                                    kamu bisa dengan mudah melakukan pemesanan kamar sesuai dengan destinasi pilihanmu.
                                     Tidak hanya itu, sebagai tambahan keuntungan, kami juga menyediakan berbagai promo
                                     menarik
                                     yang pastinya akan membuat liburanmu semakin istimewa.
                                     Dapatkan JAMINAN HARGA TERMURAH di 'everywhere' dan nikmati pengalaman liburan yang tak
                                     terlupakan.
-                                    Jadi, tunggu apalagi? Segera siapkan liburanmu dan pesan hotel pilihanmu di 'everywhere'
+                                    Jadi, tunggu apalagi? Segera siapkan liburanmu dan pesan kamar pilihanmu di 'everywhere'
                                     sekarang juga!"
                                 </p>
                                 @auth
@@ -147,12 +150,12 @@
     <!-- ACCOMD ODATIONS -->
     <section class="section-accomd awe-parallax">
         <div class="container">
-            <div id="hotel-section">
+            <div id="kamar-section">
                 <div class="accomd-modations">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="accomd-modations-header">
-                                <h2 class="heading">HOTEL DAN RATING</h2>
+                                <h2 class="heading">KAMAR DAN RATING</h2>
                                 <img src="images/icon-1.png" alt="icon">
                                 <p>Nikmati kenyamanan dan kemewahan di setiap kamar kami yang elegan dan modern,
                                     dirancang dengan perhatian terhadap detail untuk memenuhi kebutuhan dan keinginan Anda.
@@ -172,26 +175,20 @@
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
-                                                    <a href="#" style="font-weight: bold; font-size: 16px;">LOTUS
-                                                        HOTEL</a>
                                                     <div>
-                                                        <p class="price"
-                                                            style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
-                                                            Rp 3.500.000-8.500.000</p>
-
+                                                        <a href="#"
+                                                            style="font-weight: bold; font-size: 16px;">LUXURY ROOM</a>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <p class="price"
+                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                                Rp 4.500.000</p>
+                                                            <p
+                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                                / malam
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </h2>
-                                                <div style="display: flex; justify-content:">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#B30000"
-                                                            d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
-                                                    </svg>
-                                                    <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                    <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">
-                                                        PER-MALAM
-                                                    </p>
-                                                </div>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
                                                     <button class="btn btn-primary"
                                                         style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
@@ -239,26 +236,20 @@
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
-                                                    <a href="#" style="font-weight: bold; font-size: 16px;">FAMILY
-                                                        HOTEL</a>
                                                     <div>
-                                                        <p class="price"
-                                                            style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
-                                                            Rp 3.500.000-8.500.000</p>
-
+                                                        <a href="#"
+                                                            style="font-weight: bold; font-size: 16px;">COUPLE ROOM</a>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <p class="price"
+                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                                Rp 5.500.000</p>
+                                                            <p
+                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                                / malam
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </h2>
-                                                <div style="display: flex; justify-content:">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#B30000"
-                                                            d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
-                                                    </svg>
-                                                    <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                    <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">
-                                                        PER-MALAM
-                                                    </p>
-                                                </div>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
                                                     <button class="btn btn-primary"
                                                         style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
@@ -305,26 +296,81 @@
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
-                                                    <a href="#" style="font-weight: bold; font-size: 16px;">YOUR
-                                                        HOTEL</a>
                                                     <div>
-                                                        <p class="price"
-                                                            style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
-                                                            Rp 3.500.000-8.500.000</p>
-
+                                                        <a href="#"
+                                                            style="font-weight: bold; font-size: 16px;">STANDAR ROOM</a>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <p class="price"
+                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                                Rp 3.900.000</p>
+                                                            <p
+                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                                / malam
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </h2>
-                                                <div style="display: flex; justify-content:">
+                                                <div class="d-flex" style="display: flex; justify-content: space-between">
+                                                    <button class="btn btn-primary"
+                                                        style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                        Sekarang</button>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                                         viewBox="0 0 24 24">
-                                                        <path fill="#B30000"
-                                                            d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
+                                                        <path fill="#FFBF43"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
-                                                    <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                    <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">
-                                                        PER-MALAM
-                                                    </p>
+
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                    </svg>
+
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                    </svg>
+
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                    </svg>
+
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                    </svg>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END / ITEM -->
+
+                                    <!-- ITEM -->
+                                    <div class="col-xs-4">
+                                        <div class="accomd-modations-room">
+                                            <div class="img">
+                                                <a href="#"><img src="images/room/img-55.webp" alt=""></a>
+                                            </div>
+                                            <div class="">
+                                                <h2 style="display: flex; justify-content: space-between;">
+                                                    <div>
+                                                        <a href="#"
+                                                            style="font-weight: bold; font-size: 16px;">FAMILY ROOM</a>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <p class="price"
+                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                                Rp 4.900.000</p>
+                                                            <p
+                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                                / malam
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </h2>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
                                                     <button class="btn btn-primary"
                                                         style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
@@ -372,93 +418,20 @@
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
-                                                    <a href="#" style="font-weight: bold; font-size: 16px;">THE
-                                                        HOTEL</a>
                                                     <div>
-                                                        <p class="price"
-                                                            style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
-                                                            Rp 3.500.000-8.500.000</p>
-
+                                                        <a href="#"
+                                                            style="font-weight: bold; font-size: 16px;">DELUXE ROOM</a>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <p class="price"
+                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                                Rp 6.700.000</p>
+                                                            <p
+                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                                / malam
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </h2>
-                                                <div style="display: flex; justify-content:">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#B30000"
-                                                            d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
-                                                    </svg>
-                                                    <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                    <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">
-                                                        PER-MALAM
-                                                    </p>
-                                                </div>
-                                                <div class="d-flex" style="display: flex; justify-content: space-between">
-                                                    <button class="btn btn-primary"
-                                                        style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
-                                                        Sekarang</button>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END / ITEM -->
-
-                                    <!-- ITEM -->
-                                    <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
-                                            <div class="img">
-                                                <a href="#"><img src="images/room/img-55.png" alt=""></a>
-                                            </div>
-                                            <div class="">
-                                                <h2 style="display: flex; justify-content: space-between;">
-                                                    <a href="#" style="font-weight: bold; font-size: 16px;">JASMINE
-                                                        HOTEL</a>
-                                                    <div>
-                                                        <p class="price"
-                                                            style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
-                                                            Rp 3.500.000-8.500.000</p>
-
-                                                    </div>
-                                                </h2>
-                                                <div style="display: flex; justify-content:">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#B30000"
-                                                            d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
-                                                    </svg>
-                                                    <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                    <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">
-                                                        PER-MALAM
-                                                    </p>
-                                                </div>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
                                                     <button class="btn btn-primary"
                                                         style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
@@ -503,100 +476,94 @@
                                     <div class="col-xs-4">
                                         <div class="accomd-modations-room">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-66.png" alt=""></a>
+                                                <a href="#"><img src="images/room/img-66.jpg" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
-                                                    <a href="#" style="font-weight: bold; font-size: 16px;">MARIANA
-                                                        HOTEL</a>
-                                                    <div>
-                                                        <p class="price"
-                                                            style="font-size: 14px; margin-top: 6px; font-weight: bold; color: #000000;">
-                                                            Rp 3.500.000-8.500.000</p>
-
-                                                    </div>
+                                                    <a href="#" style="font-weight: bold; font-size: 16px;">SINGLE
+                                                        ROOM</a>
                                                 </h2>
-                                                <div style="display: flex; justify-content:">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#B30000"
-                                                            d="M12 21.325q-.35 0-.7-.125t-.625-.375Q9.05 19.325 7.8 17.9t-2.087-2.762q-.838-1.338-1.275-2.575T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2q0 1.125-.437 2.363t-1.275 2.575Q17.45 16.475 16.2 17.9t-2.875 2.925q-.275.25-.625.375t-.7.125M12 12q.825 0 1.413-.587T14 10q0-.825-.587-1.412T12 8q-.825 0-1.412.588T10 10q0 .825.588 1.413T12 12" />
-                                                    </svg>
-                                                    <p style="margin-top: 5px;">Malang, Jawa Timur Indonesia</p>
-                                                    <p style="margin-top: -13px; color: #FFBF43; font-size: 14px;">
-                                                        PER-MALAM
+                                                <div style="display: flex; align-items: center;">
+                                                    <p class="price"
+                                                        style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                        RRp 2.200.000</p>
+                                                    <p
+                                                        style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                        / malam
                                                     </p>
                                                 </div>
-                                                <div class="d-flex" style="display: flex; justify-content: space-between">
-                                                    <button class="btn btn-primary"
-                                                        style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
-                                                        Sekarang</button>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
-                                                    </svg>
-                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12" style="margin-top: 70px; text-align: center;">
-                                        <p style="font-size: 16px; font-weight: bold;">Jelajahi Hotel Lainnya untuk
-                                            Menemukan
-                                            Penginapan Impian Anda!</p>
-                                        <div style="margin-top: 30px;">
-                                            <p>
-                                                @auth
-                                                    <!-- Jika pengguna sudah login, arahkan ke halaman menu -->
-                                                    <a href="{{ route('menu') }}">
-                                                        <button
-                                                            style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
-                                                            LIHAT MENU LAINNNYA
-                                                        </button>
-                                                    </a>
-                                                @else
-                                                    <!-- Jika pengguna belum login, arahkan ke halaman login -->
-                                                    <a href="{{ route('auth.login') }}">
-                                                        <button
-                                                            style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
-                                                            LIHAT MENU LAINNYA
-                                                        </button>
-                                                    </a>
-                                                @endauth
-                                            </p>
-                                        </div>
-                                        <div class="col-xs-12" style="margin-top: 50px; text-align: center;">
-                                            <img src="images/icon.png" alt="icon">
+
+                                            <div class="d-flex" style="display: flex; justify-content: space-between">
+                                                <button class="btn btn-primary"
+                                                    style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                    Sekarang</button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#FFBF43"
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xs-12" style="margin-top: 70px; text-align: center;">
+                                    <p style="font-size: 16px; font-weight: bold;">Jelajahi kamar Lainnya untuk
+                                        Menemukan
+                                        Penginapan Impian Anda!</p>
+                                    <div style="margin-top: 30px;">
+                                        <p>
+                                            @auth
+                                                <!-- Jika pengguna sudah login, arahkan ke halaman menu -->
+                                                <a href="{{ route('menu') }}">
+                                                    <button
+                                                        style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+                                                        LIHAT MENU LAINNNYA
+                                                    </button>
+                                                </a>
+                                            @else
+                                                <!-- Jika pengguna belum login, arahkan ke halaman login -->
+                                                <a href="{{ route('auth.login') }}">
+                                                    <button
+                                                        style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+                                                        LIHAT MENU LAINNYA
+                                                    </button>
+                                                </a>
+                                            @endauth
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-12" style="margin-top: 50px; text-align: center;">
+                                        <img src="images/icon.png" alt="icon">
+                                    </div>
+                                </div>
+                            </div>
     </section>
     <!-- GALLERY -->
-    <section class="section-gallery" style="text-align: center; position: relative; margin-top: -90px;">
+    {{-- <section class="section-gallery" style="text-align: center; position: relative; margin-top: -90px;">
         <div id="kontak-section">
             <div class="gallery" style="padding-top: 10px; margin-button: 50px">
                 <div style="position: relative; display: flex; justify-content: center;">
@@ -623,7 +590,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 

@@ -98,5 +98,7 @@
                 });
             });
         });
-    </script>
+
+
+</script>
 @endsection
