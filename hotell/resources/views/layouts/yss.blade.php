@@ -92,14 +92,14 @@
     <!-- FOOTER -->
     <footer id="footer">
         <!-- Footer Top -->
-        <div class="footer-top" style="background: #283646;padding: 2rem 0;">
+        <div class="footer-top" style="background: #283646; padding: 2rem 0;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <a href="#"><img src="images/kologo.png"></a>
                         <div style="width: 613.65px; height: 32px; padding-top: 4.33px; padding-bottom: 3.67px; padding-left: 0.26px; padding-right: 168.39px; justify-content: flex-start; align-items: flex-start; gap: 51px; display: inline-flex">
                             <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Beranda</div>
-                            <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Hotel</div>
+                            <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Kamar</div>
                             <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Tentang Kami</div>
                         </div>
                         <div style="width: 1170px; height: 2.67px; border: 1px #71777D solid"></div>
@@ -111,7 +111,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6" style="display: flex; justify-content: flex-end;  margin-top: 50px;">
+                    <div class="col-md-6" style="display: flex; justify-content: flex-end; margin-top: 50px;">
                         <div style="width: 300px; height: 70px; padding-bottom: 10px; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; gap: 10px; margin-top: -20px;">
                             <div style="width: 300px; color: white; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; text-align: right; margin-right: -80px;">Hubungi Kami</div>
                         </div>
@@ -128,9 +128,9 @@
         </div>
         <!-- Footer Bottom -->
         <footer>
-            <div class="footer-bottom" style="padding: 7px 0;"> <!-- Atur padding untuk memperbesar footer -->
+            <div class="footer-bottom" style="padding: 7px 0; margin-top: 20px;"> <!-- Tambahkan margin-top disini -->
                 <div class="container">
-                    <div class="text-center" style="color: white;">Design with love © TanahAirStudio 2020. All right reserved</div>
+                    <div class="text-center" style="color: white;">@everywhere</div>
                 </div>
             </div>
         </footer>

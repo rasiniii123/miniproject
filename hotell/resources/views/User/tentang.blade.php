@@ -15,20 +15,26 @@
                         <div class="text">
                             <h2 class="heading">TENTANG KAMI</h2>
                             <p>
-                                Berbagai pilihan Hotel terbaik di “everyWhere” liburan ke destinasi pilihan kamu ga perlu ribet, 
-                                hanya dengan satu aplikasi kamu bisa booking hotel. Bukan hanya kemudahan dalam booking hotel online, 
+                                Berbagai pilihan Hotel terbaik di “everyWhere” liburan ke destinasi pilihan kamu ga perlu ribet,
+                                hanya dengan satu aplikasi kamu bisa booking hotel. Bukan hanya kemudahan dalam booking hotel online,
                                 kamu juga bisa dapatkan berbagai promo menarik dengan JAMINAN HARGA TERMURAH di “EveryWhere” yuk,
                                  siapkan liburan kamu dan pesan hotel pilihan kamu di “EveryWhere”
-                            </p>  
-                            <h2 class="heading">YANG TERBAIK DARI KAMI</h2> 
+                            </p>
+                            <h2 class="heading">YANG TERBAIK DARI KAMI</h2>
                             <p>
-                                Berbagai pilihan Hotel dengan fasilitas lengkap saat pesan hotel murah online, 
-                                jangan lupa untuk mengecek hotel terkait dengan kelengkapan fasilitasnnya. 
+                                Berbagai pilihan Hotel dengan fasilitas lengkap saat pesan hotel murah online,
+                                jangan lupa untuk mengecek hotel terkait dengan kelengkapan fasilitasnnya.
                                 Dengan booking hotel di Everywhere, kamu tidak perlu repot lagi menghubungi pihak hotel untuk bertannya tentang fasilitas setiap jenis kamar,
-                                 karena semua informasi lengkap terkait fasilitas hotel telah tersedia. 
+                                 karena semua informasi lengkap terkait fasilitas hotel telah tersedia.
                             </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
                 </div>
             </div>
         </div>

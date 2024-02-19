@@ -10,6 +10,7 @@
     <section class="section-account parallax"
         style="background-image: url('images/register.png'); background-size: cover; background-position: center center; height: 100vh;">
         <div class="awe-overlay"></div>
+        <img src="images/kologo.png" alt="logo" style="width: 100px;  position: absolute; top: 0; right: 10px; transform: translateX(-1160%);">
         <div class="container">
             <div class="login-register">
                 <div class="text text-center"
