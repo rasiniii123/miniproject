@@ -53,7 +53,7 @@ class UserController extends Controller
         }
     } else {
         // Login gagal, mungkin tampilkan pesan kesalahan
-        return back()->withErrors(['email' => 'Login failed. Invalid email or password.']);
+        return back()->withErrors(['email' => 'Login gagal. email atau password salah.']);
     }
 }
 

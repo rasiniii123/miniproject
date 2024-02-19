@@ -37,18 +37,16 @@
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth <!-- Cek apakah pengguna sudah login -->
-                            <span
-                                style="font-size: 20px; color: #fff;  margin-right: 10px; ">{{ auth()->user()->username }}</span>
-                            <div class="dropdown">
-                                <img onclick="toggleDropdown()" src="{{ asset('user-2.png') }}" width="40" height="40"
-                                    style="float: left; margin-right: 10px; cursor: pointer;">
-                                <div id="myDropdown" class="dropdown-content">
-                                    <form action="{{ route('logout') }}" method="post">
-                                        @csrf
-                                        <button type="submit" style="font-size: 14px;">Logout</button>
-                                    </form>
-                                </div>
+                        <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
+                        <div class="dropdown">
+                            <img onclick="toggleDropdown()" src="{{ asset('user-2.png') }}" width="40" height="40" style="float: left; margin-right: 10px; cursor: pointer;">
+                            <div id="myDropdown" class="dropdown-content">
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <button type="submit" style="font-size: 14px;">Logout</button>
+                                </form>
                             </div>
+                        </div>
                         @else
                             <!-- Jika pengguna belum login -->
                             <a href="{{ route('auth.register') }}">Register</a> <!-- Tautan untuk register -->

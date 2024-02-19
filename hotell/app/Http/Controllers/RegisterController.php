@@ -28,9 +28,18 @@ class RegisterController extends Controller
 
         // Validate the request data
         $validatedData = $request->validate([
-            'username' => 'required|unique:users,username',
+            'username' => 'required|unique:users',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:6|confirmed', // Konfirmasi password
+        ], [
+            'username.required' => 'Username harus diisi',
+            'username.unique' => 'Username sudah digunakan',
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Format email tidak valid',
+            'email.unique' => 'Email sudah terdaftar',
+            'password.required' => 'Password harus diisi',
+            'password.min' => 'Password minimal 6 karakter',
+            'password.confirmed' => 'Konfirmasi password tidak cocok', // Pesan untuk konfirmasi password yang tidak cocok
         ]);
 
 
@@ -39,7 +48,7 @@ class RegisterController extends Controller
             'username' => $validatedData['username'],
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
-            'role' => 'admin',  
+            'role' => 'admin',
         ]);
 
         // Redirect the user to the login page with a success message
