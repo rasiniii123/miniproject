@@ -29,6 +29,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha256-TkuZP5anekbHsP5QhG9UcxV1UiN06dF0VrH2eW2vbqA=" crossorigin="anonymous" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 
 
     <!-- MAIN STYLE -->
@@ -105,32 +108,53 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <a href="#"><img src="images/kologo.png"></a>
-                                <div style="width: 613.65px; height: 32px; padding-top: 4.33px; padding-bottom: 3.67px; padding-left: 0.26px; padding-right: 168.39px; justify-content: flex-start; align-items: flex-start; gap: 51px; display: inline-flex">
-                                    <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Beranda</div>
-                                    <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Hotel</div>
-                                    <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Tentang Kami</div>
+                                <div
+                                    style="width: 613.65px; height: 32px; padding-top: 4.33px; padding-bottom: 3.67px; padding-left: 0.26px; padding-right: 168.39px; justify-content: flex-start; align-items: flex-start; gap: 51px; display: inline-flex">
+                                    <div
+                                        style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">
+                                        Beranda</div>
+                                    <div
+                                        style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">
+                                        Hotel</div>
+                                    <div
+                                        style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">
+                                        Tentang Kami</div>
                                 </div>
                                 <div style="width: 1170px; height: 2.67px; border: 1px #71777D solid"></div>
-                                <div style="display: flex; align-items: center; justify-content: flex-end; margin-top: 10px; margin-right: -600px;">
-                                    <a href="#" style="color: #fff; margin-right: 10px;"><img src="images/Vector.png" alt="YouTube" style="width: 18px; height: 18px;"></a>
-                                    <a href="#" style="color: #fff; margin-right: 10px;"><img src="images/instragram.png" alt="Instagram" style="width: 18px; height: 18px;"></a>
-                                    <a href="#" style="color: #fff; margin-right: 10px;"><img src="images/twiter.png" alt="Twitter" style="width: 18px; height: 18px;"></a>
-                                    <a href="#" style="color: #fff; margin-right: 10px;"><img src="images/gmail.png" alt="Email" style="width: 18px; height: 18px;"></a>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: flex-end; margin-top: 10px; margin-right: -600px;">
+                                    <a href="#" style="color: #fff; margin-right: 10px;"><img
+                                            src="images/Vector.png" alt="YouTube"
+                                            style="width: 18px; height: 18px;"></a>
+                                    <a href="#" style="color: #fff; margin-right: 10px;"><img
+                                            src="images/instragram.png" alt="Instagram"
+                                            style="width: 18px; height: 18px;"></a>
+                                    <a href="#" style="color: #fff; margin-right: 10px;"><img
+                                            src="images/twiter.png" alt="Twitter"
+                                            style="width: 18px; height: 18px;"></a>
+                                    <a href="#" style="color: #fff; margin-right: 10px;"><img
+                                            src="images/gmail.png" alt="Email"
+                                            style="width: 18px; height: 18px;"></a>
                                 </div>
                             </div>
 
                             <div class="col-md-6" style="display: flex; justify-content: flex-end;  margin-top: 50px;">
-                                <div style="width: 300px; height: 70px; padding-bottom: 10px; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; gap: 10px; margin-top: -20px;">
-                                    <div style="width: 300px; color: white; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; text-align: right; margin-right: -80px;">Hubungi Kami</div>
+                                <div
+                                    style="width: 300px; height: 70px; padding-bottom: 10px; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; gap: 10px; margin-top: -20px;">
+                                    <div
+                                        style="width: 300px; color: white; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; text-align: right; margin-right: -80px;">
+                                        Hubungi Kami</div>
                                 </div>
                                 <div style="width: 300px; height: 40px; position: relative;">
-                                    <div style="width: 90px; height: 40px; position: absolute; right: 0; top: 0; display: flex; justify-content: center; align-items: center;">
-                                        <div style="width: 210px; height: 40px; position: absolute; right: 100px; top: 0; background: white; border-radius: 6px; border: 1px #B3BDC7 solid; display: flex; justify-content: center; align-items: center;">
+                                    <div
+                                        style="width: 90px; height: 40px; position: absolute; right: 0; top: 0; display: flex; justify-content: center; align-items: center;">
+                                        <div
+                                            style="width: 210px; height: 40px; position: absolute; right: 100px; top: 0; background: white; border-radius: 6px; border: 1px #B3BDC7 solid; display: flex; justify-content: center; align-items: center;">
                                             <span style="color: #333; font-size: 14px;">hello@everywhere.com</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -138,71 +162,69 @@
                 <footer>
                     <div class="footer-bottom" style="padding: 7px 0;"> <!-- Atur padding untuk memperbesar footer -->
                         <div class="container">
-                            <div class="text-center" style="color: white;">Design with love © TanahAirStudio 2020. All right reserved</div>
+                            <div class="text-center" style="color: white;">Design with love © TanahAirStudio 2020. All
+                                right reserved</div>
                         </div>
                     </div>
                 </footer>
 
 
-    </div>
-    <!-- END / PAGE WRAP -->
+        </div>
+        <!-- END / PAGE WRAP -->
 
 
-    <!-- LOAD JQUERY -->
-    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/lib/bootstrap-select.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=true"></script>
-    <script type="text/javascript" src="js/lib/isotope.pkgd.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.themepunch.revolution.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="js/lib/owl.carousel.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.appear.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.countTo.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.parallax-1.1.3.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="js/lib/SmoothScroll.js"></script>
-    <!-- validate -->
-    <script type="text/javascript" src="js/lib/jquery.form.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
-    <!-- Custom jQuery -->
-    <script type="text/javascript" src="js/scripts.js"></script>
+        <!-- LOAD JQUERY -->
+        <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/lib/bootstrap-select.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=true"></script>
+        <script type="text/javascript" src="js/lib/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="js/lib/owl.carousel.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.appear.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.countTo.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.countdown.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.parallax-1.1.3.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="js/lib/SmoothScroll.js"></script>
+        <!-- validate -->
+        <script type="text/javascript" src="js/lib/jquery.form.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
+        <!-- Custom jQuery -->
+        <script type="text/javascript" src="js/scripts.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    @if (session('success'))
-        <script>
-            Swal.fire({
-                title: 'Registrasi Berhasil',
-                text: 'Selamat datang di situs kami!',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            });
-        </script>
-    @endif
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-    @if (session('logout_success'))
-        <script>
-            Swal.fire({
-                title: 'Logout Berhasil',
-                text: 'Anda telah berhasil keluar.',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            });
-        </script>
-    @endif
-    <script>
-        // Fungsi untuk menampilkan atau menyembunyikan dropdown saat di klik
-        function toggleDropdown() {
-            var dropdown = document.getElementById("myDropdown");
-            if (dropdown.style.display === "block") {
-                dropdown.style.display = "none";
-            } else {
-                dropdown.style.display = "block";
-            }
-        }
-    </script>
+        <!-- Bootstrap JS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        @if (session('success'))
+            <script>
+                Swal.fire({
+                    title: 'Registrasi Berhasil',
+                    text: 'Selamat datang di situs kami!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            </script>
+        @endif
+
+        @if (session('logout_success'))
+            <script>
+                Swal.fire({
+                    title: 'Logout Berhasil',
+                    text: 'Anda telah berhasil keluar.',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            </script>
+        @endif
 </body>
 
 <!-- Mirrored from landing.engotheme.com/html/lotus/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Feb 2024 12:43:53 GMT -->

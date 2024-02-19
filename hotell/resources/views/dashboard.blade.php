@@ -38,15 +38,27 @@
                         @auth <!-- Cek apakah pengguna sudah login -->
                             <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
                             <div class="dropdown">
-                                <img onclick="toggleDropdown()" src="{{ asset('user-2.png') }}" width="40" height="40"
-                                    style="margin-right: 10px; cursor: pointer;">
-                                <div id="myDropdown" class="dropdown-content">
-                                    <form action="{{ route('logout') }}" method="post">
-                                        @csrf
-                                        <button type="submit" style="font-size: 14px;">Logout</button>
-                                    </form>
-                                </div>
+                                <button class="nav-link dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="ti-settings text-primary"></i>
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="ti-power-off text-primary"></i>
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
+                            
+                            </div>
+                            
                         @else
                             <!-- Jika pengguna belum login -->
                             <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Register</a> <!-- Tautan untuk register -->
