@@ -9,8 +9,7 @@ class RoomController extends Controller
 {
     public function index()
     {
-        $rooms = Room::orderBy('id', 'desc')->get();
-        return view('semiRoom.Room', compact('rooms'));
+        return view('admin.kamar.index');
     }
 
 

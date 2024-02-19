@@ -12,7 +12,6 @@
                 // Fungsi untuk menambahkan efek loading
                 function addLoadingEffect() {
                     // Tampilkan elemen loading (Anda perlu memiliki elemen loading dalam HTML)
-                    document.getElementById("loading").style.display = "block";
 
                     // Set waktu tunggu sebelum menuju ke bagian yang dituju (dalam milidetik)
                     setTimeout(function() {
