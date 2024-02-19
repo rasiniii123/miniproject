@@ -55,7 +55,7 @@
                             <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
                         @endauth
                     </div>
-                </li>
+        </li>
 
 
 
@@ -627,34 +627,36 @@
                                     </div>
                                 </div>
     </section>
-                <!-- GALLERY -->
-                <section class="section-gallery" style="text-align: center; position: relative;">
-                    <div id="kontak-section">
-                        <div class="gallery no-padding">
-                            <div style="position: relative; display: flex; justify-content: center;">
-                                <img src="images/gp-1.png" alt="Gambar" style="width: 100%; max-width: 1200px;">
-                                <div
-                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-shadow: 2px 2px 4px #000; font-family: 'Poppins', sans-serif;">
-                                    <h2 class="heading" style="font-size: 48px; color: white;">LAYANAN KAMI</h2>
-                                    <p style="font-size: 24px;">Ada kendala? atau ingin memberikan masukan,</p>
-                                    <p style="font-size: 24px;">silahkan isi kolom dibawah ini.</p>
-                                    @auth
-                                    <a href="{{ route('kontak.index') }}">
-                                        <button style="background-color: #283E58; width: 199px; height: 38px; border-radius: 32px;">
-                                            <span style="color: white; font-weight: bold;">HUBUNGI KAMI</span>
-                                        </button>
-                                    </a>
-                                @else
-                                    <a href="{{ route('auth.login') }}">
-                                        <button style="background-color: #283E58; width: 199px; height: 38px; border-radius: 32px;">
-                                            <span style="color: white; font-weight: bold;">HUBUNGI KAMI</span>
-                                        </button>
-                                    </a>
-                                @endauth
-                                </div>
-                            </div>
-                        </div>
-                </section>
+    <!-- GALLERY -->
+    <section class="section-gallery" style="text-align: center; position: relative; margin-top: -90px;">
+        <div id="kontak-section">
+            <div class="gallery" style="padding-top: 10px; margin-button: 50px">
+                <div style="position: relative; display: flex; justify-content: center;">
+                    <img src="images/gp-1.png" alt="Gambar">
+                    <div
+                        style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; text-shadow: 2px 2px 4px #000; font-family: 'Poppins', sans-serif;">
+                        <h2 class="heading" style="font-size: 48px; color: white;">LAYANAN KAMI</h2>
+                        <p style="font-size: 24px;">Ada kendala? atau ingin memberikan masukan,</p>
+                        <p style="font-size: 24px;">silahkan isi kolom dibawah ini.</p>
+                        @auth
+                            <a href="{{ route('kontak.index') }}">
+                                <button style="background-color: #283E58; width: 199px; height: 38px; border-radius: 32px;">
+                                    <span style="color: white; font-weight: bold;">HUBUNGI KAMI</span>
+                                </button>
+                            </a>
+                        @else
+                            <a href="{{ route('auth.login') }}">
+                                <button style="background-color: #283E58; width: 199px; height: 38px; border-radius: 32px;">
+                                    <span style="color: white; font-weight: bold;">HUBUNGI KAMI</span>
+                                </button>
+                            </a>
+                        @endauth
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 
     <!-- LOAD JQUERY -->
