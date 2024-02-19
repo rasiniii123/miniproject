@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="css/lib/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/lib/font-lotusicon.css">
     <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/lib/owl.carousel.css">
+    {{-- <link rel="stylesheet" type="text/css" href="css/lib/owl.carousel.css"> --}}
     <link rel="stylesheet" type="text/css" href="css/lib/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="css/lib/magnific-popup.css">
     <link rel="stylesheet" type="text/css" href="css/lib/settings.css">
@@ -184,7 +184,7 @@
         <script type="text/javascript" src="js/lib/isotope.pkgd.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery.themepunch.revolution.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="js/lib/owl.carousel.js"></script>
+                {{-- <script type="text/javascript" src="js/lib/owl.carousel.js"></script> --}}
         <script type="text/javascript" src="js/lib/jquery.appear.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery.countTo.js"></script>
         <script type="text/javascript" src="js/lib/jquery.countdown.min.js"></script>
