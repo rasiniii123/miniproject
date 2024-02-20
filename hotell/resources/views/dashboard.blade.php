@@ -132,7 +132,7 @@
                         <div class="col-md-6">
                             <div class="text">
                                 <h2 class="heading">TENTANG KAMI</h2>
-                                <p style="font-size: 17px;"">
+                                <p style="font-size: 17px;">
                                     "Kami menawarkan berbagai Pilihan kamar Terbaik di 'everywhere',
                                     memberikanmu kemudahan dan kenyamanan dalam merencanakan liburan impianmu.
                                     Tak perlu ribet, karena hanya dengan satu aplikasi khusus,
@@ -190,14 +190,14 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
                                                 <a><img src="images/room/img-11.png" alt=""></a>
                                             </div>
                                             <div class="">
-                                                <h2 style="display: flex; justify-content: space-between;">
+                                                <h2  style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a href="#"
+                                                        <a 
                                                             style="font-weight: bold; font-size: 16px;">LUXURY ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
@@ -217,29 +217,21 @@
                                                         <path fill="#FFBF43"
                                                             d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                    
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                    
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                    
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                    
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
                                                 </div>
                                             </div>
@@ -249,14 +241,14 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-22.png" alt=""></a>
+                                                <a ><img src="images/room/img-22.png" alt=""></a>
                                             </div>
                                             <div class="">
-                                                <h2 style="display: flex; justify-content: space-between;">
+                                                <h2 style="display: flex; justify-content: space-between;" >
                                                     <div>
-                                                        <a href="#"
+                                                        <a
                                                             style="font-weight: bold; font-size: 16px;">COUPLE ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
@@ -309,14 +301,14 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-33.png" alt=""></a>
+                                                <a ><img src="images/room/img-33.png" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a href="#"
+                                                        <a 
                                                             style="font-weight: bold; font-size: 16px;">STANDAR ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
@@ -370,14 +362,14 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-55.webp" alt=""></a>
+                                                <a ><img src="images/room/img-55.webp" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a href="#"
+                                                        <a 
                                                             style="font-weight: bold; font-size: 16px;">FAMILY ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
@@ -431,14 +423,14 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-44.png" alt=""></a>
+                                                <a ><img src="images/room/img-44.png" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a href="#"
+                                                        <a 
                                                             style="font-weight: bold; font-size: 16px;">DELUXE ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
@@ -493,13 +485,13 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-66.jpg" alt=""></a>
+                                                <a ><img src="images/room/img-66.jpg" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
-                                                    <a href="#" style="font-weight: bold; font-size: 16px;">SINGLE
+                                                    <a  style="font-weight: bold; font-size: 16px;">SINGLE
                                                         ROOM</a>
                                                 </h2>
                                                 <div style="display: flex; align-items: center;">

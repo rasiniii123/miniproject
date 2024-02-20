@@ -48,7 +48,7 @@
                 <div class="logo">
                     <img src="images/kologo.png" alt="Logo" width="100">
                 </div>
-                <div class="menu">
+                <div class="menu" style="margin-left: 100px;">
                     <ul>
                         <li><a href="{{ route('dashboard') }}" onclick="addLoadingEffect()">Beranda</a></li>
                         <li><a href=" #hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
@@ -64,10 +64,10 @@
                                 <li>
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
-                                        <button type="submit" class="dropdown-item bg-transparent btn-primary">
+                                        <button type="submit" class="dropdown-item bg-transparent btn-primary btn-lg">
                                             <i class="fas fa-sign-out-alt fa-lg text-primary"></i> Keluar
                                         </button>
-                                    </form>
+                                    </form>                                    
                                 </li>
                             </ul>
                         </div>
@@ -78,6 +78,16 @@
                             <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
                         @endauth
                     </div>
+                     <script>
+                    function toggleDropdown() {
+                        var dropdown = document.getElementById("userDropdown");
+                        if (dropdown.style.display === "none") {
+                            dropdown.style.display = "block";
+                        } else {
+                            dropdown.style.display = "none";
+                        }
+                    }
+                </script>
                 </div>
             </div>
         </div>
