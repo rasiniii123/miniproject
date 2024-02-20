@@ -7,29 +7,26 @@
                     <h2 class="heading" style="font-size: 30px;">LUXURY ROOM</h2>
                     <div class="img" style="margin-top: 2px">
                         <a><img src="images/frame.png" alt="" style="width: 100%; margin-top : 20px"></a>
-                        {{-- <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
-                            style="margin-top: -8px; float: left; margin-right: 10px;">
-                            <path fill="currentColor"
-                                d="M12 18.6q-.25 0-.488-.075t-.437-.225q-2.025-1.575-4.05-3.963T5 9.15q0-1.775.638-3.113T7.275 3.8q1-.9 2.25-1.35T12 2q1.225 0 2.475.45t2.25 1.35q1 .9 1.638 2.238T19 9.15q0 2.8-2.025 5.188t-4.05 3.962q-.2.15-.437.225T12 18.6m0-7.6q.825 0 1.413-.587T14 9q0-.825-.587-1.412T12 7q-.825 0-1.412.588T10 9q0 .825.588 1.413T12 11M6 22q-.425 0-.712-.288T5 21q0-.425.288-.712T6 20h12q.425 0 .713.288T19 21q0 .425-.288.713T18 22z" />
-                        </svg> --}}
-                        {{-- <p style="float: left; margin-top: 0; margin-left: 5px;">Jl. Cakrawala no.01 Malang, Jawa Timur
-                            Indonesia</p> --}}
-                        <div
-                            style="float: left; color: #232323; font-size: 20px; font-family: Poppins; font-weight: 400; word-wrap: break-word;clear: both;">
-                            Rp. 4.500.000</div>
-                        <div
-                            style="float: left; color: #D88F00; font-size: 20px; font-family: Poppins; font-weight: 400; word-wrap: break-word; clear: both; margin-left: 130px; margin-top:-30px;">
-                            / Malam</div>
-                        <div
-                            style="float: left; color: #D88F00; font-size: 20px; font-family: Poppins; font-weight: 400; word-wrap: break-word; clear: both; margin-left: 20px; margin-top:-110px;">
-                            4/5</div>
-                        <div
-                            style="float: left; color: #5A5A5A; font-size: 20px; font-family: Poppins; font-weight: 400; word-wrap: break-word; clear: both; margin-left: 60px; margin-top:-110px;">
-                            (3021)</div>
-                        <button
-                            style="float: left; margin-left: -6px; margin-top:30px; margin-bottom: 20px; background-color: #283E58; color: white; border: none; padding: 15px 25px; font-size: 20px; font-family: Poppins; font-weight: 400; cursor: pointer; width: 270px; height: 40px; text-align: center; display: flex; align-items: center; justify-content: center; border-radius: 10px;">Pesan
-                            Sekarang</button>
-                    </div>
+                        <div class="img" style="margin-top: 2px">
+                            <div style="float: left; color: #232323; font-size: 20px; font-family: Poppins; font-weight: 400; word-wrap: break-word;clear: both;">
+                                Rp. 4.500.000
+                            </div>
+                            <div style="float: left; color: #FFBF43                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ; font-size: 20px; font-family: Poppins; font-weight: 400; word-wrap: break-word; clear: both; margin-left: 120px; margin-top:-30px;">
+                                / Malam
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" style="float: left; margin-top: 10px; margin-left: -10px;">
+                                <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <div style="float: left; color: #FFBF43                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ; font-size: 20px; font-family: Poppins; font-weight: 400; word-wrap: break-word; clear: both; margin-left: 25px; margin-top:-30px;">
+                                4/5
+                            </div>
+                            <div style="float: left; color: #5A5A5A; font-size: 20px; font-family: Poppins; font-weight: 400; word-wrap: break-word; clear: both; margin-left: 55px; margin-top:-30px;">
+                                (3021)
+                            </div>
+                            <button style="float: left; margin-left: -6px; margin-top:30px; margin-bottom: 20px; background-color: #283E58; color: white; border: none; padding: 15px 25px; font-size: 20px; font-family: Poppins; font-weight: 400; cursor: pointer; width: 270px; height: 40px; text-align: center; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                                Pesan Sekarang
+                            </button>
+                        </div>                        
                     <img src="images/Vector-2.png" alt="Garis bawah" style="width: 100%; margin-top: -5px; color:#92989F">
                     <h2 style="font-weight: bold; margin-right: 1000px; margin-top: 10px; font-size: 20px;">KETERANGAN</h2>
                     <p style="margin-top: 20px; text-align: justify;">
@@ -42,7 +39,8 @@
                     </p>
                     <img src="images/Vector-2.png" alt="Garis bawah"
                         style="width: 100%; margin-top: 20px; margin-bottom: 20px; color:#92989F">
-                    <h2 style="font-weight: bold; float: left; margin-top: 10px; font-size: 20px;">FASILITAS YANG DISEDIAKAN</h2>
+                    <h2 style="font-weight: bold; float: left; margin-top: 10px; font-size: 20px;">FASILITAS YANG DISEDIAKAN
+                    </h2>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                         style="margin-top: 70px; margin-right: 1200px;">
                         <path fill="currentColor"
@@ -93,7 +91,7 @@
                             Ruangan <span style="font-size: 12px; margin-left: 5px;"></span></div>
                     </div>
                     <img src="images/Vector-2.png" alt="Garis bawah"
-                    style="width: 100%; margin-top: 20px; margin-bottom: 20px; color:#92989F">
+                        style="width: 100%; margin-top: 20px; margin-bottom: 20px; color:#92989F">
                     <h2 style="font-weight: bold; float: left; margin-top: 10px; font-size: 20px;">PENILAIAN DAN ULASAN</h2>
                 </div>
     </section>

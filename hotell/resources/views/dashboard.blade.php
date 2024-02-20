@@ -183,58 +183,40 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
                                                 <a><img src="images/room/img-11.png" alt=""></a>
                                             </div>
                                             <div class="">
-                                                <h2 style="display: flex; justify-content: space-between;">
+                                                <h2  style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a href="#"
-                                                            style="font-weight: bold; font-size: 16px;">LUXURY ROOM</a>
-                                                        <div style="display: flex; align-items: center;">
-                                                            <p class="price"
-                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
-                                                                Rp 4.500.000</p>
-                                                            <p
-                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
-                                                                / malam
-                                                            </p>
+                                                        <a style="font-weight: bold; font-size: 16px; text-align: right;">LUXURY ROOM</a>
+                                                        <div style="display: flex; align-items:  center;">
+                                                            <p class="price" style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">Rp 4.500.000</p>
+                                                            <p style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">/ malam</p>
                                                         </div>
                                                     </div>
                                                 </h2>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
-                                                    <button class="btn btn-primary"
-                                                        style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
-                                                        Sekarang</button>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                    <button class="btn btn-primary" style="background-color: #382E2E; width: 199px; height: 38px;">Pesan Sekarang</button>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                    
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                    
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                    
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43"
-                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                    
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
                                                 </div>
                                             </div>
@@ -244,12 +226,12 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
                                                 <a href="#"><img src="images/room/img-22.png" alt=""></a>
                                             </div>
                                             <div class="">
-                                                <h2 style="display: flex; justify-content: space-between;">
+                                                <h2 style="display: flex; justify-content: space-between;" >
                                                     <div>
                                                         <a href="#"
                                                             style="font-weight: bold; font-size: 16px;">COUPLE ROOM</a>
@@ -304,7 +286,7 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
                                                 <a href="#"><img src="images/room/img-33.png" alt=""></a>
                                             </div>
@@ -365,7 +347,7 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
                                                 <a href="#"><img src="images/room/img-55.webp" alt=""></a>
                                             </div>
@@ -426,7 +408,7 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
                                                 <a href="#"><img src="images/room/img-44.png" alt=""></a>
                                             </div>
@@ -488,7 +470,7 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room">
+                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
                                                 <a href="#"><img src="images/room/img-66.jpg" alt=""></a>
                                             </div>
