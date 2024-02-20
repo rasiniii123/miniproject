@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -19,7 +21,7 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.kamar.create");
     }
 
     /**
@@ -27,7 +29,19 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('path_kamar');
+        $fileName = Str::random(10) . '.' .  $file->getClientOriginalExtension();
+        $file->storeAs('public/kamar', $fileName);
+
+        Room::create([
+            "path_kamar" => $fileName,
+            "nama_kamar" => $request->nama_produk,
+            "deskripsi"=> $request->deskripsi,
+            "harga"=> $request->harga,
+            "kategori_id"=> $request->kategori_id,
+        ]);
+
+        return redirect()->route('produk')->with("success", "Product data added successfully!");
     }
 
     /**

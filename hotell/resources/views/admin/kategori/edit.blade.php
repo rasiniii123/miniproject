@@ -1,6 +1,5 @@
 @extends('admin.layout.app')
 @section('content')
-    <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -61,8 +60,8 @@
                     </a>
 
                     {{-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
-                    </a> --}}
+                <i class="bx bx-chevron-left bx-sm align-middle"></i>
+            </a> --}}
                 </div>
 
                 <div class="menu-inner-shadow"></div>
@@ -77,16 +76,9 @@
                     </li>
                     <!-- e-commerce-app menu start -->
                     <li class="menu-item active open">
-                        <a href="{{ route('room') }}" class="menu-link">
+                        <a href="javascript:void(0);" class="menu-link">
                             <i class="menu-icon fa-solid fa-bed"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('kategori') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div class="text-truncate" data-i18n="Dashboards">Category</div>
-                            {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
                         </a>
                     </li>
             </aside>
@@ -102,15 +94,15 @@
                     </div>
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         {{-- <!-- Search -->
-        <div class="navbar-nav align-items-center">
-          <div class="nav-item navbar-search-wrapper mb-0">
-            <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
-              <i class="bx bx-search bx-sm"></i>
-              <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
-            </a>
-          </div>
-        </div>
-        <!-- /Search --> --}}
+<div class="navbar-nav align-items-center">
+  <div class="nav-item navbar-search-wrapper mb-0">
+    <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
+      <i class="bx bx-search bx-sm"></i>
+      <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
+    </a>
+  </div>
+</div>
+<!-- /Search --> --}}
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -170,7 +162,9 @@
 
                 <!-- / Navbar -->
 
-                <!-- Content wrapper -->
+
+
+
                 <div class="content-wrapper">
 
                     <!-- Content -->
@@ -180,86 +174,48 @@
 
 
                         <h4 class="py-3 mb-4">
-                            <span class="text-muted fw-light"></span> Room list
+                            <span> Add Category</span>
                         </h4>
 
-                        <!-- Product List Table -->
-                        <div class="card">
-                            {{-- <div class="card-header">
-                                <h5 class="card-title">Filter</h5>
-                                <div class="d-flex justify-content-between align-items-center row py-3 gap-3 gap-md-0">
-                                    <div class="col-md-4 product_status"></div>
-                                    <div class="col-md-4 product_category"></div>
-                                    <div class="col-md-4 product_stock"></div>
+                        <div class="app-ecommerce">
+
+                            <!-- Add Product -->
+                            <form action="{{ route('kategori.store') }}" method="POST">
+                                @csrf
+                            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+
+                                <div class="d-flex flex-column justify-content-center">
+                                    <h4 class="mb-1 mt-3">Add a new Category</h4>
+                                    <p class="text-muted">Orders placed across your store</p>
                                 </div>
-                            </div> --}}
-                            <div class="card-header">
-                                <a href="{{ route('room.create') }}">
-                                    <button class="btn btn-secondary add-new btn-primary">
-                                        <span><i class="bx bx-plus me-0 me-sm-1"></i>
-                                            <span class="d-none d-sm-inline-block">Add Room</span>
-                                        </span>
-                                    </button>
-                                </a>
+                                <div class="d-flex align-content-center flex-wrap gap-3">
+                                    <button class="btn btn-label-secondary">Discard</button>
+                                    <button type="submit" class="btn btn-primary">Publish category</button>
+                                </div>
+
                             </div>
-                            <div class="card-datatable table-responsive">
-                                <table class="datatables-products table border-top">
-                                    <thead>
-                                        <tr>
-                                            <th style="color: black; font-weight: bold">No</th>
-                                            <th style="color: black; font-weight: bold">Room</th>
-                                            <th style="color: black; font-weight: bold">Category</th>
-                                            <th style="color: black; font-weight: bold">Price</th>
-                                            <th style="color: black; font-weight: bold">Description</th>
-                                            <th style="color: black; font-weight: bold">Status</th>
-                                            <th style="color: black; font-weight: bold">actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd">
-                                            <td class="control">
-                                                <span>1</span>
-                                            </td>
-                                            <td class="sorting_1">
-                                                <div class="d-flex justify-content-start align-items-center product-name">
-                                                    <div class="avatar-wrapper">
-                                                        <div class="avatar avatar me-2 rounded-2 bg-label-secondary">
-                                                            <img src="{{ asset('images/room/detail/compare/img-1.jpg') }}" alt="Product-9" class="rounded-2">
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex flex-column">
-                                                        <h6 class="text-body text-nowrap mb-0">Luxury room</h6>
-                                                    </div>
+
+                            <div class="row">
+                                <!-- First column-->
+                                <div class="col-12 col-lg-12">
+                                    <!-- Product Information -->
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <h5 class="card-tile mb-0">Category information</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="ecommerce-product-name">Name</label>
+                                                    <input type="text" class="form-control" id="ecommerce-product-name"
+                                                        placeholder="Room title" name="nama_kategori"
+                                                        aria-label="Product title">
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">Shoes</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">Rp. 200.000</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugiat excepturi delectus laudantium illo. Molestiae atque quis possimus rerum obcaecati, laborum impedit fugiat sunt accusantium deleniti ipsa mollitia at consectetur!', 10, $end = '...')) }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-label-danger">Booking</span>
-                                            </td>
-                                            <td class="" style="">
-                                                <div class="d-inline-block text-nowrap">
-                                                    <button class="btn btn-sm btn-icon">
-                                                        <i class="bx bx-edit"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                        <i class="bx bx-dots-vertical-rounded me-2"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end m-0">
-                                                        <a href="javascript:0;" class="dropdown-item text-danger">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- /Product Information -->
+                                </div>
+                                <!-- /Second column -->
                             </div>
                         </div>
                     </div>
@@ -294,6 +250,7 @@
                     </footer>
                     <!-- / Footer -->
 
+
                     <div class="content-backdrop fade"></div>
                 </div>
                 <!-- Content wrapper -->
@@ -301,8 +258,11 @@
             <!-- / Layout page -->
         </div>
 
+
+
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
+
 
         <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
