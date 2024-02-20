@@ -216,33 +216,36 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($kamar as $kamars)
                                         <tr class="odd">
                                             <td class="control">
-                                                <span>1</span>
+                                                <span>{{ $loop->iteration }}</span>
                                             </td>
                                             <td class="sorting_1">
                                                 <div class="d-flex justify-content-start align-items-center product-name">
                                                     <div class="avatar-wrapper">
                                                         <div class="avatar avatar me-2 rounded-2 bg-label-secondary">
-                                                            <img src="{{ asset('images/room/detail/compare/img-1.jpg') }}" alt="Product-9" class="rounded-2">
+                                                            <img src="{{ asset('storage/kamar/' . $kamars->path_kamar) }}" alt="Product-9" class="rounded-2">
                                                         </div>
                                                     </div>
                                                     <div class="d-flex flex-column">
-                                                        <h6 class="text-body text-nowrap mb-0">Luxury room</h6>
+                                                        <h6 class="text-body text-nowrap mb-0">{{ ucfirst($kamars->nama_kamar )}}</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="text-truncate d-flex align-items-center">Shoes</span>
+                                                <span class="text-truncate d-flex align-items-center">
+                                                    {{ $kamars->kategori ? $kamars->kategori->nama_kategori : 'Tidak Ada Kategori' }}
+                                                </span>
                                             </td>
                                             <td>
-                                                <span class="text-truncate d-flex align-items-center">Rp. 200.000</span>
+                                                <span class="text-truncate d-flex align-items-center">{{ $kamars->stok }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugiat excepturi delectus laudantium illo. Molestiae atque quis possimus rerum obcaecati, laborum impedit fugiat sunt accusantium deleniti ipsa mollitia at consectetur!', 10, $end = '...')) }}</span>
+                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
                                             </td>
                                             <td>
-                                                <span class="badge bg-label-danger">Booking</span>
+                                                <span class="badge bg-label-danger">{{ $kamars->status }}</span>
                                             </td>
                                             <td class="" style="">
                                                 <div class="d-inline-block text-nowrap">
@@ -258,6 +261,7 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

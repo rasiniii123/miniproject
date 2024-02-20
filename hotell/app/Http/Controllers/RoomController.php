@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\Kategori;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class RoomController extends Controller
      */
     public function index()
     {
-        return view("admin.kamar.index");
+        $kamar = Room::all();
+        return view("admin.kamar.index", compact('kamar'));
     }
 
     /**
@@ -21,7 +23,8 @@ class RoomController extends Controller
      */
     public function create()
     {
-        return view("admin.kamar.create");
+        $kategori = Kategori::all();
+        return view("admin.kamar.create", compact('kategori'));
     }
 
     /**
@@ -35,13 +38,13 @@ class RoomController extends Controller
 
         Room::create([
             "path_kamar" => $fileName,
-            "nama_kamar" => $request->nama_produk,
+            "nama_kamar" => $request->nama_kamar,
             "deskripsi"=> $request->deskripsi,
             "harga"=> $request->harga,
             "kategori_id"=> $request->kategori_id,
         ]);
 
-        return redirect()->route('produk')->with("success", "Product data added successfully!");
+        return redirect()->route('room')->with("success", "Product data added successfully!");
     }
 
     /**

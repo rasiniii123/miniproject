@@ -174,104 +174,133 @@
 
 
                         <h4 class="py-3 mb-4">
-                            <span> Add Product</span>
+                            <span> Add Room</span>
                         </h4>
 
                         <div class="app-ecommerce">
+                            <form action="{{ route('room.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <!-- Add Product -->
+                                <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
 
-                            <!-- Add Product -->
-                            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h4 class="mb-1 mt-3">Add a new Room</h4>
+                                        <p class="text-muted">Orders placed across your store</p>
+                                    </div>
+                                    <div class="d-flex align-content-center flex-wrap gap-3">
+                                        <button class="btn btn-label-secondary">Discard</button>
+                                        <button type="submit" class="btn btn-primary">Publish room</button>
+                                    </div>
 
-                                <div class="d-flex flex-column justify-content-center">
-                                    <h4 class="mb-1 mt-3">Add a new Product</h4>
-                                    <p class="text-muted">Orders placed across your store</p>
                                 </div>
-                                <div class="d-flex align-content-center flex-wrap gap-3">
-                                    <button class="btn btn-label-secondary">Discard</button>
-                                    <button type="submit" class="btn btn-primary">Publish product</button>
-                                </div>
 
-                            </div>
-
-                            <div class="row">
-                                <!-- First column-->
-                                <div class="col-12 col-lg-8">
-                                    <!-- Product Information -->
-                                    <form action="">
+                                <div class="row">
+                                    <!-- First column-->
+                                    <div class="col-12 col-lg-8">
+                                        <!-- Product Information -->
+                                        <form action="">
+                                            <div class="card mb-4">
+                                                <div class="card-header">
+                                                    <h5 class="card-tile mb-0">Room information</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                            for="ecommerce-product-name">Name</label>
+                                                        <input type="text"
+                                                            class="form-control @error('nama_kamar') is-invalid @enderror"
+                                                            id="ecommerce-product-name" placeholder="Room title"
+                                                            name="nama_kamar" aria-label="Product title"
+                                                            value="{{ old('nama_kamar') }}">
+                                                        @error('nama_kamar')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <!-- Description -->
+                                                    <div>
+                                                        <label class="form-label">Description</label>
+                                                        <textarea class="form-control  @error('deskripsi') is-invalid @enderror" name="deskripsi" id=""
+                                                            cols="30" rows="5" placeholder="Write a description here...">
+                                                        {{ old('deskripsi') }}
+                                                    </textarea>
+                                                        @error('deskripsi')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- /Product Information -->
+                                        <!-- Media -->
                                         <div class="card mb-4">
-                                            <div class="card-header">
-                                                <h5 class="card-tile mb-0">Room information</h5>
+                                            <div class="card-header d-flex justify-content-between align-items-center">
+                                                <h5 class="mb-0 card-title">Room Image</h5>
                                             </div>
                                             <div class="card-body">
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="ecommerce-product-name">Name</label>
-                                                    <input type="text" class="form-control" id="ecommerce-product-name"
-                                                        placeholder="Room title" name="productTitle"
-                                                        aria-label="Product title">
-                                                </div>
-                                                <!-- Description -->
-                                                <div>
-                                                    <label class="form-label">Description</label>
-                                                    <textarea class="form-control" name="" id="" cols="30" rows="5" placeholder="Write a description here..."></textarea>
+                                                    <input class="form-control @error('path_kamar') is-invalid @enderror"
+                                                        type="file" name="path_kamar" value="{{ old('path_produk') }}"
+                                                        id="formFile">
+                                                    @error('path_kamar')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
-                                    <!-- /Product Information -->
-                                    <!-- Media -->
-                                    <div class="card mb-4">
-                                        <div class="card-header d-flex justify-content-between align-items-center">
-                                            <h5 class="mb-0 card-title">Room Image</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="mb-3">
-                                                <input class="form-control" type="file" id="formFile">
-                                            </div>
-                                        </div>
+                                        <!-- /Media -->
                                     </div>
-                                    <!-- /Media -->
-                                </div>
-                                <!-- /Second column -->
+                                    <!-- /Second column -->
 
-                                <!-- Second column -->
-                                <div class="col-12 col-lg-4">
-                                    <!-- Pricing Card -->
-                                    <div class="card mb-4">
-                                        <div class="card-header">
-                                            <h5 class="card-title mb-0">Pricing</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <!-- Base Price -->
-                                            <div class="mb-3 col ecommerce-select2-dropdown">
-                                                <label class="form-label mb-1 d-flex justify-content-between align-items-center"for="category-org">Category</label>
-                                                <select id="category-org" class="select2 form-select"
-                                                    data-placeholder="Select Category">
-                                                    <option disabled value="">Select Category</option>
-                                                    <option value="Household">Household</option>
-                                                    <option value="Management">Management</option>
-                                                    <option value="Electronics">Electronics</option>
-                                                    <option value="Office">Office</option>
-                                                    <option value="Automotive">Automotive</option>
-                                                </select>
+                                    <!-- Second column -->
+                                    <div class="col-12 col-lg-4">
+                                        <!-- Pricing Card -->
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <h5 class="card-title mb-0">Pricing</h5>
                                             </div>
-                                            <!-- Discounted Price -->
-                                            <div class="mb-3">
-                                                <label class="form-label" for="ecommerce-product-price">Base Price</label>
-                                                <input type="number" class="form-control" id="ecommerce-product-price"
-                                                    placeholder="Price" name="productPrice" aria-label="Product price">
+                                            <div class="card-body">
+                                                <!-- Base Price -->
+                                                <div class="mb-3 col ecommerce-select2-dropdown">
+                                                    <label
+                                                        class="form-label mb-1 d-flex justify-content-between align-items-center"for="category-org">Category</label>
+                                                    <select id="category-org"
+                                                        class="select2 form-select  @error('kategori_id') is-invalid @enderror"
+                                                        value="{{ old('kategori_id') }}"
+                                                        data-placeholder="Select Category" name="kategori_id">
+                                                        <option disabled>Select category</option>
+                                                        @foreach ($kategori as $kategoris)
+                                                            <option value="{{ $kategoris->id }}">
+                                                                {{ $kategoris->nama_kategori }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <!-- Discounted Price -->
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="ecommerce-product-price">Base
+                                                        Price</label>
+                                                    <input type="number"
+                                                        class="form-control @error('harga') is-invalid @enderror"
+                                                        id="ecommerce-product-price" placeholder="Price" name="harga"
+                                                        aria-label="Product price" value="{{ old('harga') }}">
+                                                    @error('harga')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
+                                        <!-- /Pricing Card -->
                                     </div>
-                                    <!-- /Pricing Card -->
+                                    <!-- /Second column -->
                                 </div>
-                                <!-- /Second column -->
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <!-- / Content -->
-
-
-
 
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
