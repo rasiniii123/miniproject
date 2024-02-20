@@ -50,8 +50,8 @@
                 </div>
                 <div class="menu">
                     <ul>
-                        <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
-                        <li><a href="#hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
+                        <li><a href="{{ route('dashboard') }}" onclick="addLoadingEffect()">Beranda</a></li>
+                        <li><a href=" #hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
