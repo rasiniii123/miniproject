@@ -128,7 +128,7 @@
                         <div class="col-md-6">
                             <div class="text">
                                 <h2 class="heading">TENTANG KAMI</h2>
-                                <p>
+                                <p style="font-size: 17px;"">
                                     "Kami menawarkan berbagai Pilihan kamar Terbaik di 'everywhere',
                                     memberikanmu kemudahan dan kenyamanan dalam merencanakan liburan impianmu.
                                     Tak perlu ribet, karena hanya dengan satu aplikasi khusus,
@@ -174,8 +174,8 @@
                             <div class="accomd-modations-header">
                                 <h2 class="heading">KAMAR DAN RATING</h2>
                                 <img src="images/icon-1.png" alt="icon">
-                                <p>Nikmati kenyamanan dan kemewahan di setiap kamar kami yang elegan dan modern,
-                                    dirancang dengan perhatian terhadap detail untuk memenuhi kebutuhan dan keinginan Anda.
+                                <p style="font-size: 20px;">
+                                    Nikmati kenyamanan dan kemewahan di setiap kamar kami yang elegan dan modern, dirancang dengan perhatian terhadap detail untuk memenuhi kebutuhan dan keinginan Anda.
                                 </p>
                             </div>
                         </div>
@@ -197,19 +197,17 @@
                                                             style="font-weight: bold; font-size: 16px;">LUXURY ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
-                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                                style="font-size: 17px; font-weight: bold; color: #000000; margin-top: 6px;">
                                                                 Rp 4.500.000</p>
                                                             <p
-                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                                style="margin-top: 8px; color: #FFBF43; font-size: 17px; margin-left: 10px;">
                                                                 / malam
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </h2>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
-                                                    <button class="btn btn-primary"
-                                                        style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
-                                                        Sekarang</button>
+                                                    <button class="btn btn-primary" style="background-color: #382E2E; width: 199px; height: 38px; font-size: 14px;">Pesan Sekarang</button>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#FFBF43"
@@ -258,10 +256,10 @@
                                                             style="font-weight: bold; font-size: 16px;">COUPLE ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
-                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                                style="font-size: 17px; font-weight: bold; color: #000000; margin-top: 6px;">
                                                                 Rp 5.500.000</p>
                                                             <p
-                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                                style="margin-top: 8px; color: #FFBF43; font-size: 17px; margin-left: 10px;">
                                                                 / malam
                                                             </p>
                                                         </div>
@@ -269,7 +267,7 @@
                                                 </h2>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
                                                     <button class="btn btn-primary"
-                                                        style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                        style="background-color: #382E2E; width: 199px; height: 38px; font-size: 14px;">Pesan
                                                         Sekarang</button>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                                         viewBox="0 0 24 24">
@@ -318,10 +316,10 @@
                                                             style="font-weight: bold; font-size: 16px;">STANDAR ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
-                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                                style="font-size: 17px; font-weight: bold; color: #000000; margin-top: 6px;">
                                                                 Rp 3.900.000</p>
                                                             <p
-                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                                style="margin-top: 8px; color: #FFBF43; font-size: 17px; margin-left: 10px;">
                                                                 / malam
                                                             </p>
                                                         </div>
@@ -329,7 +327,7 @@
                                                 </h2>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
                                                     <button class="btn btn-primary"
-                                                        style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                        style="background-color: #382E2E; width: 199px; height: 38px; font-size: 14px;">Pesan
                                                         Sekarang</button>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                                         viewBox="0 0 24 24">
@@ -379,10 +377,10 @@
                                                             style="font-weight: bold; font-size: 16px;">FAMILY ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
-                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                                style="font-size: 17px; font-weight: bold; color: #000000; margin-top: 6px;">
                                                                 Rp 4.900.000</p>
                                                             <p
-                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                                style="margin-top: 8px; color: #FFBF43; font-size: 17px; margin-left: 10px;">
                                                                 / malam
                                                             </p>
                                                         </div>
@@ -390,7 +388,7 @@
                                                 </h2>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
                                                     <button class="btn btn-primary"
-                                                        style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                        style="background-color: #382E2E; width: 199px; height: 38px; font-size: 14px;">Pesan
                                                         Sekarang</button>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                                         viewBox="0 0 24 24">
@@ -440,10 +438,10 @@
                                                             style="font-weight: bold; font-size: 16px;">DELUXE ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
-                                                                style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                                style="font-size: 17px; font-weight: bold; color: #000000; margin-top: 6px;">
                                                                 Rp 6.700.000</p>
                                                             <p
-                                                                style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                                style="margin-top: 8px; color: #FFBF43; font-size: 17px; margin-left: 10px;">
                                                                 / malam
                                                             </p>
                                                         </div>
@@ -451,7 +449,7 @@
                                                 </h2>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
                                                     <button class="btn btn-primary"
-                                                        style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                        style="background-color: #382E2E; width: 199px; height: 38px; font-size: 14px;">Pesan
                                                         Sekarang</button>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                                         viewBox="0 0 24 24">
@@ -502,10 +500,10 @@
                                                 </h2>
                                                 <div style="display: flex; align-items: center;">
                                                     <p class="price"
-                                                        style="font-size: 14px; font-weight: bold; color: #000000; margin-top: 6px;">
+                                                        style="font-size: 20px; font-weight: bold; color: #000000; margin-top: 6px;">
                                                         RRp 2.200.000</p>
                                                     <p
-                                                        style="margin-top: 8px; color: #FFBF43; font-size: 14px; margin-left: 10px;">
+                                                        style="margin-top: 8px; color: #FFBF43; font-size: 20px; margin-left: 10px;">
                                                         / malam
                                                     </p>
                                                 </div>
@@ -513,7 +511,7 @@
 
                                             <div class="d-flex" style="display: flex; justify-content: space-between">
                                                 <button class="btn btn-primary"
-                                                    style="background-color: #382E2E; width: 199px; height: 38px;">Pesan
+                                                    style="background-color: #382E2E; width: 199px; height: 38px; font-size: 14px;">Pesan
                                                     Sekarang</button>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                                     viewBox="0 0 24 24">
@@ -549,7 +547,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12" style="margin-top: 70px; text-align: center;">
-                                    <p style="font-size: 16px; font-weight: bold;">Jelajahi kamar Lainnya untuk
+                                    <p style="font-size: 20px; font-weight: bold;">Jelajahi kamar Lainnya untuk
                                         Menemukan
                                         Penginapan Impian Anda!</p>
                                     <div style="margin-top: 30px;">

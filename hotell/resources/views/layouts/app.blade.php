@@ -187,7 +187,7 @@
         <script type="text/javascript" src="js/lib/isotope.pkgd.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery.themepunch.revolution.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery.themepunch.tools.min.js"></script>
-                {{-- <script type="text/javascript" src="js/lib/owl.carousel.js"></script> --}}
+        {{-- <script type="text/javascript" src="js/lib/owl.carousel.js"></script> --}}
         <script type="text/javascript" src="js/lib/jquery.appear.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery.countTo.js"></script>
         <script type="text/javascript" src="js/lib/jquery.countdown.min.js"></script>
