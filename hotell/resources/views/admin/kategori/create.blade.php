@@ -75,12 +75,19 @@
                         </a>
                     </li>
                     <!-- e-commerce-app menu start -->
-                    <li class="menu-item active open">
-                        <a href="javascript:void(0);" class="menu-link">
+                    <li class="menu-item">
+                        <a href="{{ route('room') }}" class="menu-link">
                             <i class="menu-icon fa-solid fa-bed"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
                         </a>
                     </li>
+                    <li class="menu-item active open">
+                        <a href="{{ route('kategori') }}" class="menu-link">
+                            <i class="menu-icon fa-solid fa-bed"></i>
+                            <div class="text-truncate" data-i18n="eCommerce">Category</div>
+                        </a>
+                    </li>
+                </ul>
             </aside>
             <!-- / Menu -->
             <!-- Layout container -->
@@ -206,9 +213,13 @@
                                             <div class="card-body">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="ecommerce-product-name">Name</label>
-                                                    <input type="text" class="form-control" id="ecommerce-product-name"
-                                                        placeholder="Room title" name="nama_kategori"
-                                                        aria-label="Product title">
+                                                    <input type="text" class="form-control @error('nama_kategori') is-invalid @enderror" id="ecommerce-product-name"
+                                                        placeholder="Room title" name="nama_kategori" aria-label="Product title">
+                                                        @error('nama_kategori')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                 </div>
                                             </div>
                                         </div>

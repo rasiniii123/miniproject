@@ -75,12 +75,19 @@
                         </a>
                     </li>
                     <!-- e-commerce-app menu start -->
-                    <li class="menu-item active open">
-                        <a href="javascript:void(0);" class="menu-link">
+                    <li class="menu-item">
+                        <a href="{{ route('room') }}" class="menu-link">
                             <i class="menu-icon fa-solid fa-bed"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
                         </a>
                     </li>
+                    <li class="menu-item active open">
+                        <a href="{{ route('kategori') }}" class="menu-link">
+                            <i class="menu-icon fa-solid fa-bed"></i>
+                            <div class="text-truncate" data-i18n="eCommerce">Category</div>
+                        </a>
+                    </li>
+                </ul>
             </aside>
             <!-- / Menu -->
             <!-- Layout container -->
@@ -174,18 +181,19 @@
 
 
                         <h4 class="py-3 mb-4">
-                            <span> Add Category</span>
+                            <span> Edit Category</span>
                         </h4>
 
                         <div class="app-ecommerce">
 
                             <!-- Add Product -->
-                            <form action="{{ route('kategori.store') }}" method="POST">
+                            <form action="{{ route('kategori.update', $kategori->id) }}" method="POST">
                                 @csrf
+                                @method('PUT')
                             <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
 
                                 <div class="d-flex flex-column justify-content-center">
-                                    <h4 class="mb-1 mt-3">Add a new Category</h4>
+                                    <h4 class="mb-1 mt-3">Edit a new Category</h4>
                                     <p class="text-muted">Orders placed across your store</p>
                                 </div>
                                 <div class="d-flex align-content-center flex-wrap gap-3">
@@ -206,9 +214,13 @@
                                             <div class="card-body">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="ecommerce-product-name">Name</label>
-                                                    <input type="text" class="form-control" id="ecommerce-product-name"
-                                                        placeholder="Room title" name="nama_kategori"
-                                                        aria-label="Product title">
+                                                    <input type="text" class="form-control @error('nama_kategori') is-invalid @enderror" id="ecommerce-product-name"
+                                                    value="{{ $kategori->nama_kategori }}" placeholder="Room title" name="nama_kategori" aria-label="Product title">
+                                                    @error('nama_kategori')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>

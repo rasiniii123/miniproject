@@ -32,7 +32,7 @@ class KategoriController extends Controller
         $request->validate([
             'nama_kategori' => 'required|string|max:255', // Tambahkan aturan lain sesuai kebutuhan
         ], [
-            'nama_kategori.required' => 'The Category Name column is mandatory.',
+            'nama_kategori.required' => 'Category name is required..',
             // 'nama_kategori.string' => 'Category Name must be text.',
         ]);
 
@@ -53,7 +53,8 @@ class KategoriController extends Controller
      */
     public function edit(string $id)
     {
-        return view('admin.kategori.edit');
+        $kategori = Kategori::findOrFail($id);
+        return view('admin.kategori.edit', compact('kategori'));
     }
 
     /**
@@ -61,7 +62,16 @@ class KategoriController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nama_kategori' => 'required|string|max:255', // Tambahkan aturan lain sesuai kebutuhan
+        ], [
+            'nama_kategori.required' => 'Category name is required..',
+            // 'nama_kategori.string' => 'Category Name must be text.',
+        ]);
+
+        $kategori = Kategori::find($id);
+        $kategori->update($request->all());
+        return redirect()->route('kategori')->with("success", "Category data updated successfully.");
     }
 
     /**
