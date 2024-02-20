@@ -2,12 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DetailController;
-use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
@@ -49,5 +50,14 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
         Route::get('/edit/{id}', 'edit')->name('room.edit');
         Route::put('/edit/{id}', 'update')->name('room.update');
     });
-});
 
+    Route::controller(KategoriController::class)->prefix('kategori')->group(function () {
+        Route::get('', 'index')->name('kategori');
+        Route::get('create', 'create')->name('kategori.create');
+        Route::post('store', 'store')->name('kategori.store');
+        Route::get('edit/{id}', 'edit')->name('kategori.edit');
+        Route::put('edit/{id}', 'update')->name('kategori.update');
+        Route::delete('destroy/{id}', 'destroy')->name('kategori.destroy');
+    });
+
+});

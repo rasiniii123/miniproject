@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->string('alamat');
-            $table->decimal('harga_permalam', 10, 2);
-            $table->decimal('rating', 4, 2)->nullable();
-            $table->string('type_kamar');
-            $table->text('keterangan')->nullable();
-            $table->text('fasilitas')->nullable();
-            $table->string('foto')->nullable();
+            $table->string('path_kamar');
+            $table->string('nama_kamar');
+            $table->string('harga');
+            $table->text('deskripsi');
+            $table->enum('status', ['booked', 'available'])->default('available');
+            $table->foreignId('kategori_id')->constrained('kategori')->restrictOnDelete();
             $table->timestamps();
         });
     }
