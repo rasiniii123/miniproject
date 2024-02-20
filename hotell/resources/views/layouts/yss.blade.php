@@ -57,27 +57,40 @@
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth <!-- Cek apakah pengguna sudah login -->
-                            <span
-                                style="font-size: 20px; color: #fff;  margin-right: 10px; ">{{ auth()->user()->username }}</span>
-                            <div class="dropdown">
-                                <img onclick="toggleDropdown()" src="{{ asset('user-2.png') }}" width="40" height="40"
-                                    style="float: left; margin-right: 10px; cursor: pointer;">
-                                <div id="myDropdown" class="dropdown-content">
-                                    <form action="{{ route('logout') }}" method="post">
+                        <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
+                        <div class="dropdown" onclick="toggleDropdown()">
+                            <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
+                            <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="display: none;">
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST">
                                         @csrf
-                                        <button type="submit" style="font-size: 14px;">Logout</button>
+                                        <button type="submit" class="dropdown-item bg-transparent btn-primary">
+                                            <i class="fas fa-sign-out-alt fa-lg text-primary"></i> Keluar
+                                        </button>
                                     </form>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
+                        </div>
                         @else
                             <!-- Jika pengguna belum login -->
-                            <a href="{{ route('auth.register') }}">Register</a> <!-- Tautan untuk register -->
+                            <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Register</a>
+                            <!-- Tautan untuk register -->
                             <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
                         @endauth
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            function toggleDropdown() {
+                var dropdown = document.getElementById("userDropdown");
+                if (dropdown.style.display === "none") {
+                    dropdown.style.display = "block";
+                } else {
+                    dropdown.style.display = "none";
+                }
+            }
+        </script>
     </menu>
     <!-- END / HEADER -->
 

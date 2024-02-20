@@ -18,12 +18,9 @@
             <!-- Menu -->
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-
-
                 <div class="app-brand demo ">
                     <a href="index-2.html" class="app-brand-link">
                         <span class="app-brand-logo demo">
-
                             <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <defs>
@@ -71,19 +68,16 @@
                         <span class="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
                     </a>
 
-                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+                    {{-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
-                    </a>
+                    </a> --}}
                 </div>
 
                 <div class="menu-inner-shadow"></div>
-
-
-
                 <ul class="menu-inner py-1">
                     <!-- Dashboards -->
                     <li class="menu-item">
-                        <a href="{{ route('dashboard') }}" class="menu-link">
+                        <a href="{{ route('admin.dashboard') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div class="text-truncate" data-i18n="Dashboards">Dashboards</div>
                             {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
@@ -96,51 +90,18 @@
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
                         </a>
                     </li>
-
-
-
             </aside>
             <!-- / Menu -->
-
-
-
             <!-- Layout container -->
             <div class="layout-page">
-
-
-
-
-
-                <!-- Navbar -->
-
-
-
-
                 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
                     id="layout-navbar">
-
-
-
-
-
-
-
-
-
-
-
                     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
                         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                             <i class="bx bx-menu bx-sm"></i>
                         </a>
                     </div>
-
-
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-
-
-
-
                         {{-- <!-- Search -->
         <div class="navbar-nav align-items-center">
           <div class="nav-item navbar-search-wrapper mb-0">
@@ -151,13 +112,7 @@
           </div>
         </div>
         <!-- /Search --> --}}
-
-
-
-
-
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
-
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
@@ -241,6 +196,15 @@
                                     <div class="col-md-4 product_stock"></div>
                                 </div>
                             </div> --}}
+                            <div class="card-header">
+                                <a href="{{ route('room.create') }}">
+                                    <button class="btn btn-secondary add-new btn-primary">
+                                        <span><i class="bx bx-plus me-0 me-sm-1"></i>
+                                            <span class="d-none d-sm-inline-block">Add Room</span>
+                                        </span>
+                                    </button>
+                                </a>
+                            </div>
                             <div class="card-datatable table-responsive">
                                 <table class="datatables-products table border-top">
                                     <thead>

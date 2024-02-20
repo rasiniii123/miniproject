@@ -41,13 +41,13 @@ Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/rooms/create', [RoomController::class, 'create'])->name('rooms.create');
 
-    Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
-    Route::post('/rooms', [RoomController::class, 'store'])->name('rooms.store');
-    Route::get('/rooms/{room}', [RoomController::class, 'show'])->name('rooms.show');
-    Route::get('/rooms/{room}/edit', [RoomController::class, 'edit'])->name('rooms.edit');
-    Route::put('/rooms/{room}', [RoomController::class, 'update'])->name('rooms.update');
-    Route::delete('/rooms/{room}', [RoomController::class, 'destroy'])->name('rooms.destroy');
+    Route::controller(RoomController::class)->prefix('room')->group(function () {
+        Route::get('/', 'index')->name('room');
+        Route::get('/create', 'create')->name('room.create');
+        Route::post('/store', 'store')->name('room.store');
+        Route::get('/edit/{id}', 'edit')->name('room.edit');
+        Route::put('/edit/{id}', 'update')->name('room.update');
+    });
 });
 
