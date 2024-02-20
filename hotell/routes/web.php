@@ -11,6 +11,7 @@ use App\Http\Controllers\TentangController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\UlasanController;
 
     Route::get('/', function () {
         return view ('dashboard');
@@ -35,6 +36,8 @@ Route::get('menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
 
 Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
+
+Route::get('/ulasan',[UlasanController::class,'index'])->name('ulasan');
 
 Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
 Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');

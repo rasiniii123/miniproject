@@ -49,7 +49,7 @@
                 </div>
 
                 <!-- Menu content -->
-                <div style="width: 1100px;">
+                <div style="width: 1000px;">
 
 
                 <!-- Vertical line -->

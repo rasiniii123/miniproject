@@ -17,7 +17,7 @@
                             <p>
                                 Berbagai pilihan Hotel terbaik di “everyWhere” liburan ke destinasi pilihan kamu ga perlu ribet,
                                 hanya dengan satu aplikasi kamu bisa booking hotel. Bukan hanya kemudahan dalam booking hotel online,
-                                kamu juga bisa dapatkan berbagai promo menarik dengan JAMINAN HARGA TERMURAH di “EveryWhere” yuk,
+                                    kamu juga bisa dapatkan berbagai promo menarik dengan JAMINAN HARGA TERMURAH di “EveryWhere” yuk,
                                  siapkan liburan kamu dan pesan hotel pilihan kamu di “EveryWhere”
                             </p>
                             <h2 class="heading">YANG TERBAIK DARI KAMI</h2>

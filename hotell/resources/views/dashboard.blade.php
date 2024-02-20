@@ -122,7 +122,7 @@
                     <div class="row align-items-start">
                         <div class="col-md-6">
                             <div class="img mb-4">
-                                <a href="#"><img src="images/about/img-1.png" alt=""></a>
+                                <a href="#"><img src="images/about/img-1.png" alt="" ></a>
                             </div>
                         </div>
                         <div class="col-md-6">
