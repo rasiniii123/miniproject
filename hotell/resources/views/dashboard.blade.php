@@ -28,11 +28,14 @@
                 <div class="logo">
                     <img src="images/kologo.png" alt="Logo" width="100">
                 </div>
-                <div class="menu" style="margin-left: 100px;">
+                <div class="menu" style="margin-left: 80px; ">
                     <ul>
                         <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
                         <li><a href="#kamar-section" onclick="addLoadingEffect()">Kamar</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
+                        @auth <!-- Check if the user is authenticated -->
+                        <li><a href="#history-section" onclick="addLoadingEffect()">History</a></li>
+                    @endauth
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth <!-- Cek apakah pengguna sudah login -->

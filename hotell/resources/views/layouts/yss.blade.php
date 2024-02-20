@@ -50,8 +50,8 @@
                 </div>
                 <div class="menu" style="margin-left: 100px;">
                     <ul>
-                        <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
-                        <li><a href="#kamar-section" onclick="addLoadingEffect()">Kamar</a></li>
+                        <li><a href="{{ route('dashboard') }}" onclick="addLoadingEffect()">Beranda</a></li>
+                        <li><a href=" #hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">History</a></li>
                     </ul>
