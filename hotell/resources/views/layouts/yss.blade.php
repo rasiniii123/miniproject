@@ -53,6 +53,7 @@
                         <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
                         <li><a href="#hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
+                        <li><a href="#about-section" onclick="addLoadingEffect()">History</a></li>
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth <!-- Cek apakah pengguna sudah login -->
@@ -101,6 +102,7 @@
                             <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Beranda</div>
                             <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Kamar</div>
                             <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">Tentang Kami</div>
+                            <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">History</div>
                         </div>
                         <div style="width: 1170px; height: 2.67px; border: 1px #71777D solid"></div>
                         <div style="display: flex; align-items: center; justify-content: flex-end; margin-top: 10px; margin-right: -600px;">
