@@ -120,6 +120,9 @@
                                     <div
                                         style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">
                                         Tentang Kami</div>
+                                    {{-- <div
+                                        style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">
+                                        History</div> --}}
                                 </div>
                                 <div style="width: 1170px; height: 2.67px; border: 1px #71777D solid"></div>
                                 <div
@@ -184,7 +187,7 @@
         <script type="text/javascript" src="js/lib/isotope.pkgd.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery.themepunch.revolution.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery.themepunch.tools.min.js"></script>
-                {{-- <script type="text/javascript" src="js/lib/owl.carousel.js"></script> --}}
+        {{-- <script type="text/javascript" src="js/lib/owl.carousel.js"></script> --}}
         <script type="text/javascript" src="js/lib/jquery.appear.min.js"></script>
         <script type="text/javascript" src="js/lib/jquery.countTo.js"></script>
         <script type="text/javascript" src="js/lib/jquery.countdown.min.js"></script>

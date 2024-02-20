@@ -12,11 +12,11 @@
         <div class="awe-overlay"></div>
         <img src="images/kologo.png" alt="logo" style="width: 100px;  position: absolute; top: 0; right: 10px; transform: translateX(-1160%);">
         <div class="container">
-            <div class="login-register">
+            <div class="login-register" style="max-width: 500px; margin-left: calc(50% - 250px); max-height: 300px;">
                 <div class="text text-center"
                     style="display: flex; justify-content: center; align-items: center; height: 50vh;">
                     <div
-                        style="width: 500px; height: 600px; background:  #D9D9D9; border-radius: 35px; backdrop-filter: blur(30px); padding: 30px; margin-top: -90px; position: relative;">
+                        style="width: 100%; height: 600px; background:  #D9D9D9; border-radius: 35px; backdrop-filter: blur(30px); padding: 30px; margin-top: -90px; position: relative;">
                         <a href="{{ route('auth.login') }}"
                             style="color:  #283E58; text-decoration: none; position: absolute; top: 20px; left: 20px;">
                             <span style="font-size: 20px; margin-right: 5px;">&larr;</span> Kembali
@@ -65,12 +65,12 @@
                             </div>
                             <div class="field-form field-submit" style="margin-top: 20px; text-align: center;">
                                 <button type="submit" class="awe-btn awe-btn-13 rounded"
-                                    style="background-color: #283E58; border-color: #283E58; color: #fff; width: 400px; border-radius: 10px;">
+                                    style="background-color: #283E58; border-color: #283E58; color: #fff; width: 430px; border-radius: 10px;">
                                     <span style="display: inline-block; width: 50%;">Daftar</span>
                                 </button>
                             </div>
                             <div
-                                style="text-align: center; font-family: Hind; font-size: 13px; font-weight: 400; margin-top: 200px line-height: 18.57px; letter-spacing: 0.20px; margin-top: 10px;">
+                                style="text-align: center; font-family: Hind; font-size: 13px; font-weight: 400; margin-top: 10px line-height: 18.57px; letter-spacing: 0.20px; margin-top: 10px;">
                                 Sudah punya akun? - <a href="{{ route('auth.login') }}"
                                     style="text-decoration: none;"> <span style="color: #00A3FF;">Login disini</span> </a>
                             </div>
