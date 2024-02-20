@@ -1,6 +1,19 @@
 @extends('layouts.yss')
 
 @section('content')
+<script>
+    // Fungsi untuk menambahkan efek loading
+    function addLoadingEffect() {
+        // Tampilkan elemen loading (Anda perlu memiliki elemen loading dalam HTML)
+        document.getElementById("loading").style.display = "block";
+
+        // Set waktu tunggu sebelum menuju ke bagian yang dituju (dalam milidetik)
+        setTimeout(function() {
+            // Sembunyikan elemen loading
+            document.getElementById("loading").style.display = "none";
+        }, 1500); // Ubah angka ini sesuai kebutuhan waktu tunggu Anda
+    }
+</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <div class="main-content">
         <div class="page-content">
