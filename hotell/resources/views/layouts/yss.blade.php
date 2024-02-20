@@ -48,7 +48,7 @@
                 <div class="logo">
                     <img src="images/kologo.png" alt="Logo" width="100">
                 </div>
-                <div class="menu" style="margin-left: 100px;">
+                <div class="menu" style="margin-left: 80px;">
                     <ul>
                         <li><a href="{{ route('dashboard') }}" onclick="addLoadingEffect()">Beranda</a></li>
                         <li><a href=" #hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
@@ -60,14 +60,14 @@
                         <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
                         <div class="dropdown" onclick="toggleDropdown()">
                             <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
-                            <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="display: none;">
+                            <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="display: none; width: 150px;">
                                 <li>
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
-                                        <button type="submit" class="dropdown-item bg-transparent btn-primary btn-lg">
-                                            <i class="fas fa-sign-out-alt fa-lg text-primary"></i> Keluar
+                                        <button type="submit" class="dropdown-item bg-transparent btn-primary btn-lg" style="padding: 8px;">
+                                            <i class="fas fa-sign-out-alt fa-lg text-primary" style="margin-right: 8px;"></i> Keluar
                                         </button>
-                                    </form>                                    
+                                    </form>
                                 </li>
                             </ul>
                         </div>
