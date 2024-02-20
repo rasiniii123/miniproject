@@ -37,7 +37,7 @@
                         yang luas dilengkapi dengan sofa empuk, kursi bergaya, dan meja kopi yang elegan, menciptakan
                         suasana santai untuk bersantai atau menghibur tamu.
                     </p>
-                    <img src="images/Vector-2.png" alt="Garis bawah"
+                    {{-- <img src="images/Vector-2.png" alt="Garis bawah"
                         style="width: 100%; margin-top: 20px; margin-bottom: 20px; color:#92989F">
                     <h2 style="font-weight: bold; float: left; margin-top: 10px; font-size: 20px;">FASILITAS YANG DISEDIAKAN
                     </h2>
@@ -89,7 +89,7 @@
                         </svg>
                         <div style="color: #5A5A5A; font-size: 20px; font-family: Poppins; font-weight: 400;">Pendingin
                             Ruangan <span style="font-size: 12px; margin-left: 5px;"></span></div>
-                    </div>
+                    </div> --}}
                     <img src="images/Vector-2.png" alt="Garis bawah"
                         style="width: 100%; margin-top: 20px; margin-bottom: 20px; color:#92989F">
                     <h2 style="font-weight: bold; float: left; margin-top: 10px; font-size: 20px;">PENILAIAN DAN ULASAN</h2>

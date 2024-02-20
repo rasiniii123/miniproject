@@ -352,10 +352,10 @@
                                                     </div>
                                                     <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
                                                         <button
-                                                            style="background-color: #283E58; color: white; font-family: Poppins; font-size: 16px; font-weight: 600; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 800px;">DETAIL</button>
+                                                            style="background-color: #283E58; color: white; font-family: Poppins; font-size: 16px; font-weight: 600; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 800px; margin-top: -20px">DETAIL</button>
                                                     </div>
                                                     <div
-                                                        {{-- style="border-bottom: 1px solid #ACACAC; width: 115%; margin-left: -15px; margin-top: 10px;"> --}}
+                                                        style="border-bottom: 1px solid #ACACAC; width: 115%; margin-left: -15px; margin-top: 10px;">
                                                     </div>
                                                 </div>
 

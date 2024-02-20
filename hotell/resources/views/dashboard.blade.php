@@ -125,7 +125,7 @@
                         <div class="col-md-6">
                             <div class="text">
                                 <h2 class="heading">TENTANG KAMI</h2>
-                                <p style="font-size: 17px;"">
+                                <p style="font-size: 17px;">
                                     "Kami menawarkan berbagai Pilihan kamar Terbaik di 'everywhere',
                                     memberikanmu kemudahan dan kenyamanan dalam merencanakan liburan impianmu.
                                     Tak perlu ribet, karena hanya dengan satu aplikasi khusus,
@@ -190,7 +190,7 @@
                                             <div class="">
                                                 <h2  style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a href="#"
+                                                        <a 
                                                             style="font-weight: bold; font-size: 16px;">LUXURY ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
@@ -236,12 +236,12 @@
                                     <div class="col-xs-4">
                                         <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-22.png" alt=""></a>
+                                                <a ><img src="images/room/img-22.png" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;" >
                                                     <div>
-                                                        <a href="#"
+                                                        <a
                                                             style="font-weight: bold; font-size: 16px;">COUPLE ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
@@ -296,12 +296,12 @@
                                     <div class="col-xs-4">
                                         <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-33.png" alt=""></a>
+                                                <a ><img src="images/room/img-33.png" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a href="#"
+                                                        <a 
                                                             style="font-weight: bold; font-size: 16px;">STANDAR ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
@@ -357,12 +357,12 @@
                                     <div class="col-xs-4">
                                         <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-55.webp" alt=""></a>
+                                                <a ><img src="images/room/img-55.webp" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a href="#"
+                                                        <a 
                                                             style="font-weight: bold; font-size: 16px;">FAMILY ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
@@ -418,12 +418,12 @@
                                     <div class="col-xs-4">
                                         <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-44.png" alt=""></a>
+                                                <a ><img src="images/room/img-44.png" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a href="#"
+                                                        <a 
                                                             style="font-weight: bold; font-size: 16px;">DELUXE ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
@@ -480,11 +480,11 @@
                                     <div class="col-xs-4">
                                         <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a href="#"><img src="images/room/img-66.jpg" alt=""></a>
+                                                <a ><img src="images/room/img-66.jpg" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
-                                                    <a href="#" style="font-weight: bold; font-size: 16px;">SINGLE
+                                                    <a  style="font-weight: bold; font-size: 16px;">SINGLE
                                                         ROOM</a>
                                                 </h2>
                                                 <div style="display: flex; align-items: center;">
