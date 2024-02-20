@@ -1,5 +1,24 @@
 @extends('admin.layout.app')
 @section('content')
+@if (session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: "{{ session('success') }}"
+    });
+</script>
+@endif
+
+@if (session('error'))
+<script>
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "{{ session('error') }}",
+    });
+</script>
+@endif
     <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
@@ -76,14 +95,14 @@
                         </a>
                     </li>
                     <!-- e-commerce-app menu start -->
-                    <li class="menu-item active open">
+                    <li class="menu-item">
                         <a href="{{ route('room') }}" class="menu-link">
                             <i class="menu-icon fa-solid fa-bed"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="{{ route('kategori') }}" class="menu-link">
+                    <li class="menu-item active open">
+                        <a href="{{ route('admin.dashboard') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div class="text-truncate" data-i18n="Dashboards">Category</div>
                             {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
@@ -180,7 +199,7 @@
 
 
                         <h4 class="py-3 mb-4">
-                            <span class="text-muted fw-light"></span> Room list
+                            <span class="text-muted fw-light"></span> Category list
                         </h4>
 
                         <!-- Product List Table -->
@@ -194,10 +213,10 @@
                                 </div>
                             </div> --}}
                             <div class="card-header">
-                                <a href="{{ route('room.create') }}">
+                                <a href="{{ route('kategori.create') }}">
                                     <button class="btn btn-secondary add-new btn-primary">
                                         <span><i class="bx bx-plus me-0 me-sm-1"></i>
-                                            <span class="d-none d-sm-inline-block">Add Room</span>
+                                            <span class="d-none d-sm-inline-block">Add Category</span>
                                         </span>
                                     </button>
                                 </a>
@@ -205,63 +224,41 @@
                             <div class="card-datatable table-responsive">
                                 <table class="datatables-products table border-top">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center">
                                             <th style="color: black; font-weight: bold">No</th>
-                                            <th style="color: black; font-weight: bold">Room</th>
                                             <th style="color: black; font-weight: bold">Category</th>
-                                            <th style="color: black; font-weight: bold">Price</th>
-                                            <th style="color: black; font-weight: bold">Description</th>
-                                            <th style="color: black; font-weight: bold">Status</th>
                                             <th style="color: black; font-weight: bold">actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($kamar as $kamars)
-                                        <tr class="odd">
-                                            <td class="control">
-                                                <span>{{ $loop->iteration }}</span>
-                                            </td>
-                                            <td class="sorting_1">
-                                                <div class="d-flex justify-content-start align-items-center product-name">
-                                                    <div class="avatar-wrapper">
-                                                        <div class="avatar avatar me-2 rounded-2 bg-label-secondary">
-                                                            <img src="{{ asset('storage/kamar/' . $kamars->path_kamar) }}" alt="Product-9" class="rounded-2">
-                                                        </div>
+                                        @if ($kategori->count() > 0)
+                                            @foreach ($kategori as $kategoris)
+                                            <tr class="odd text-center">
+                                                <td class="control">
+                                                    <span>{{ $loop->iteration }}</span>
+                                                </td>
+                                                <td class="sorting_1">
+                                                    <h5>{{ $kategoris->nama_kategori }}</h5>
+                                                </td>
+                                                <td class="" style="">
+                                                    <div class="d-inline-block text-nowrap d-flex justify-content-center">
+                                                        <a href="{{ route('kategori.edit', $kategoris->id) }}">
+                                                            <button class="btn btn-sm btn-icon">
+                                                                <i class="bx bx-edit"></i>
+                                                            </button>
+                                                        </a>
+                                                        <form action="{{ route('kategori.destroy', $kategoris->id) }}" method="POST">
+                                                            <button type="button" class="btn btn-sm btn-icon dropdown-toggle hide-arrow hapus" data-bs-toggle="dropdown">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <i class="bx bx-trash"></i>
+                                                            </button>
+                                                        </form>
                                                     </div>
-                                                    <div class="d-flex flex-column">
-                                                        <h6 class="text-body text-nowrap mb-0">{{ ucfirst($kamars->nama_kamar )}}</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">
-                                                    {{ $kamars->kategori ? $kamars->kategori->nama_kategori : 'Tidak Ada Kategori' }}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ $kamars->stok }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-label-danger">{{ $kamars->status }}</span>
-                                            </td>
-                                            <td class="" style="">
-                                                <div class="d-inline-block text-nowrap">
-                                                    <button class="btn btn-sm btn-icon">
-                                                        <i class="bx bx-edit"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                        <i class="bx bx-dots-vertical-rounded me-2"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end m-0">
-                                                        <a href="javascript:0;" class="dropdown-item text-danger">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        @endforeach
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
@@ -312,4 +309,23 @@
         <div class="drag-target"></div>
 
     </div>
+    <script>
+        $('.hapus').click(function() {
+            var form = $(this).closest('form');
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You will delete this product. This action cannot be undone!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, accept!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
 @endsection

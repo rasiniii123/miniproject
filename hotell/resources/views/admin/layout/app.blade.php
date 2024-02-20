@@ -52,6 +52,9 @@
     <link rel="stylesheet" href="{{ asset('vendor/fonts/flag-icons.css') }}" />
 
     <!-- Core CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendor/css/rtl/core.css') }}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset('vendor/css/rtl/theme-default.css') }}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('css/demo.css') }}" />
@@ -60,6 +63,14 @@
     <link rel="stylesheet" href="{{ asset('vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
     <link rel="stylesheet" href="{{ asset('vendor/libs/typeahead-js/typeahead.css') }}" />
     <link rel="stylesheet" href="{{ asset('vendor/libs/apex-charts/apex-charts.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendor/libs/quill/typography.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/libs/quill/katex.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/libs/quill/editor.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/libs/select2/select2.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/libs/dropzone/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/libs/flatpickr/flatpickr.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/libs/tagify/tagify.css') }}" />
+
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('vendor/css/pages/card-analytics.css') }}" />
@@ -85,6 +96,14 @@
 
   <!-- Vendors JS -->
   <script src="{{ asset('vendor/libs/apex-charts/apexcharts.js') }}"></script>
+  <script src="{{ asset('vendor/libs/quill/katex.js') }}"></script>
+  <script src="{{ asset('vendor/libs/quill/quill.js') }}"></script>
+  <script src="{{ asset('vendor/libs/select2/select2.js') }}"></script>
+  <script src="{{ asset('vendor/libs/dropzone/dropzone.js') }}"></script>
+  <script src="{{ asset('vendor/libs/jquery-repeater/jquery-repeater.js') }}"></script>
+  <script src="{{ asset('vendor/libs/flatpickr/flatpickr.js') }}"></script>
+  <script src="{{ asset('vendor/libs/tagify/tagify.js') }}"></script>
+
 
   <!-- Main JS -->
   <script src="{{ asset('js/main.js') }}"></script>

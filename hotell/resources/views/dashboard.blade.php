@@ -9,16 +9,20 @@
 
 
                 <script>
-                    // Fungsi untuk menambahkan efek loading
                     function addLoadingEffect() {
-                        // Tampilkan elemen loading (Anda perlu memiliki elemen loading dalam HTML)
-                        document.getElementById("loading").style.display = "block";
+                        // Tampilkan elemen loading
+                        var loading = document.getElementById("loading");
+                        if (loading) {
+                            loading.style.display = "block";
 
-                        // Set waktu tunggu sebelum menuju ke bagian yang dituju (dalam milidetik)
-                        setTimeout(function() {
-                            // Sembunyikan elemen loading
-                            document.getElementById("loading").style.display = "none";
-                        }, 1500); // Ubah angka ini sesuai kebutuhan waktu tunggu Anda
+                            // Set waktu tunggu sebelum menyembunyikan elemen loading
+                            setTimeout(function() {
+                                // Sembunyikan elemen loading
+                                loading.style.display = "none";
+                            }, 3000); // Perpanjang waktu tunggu menjadi 3000 milidetik
+                        } else {
+                            console.error("Element with id 'loading' is not found.");
+                        }
                     }
                 </script>
 
@@ -95,11 +99,11 @@
                     @auth
                         <!-- Jika pengguna sudah login, arahkan ke halaman menu -->
                         <a href="{{ route('menu') }}">
-                            <button
-                                style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
-                                PESAN SEKARANG
-                            </button>
-                        </a>
+                            <button onclick="addLoadingEffect()"
+                            style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+                        PESAN SEKARANG
+                    </button>
+                </a>
                     @else
                         <!-- Jika pengguna belum login, arahkan ke halaman login -->
                         <a href="{{ route('auth.login') }}">
