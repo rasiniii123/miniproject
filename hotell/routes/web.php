@@ -12,6 +12,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UlasanController;
 
     Route::get('/', function () {
@@ -44,7 +45,7 @@ Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.i
 Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::controller(RoomController::class)->prefix('room')->group(function () {
         Route::get('/', 'index')->name('room');

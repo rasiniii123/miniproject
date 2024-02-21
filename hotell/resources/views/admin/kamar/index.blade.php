@@ -162,8 +162,6 @@
                             placeholder="Search..." aria-label="Search...">
                         <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
                     </div>
-
-
                 </nav>
 
 
