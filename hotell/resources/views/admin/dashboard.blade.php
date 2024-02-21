@@ -1,5 +1,12 @@
 @extends('admin.layout.app')
 @section('content')
+<style>
+.mb-1 {
+    background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+</style>
     <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
@@ -209,14 +216,14 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-lg-3 mb-4">
-                                <div class="card card-border-shadow-warning h-100">
+                                <div class="card card-border-shadow-success h-100">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center mb-2 pb-1">
                                             <div class="avatar me-2">
-                                                <span class="avatar-initial rounded bg-label-warning"><i
+                                                <span class="avatar-initial rounded bg-label-success"><i
                                                         class="fa-regular fa-circle-check"></i></span>
                                             </div>
-                                            <h4 class="ms-1 mb-0 text-warning">27</h4>
+                                            <h4 class="ms-1 mb-0 text-success">27</h4>
                                         </div>
                                         <p class="mb-1">Active Room</p>
                                         {{-- <p class="mb-0">
@@ -258,11 +265,16 @@
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <div>
-                                                <>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, voluptatibus minima recusandae ipsa qui quaerat sit assumenda dicta consequuntur laboriosam nostrum aliquam, maiores iusto quae quos. Vero amet repellendus dolores!</>
-                                                <>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, voluptatibus minima recusandae ipsa qui quaerat sit assumenda dicta consequuntur laboriosam nostrum aliquam, maiores iusto quae quos. Vero amet repellendus dolores!</>
-                                                <>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, voluptatibus minima recusandae ipsa qui quaerat sit assumenda dicta consequuntur laboriosam nostrum aliquam, maiores iusto quae quos. Vero amet repellendus dolores!</>
-                                                <>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, voluptatibus minima recusandae ipsa qui quaerat sit assumenda dicta consequuntur laboriosam nostrum aliquam, maiores iusto quae quos. Vero amet repellendus dolores!</>
-                                                <>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, voluptatibus minima recusandae ipsa qui quaerat sit assumenda dicta consequuntur laboriosam nostrum aliquam, maiores iusto quae quos. Vero amet repellendus dolores!</>
+                                                <p class="mb-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias reprehenderit accusantium minus aperiam, esse rem aliquid cupiditate expedita quod, laborum veritatis praesentium maiores ipsum commodi, saepe rerum sequi autem quas?
+                                                    Cum non et necessitatibus ducimus dolore eos excepturi atque? Ipsum explicabo obcaecati dolore, et maxime aliquam facilis nulla quam accusamus veniam ratione. Temporibus sunt alias asperiores odit animi tempore dignissimos?
+                                                    Magnam et autem fugit hic! Ex dolores numquam beatae voluptates facilis nostrum fugiat sit laboriosam doloremque in, atque nesciunt eaque autem modi aliquam odio id, nihil aspernatur. Harum, quod temporibus.
+                                                    Quisquam repellat quibusdam quis eius veniam cum eligendi maxime cumque ipsam dolore culpa dolorem aliquam, nesciunt ratione natus error laboriosam atque? Recusandae sequi quidem maxime praesentium, expedita ex quia quasi!
+                                                    Ut fugiat quibusdam accusamus eos sed quaerat ipsa iusto vero pariatur impedit error quis quam ipsum sint commodi, dolorum autem quo, praesentium atque voluptates animi? Magnam amet soluta tempora nulla!
+                                                    Tempore iusto explicabo, assumenda eum nobis cum saepe iure quasi voluptatibus deserunt? Voluptates illum, deserunt cupiditate, perspiciatis distinctio sunt veritatis reprehenderit veniam voluptas eum placeat similique unde! Culpa, sequi aspernatur.
+                                                    Tempore iusto necessitatibus, perspiciatis iste non sunt! Excepturi quia nostrum harum, voluptatum repellat non sunt aspernatur, id inventore vitae minus nemo officia sequi possimus fuga voluptas eos eum ducimus aut.
+                                                    Voluptas omnis fugit, sit facere velit vitae repellendus ea porro eligendi, dignissimos ipsam reiciendis quaerat mollitia, eius earum. Voluptate quaerat ullam praesentium cupiditate aspernatur nesciunt consequuntur deleniti at expedita blanditiis!
+                                                    Temporibus minima veritatis eligendi, beatae soluta a quasi, molestias inventore quidem incidunt nulla error similique assumenda. Animi mollitia ab earum porro maxime, consectetur quas doloremque nostrum doloribus, tempora, nobis et.
+                                                    Ab, aut nihil. Odio, id possimus molestias perferendis eligendi illum explicabo provident totam minima nostrum porro eaque eos fugit quo nemo quod. At, laborum expedita accusantium doloribus repellat hic ea!</p>
                                             </div>
                                         </div>
                                     </div>
