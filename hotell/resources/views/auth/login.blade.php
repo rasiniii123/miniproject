@@ -66,7 +66,18 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.20/sweetalert2.all.min.js"></script>
-        <script>
+        @if(session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sukses!',
+            text: '{{ session('success') }}',
+            confirmButtonColor: '#283E58',
+            confirmButtonText: 'OK'
+        });
+    </script>
+@endif
+        {{-- <script>
             $(document).ready(function() {
                 $('.account_form').on('submit', function(e) {
                     e.preventDefault();
@@ -86,7 +97,7 @@
                             }).then((result) => {
                                 // Redirect ke halaman dashboard setelah menekan tombol OK
                                 if (result.isConfirmed) {
-                                    window.location.href = "{{ route('dashboard') }}";
+                                    window.location.href = "{{ route('admin.dashboard') }}";
                                 }
                             });
                         },
@@ -105,6 +116,6 @@
                     });
                 });
             });
-        </script>
+        </script> --}}
     </section>
 @endsection

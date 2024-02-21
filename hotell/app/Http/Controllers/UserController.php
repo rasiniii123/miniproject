@@ -42,20 +42,17 @@ class UserController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-    if (Auth::attempt($credentials)) {
-        // Jika pengguna berhasil login, periksa peran mereka
-        if (Auth::user()->role === 'admin') {
-            // Jika pengguna memiliki peran semiadmin, arahkan ke dashboard semiadmin
-            return redirect()->route('admin.dashboard');
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard')->with('admin_success', 'Selamat datang di dashboard admin!');
+            } else {
+                return redirect()->route('dashboard')->with('login_success', 'Selamat datang di dashboard admin!');
+            }
         } else {
-            // Jika pengguna memiliki peran lain, arahkan ke dashboard utama
-            return redirect()->route('dashboard');
+            return back()->withErrors(['email' => 'Login gagal. Email atau password salah.']);
         }
-    } else {
-        // Login gagal, mungkin tampilkan pesan kesalahan
-        return back()->withErrors(['email' => 'Login gagal. email atau password salah.']);
     }
-}
 
     function logout()
     {

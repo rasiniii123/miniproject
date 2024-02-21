@@ -120,7 +120,7 @@
                                     <div
                                         style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">
                                         Tentang Kami</div>
-                                        <div
+                                    <div
                                         style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">
                                         History</div>
                                 </div>
@@ -212,29 +212,82 @@
 
         <!-- JavaScript Bootstrap -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            /* Gaya untuk Popup Sweet Alert */
+            .your-popup-class {
+                width: 500px; /* Atur lebar popup */
+                height: auto; /* Atur tinggi popup, atau biarkan auto */
+                font-size: 16px; /* Atur ukuran font */
+            }
+
+            /* Gaya untuk Judul Sweet Alert */
+            .your-title-class {
+                font-size: 24px; /* Atur ukuran font judul */
+            }
+
+            /* Gaya untuk Isi Sweet Alert */
+            .your-content-class {
+                font-size: 18px; /* Atur ukuran font isi */
+            }
+
+            /* Gaya untuk Tombol Konfirmasi Sweet Alert */
+            .your-confirm-button-class {
+                font-size: 20px; /* Atur ukuran font tombol konfirmasi */
+            }
+        </style>
 
 
-        @if (session('success'))
-            <script>
-                Swal.fire({
-                    title: 'Registrasi Berhasil',
-                    text: 'Selamat datang di situs kami!',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                });
-            </script>
-        @endif
+@if (session('success'))
+<script>
+    Swal.fire({
+        title: 'Registrasi Berhasil',
+        text: 'Selamat datang di situs kami!',
+        icon: 'success',
+        confirmButtonText: 'Ok',
+        customClass: {
+            popup: 'your-popup-class',
+            title: 'your-title-class',
+            content: 'your-content-class',
+            confirmButton: 'your-confirm-button-class'
+        }
+    });
+</script>
+@endif
 
-        @if (session('logout_success'))
-            <script>
-                Swal.fire({
-                    title: 'Logout Berhasil',
-                    text: 'Anda telah berhasil keluar.',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                });
-            </script>
-        @endif
+        @if (session('login_success'))
+        <script>
+            Swal.fire({
+                title: 'Login Berhasil',
+                text: 'Selamat datang Dihalaman Dashboard Kasir!',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+                customClass: {
+                    popup: 'your-popup-class',
+                    title: 'your-title-class',
+                    content: 'your-content-class',
+                    confirmButton: 'your-confirm-button-class'
+                }
+            });
+        </script>
+    @endif
+
+
+    @if (session('logout_success'))
+    <script>
+        Swal.fire({
+            title: 'Logout Berhasil',
+            text: 'Anda telah berhasil keluar.',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+            customClass: {
+                popup: 'your-popup-class',
+                title: 'your-title-class',
+                content: 'your-content-class',
+                confirmButton: 'your-confirm-button-class'
+            }
+        });
+    </script>
+@endif
 </body>
 
 <!-- Mirrored from landing.engotheme.com/html/lotus/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Feb 2024 12:43:53 GMT -->

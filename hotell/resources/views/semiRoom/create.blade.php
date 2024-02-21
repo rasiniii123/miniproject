@@ -41,6 +41,7 @@
                                 <input type="file" name="foto[]" id="foto" class="form-control" multiple>
                             </div>
 
+
                             <button type="submit" class="btn btn-primary">Create Room</button>
                         </form>
                     </div>
