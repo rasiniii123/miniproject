@@ -225,11 +225,11 @@
                                                 <div class="d-flex justify-content-start align-items-center product-name">
                                                     <div class="avatar-wrapper">
                                                         <div class="avatar avatar me-2 rounded-2 bg-label-secondary">
-                                                            <img src="{{ asset('storage/kamar/' . $kamars->path_kamar) }}" alt="Product-9" class="rounded-2">
+                                                            <img src="{{ asset('storage/kamar/' . $kamars->path_kamar) }}" alt="Product-9" class="rounded-2" style="object-fit: cover; min-width: 50px;">
                                                         </div>
                                                     </div>
                                                     <div class="d-flex flex-column">
-                                                        <h6 class="text-body text-nowrap mb-0">{{ ucfirst($kamars->nama_kamar )}}</h6>
+                                                        <h6 class="text-body text-nowrap mb-0 ms-2">{{ ucfirst($kamars->nama_kamar )}}</h6>
                                                     </div>
                                                 </div>
                                             </td>
@@ -239,7 +239,7 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ $kamars->stok }}</span>
+                                                <span class="text-truncate d-flex align-items-center">Rp.{{ number_format($kamars->harga, 0, ',', '.') }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>

@@ -32,6 +32,24 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_kamar' => 'required',
+            'deskripsi' => 'required',
+            'path_kamar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'kategori_id' => 'required',
+            'harga' => 'required|numeric',
+        ], [
+            'nama_kamar.required' => 'Room name is required.',
+            'deskripsi.required' => 'Room description is required.',
+            'path_kamar.required' => 'Room image is required.',
+            'path_kamar.image' => 'The uploaded file must be an image.',
+            'path_kamar.mimes' => 'The image must be in jpeg, png, or jpg format.',
+            'path_kamar.max' => 'The image size must not exceed 2MB.',
+            'kategori_id.required' => 'Room category is required.',
+            'harga.required' => 'Room price is required.',
+            'harga.numeric' => 'Room price must be a number.',
+        ]);
+
         $file = $request->file('path_kamar');
         $fileName = Str::random(10) . '.' .  $file->getClientOriginalExtension();
         $file->storeAs('public/kamar', $fileName);
@@ -39,9 +57,9 @@ class RoomController extends Controller
         Room::create([
             "path_kamar" => $fileName,
             "nama_kamar" => $request->nama_kamar,
-            "deskripsi"=> $request->deskripsi,
-            "harga"=> $request->harga,
-            "kategori_id"=> $request->kategori_id,
+            "deskripsi" => $request->deskripsi,
+            "harga" => $request->harga,
+            "kategori_id" => $request->kategori_id,
         ]);
 
         return redirect()->route('room')->with("success", "Product data added successfully!");
