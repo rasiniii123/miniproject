@@ -248,18 +248,19 @@
                                                 <span class="badge bg-label-danger">{{ $kamars->status }}</span>
                                             </td>
                                             <td class="" style="">
-                                                <div class="d-inline-block text-nowrap">
+                                                <div class="d-inline-block text-nowrap d-flex justify-content-center">
                                                     <a href="{{ route('room.edit', $kamars->id) }}">
                                                         <button class="btn btn-sm btn-icon">
                                                             <i class="bx bx-edit"></i>
                                                         </button>
                                                     </a>
-                                                    <button class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                        <i class="bx bx-dots-vertical-rounded me-2"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end m-0">
-                                                        <a href="javascript:0;" class="dropdown-item text-danger">Delete</a>
-                                                    </div>
+                                                    <form action="{{ route('room.destroy', $kamars->id) }}" method="POST">
+                                                        <button type="button" class="btn btn-sm btn-icon dropdown-toggle hide-arrow hapus" data-bs-toggle="dropdown">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <i class="bx bx-trash"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
@@ -314,4 +315,23 @@
         <div class="drag-target"></div>
 
     </div>
+    <script>
+        $('.hapus').click(function() {
+            var form = $(this).closest('form');
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You will delete this product. This action cannot be undone!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, accept!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
 @endsection
