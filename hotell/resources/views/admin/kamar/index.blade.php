@@ -239,11 +239,17 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ $kamars->stok }}</span>
+                                                <span class="text-truncate d-flex align-items-center">{{ $kamars->harga }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
                                             </td>
+                                            {{-- <td>
+                                                <span class="text-truncate d-flex align-items-center">{{ $kamars->stok }}</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
+                                            </td> --}}
                                             <td>
                                                 <span class="badge bg-label-danger">{{ $kamars->status }}</span>
                                             </td>

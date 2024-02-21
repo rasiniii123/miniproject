@@ -48,11 +48,9 @@
                             <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
                             <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="display: none;">
                                 <li>
-                                    <form action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item bg-transparent btn-primary btn-lg">
+                                        <a href="{{route('logout')}} "type="button" class="dropdown-item bg-transparent btn-primary btn-lg">
                                             <i class="fas fa-sign-out-alt fa-lg text-primary"></i> Keluar
-                                        </button>
+                                        </a>
                                     </form>
                                 </li>
                             </ul>

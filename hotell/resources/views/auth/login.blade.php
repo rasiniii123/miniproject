@@ -86,7 +86,7 @@
                             }).then((result) => {
                                 // Redirect ke halaman dashboard setelah menekan tombol OK
                                 if (result.isConfirmed) {
-                                    window.location.href = "{{ route('dashboard') }}";
+                                    window.location.href = "{{ route('admin.dashboard') }}";
                                 }
                             });
                         },
