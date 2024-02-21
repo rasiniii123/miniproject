@@ -76,9 +76,16 @@
                     </li>
                     <!-- e-commerce-app menu start -->
                     <li class="menu-item active open">
-                        <a href="javascript:void(0);" class="menu-link">
+                        <a href="{{ route('room') }}" class="menu-link">
                             <i class="menu-icon fa-solid fa-bed"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('kategori') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div class="text-truncate" data-i18n="Dashboards">Category</div>
+                            {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
                         </a>
                     </li>
             </aside>

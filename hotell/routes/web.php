@@ -12,7 +12,12 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UlasanController;
+
+Route::get('/', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 Route::get('/login', [UserController::class, 'index'])->name('auth.login');
 Route::post('/login', [UserController::class, 'store'])->name('login.submit');
@@ -22,28 +27,26 @@ Route::post('/register', [RegisterController::class, 'store'])->name('auth.store
 
 Route::middleware('auth')->group(function () {
 
-    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
+    Route::get('menu', [MenuController::class, 'index'])->name('menu');
 
-Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
 
-Route::get('menu', [MenuController::class, 'index'])->name('menu');
+    Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
 
-Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
+    Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
 
-Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
-
-Route::get('/ulasan',[UlasanController::class,'index'])->name('ulasan');
-
-Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
-Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
+    Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
+    Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
 });
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::controller(RoomController::class)->prefix('room')->group(function () {
         Route::get('/', 'index')->name('room');
@@ -62,7 +65,6 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
         Route::put('edit/{id}', 'update')->name('kategori.update');
         Route::delete('destroy/{id}', 'destroy')->name('kategori.destroy');
     });
-
 });
 Route::get('/', function () {
     return view ('dashboard');

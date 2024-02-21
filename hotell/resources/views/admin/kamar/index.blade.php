@@ -162,8 +162,6 @@
                             placeholder="Search..." aria-label="Search...">
                         <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
                     </div>
-
-
                 </nav>
 
 
@@ -244,6 +242,12 @@
                                             <td>
                                                 <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
                                             </td>
+                                            {{-- <td>
+                                                <span class="text-truncate d-flex align-items-center">{{ $kamars->stok }}</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
+                                            </td> --}}
                                             <td>
                                                 <span class="badge bg-label-danger">{{ $kamars->status }}</span>
                                             </td>

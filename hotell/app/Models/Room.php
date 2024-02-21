@@ -22,4 +22,8 @@ class Room extends Model
     {
         return $this->belongsTo(Kategori::class, 'kategori_id');
     }
+    public function menus()
+    {
+        return $this->hasMany(Menu::class);
+    }
 }

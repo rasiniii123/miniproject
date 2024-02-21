@@ -1,7 +1,7 @@
 @extends('layouts.yss')
 
 @section('content')
-</script>
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <div class="main-content">
         <div class="page-content">
@@ -54,28 +54,32 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Menu content -->
-                <div style="width: 1000px;">
+            <!-- Menu content -->
+            <div style="width: 1000px;">
 
 
                 <!-- Vertical line -->
 
                 <div style="border-left: 2px solid #dfd9d9; flex-grow: 1; margin-right: 30px;  margin-top: 40px;"></div>
-                <div class="row">
-                    <div class="hotel" id="lotus_hotel" style="margin-top:35px; display: inline-block;">
+                @foreach ($menu as $room)
+                    <div class="hotel" id="room_{{ $room->id }}">
                         <div class="menu-item" style="display: flex; flex-direction: column; align-items: flex-start;">
                             <div
                                 style="color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
-                                LUXURY ROOM
+                                {{ $room->nama_kamar }}
                             </div>
                             <div style="display: flex; align-items: center;">
-                                <img src="images/kamar1.png" alt="Gambar" style="max-width: 250px; max-height: 150px;">
+                                <img src="{{ asset('storage/kamar/'.$room->path_kamar) }}"
+                                    style="max-width: 250px; max-height: 150px;">
                                 <div style="margin-left: 15px; font-family: Poppins; width: 750px; word-wrap: break-word;">
-                                    <p style="font-size: 18px;">Kamar Hotel Luxur Room adalah jenis kamar hotel yang menawarkan pengalaman menginap mewah dan nyaman bagi para tamu. Kamar ini biasanya merupakan kamar</p>
+                                    <p style="font-size: 18px;">{{ $room->deskripsi }}</p>
                                     <div style="display: flex; align-items: center; margin-top: 20px;">
-                                        <img src="images/uang.png" alt="Gambar Baru" style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                        <div class="harga" style="font-family: Poppins; font-size: 18px;">Rp 1.000.000</div>
+                                        <img src="images/uang.png" alt="Gambar Baru"
+                                            style="max-width: 20px; max-height: 20px; margin-right: 5px;">
+                                        <div class="harga" style="font-family: Poppins; font-size: 18px;">Rp
+                                            {{ number_format($room->harga, 0, ',', '.') }}</div>
                                     </div>
                                     <div style="margin-top: 15px;"></div> <!-- Jarak tambahan -->
                                     <div style="display: flex; align-items: center;">
@@ -376,74 +380,75 @@
 
                                 </div>
                             </div>
+                            <!-- Tambahkan elemen HTML lainnya sesuai kebutuhan -->
                         </div>
                     </div>
-                </div>
-                </div>
+                @endforeach
+
             </div>
+        </div>
     </div>
 
 
 
-                <script>
-                    // Function to reset checkboxes
-                    function resetCheckboxes() {
-                        // Get all checkboxes
-                        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                        // Loop through checkboxes and uncheck them
-                        checkboxes.forEach(function(checkbox) {
-                            checkbox.checked = false;
-                        });
-                    }
+    <script>
+        // Function to reset checkboxes
+        function resetCheckboxes() {
+            // Get all checkboxes
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            // Loop through checkboxes and uncheck them
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = false;
+            });
+        }
 
-                    <script>
-                        // Function to reset checkboxes
-                        function resetCheckboxes() {
-                            // Get all checkboxes
-                            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                            // Loop through checkboxes and uncheck them
-                            checkboxes.forEach(function(checkbox) {
-                                checkbox.checked = false;
-                            });
-                        }
+        <
+        script >
+            // Function to reset checkboxes
+            function resetCheckboxes() {
+                // Get all checkboxes
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                // Loop through checkboxes and uncheck them
+                checkboxes.forEach(function(checkbox) {
+                    checkbox.checked = false;
+                });
+            }
 
-                        // Add event listener to the reset button
-                        var resetButton = document.getElementById('resetButton');
-                        resetButton.addEventListener('click', resetCheckboxes);
-                    </script>
+        // Add event listener to the reset button
+        var resetButton = document.getElementById('resetButton');
+        resetButton.addEventListener('click', resetCheckboxes);
+    </script>
 
-                    <script>
-                        // Ambil elemen input pencarian
-                        const searchBar = document.getElementById('searchBar');
+    <script>
+        // Ambil elemen input pencarian
+        const searchBar = document.getElementById('searchBar');
 
-                        // Tambahkan event listener untuk event input (ketika pengguna mengetikkan sesuatu)
-                        searchBar.addEventListener('input', function(event) {
-                            const searchTerm = event.target.value
-                        .toLowerCase(); // Ambil nilai pencarian dan ubah menjadi huruf kecil
+        // Tambahkan event listener untuk event input (ketika pengguna mengetikkan sesuatu)
+        searchBar.addEventListener('input', function(event) {
+            const searchTerm = event.target.value
+                .toLowerCase(); // Ambil nilai pencarian dan ubah menjadi huruf kecil
 
-                            // Ambil semua item menu
-                            const menuItems = document.querySelectorAll('.menu-item');
+            // Ambil semua item menu
+            const menuItems = document.querySelectorAll('.menu-item');
 
-                            // Iterasi melalui setiap item menu
-                            menuItems.forEach(function(menuItem) {
-                                const namaHotel = menuItem.textContent
-                            .toLowerCase(); // Ambil teks item menu dan ubah menjadi huruf kecil
+            // Iterasi melalui setiap item menu
+            menuItems.forEach(function(menuItem) {
+                const namaHotel = menuItem.textContent
+                    .toLowerCase(); // Ambil teks item menu dan ubah menjadi huruf kecil
 
-                                // Periksa apakah teks item menu mengandung kata kunci pencarian
-                                if (namaHotel.includes(searchTerm)) {
-                                    menuItem.style.display = 'flex'; // Tampilkan item menu jika cocok dengan pencarian
-                                } else {
-                                    menuItem.style.display =
-                                    'none'; // Sembunyikan item menu jika tidak cocok dengan pencarian
-                                }
-                            });
-                        });
-                    </script>
-
-
-                </div>
-            </div>
-        </div>
+                // Periksa apakah teks item menu mengandung kata kunci pencarian
+                if (namaHotel.includes(searchTerm)) {
+                    menuItem.style.display = 'flex'; // Tampilkan item menu jika cocok dengan pencarian
+                } else {
+                    menuItem.style.display =
+                        'none'; // Sembunyikan item menu jika tidak cocok dengan pencarian
+                }
+            });
+        });
+    </script>
+    </div>
+    </div>
+    </div>
     </div>
     </div>
 
