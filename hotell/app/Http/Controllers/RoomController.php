@@ -37,7 +37,7 @@ class RoomController extends Controller
         $request->validate([
             'nama_kamar' => 'required',
             'deskripsi' => 'required',
-            'path_kamar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'path_kamar' => 'required|image|mimes:jpeg,png,jpg|max:10048',
             'kategori_id' => 'required',
             'harga' => 'required|numeric',
         ], [
@@ -46,7 +46,7 @@ class RoomController extends Controller
             'path_kamar.required' => 'Room image is required.',
             'path_kamar.image' => 'The uploaded file must be an image.',
             'path_kamar.mimes' => 'The image must be in jpeg, png, or jpg format.',
-            'path_kamar.max' => 'The image size must not exceed 2MB.',
+            'path_kamar.max' => 'The image size must not exceed 10MB.',
             'kategori_id.required' => 'Room category is required.',
             'harga.required' => 'Room price is required.',
             'harga.numeric' => 'Room price must be a number.',
@@ -90,6 +90,24 @@ class RoomController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'nama_kamar' => 'required',
+            'deskripsi' => 'required',
+            'path_kamar' => 'required|image|mimes:jpeg,png,jpg|max:10048',
+            'kategori_id' => 'required',
+            'harga' => 'required|numeric',
+        ], [
+            'nama_kamar.required' => 'Room name is required.',
+            'deskripsi.required' => 'Room description is required.',
+            'path_kamar.required' => 'Room image is required.',
+            'path_kamar.image' => 'The uploaded file must be an image.',
+            'path_kamar.mimes' => 'The image must be in jpeg, png, or jpg format.',
+            'path_kamar.max' => 'The image size must not exceed 10MB.',
+            'kategori_id.required' => 'Room category is required.',
+            'harga.required' => 'Room price is required.',
+            'harga.numeric' => 'Room price must be a number.',
+        ]);
+        
         $produk = Room::find($id);
         $existingimage = $produk->path_produk;
 
