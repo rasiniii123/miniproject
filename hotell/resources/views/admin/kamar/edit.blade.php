@@ -1,9 +1,9 @@
 @extends('admin.layout.app')
 @section('content')
-    <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar  ">
         <div class="layout-container">
@@ -54,17 +54,20 @@
                                     </g>
                                 </g>
                             </svg>
+
                         </span>
                         <span class="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
                     </a>
+
                     {{-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
-                    </a> --}}
+                <i class="bx bx-chevron-left bx-sm align-middle"></i>
+            </a> --}}
                 </div>
+
                 <div class="menu-inner-shadow"></div>
                 <ul class="menu-inner py-1">
                     <!-- Dashboards -->
-                    <li class="menu-item active open">
+                    <li class="menu-item">
                         <a href="{{ route('admin.dashboard') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div class="text-truncate" data-i18n="Dashboards">Dashboards</div>
@@ -72,7 +75,7 @@
                         </a>
                     </li>
                     <!-- e-commerce-app menu start -->
-                    <li class="menu-item">
+                    <li class="menu-item active open">
                         <a href="{{ route('room') }}" class="menu-link">
                             <i class="menu-icon fa-solid fa-bed"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
@@ -89,7 +92,6 @@
             <!-- / Menu -->
             <!-- Layout container -->
             <div class="layout-page">
-                <!-- Navbar -->
                 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
                     id="layout-navbar">
                     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
@@ -159,121 +161,170 @@
                             placeholder="Search..." aria-label="Search...">
                         <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
                     </div>
+
+
                 </nav>
+
+
+
                 <!-- / Navbar -->
-                <!-- Content wrapper -->
+
+
+
+
                 <div class="content-wrapper">
+
                     <!-- Content -->
+
                     <div class="container-xxl flex-grow-1 container-p-y">
+
+
+
                         <h4 class="py-3 mb-4">
-                            <span class="text-bold">Dashboard</span>
+                            <span> Edit Room</span>
                         </h4>
-                        <!-- Card Border Shadow -->
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-3 mb-4">
-                                <div class="card card-border-shadow-primary h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center mb-2 pb-1">
-                                            <div class="avatar me-2">
-                                                <span class="avatar-initial rounded bg-label-primary"><i
-                                                        class="fa-solid fa-bed"></i></span>
-                                            </div>
-                                            <h4 class="ms-1 mb-0 text-primary">
-                                                {{ $kamar->count() }}
-                                            </h4>
-                                        </div>
-                                        <p class="mb-1">Total Room</p>
-                                        {{-- <p class="mb-0">
-                                            <span class="fw-medium me-1">+18.2%</span>
-                                            <small class="text-muted">than last week</small>
-                                        </p> --}}
+
+                        <div class="app-ecommerce">
+                            <form action="{{ route('room.update', $kamar->id) }}" method="POST" enctype="multipart/form-data">
+                                @method('PUT')
+                                @csrf
+                                <!-- Edit Product -->
+                                <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h4 class="mb-1 mt-3">Edit a new Room</h4>
+                                        <p class="text-muted">Orders placed across your store</p>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3 mb-4">
-                                <div class="card card-border-shadow-info h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center mb-2 pb-1">
-                                            <div class="avatar me-2">
-                                                <span class="avatar-initial rounded bg-label-info"><i
-                                                        class="fa-solid fa-users"></i></span>
-                                            </div>
-                                            <h4 class="ms-1 mb-0 text-info">{{ $userregister }}</h4>
-                                        </div>
-                                        <p class="mb-1">User Register</p>
-                                        {{-- <p class="mb-0">
-                                            <span class="fw-medium me-1">-8.7%</span>
-                                            <small class="text-muted">than last week</small>
-                                        </p> --}}
+                                    <div class="d-flex align-content-center flex-wrap gap-3">
+                                        <button class="btn btn-label-secondary">Discard</button>
+                                        <button type="submit" class="btn btn-primary">Publish room</button>
                                     </div>
+
                                 </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3 mb-4">
-                                <div class="card card-border-shadow-warning h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center mb-2 pb-1">
-                                            <div class="avatar me-2">
-                                                <span class="avatar-initial rounded bg-label-warning"><i
-                                                        class="fa-regular fa-circle-check"></i></span>
+
+                                <div class="row">
+                                    <!-- First column-->
+                                    <div class="col-12 col-lg-8">
+                                        <!-- Product Information -->
+                                        <form action="">
+                                            <div class="card mb-4">
+                                                <div class="card-header">
+                                                    <h5 class="card-tile mb-0">Room information</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                            for="ecommerce-product-name">Name</label>
+                                                        <input type="text"
+                                                            class="form-control @error('nama_kamar') is-invalid @enderror"
+                                                            id="ecommerce-product-name" placeholder="Room title"
+                                                            name="nama_kamar" aria-label="Product title"
+                                                            value="{{ old('name', $kamar->nama_kamar) }}">
+                                                        @error('nama_kamar')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <!-- Description -->
+                                                    <div>
+                                                        <label class="form-label">Description</label>
+                                                        <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" cols="30"
+                                                            rows="5" placeholder="Write a description here...">{{ old('name', $kamar->deskripsi) }}</textarea>
+                                                        @error('deskripsi')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <h4 class="ms-1 mb-0 text-warning">27</h4>
-                                        </div>
-                                        <p class="mb-1">Active Room</p>
-                                        {{-- <p class="mb-0">
-                                            <span class="fw-medium me-1">+4.3%</span>
-                                            <small class="text-muted">than last week</small>
-                                        </p> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3 mb-4">
-                                <div class="card card-border-shadow-danger h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center mb-2 pb-1">
-                                            <div class="avatar me-2">
-                                                <span class="avatar-initial rounded bg-label-danger"><i
-                                                        class="fa-regular fa-circle-xmark"></i></span>
+                                        </form>
+                                        <!-- /Product Information -->
+                                        <!-- Media -->
+                                        <div class="card mb-4">
+                                            <div class="card-header d-flex justify-content-between align-items-center">
+                                                <h5 class="mb-0 card-title">Room Image</h5>
                                             </div>
-                                            <h4 class="ms-1 mb-0 text-danger">13</h4>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <input class="form-control @error('path_kamar') is-invalid @enderror"
+                                                        type="file" name="path_kamar" id="formFile">
+                                                    @if ($kamar->path_kamar)
+                                                        <img class="mt-2" id="image-preview"
+                                                            src="{{ asset('storage/kamar/' . $kamar->path_kamar) }}"
+                                                            alt="Preview"
+                                                            style="max-width: 100%; max-height: 400px; border-radius: 5px">
+                                                    @endif
+                                                    <img class="mt-2" id="image-preview" src="#" alt="Preview"
+                                                        style="display: none; max-width: 100%; max-height: 400px; border-radius: 5px">
+                                                    @error('path_kamar')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <script>
+                                                document.getElementById('formFile').addEventListener('change', function(e) {
+                                                    const file = e.target.files[0];
+                                                    const reader = new FileReader();
+                                                    reader.onload = function(e) {
+                                                        document.getElementById('image-preview').src = e.target.result;
+                                                        document.getElementById('image-preview').style.display = 'block';
+                                                    }
+                                                    reader.readAsDataURL(file);
+                                                });
+                                            </script>
                                         </div>
-                                        <p class="mb-1">Empty Room</p>
-                                        {{-- <p class="mb-0">
-                                            <span class="fw-medium me-1">-2.5%</span>
-                                            <small class="text-muted">than last week</small>
-                                        </p> --}}
+                                        <!-- /Media -->
                                     </div>
+                                    <!-- /Second column -->
+
+                                    <!-- Second column -->
+                                    <div class="col-12 col-lg-4">
+                                        <!-- Pricing Card -->
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <h5 class="card-title mb-0">Pricing</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Base Price -->
+                                                <div class="mb-3 col ecommerce-select2-dropdown">
+                                                    <label class="form-label mb-1 d-flex justify-content-between align-items-center"for="category-org">Category</label>
+                                                        <select id="category-org"
+                                                            class="select2 form-select  @error('kategori_id') is-invalid @enderror"
+                                                            data-placeholder="Select Category" name="kategori_id">
+                                                            <option disabled>Select category</option>
+                                                            @foreach ($kategori as $kategoris)
+                                                                <option value="{{ $kategoris->id }}"
+                                                                    @if ($kamar->kategori_id == $kategoris->id) selected @endif>
+                                                                    {{ $kategoris->nama_kategori }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                </div>
+                                                <!-- Discounted Price -->
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="ecommerce-product-price">Base
+                                                        Price</label>
+                                                    <input type="number"
+                                                        class="form-control @error('harga') is-invalid @enderror"
+                                                        id="ecommerce-product-price" placeholder="Price" name="harga"
+                                                        aria-label="Product price" value="{{ old('name', $kamar->harga) }}">
+                                                    @error('harga')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Pricing Card -->
+                                    </div>
+                                    <!-- /Second column -->
                                 </div>
-                            </div>
+                            </form>
                         </div>
-                        <!--/ Card Border Shadow -->
-                        <div class="row">
-                            <!-- Vehicles overview -->
-                            <div class="col-xxl-6 mb-4 order-5 order-xxl-0">
-                                <div class="card h-100">
-                                    <div class="card-header">
-                                        <div class="card-title mb-0">
-                                            <h5 class="m-0">Total room overview</h5>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <div>
-                                                <>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, voluptatibus minima recusandae ipsa qui quaerat sit assumenda dicta consequuntur laboriosam nostrum aliquam, maiores iusto quae quos. Vero amet repellendus dolores!</>
-                                                <>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, voluptatibus minima recusandae ipsa qui quaerat sit assumenda dicta consequuntur laboriosam nostrum aliquam, maiores iusto quae quos. Vero amet repellendus dolores!</>
-                                                <>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, voluptatibus minima recusandae ipsa qui quaerat sit assumenda dicta consequuntur laboriosam nostrum aliquam, maiores iusto quae quos. Vero amet repellendus dolores!</>
-                                                <>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, voluptatibus minima recusandae ipsa qui quaerat sit assumenda dicta consequuntur laboriosam nostrum aliquam, maiores iusto quae quos. Vero amet repellendus dolores!</>
-                                                <>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, voluptatibus minima recusandae ipsa qui quaerat sit assumenda dicta consequuntur laboriosam nostrum aliquam, maiores iusto quae quos. Vero amet repellendus dolores!</>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ Vehicles overview -->
-                            </div>
-                        </div>
-                        <!--/ On route vehicles Table -->
                     </div>
                     <!-- / Content -->
+
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">

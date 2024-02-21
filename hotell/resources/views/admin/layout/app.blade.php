@@ -111,6 +111,16 @@
 
   <!-- Page JS -->
   <script src="{{ asset('js/app-ecommerce-dashboard.js') }}"></script>
+  @if (session('admin_success'))
+  <script>
+      Swal.fire({
+          title: 'Login Berhasil',
+          text: 'Selamat datang di halaman dashboard admin!',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+      });
+  </script>
+@endif
 
 </body>
 

@@ -76,9 +76,16 @@
                     </li>
                     <!-- e-commerce-app menu start -->
                     <li class="menu-item active open">
-                        <a href="javascript:void(0);" class="menu-link">
+                        <a href="{{ route('room') }}" class="menu-link">
                             <i class="menu-icon fa-solid fa-bed"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('kategori') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div class="text-truncate" data-i18n="Dashboards">Category</div>
+                            {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
                         </a>
                     </li>
             </aside>
@@ -221,10 +228,7 @@
                                                     <!-- Description -->
                                                     <div>
                                                         <label class="form-label">Description</label>
-                                                        <textarea class="form-control  @error('deskripsi') is-invalid @enderror" name="deskripsi" id=""
-                                                            cols="30" rows="5" placeholder="Write a description here...">
-                                                        {{ old('deskripsi') }}
-                                                    </textarea>
+                                                        <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" cols="30" rows="5" placeholder="Write a description here...">{{ old('deskripsi') }}</textarea>
                                                         @error('deskripsi')
                                                             <div class="invalid-feedback">{{ $message }}</div>
                                                         @enderror
@@ -241,8 +245,8 @@
                                             <div class="card-body">
                                                 <div class="mb-3">
                                                     <input class="form-control @error('path_kamar') is-invalid @enderror"
-                                                        type="file" name="path_kamar" value="{{ old('path_produk') }}"
-                                                        id="formFile">
+                                                        type="file" name="path_kamar" id="formFile">
+                                                    <img class="mt-2" id="image-preview" src="#" alt="Preview" style="display: none; max-width: 100%; max-height: 400px; border-radius: 5px">
                                                     @error('path_kamar')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -250,6 +254,17 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <script>
+                                                document.getElementById('formFile').addEventListener('change', function(e) {
+                                                    const file = e.target.files[0];
+                                                    const reader = new FileReader();
+                                                    reader.onload = function(e) {
+                                                        document.getElementById('image-preview').src = e.target.result;
+                                                        document.getElementById('image-preview').style.display = 'block';
+                                                    }
+                                                    reader.readAsDataURL(file);
+                                                });
+                                            </script>
                                         </div>
                                         <!-- /Media -->
                                     </div>

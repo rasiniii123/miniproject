@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view ('admin.dashboard');
+        $userregister = User::where('role', 'user')->count();
+        $kamar = Room::all();
+        return view('admin.dashboard', compact('kamar', 'userregister'));
     }
 
     /**

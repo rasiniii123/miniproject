@@ -41,20 +41,18 @@ class UserController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
+
         if (Auth::attempt($credentials)) {
-            // Jika pengguna berhasil login, periksa peran mereka
-            if (Auth::user()->role === 'admin') {
-                // Jika pengguna memiliki peran admin, arahkan ke dashboard admin
-                return redirect()->route('admin.dashboard');
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard')->with('admin_success', 'Selamat datang di dashboard admin!');
             } else {
-                // Jika pengguna memiliki peran lain atau tidak memiliki peran, arahkan ke dashboard utama
-                return redirect()->route('dashboard');
+                return redirect()->route('dashboard')->with('login_success', 'Selamat datang di dashboard admin!');
             }
         } else {
-            // Login gagal, tampilkan pesan kesalahan
             return back()->withErrors(['email' => 'Login gagal. Email atau password salah.']);
-        }        
-}
+        }
+    }
 
     function logout()
     {

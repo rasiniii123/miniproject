@@ -12,6 +12,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UlasanController;
 
 Route::get('/', function () {
@@ -45,7 +46,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::controller(RoomController::class)->prefix('room')->group(function () {
         Route::get('/', 'index')->name('room');
@@ -53,6 +54,7 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
         Route::post('/store', 'store')->name('room.store');
         Route::get('/edit/{id}', 'edit')->name('room.edit');
         Route::put('/edit/{id}', 'update')->name('room.update');
+        Route::delete('destroy/{id}', 'destroy')->name('room.destroy');
     });
 
     Route::controller(KategoriController::class)->prefix('kategori')->group(function () {
