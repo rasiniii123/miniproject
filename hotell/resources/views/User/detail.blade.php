@@ -26,7 +26,7 @@
                             <button style="float: left; margin-left: -6px; margin-top:30px; margin-bottom: 20px; background-color: #283E58; color: white; border: none; padding: 15px 25px; font-size: 20px; font-family: Poppins; font-weight: 400; cursor: pointer; width: 270px; height: 40px; text-align: center; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
                                 Pesan Sekarang
                             </button>
-                        </div>                        
+                        </div>
                     <img src="images/Vector-2.png" alt="Garis bawah" style="width: 100%; margin-top: -5px; color:#92989F">
                     <h2 style="font-weight: bold; margin-right: 1000px; margin-top: 10px; font-size: 20px;">KETERANGAN</h2>
                     <p style="margin-top: 20px; text-align: justify;">
@@ -93,6 +93,9 @@
                     <img src="images/Vector-2.png" alt="Garis bawah"
                         style="width: 100%; margin-top: 20px; margin-bottom: 20px; color:#92989F">
                     <h2 style="font-weight: bold; float: left; margin-top: 10px; font-size: 20px;">PENILAIAN DAN ULASAN</h2>
+                </div>
+                <div id="preloader">
+                    <span class="preloader-dot"></span>
                 </div>
     </section>
 @endsection

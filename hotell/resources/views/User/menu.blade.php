@@ -20,17 +20,22 @@
                     <div style=" 1px solid #ccc;  padding-left: 20px; padding-right: 20px; margin-top:60px;">
                         <!-- Filter by price -->
                         <h3 style="font-size: 20px; margin-top: 10px;">Harga</h3>
-                        <div>
-                            <input type="checkbox" id="price-1" style="transform: scale(0.8);">
-                            <label for="price-1" style="font-size: 15px;">Below Rp. 500,000</label>
-                        </div>
+
                         <div>
                             <input type="checkbox" id="price-2" style="transform: scale(0.8);">
-                            <label for="price-2" style="font-size: 15px;">Rp. 500,000 - Rp. 1,000,000</label>
+                            <label for="price-2" style="font-size: 15px;">Rp. 500,000 </label>
                         </div>
                         <div>
                             <input type="checkbox" id="price-3" style="transform: scale(0.8);">
-                            <label for="price-3" style="font-size: 15px;">Above Rp. 1,000,000</label>
+                            <label for="price-3" style="font-size: 15px;"> Rp. 1,000,000</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
+                            <label for="price-3" style="font-size: 15px;"> Rp. 2,000,000</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
+                            <label for="price-3" style="font-size: 15px;"> Rp. 3,000,000</label>
                         </div>
 
                         <!-- Filter by room category -->
@@ -45,7 +50,7 @@
                         </div>
                         <div>
                             <input type="checkbox" id="category-3">
-                            <label for="category-3" style="font-size: 15px;">Suite</label>
+                            <label for="category-3" style="font-size: 15px;">Family Room</label>
                         </div>
                     </div>
                 </div>
@@ -358,8 +363,12 @@
                                                     </div>
                                                     <div
                                                         style="border-bottom: 1px solid #ACACAC; width: 115%; margin-left: -15px; margin-top: 10px;">
+                                                        <div id="preloader">
+                                                            <span class="preloader-dot"></span>
+                                                        </div>
                                                     </div>
                                                 </div>
+
 
                                             </div>
                                         </div>
@@ -430,6 +439,8 @@
                             });
                         });
                     </script>
+
+
                 </div>
             </div>
         </div>

@@ -14,19 +14,17 @@ use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\UlasanController;
 
-    Route::get('/', function () {
-        return view ('dashboard');
-    })->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-});
-    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-
 Route::get('/login', [UserController::class, 'index'])->name('auth.login');
 Route::post('/login', [UserController::class, 'store'])->name('login.submit');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');
 Route::post('/register', [RegisterController::class, 'store'])->name('auth.store');
+
+Route::middleware('auth')->group(function () {
+
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,6 +40,7 @@ Route::get('/ulasan',[UlasanController::class,'index'])->name('ulasan');
 
 Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
 Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
+});
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -65,3 +64,7 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
     });
 
 });
+Route::get('/', function () {
+    return view ('dashboard');
+})->name('dashboard');
+
