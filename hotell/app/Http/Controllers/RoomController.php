@@ -6,6 +6,7 @@ use App\Models\Room;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RoomController extends Controller
 {
@@ -78,7 +79,9 @@ class RoomController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $kategori = Kategori::all();
+        $kamar = Room::findOrFail($id);
+        return view('admin.kamar.edit', compact('kamar', 'kategori'));
     }
 
     /**
@@ -86,7 +89,29 @@ class RoomController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $produk = Room::find($id);
+        $existingimage = $produk->path_produk;
+
+        $produk->update([
+            'nama_kamar' => $request->nama_kamar,
+            'deskripsi' => $request->deskripsi,
+            'harga' => $request->harga,
+            'kategori_id' => $request->kategori_id,
+        ]);
+
+        if ($request->hasFile('path_kamar')) {
+            $file = $request->file('path_kamar');
+            $fileName = Str::random('10') .'.'. $file->getClientOriginalExtension();
+            $file->move(public_path('storage/kamar'), $fileName);
+
+            $produk->update(['path_kamar' => $fileName]);
+
+            if ($existingimage) {
+                Storage::delete('path_kamar/' . $existingimage);
+            }
+        }
+
+        return redirect()->route('room')->with("success", "Room data updated successfully.");
     }
 
     /**

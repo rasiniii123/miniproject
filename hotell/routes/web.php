@@ -52,6 +52,7 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
         Route::post('/store', 'store')->name('room.store');
         Route::get('/edit/{id}', 'edit')->name('room.edit');
         Route::put('/edit/{id}', 'update')->name('room.update');
+        Route::delete('destroy/{id}', 'destroy')->name('room.destroy');
     });
 
     Route::controller(KategoriController::class)->prefix('kategori')->group(function () {
