@@ -1,6 +1,5 @@
 @extends('admin.layout.app')
 @section('content')
-    <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -61,8 +60,8 @@
                     </a>
 
                     {{-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
-                    </a> --}}
+                <i class="bx bx-chevron-left bx-sm align-middle"></i>
+            </a> --}}
                 </div>
 
                 <div class="menu-inner-shadow"></div>
@@ -77,16 +76,9 @@
                     </li>
                     <!-- e-commerce-app menu start -->
                     <li class="menu-item active open">
-                        <a href="{{ route('room') }}" class="menu-link">
+                        <a href="javascript:void(0);" class="menu-link">
                             <i class="menu-icon fa-solid fa-bed"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('kategori') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div class="text-truncate" data-i18n="Dashboards">Category</div>
-                            {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
                         </a>
                     </li>
             </aside>
@@ -102,15 +94,15 @@
                     </div>
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         {{-- <!-- Search -->
-        <div class="navbar-nav align-items-center">
-          <div class="nav-item navbar-search-wrapper mb-0">
-            <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
-              <i class="bx bx-search bx-sm"></i>
-              <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
-            </a>
-          </div>
-        </div>
-        <!-- /Search --> --}}
+                        <div class="navbar-nav align-items-center">
+                        <div class="nav-item navbar-search-wrapper mb-0">
+                            <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
+                            <i class="bx bx-search bx-sm"></i>
+                            <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
+                            </a>
+                        </div>
+                        </div>
+                        <!-- /Search --> --}}
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -170,7 +162,9 @@
 
                 <!-- / Navbar -->
 
-                <!-- Content wrapper -->
+
+
+
                 <div class="content-wrapper">
 
                     <!-- Content -->
@@ -180,94 +174,146 @@
 
 
                         <h4 class="py-3 mb-4">
-                            <span class="text-muted fw-light"></span> Room list
+                            <span> Edit Room</span>
                         </h4>
 
-                        <!-- Product List Table -->
-                        <div class="card">
-                            {{-- <div class="card-header">
-                                <h5 class="card-title">Filter</h5>
-                                <div class="d-flex justify-content-between align-items-center row py-3 gap-3 gap-md-0">
-                                    <div class="col-md-4 product_status"></div>
-                                    <div class="col-md-4 product_category"></div>
-                                    <div class="col-md-4 product_stock"></div>
+                        <div class="app-ecommerce">
+                            <form action="{{ route('room.update', $kamar->id) }}" method="POST" enctype="multipart/form-data">
+                                @method('PUT')
+                                @csrf
+                                <!-- Edit Product -->
+                                <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h4 class="mb-1 mt-3">Edit a new Room</h4>
+                                        <p class="text-muted">Orders placed across your store</p>
+                                    </div>
+                                    <div class="d-flex align-content-center flex-wrap gap-3">
+                                        <button class="btn btn-label-secondary">Discard</button>
+                                        <button type="submit" class="btn btn-primary">Publish room</button>
+                                    </div>
+
                                 </div>
-                            </div> --}}
-                            <div class="card-header">
-                                <a href="{{ route('room.create') }}">
-                                    <button class="btn btn-secondary add-new btn-primary">
-                                        <span><i class="bx bx-plus me-0 me-sm-1"></i>
-                                            <span class="d-none d-sm-inline-block">Add Room</span>
-                                        </span>
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="card-datatable table-responsive">
-                                <table class="datatables-products table border-top">
-                                    <thead>
-                                        <tr>
-                                            <th style="color: black; font-weight: bold">No</th>
-                                            <th style="color: black; font-weight: bold">Room</th>
-                                            <th style="color: black; font-weight: bold">Category</th>
-                                            <th style="color: black; font-weight: bold">Price</th>
-                                            <th style="color: black; font-weight: bold">Description</th>
-                                            <th style="color: black; font-weight: bold">Status</th>
-                                            <th style="color: black; font-weight: bold">actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($kamar as $kamars)
-                                        <tr class="odd">
-                                            <td class="control">
-                                                <span>{{ $loop->iteration }}</span>
-                                            </td>
-                                            <td class="sorting_1">
-                                                <div class="d-flex justify-content-start align-items-center product-name">
-                                                    <div class="avatar-wrapper">
-                                                        <div class="avatar avatar me-2 rounded-2 bg-label-secondary">
-                                                            <img src="{{ asset('storage/kamar/' . $kamars->path_kamar) }}" alt="Product-9" class="rounded-2" style="object-fit: cover; min-width: 50px;">
+
+                                <div class="row">
+                                    <!-- First column-->
+                                    <div class="col-12 col-lg-8">
+                                        <!-- Product Information -->
+                                        <form action="">
+                                            <div class="card mb-4">
+                                                <div class="card-header">
+                                                    <h5 class="card-tile mb-0">Room information</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"
+                                                            for="ecommerce-product-name">Name</label>
+                                                        <input type="text"
+                                                            class="form-control @error('nama_kamar') is-invalid @enderror"
+                                                            id="ecommerce-product-name" placeholder="Room title"
+                                                            name="nama_kamar" aria-label="Product title"
+                                                            value="{{ old('name', $kamar->nama_kamar) }}">
+                                                        @error('nama_kamar')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <!-- Description -->
+                                                    <div>
+                                                        <label class="form-label">Description</label>
+                                                        <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" cols="30"
+                                                            rows="5" placeholder="Write a description here...">{{ old('name', $kamar->deskripsi) }}</textarea>
+                                                        @error('deskripsi')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- /Product Information -->
+                                        <!-- Media -->
+                                        <div class="card mb-4">
+                                            <div class="card-header d-flex justify-content-between align-items-center">
+                                                <h5 class="mb-0 card-title">Room Image</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <input class="form-control @error('path_kamar') is-invalid @enderror"
+                                                        type="file" name="path_kamar" id="formFile">
+                                                    @if ($kamar->path_kamar)
+                                                        <img class="mt-2" id="image-preview"
+                                                            src="{{ asset('storage/kamar/' . $kamar->path_kamar) }}"
+                                                            alt="Preview"
+                                                            style="max-width: 100%; max-height: 400px; border-radius: 5px">
+                                                    @endif
+                                                    <img class="mt-2" id="image-preview" src="#" alt="Preview"
+                                                        style="display: none; max-width: 100%; max-height: 400px; border-radius: 5px">
+                                                    @error('path_kamar')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
                                                         </div>
-                                                    </div>
-                                                    <div class="d-flex flex-column">
-                                                        <h6 class="text-body text-nowrap mb-0 ms-2">{{ ucfirst($kamars->nama_kamar )}}</h6>
-                                                    </div>
+                                                    @enderror
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">
-                                                    {{ $kamars->kategori ? $kamars->kategori->nama_kategori : 'Tidak Ada Kategori' }}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">Rp.{{ number_format($kamars->harga, 0, ',', '.') }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-label-danger">{{ $kamars->status }}</span>
-                                            </td>
-                                            <td class="" style="">
-                                                <div class="d-inline-block text-nowrap d-flex justify-content-center">
-                                                    <a href="{{ route('room.edit', $kamars->id) }}">
-                                                        <button class="btn btn-sm btn-icon">
-                                                            <i class="bx bx-edit"></i>
-                                                        </button>
-                                                    </a>
-                                                    <form action="{{ route('room.destroy', $kamars->id) }}" method="POST">
-                                                        <button type="button" class="btn btn-sm btn-icon dropdown-toggle hide-arrow hapus" data-bs-toggle="dropdown">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <i class="bx bx-trash"></i>
-                                                        </button>
-                                                    </form>
+                                            </div>
+                                            <script>
+                                                document.getElementById('formFile').addEventListener('change', function(e) {
+                                                    const file = e.target.files[0];
+                                                    const reader = new FileReader();
+                                                    reader.onload = function(e) {
+                                                        document.getElementById('image-preview').src = e.target.result;
+                                                        document.getElementById('image-preview').style.display = 'block';
+                                                    }
+                                                    reader.readAsDataURL(file);
+                                                });
+                                            </script>
+                                        </div>
+                                        <!-- /Media -->
+                                    </div>
+                                    <!-- /Second column -->
+
+                                    <!-- Second column -->
+                                    <div class="col-12 col-lg-4">
+                                        <!-- Pricing Card -->
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <h5 class="card-title mb-0">Pricing</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Base Price -->
+                                                <div class="mb-3 col ecommerce-select2-dropdown">
+                                                    <label class="form-label mb-1 d-flex justify-content-between align-items-center"for="category-org">Category</label>
+                                                        <select id="category-org"
+                                                            class="select2 form-select  @error('kategori_id') is-invalid @enderror"
+                                                            data-placeholder="Select Category" name="kategori_id">
+                                                            <option disabled>Select category</option>
+                                                            @foreach ($kategori as $kategoris)
+                                                                <option value="{{ $kategoris->id }}"
+                                                                    @if ($kamar->kategori_id == $kategoris->id) selected @endif>
+                                                                    {{ $kategoris->nama_kategori }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                                                <!-- Discounted Price -->
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="ecommerce-product-price">Base
+                                                        Price</label>
+                                                    <input type="number"
+                                                        class="form-control @error('harga') is-invalid @enderror"
+                                                        id="ecommerce-product-price" placeholder="Price" name="harga"
+                                                        aria-label="Product price" value="{{ old('name', $kamar->harga) }}">
+                                                    @error('harga')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Pricing Card -->
+                                    </div>
+                                    <!-- /Second column -->
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <!-- / Content -->
@@ -301,6 +347,7 @@
                     </footer>
                     <!-- / Footer -->
 
+
                     <div class="content-backdrop fade"></div>
                 </div>
                 <!-- Content wrapper -->
@@ -308,30 +355,14 @@
             <!-- / Layout page -->
         </div>
 
+
+
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
+
 
         <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
 
     </div>
-    <script>
-        $('.hapus').click(function() {
-            var form = $(this).closest('form');
-
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You will delete this product. This action cannot be undone!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, accept!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
-            });
-        });
-    </script>
 @endsection
