@@ -29,7 +29,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('auth.store
 
 Route::middleware('auth')->group(function () {
 
-    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
     // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     // Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
