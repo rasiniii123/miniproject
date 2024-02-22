@@ -16,7 +16,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        
+
         $kamar = Room::all();
         return view("admin.kamar.index", compact('kamar'));
     }
@@ -108,7 +108,7 @@ class RoomController extends Controller
             'harga.required' => 'Room price is required.',
             'harga.numeric' => 'Room price must be a number.',
         ]);
-        
+
         $produk = Room::find($id);
         $existingimage = $produk->path_produk;
 

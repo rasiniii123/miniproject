@@ -59,12 +59,12 @@
                     }
                 }
                 </script>
-                <script>
+                {{-- <script>
                     function redirectToProfile() {
                         var userId = "{{ $user->id }}"; // Ambil ID pengguna dari variabel Blade
                         window.location.href = "{{ route('profile', ['id' => ':id']) }}".replace(':id', userId);
                     }
-                </script>
+                </script> --}}
         </li>
 
 
