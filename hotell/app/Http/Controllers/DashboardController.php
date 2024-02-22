@@ -18,7 +18,7 @@ class DashboardController extends Controller
         $kamar = Room::all();
         $userID = Auth::id();
         $user = User::find($userID);
-        return view('admin.dashboard', compact('kamar', 'userregister','user','userID'));
+        return view('dashboard', compact('kamar', 'userregister','user','userID'));
     }
 
     /**

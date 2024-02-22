@@ -11,11 +11,15 @@ class Pesanan extends Model
     protected $table = 'pesanan';
     protected $Fillabel =[
         'email',
-        'nama',
-        'no_tlp',
+        'username',
+        'telp',
         'tanggal_awal',
         'tanggal_akhir',
         'fasilitas',
         'metode_pembayaran',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('pesanan', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->string('nama');
-            $table->string('no_tlp');
+            $table->string('username');
+            $table->string('telp');
             $table->date('tanggal_awal');
             $table->date('tanggal_akhir');                              
             $table->string('fasilitas');

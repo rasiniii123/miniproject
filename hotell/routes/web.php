@@ -6,14 +6,15 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\UlasanController;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -44,6 +45,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
     Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
+
+    Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
 });
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
