@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <div class="main-content">
         <div class="page-content">
+            
             <div class="search-bar" style="margin-left: 400px; position: relative;">
                 <input type="text" id="searchBar" placeholder="Cari..."
                     style="width: 50%; padding: 5px; border-radius: 20px;">
@@ -95,7 +96,7 @@
 
 
 
-    <script>
+    {{-- <script>
         // Function to reset checkboxes
         function resetCheckboxes() {
             // Get all checkboxes
@@ -121,7 +122,7 @@
         // Add event listener to the reset button
         var resetButton = document.getElementById('resetButton');
         resetButton.addEventListener('click', resetCheckboxes);
-    </script>
+    </script> --}}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="price-"]');
@@ -175,12 +176,12 @@
             });
         });
     </script>
-    <script>
+    {{-- <script>
     function handleButtonClick(roomId) {
         // Lakukan apa pun yang perlu dilakukan dengan ID kamar ini
         alert('Button clicked for room with ID: ' + roomId);
     }
-</script>
+</script> --}}
 
 
 @endsection

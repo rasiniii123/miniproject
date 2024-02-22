@@ -27,7 +27,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('auth.store
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
 
     Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
-    Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
+    Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
 });
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
