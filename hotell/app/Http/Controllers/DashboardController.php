@@ -15,13 +15,26 @@ class DashboardController extends Controller
      */
     public function index(IncomeChart $chart)
     {
-        $data['chart'] = $chart->build();
-        $userregister = User::where('role', 'user')->count();
-        $kamar = Room::all();
-        $userID = Auth::id();
-        $user = User::find($userID);
-        return view('dashboard', ['chart' => $chart->build()], compact('kamar', 'userregister'));
+        if (Auth::check()) {
+            $userID = Auth::id();
+            $user = User::find($userID);
+
+            if ($user->role === 'admin') {
+                $data['chart'] = $chart->build();
+                $userregister = User::where('role', 'user')->count();
+                $kamar = Room::all();
+                return view('admin.dashboard', ['chart' => $chart->build()], compact('kamar', 'userregister'));
+            } else {
+                // Jika pengguna bukan admin, arahkan mereka ke dashboard pengguna
+                // Anda dapat menyesuaikan dengan rute yang sesuai untuk dashboard pengguna
+                return view('dashboard');
+            }
+        } else {
+            // Jika pengguna belum login, arahkan mereka ke halaman login
+            return redirect()->route('login');
+        }
     }
+
 
     /**
      * Show the form for creating a new resource.

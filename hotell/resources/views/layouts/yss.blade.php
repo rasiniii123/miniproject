@@ -65,7 +65,7 @@
                             <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
                             <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="display: none; width: 150px;">
                                 <li>
-                                    <form action="{{ route('logout') }}" method="GET">
+                                    <form action="{{ route('logout') }}" method="get">
                                         @csrf
                                         <button type="submit" class="dropdown-item bg-transparent btn-primary btn-lg" style="padding: 8px;">
                                             <i class="fas fa-sign-out-alt fa-lg text-primary" style="margin-right: 8px;"></i> Keluar
