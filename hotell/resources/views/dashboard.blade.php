@@ -29,9 +29,9 @@
                             <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
                             <ul id="userDropdown" class="dropdown-menu dropdown-menu-end dropdown-menu-start" aria-labelledby="profileDropdown" style="display: none;">
                                 <li>
-                                    <button onclick="redirectToProfile()" class="dropdown-item bg-transparent btn-secondary btn-lg">
+                                    <a href="{{route('profile')}}" class="dropdown-item bg-transparent btn-secondary btn-lg">
                                         <i class="fas fa-user-alt fa-lg text-secondary"></i> Profile
-                                    </button>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="{{route('logout')}}" type="button" class="dropdown-item bg-transparent btn-secondary btn-lg">
