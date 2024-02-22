@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -15,7 +16,9 @@ class DashboardController extends Controller
     {
         $userregister = User::where('role', 'user')->count();
         $kamar = Room::all();
-        return view('admin.dashboard', compact('kamar', 'userregister'));
+        $userID = Auth::id();
+        $user = User::find($userID);
+        return view('admin.dashboard', compact('kamar', 'userregister','user','userID'));
     }
 
     /**
@@ -66,3 +69,6 @@ class DashboardController extends Controller
         //
     }
 }
+
+
+
