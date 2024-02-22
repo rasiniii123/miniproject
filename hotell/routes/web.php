@@ -15,11 +15,13 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', function () {
+    return view('welcome');
+})->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 });
-    
+
 
 Route::get('/login', [UserController::class, 'index'])->name('auth.login');
 Route::post('/login', [UserController::class, 'store'])->name('login.submit');
@@ -29,7 +31,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('auth.store
 
 Route::middleware('auth')->group(function () {
 
-    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
     // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     // Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
