@@ -263,7 +263,8 @@
                                 <div class="card h-100">
                                     <div class="card-header">
                                         <div class="card-title mb-0">
-                                            <h5 class="m-0">Total room overview</h5>
+                                            <h4 class="text-dark text-bold">Total room overview</h4>
+                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, assumenda blanditiis. Odit ducimus illum laborum in veniam a alias ut. Necessitatibus in omnis qui error numquam iure voluptas distinctio voluptatibus?</p>
                                         </div>
                                     </div>
                                     <div class="card-body">

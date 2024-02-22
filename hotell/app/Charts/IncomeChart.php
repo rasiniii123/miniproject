@@ -29,8 +29,8 @@ class IncomeChart
         }
 
         return $this->chart->barChart()
-            ->setTitle('San Francisco vs Boston.')
-            ->setSubtitle('Wins during season 2021.')
+            // ->setTitle('San Francisco vs Boston.')
+            // ->setSubtitle('Wins during season 2021.')
             ->addData('Room', $datatotalproduk)
             ->setXAxis($databulan)
             ->setColors(['#A57DFC']);
