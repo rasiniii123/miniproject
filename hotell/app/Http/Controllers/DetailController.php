@@ -13,10 +13,9 @@ class DetailController extends Controller
      */
     public function index()
     {
-        $rooms = Room::all();
-    return view('user.detail', compact('rooms'));
+        $details = Room::all(); // Ambil semua data kamar
+        return view('user.detail', compact('details'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -37,12 +36,12 @@ class DetailController extends Controller
             'deskripsi' => 'required',
             'harga' => 'required|numeric',
         ]);
-    
+
         if ($request->hasFile('path_kamar')) {
             $image = $request->file('path_kamar');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->storeAs('public/kamar', $imageName);
-    
+
             Room::create([
                 'room_id' => $validatedData['room_id'],
                 'path_kamar' => 'kamar/' . $imageName,
@@ -53,10 +52,10 @@ class DetailController extends Controller
            // Redirect pengguna ke halaman yang sesuai atau berikan pesan sukses
            return redirect()->route('rooms.index')->with('success', 'Room berhasil ditambahkan.');
        }
-   
+
        // Jika tidak ada file gambar diunggah, berikan pesan kesalahan
        return back()->with('error', 'Gagal menambahkan room. Harap unggah file gambar.');
-   }    
+   }
 
 
     /**
