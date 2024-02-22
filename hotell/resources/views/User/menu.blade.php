@@ -14,44 +14,38 @@
         </div>
 
         <div style="display: flex; overflow-x: hidden;">
-                <!-- Filter menu -->
-                <div style="width: 300px; margin-right: 50px;">
-                    <!-- Filter content here -->
-                    <div style=" 1px solid #ccc;  padding-left: 20px; padding-right: 20px; margin-top:60px;">
-                        <!-- Filter by price -->
-                        <h3 style="font-size: 20px; margin-top: 10px;">Harga</h3>
+            <!-- Filter menu -->
+            <div style="width: 300px; margin-right: 50px;">
+                <!-- Filter content here -->
+                <div style=" 1px solid #ccc;  padding-left: 20px; padding-right: 20px; margin-top:60px;">
+                    <!-- Filter by price -->
+                    <form>
+                        <div class="d-flex" id="collapsePriceRange">
+                            <div class="d-flex align-items-center">
+                                <label for="minPrice" class="me-2" style="font-size: 12px;">Min:</label>
+                                <input class="form-control me-2" type="number" placeholder="Min" id="minPrice"
+                                    name="min" value="{{ old('min', $minPrice) }}">
+                                <label for="maxPrice" class="me-2" style="font-size: 12px;">Max:</label>
+                                <input class="form-control me-2" type="number" placeholder="Max" id="maxPrice"
+                                    name="max" value="{{ old('max', $maxPrice) }}">
+                                <button class="btn btn-phoenix-primary border-300 px-3" type="submit">Go</button>
+                            </div>
+                        </div>
+                    </form>
 
-                        <div>
-                            <input type="checkbox" id="price-2" style="transform: scale(0.8);">
-                            <label for="price-2" style="font-size: 15px;">Rp. 500,000 </label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
-                            <label for="price-3" style="font-size: 15px;"> Rp. 1,000,000</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
-                            <label for="price-3" style="font-size: 15px;"> Rp. 2,000,000</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
-                            <label for="price-3" style="font-size: 15px;"> Rp. 3,000,000</label>
-                        </div>
-
-                        <!-- Filter by room category -->
-                        <h3 style="margin-top: 20px; font-size:20px;"> Category</h3>
-                        <div>
-                            <input type="checkbox" id="category-1">
-                            <label for="category-1" style="font-size: 15px;">Standard Room</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="category-2">
-                            <label for="category-2" style="font-size: 15px;">Luxury Room</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="category-3">
-                            <label for="category-3" style="font-size: 15px;">Family Room</label>
-                        </div>
+                    <!-- Filter by room category -->
+                    <h3 style="margin-top: 20px; font-size:20px;"> Category</h3>
+                    <div>
+                        <input type="checkbox" id="category-1">
+                        <label for="category-1" style="font-size: 15px;">Standard Room</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="category-2">
+                        <label for="category-2" style="font-size: 15px;">Luxury Room</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="category-3">
+                        <label for="category-3" style="font-size: 15px;">Suite</label>
                     </div>
                 </div>
             </div>
@@ -82,311 +76,19 @@
                                             {{ number_format($room->harga, 0, ',', '.') }}</div>
                                     </div>
                                     <div style="margin-top: 15px;"></div> <!-- Jarak tambahan -->
-                                    <div style="display: flex; align-items: center;">
-                                        <img src="images/jempol.png" alt="Gambar Baru" style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                        <img src="images/bintang.png" alt="Rp 3.500.000-8.500.000" style="width: 90px; ">
-                                    </div>
-                                    <div style="margin-top: 15px;"></div> <!-- Jarak tambahan -->
-                                    <div style="display: flex; align-items: center;">
-                                        <img src="images/waktu.png" alt="Gambar Baru" style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                        <div style="font-family: Poppins; font-size: 18px;">174 review</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
-                                <a href="{{ route('detail.index') }}">
-                                <button
-                                    style="background-color: #283E58; color: white; font-family: Poppins; font-size: 16px; font-weight: 600; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 800px;">DETAIL</button>
-
-                            <div
-                                style="border-bottom: 1px solid #ACACAC; width: 110%; margin-left: -15px; margin-top: 10px;">
-                            </div>
-                        </div>
-                        </div>
-                        <div class="hotel" id="family_hotel">
-                            <div class="menu-item"
-                                style="display: flex; flex-direction: column; align-items: flex-start;">
-                                <div
-                                    style="color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
-                                    COUPLE ROOM
-                                </div>
-                                <div style="display: flex; align-items: center;">
-                                    <img src="images/kamar2.png" alt="Gambar"
-                                        style="max-width: 250px; max-height: 150px;">
-                                        <div style="margin-left: 15px; font-family: Poppins; width: 750px; word-wrap: break-word;">
-                                        <p style="font-size: 18px;">Kamar Standard Room yang nyaman ini memberikan pengalaman menginap yang
-                                            menyenangkan dengan desain fungsional dan suasana yang hangat. Dilengkapi dengan
-                                            </p>
-                                            <div style="margin-top: 15px;"></div>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="images/uang.png" alt="Gambar Baru"
-                                                style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                            <div class="harga" style="font-family: Poppins; font-size: 18px;">Rp 1.000.000</div>
-                                        </div>
-                                        <div style="margin-top: 15px;"></div>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="images/jempol.png" alt="Gambar Baru"
-                                                style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                            <img src="images/bintang.png" alt="Rp 3.500.000-8.500.000"
-                                                style="width: 90px; ">
-                                        </div>
-                                        <div style="margin-top: 15px;"></div>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="images/waktu.png" alt="Gambar Baru"
-                                                style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                            <div style="font-family: Poppins; font-size: 18px;">174 review</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
-                                    <button
-                                        style="background-color: #283E58; color: white; font-family: Poppins; font-size: 16px; font-weight: 600; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 800px;">DETAIL</button>
-                                </div>
-                                <div
-                                    style="border-bottom: 1px solid #ACACAC; width: 95%; margin-left: -15px; margin-top: 10px;">
-                                </div>
-                            </div>
-                            <div style="border-bottom: 1px solid #; width: 100%; margin-left: -15px; margin-top: 10px;">
-                            </div>
-                            <div class="hotel" id="your_hotel">
-                                <div class="menu-item"
-                                    style="display: flex; flex-direction: column; align-items: flex-start;">
-                                    <div
-                                        style="color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
-                                        STANDART ROOM
-                                    </div>
-                                    <div style="display: flex; align-items: center;">
-                                        <img src="images/kamar3.png" alt="Gambar"
-                                            style="max-width: 250px; max-height: 150px;">
-                                            <div style="margin-left: 15px; font-family: Poppins; width: 750px; word-wrap: break-word;">
-                                            <p style="font-size: 18px;">Kamar Standard Room yang nyaman ini memberikan pengalaman menginap yang
-                                                menyenangkan dengan desain fungsional dan suasana yang hangat. Dilengkapi</p>
-                                                <div style="margin-top: 15px;"></div>
-                                            <div style="display: flex; align-items: center;">
-                                                <img src="images/uang.png" alt="Gambar Baru"
-                                                    style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                <div class="harga" style="font-family: Poppins; font-size: 18px;">Rp 1.000.000</div>
-                                            </div>
-                                            <div style="margin-top: 15px;"></div>
-                                            <div style="display: flex; align-items: center;">
-                                                <img src="images/jempol.png" alt="Gambar Baru"
-                                                    style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                <img src="images/bintang.png" alt="Rp 3.500.000-8.500.000"
-                                                    style="width: 90px; ">
-                                            </div>
-                                            <div style="margin-top: 15px;"></div>
-                                            <div style="display: flex; align-items: center;">
-                                                <img src="images/waktu.png" alt="Gambar Baru"
-                                                    style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                <div style="font-family: Poppins; font-size: 18px;">174 review</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
-                                        <button
-                                            style="background-color: #283E58; color: white; font-family: Poppins; font-size: 16px; font-weight: 600; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 800px;">DETAIL</button>
-                                    </div>
-                                    <div
-                                        style="border-bottom: 1px solid #ACACAC; width: 95%; margin-left: -15px; margin-top: 10px;">
-                                    </div>
-                                </div>
-                                <div class="hotel" id="the_hotel">
-                                    <div class="menu-item"
-                                        style="display: flex; flex-direction: column; align-items: flex-start;">
-                                        <div
-                                            style="color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
-                                            FAMILY ROOM
-                                        </div>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="images/kamar4.png" alt="Gambar"
-                                                style="max-width: 250px; max-height: 150px;">
-                                                <div style="margin-left: 15px; font-family: Poppins; width: 750px; word-wrap: break-word;">
-                                                <p style="font-size: 18px;">Kamar Hotel Family Room adalah jenis kamar yang dirancang khusus untuk
-                                                    keluarga atau tamu dengan jumlah anggota yang lebih besar. Kamar ini
-                                                    menyediakan ruang yang luas dan fasilitas tambahan.</p>
-                                                    <div style="margin-top: 15px;"></div>
-                                                <div style="display: flex; align-items: center;">
-                                                    <img src="images/uang.png" alt="Gambar Baru"
-                                                        style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                    <div class="harga" style="font-family: Poppins; font-size: 18px;">Rp 1.115.000</div>
-                                                </div>
-                                                <div style="margin-top: 15px;"></div>
-                                                <div style="display: flex; align-items: center;">
-                                                    <img src="images/jempol.png" alt="Gambar Baru"
-                                                        style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                    <img src="images/bintang.png" alt="Rp 3.500.000-8.500.000"
-                                                        style="width: 90px; ">
-                                                </div>
-                                                <div style="margin-top: 15px;"></div>
-                                                <div style="display: flex; align-items: center;">
-                                                    <img src="images/waktu.png" alt="Gambar Baru"
-                                                        style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                    <div style="font-family: Poppins; font-size:18;">174 review</div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
-                                            <button
-                                                style="background-color: #283E58; color: white; font-family: Poppins; font-size: 16px; font-weight: 600; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 800px;">DETAIL</button>
-                                        </div>
-                                        <div
-                                            style="border-bottom: 1px solid #ACACAC; width: 95%; margin-left: -15px; margin-top: 10px;">
-                                        </div>
-                                    </div>
-                                    <div class="hotel" id="my_hotel">
-                                        <div class="menu-item"
-                                            style="display: flex; flex-direction: column; align-items: flex-start;">
-                                            <div
-                                                style="color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
-                                                DELUXE ROOM
-                                            </div>
-                                            <div style="display: flex; align-items: center;">
-                                                <img src="images/kamar5.webp" alt="Gambar"
-                                                    style="max-width: 250px; max-height: 150px;">
-                                                    <div style="margin-left: 15px; font-family: Poppins; width: 750px; word-wrap: break-word;">
-                                                    <p style="font-size: 18px;">Deluxe room adalah jenis kamar hotel di atas tipe standar dengan
-                                                        ukuran kamar yang lebih luas dan besar, ukuran dan fasilitas lebih
-                                                        baik.</p>
-                                                        <div style="margin-top: 15px;"></div>
-                                                    <div style="display: flex; align-items: center;">
-                                                        <img src="images/uang.png" alt="Gambar Baru"
-                                                            style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                        <div class="harga" style="font-family: Poppins; font-size:18px;">Rp 1.750.000
-                                                        </div>
-                                                    </div>
-                                                    <div style="margin-top: 15px;"></div>
-                                                    <div style="display: flex; align-items: center;">
-                                                        <img src="images/jempol.png" alt="Gambar Baru"
-                                                            style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                        <img src="images/bintang.png" alt="Rp 3.500.000-8.500.000"
-                                                            style="width: 90px;">
-                                                    </div>
-                                                    <div style="margin-top: 15px;"></div>
-                                                    <div style="display: flex; align-items: center;">
-                                                        <img src="images/waktu.png" alt="Gambar Baru"
-                                                            style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                        <div style="font-family: Poppins; font size:18px;">174 review</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
-                                                <button
-                                                    style="background-color: #283E58; color: white; font-family: Poppins; font-size: 16px; font-weight: 600; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 800px;">DETAIL</button>
-                                            </div>
-                                            <div
-                                                style="border-bottom: 1px solid #ACACAC; width: 95%; margin-left: -15px; margin-top: 10px;">
-                                            </div>
-                                        </div>
-                                        <div class="hotel" id="the_hotel">
-                                            <div class="menu-item"
-                                                style="display: flex; flex-direction: column; align-items: flex-start;">
-                                                <div
-                                                    style="color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
-                                                    FAMILY ROOM
-                                                </div>
-                                                <div style="display: flex; align-items: center;">
-                                                    <img src="images/kamar4.png" alt="Gambar"
-                                                        style="max-width: 250px; max-height: 150px;">
-                                                        <div style="margin-left: 15px; font-family: Poppins; width: 750px; word-wrap: break-word;">
-                                                        <p style="font-size: 18px;">Kamar Hotel Family Room adalah jenis kamar yang dirancang khusus untuk
-                                                            keluarga atau tamu dengan jumlah anggota yang lebih besar. Kamar ini
-                                                            menyediakan ruang yang luas dan fasilitas tambahan.</p>
-                                                            <div style="margin-top: 15px;"></div>
-                                                        <div style="display: flex; align-items: center;">
-                                                            <img src="images/uang.png" alt="Gambar Baru"
-                                                                style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                            <div class="harga" style="font-family: Poppins; font-size:18px;">Rp 1.115.000</div>
-                                                        </div>
-                                                        <div style="margin-top: 15px;"></div>
-                                                        <div style="display: flex; align-items: center;">
-                                                            <img src="images/jempol.png" alt="Gambar Baru"
-                                                                style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                            <img src="images/bintang.png" alt="Rp 3.500.000-8.500.000"
-                                                                style="width: 90px; ">
-                                                        </div>
-                                                        <div style="margin-top: 15px;"></div>
-                                                        <div style="display: flex; align-items: center;">
-                                                            <img src="images/waktu.png" alt="Gambar Baru"
-                                                                style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                            <div style="font-family: Poppins; font-size:18px;">174 review</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
-                                                    <button
-                                                        style="background-color: #283E58; color: white; font-family: Poppins; font-size: 16px; font-weight: 600; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 800px;">DETAIL</button>
-                                                </div>
-                                                <div
-                                                    style="border-bottom: 1px solid #ACACAC; width: 95%; margin-left: -15px; margin-top: 10px;">
-                                                </div>
-                                            </div>
-                                            <div class="hotel" id="my_hotel">
-                                                <div class="menu-item"
-                                                    style="display: flex; flex-direction: column; align-items: flex-start;">
-                                                    <div
-                                                        style="color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
-                                                      SINGLE ROOM
-                                                    </div>
-                                                    <div style="display: flex; align-items: center;">
-                                                        <img src="images/kamar6.jpg" alt="Gambar"
-                                                            style="max-width: 250px; max-height: 150px;">
-                                                        <div style="margin-left: 20px; font-family: Poppins;">
-                                                            <p style="font-size: 18px;">Deluxe room adalah jenis kamar hotel di atas tipe standar dengan
-                                                                ukuran kamar yang lebih luas dan besar, ukuran dan fasilitas lebih
-                                                                baik. </p>
-                                                                <div style="margin-top: 15px;"></div>
-                                                            <div style="display: flex; align-items: center;">
-                                                                <img src="images/uang.png" alt="Gambar Baru"
-                                                                    style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                                <div class="harga" style="font-family: Poppins; font-size: 18px; ">Rp 1.750.000
-                                                                </div>
-                                                            </div>
-                                                            <div style="margin-top: 15px;"></div>
-                                                            <div style="display: flex; align-items: center;">
-                                                                <img src="images/jempol.png" alt="Gambar Baru"
-                                                                    style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                                <img src="images/bintang.png" alt="Rp 3.500.000-8.500.000"
-                                                                    style="width: 90px; ">
-                                                            </div>
-                                                            <div style="margin-top: 15px;"></div>
-                                                            <div style="display: flex; align-items: center;">
-                                                                <img src="images/waktu.png" alt="Gambar Baru"
-                                                                    style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                                                <div style="font-family: Poppins; font-size: 18px;">174 review</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
-                                                        <button
-                                                            style="background-color: #283E58; color: white; font-family: Poppins; font-size: 16px; font-weight: 600; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 800px; margin-top: -20px">DETAIL</button>
-                                                    </div>
-                                                    <div
-                                                        style="border-bottom: 1px solid #ACACAC; width: 115%; margin-left: -15px; margin-top: 10px;">
-                                                        <div id="preloader">
-                                                            <span class="preloader-dot"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    <!-- Tambahkan elemen HTML lainnya sesuai kebutuhan -->
                                 </div>
                             </div>
                             <!-- Tambahkan elemen HTML lainnya sesuai kebutuhan -->
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
 
+                </div>
             </div>
-        </div>
+            <div id="preloader">
+                <span class="preloader-dot"></span>
+            </div>
     </div>
 
 
@@ -418,6 +120,31 @@
         var resetButton = document.getElementById('resetButton');
         resetButton.addEventListener('click', resetCheckboxes);
     </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="price-"]');
+        const rooms = document.querySelectorAll('.hotel');
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                const selectedPrices = Array.from(checkboxes)
+                    .filter(chk => chk.checked)
+                    .map(chk => parseInt(chk.dataset.price));
+
+                rooms.forEach(function(room) {
+                    const harga = parseInt(room.dataset.price);
+
+                    // Mengecek apakah harga kamar berada dalam setiap rentang harga yang dipilih
+                    const showRoom = selectedPrices.length === 0 || selectedPrices.some(
+                        price => harga <= price);
+
+                    // Menampilkan atau menyembunyikan kamar berdasarkan hasil pengecekan
+                    room.style.display = showRoom ? 'flex' : 'none';
+                });
+            });
+        });
+    });
+</script>
 
     <script>
         // Ambil elemen input pencarian
@@ -446,6 +173,7 @@
             });
         });
     </script>
+
     </div>
     </div>
     </div>

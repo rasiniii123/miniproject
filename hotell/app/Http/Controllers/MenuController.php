@@ -14,7 +14,13 @@ class MenuController extends Controller
     public function index(Request $request)
     {
         $menu = Room::all();
-        return view('user.menu', compact('menu'));
+        $minPrice = $request->input('minPrice', 0);
+        $maxPrice = $request->input('maxPrice', PHP_INT_MAX);
+
+        // Ambil data kamar sesuai dengan rentang harga yang dipilih
+        $menu = Room::whereBetween('harga', [$minPrice, $maxPrice])->get();
+
+        return view('user.menu', compact('menu', 'minPrice', 'maxPrice'));
     }
 
     /**
@@ -38,12 +44,12 @@ class MenuController extends Controller
              'deskripsi' => 'required',
              'harga' => 'required|numeric',
          ]);
-     
+
          if ($request->hasFile('path_kamar')) {
              $image = $request->file('path_kamar');
              $imageName = time() . '.' . $image->getClientOriginalExtension();
              $image->storeAs('public/kamar', $imageName);
-     
+
              Room::create([
                  'room_id' => $validatedData['room_id'],
                  'path_kamar' => 'kamar/' . $imageName,
@@ -54,10 +60,10 @@ class MenuController extends Controller
             // Redirect pengguna ke halaman yang sesuai atau berikan pesan sukses
             return redirect()->route('rooms.index')->with('success', 'Room berhasil ditambahkan.');
         }
-    
+
         // Jika tidak ada file gambar diunggah, berikan pesan kesalahan
         return back()->with('error', 'Gagal menambahkan room. Harap unggah file gambar.');
-    }    
+    }
 
     /**
      * Display the specified resource.
