@@ -73,10 +73,12 @@
                                         <img src="images/uang.png" alt="Gambar Baru"
                                             style="max-width: 20px; max-height: 20px; margin-right: 5px;">
                                         <div class="harga" style="font-family: Poppins; font-size: 18px;">Rp
-                                            {{ number_format($room->harga, 0, ',', '.') }}</div>
+                                            {{ number_format($room->harga, 0, ',', '.') }} <span style="color: #D88F00;">/Malam</span></div>
                                     </div>
                                     <div style="margin-top: 15px;"></div> <!-- Jarak tambahan -->
-                                    <!-- Tambahkan elemen HTML lainnya sesuai kebutuhan -->
+                                    <div style="margin-top: 10px; display: flex; justify-content: flex-end;">
+                                        <button onclick="handleButtonClick('{{ route('detail.index', ['id' => $room->id]) }}')" type="button" class="btn btn-primary btn-lg" style="background-color: #283E58;" style="width: 200px;">DETAIL</button>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Tambahkan elemen HTML lainnya sesuai kebutuhan -->
@@ -173,15 +175,12 @@
             });
         });
     </script>
+    <script>
+    function handleButtonClick(roomId) {
+        // Lakukan apa pun yang perlu dilakukan dengan ID kamar ini
+        alert('Button clicked for room with ID: ' + roomId);
+    }
+</script>
 
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
 
-
-
-    </div>
-    </div>
 @endsection
