@@ -77,7 +77,7 @@
                                     </div>
                                     <div style="margin-top: 15px;"></div> <!-- Jarak tambahan -->
                                     <div style="margin-top: 10px; display: flex; justify-content: flex-end;">
-                                  <a href="{{ route('detail.index', ['id' => $room->id]) }}" class="btn btn-primary btn-lg float-end" style="background-color: #283E58; width: -100px;">DETAIL</a>
+                                        <a href="{{ route('detail.index', ['id' => $room->id]) }}" class="btn btn-primary btn-lg float-end" style="background-color: #283E58; margin-right: 50px;">DETAIL</a>
                                     </div>
                                 </div>
                             </div>
