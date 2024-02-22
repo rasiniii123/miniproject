@@ -27,12 +27,16 @@
                         <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
                         <div class="dropdown" onclick="toggleDropdown()">
                             <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
-                            <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="display: none;">
+                            <ul id="userDropdown" class="dropdown-menu dropdown-menu-end dropdown-menu-start" aria-labelledby="profileDropdown" style="display: none;">
                                 <li>
-                                        <a href="{{route('logout')}} "type="button" class="dropdown-item bg-transparent btn-primary btn-lg">
-                                            <i class="fas fa-sign-out-alt fa-lg text-primary"></i> Keluar
-                                        </a>
-                                    </form>
+                                    <button onclick="redirectToProfile()" class="dropdown-item bg-transparent btn-secondary btn-lg">
+                                        <i class="fas fa-user-alt fa-lg text-secondary"></i> Profile
+                                    </button>
+                                </li>
+                                <li>
+                                    <a href="{{route('logout')}}" type="button" class="dropdown-item bg-transparent btn-secondary btn-lg">
+                                            <i class="fas fa-sign-out-alt fa-lg text-secondary"></i> Keluar
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -47,14 +51,20 @@
 
                 <script>
                     function toggleDropdown() {
-                        var dropdown = document.getElementById("userDropdown");
-                        if (dropdown.style.display === "none") {
-                            dropdown.style.display = "block";
-                        } else {
-                            dropdown.style.display = "none";
-                        }
+                    var dropdown = document.getElementById("userDropdown");
+                    if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                        dropdown.style.display = "block";
+                    } else {
+                        dropdown.style.display = "none";
                     }
+                }
                 </script>
+                {{-- <script>
+                    function redirectToProfile() {
+                        var userId = "{{ $user->id }}"; // Ambil ID pengguna dari variabel Blade
+                        window.location.href = "{{ route('profile', ['id' => ':id']) }}".replace(':id', userId);
+                    }
+                </script> --}}
         </li>
 
 
@@ -552,7 +562,7 @@
                                 </div>
                             </div>
     </section>
-    
+
     <!-- GALLERY -->
     {{-- <section class="section-gallery" style="text-align: center; position: relative; margin-top: -90px;">
         <div id="kontak-section">

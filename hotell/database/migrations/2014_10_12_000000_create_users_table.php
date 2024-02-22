@@ -16,8 +16,11 @@ return new class extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('profile')->nullable();
+            $table->string('address')->nullable();
+            $table->string('telp')->nullable();
             $table->string('password');
-            $table->enum('role', ['admin', 'user','semiadmin'])->default('user'); 
+            $table->enum('role', ['admin', 'user','semiadmin'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\IncomeChart;
 use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(IncomeChart $chart)
     {
+        $data['chart'] = $chart->build();
         $userregister = User::where('role', 'user')->count();
         $kamar = Room::all();
-        return view('admin.dashboard', compact('kamar', 'userregister'));
+        $userID = Auth::id();
+        $user = User::find($userID);
+        return view('admin.dashboard', ['chart' => $chart->build()], compact('kamar', 'userregister'));
     }
 
     /**
@@ -66,3 +71,6 @@ class DashboardController extends Controller
         //
     }
 }
+
+
+

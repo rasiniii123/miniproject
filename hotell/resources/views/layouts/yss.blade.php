@@ -249,12 +249,12 @@
             });
         </script>
     @endif
-    {{-- <script>
+    <script>
         function redirectToProfile() {
             var userId = "{{ $user->id }}"; // Ambil ID pengguna dari variabel Blade
             window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
         }
-    </script> --}}
+    </script>
 
 </body>
 
