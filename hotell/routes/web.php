@@ -66,3 +66,7 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
         Route::delete('destroy/{id}', 'destroy')->name('kategori.destroy');
     });
 });
+Route::get('/', function () {
+    return view ('dashboard');
+})->name('dashboard');
+

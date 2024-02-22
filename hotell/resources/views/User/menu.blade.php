@@ -14,38 +14,44 @@
         </div>
 
         <div style="display: flex; overflow-x: hidden;">
-            <!-- Filter menu -->
-            <div style="width: 300px; margin-right: 50px;">
-                <!-- Filter content here -->
-                <div style=" 1px solid #ccc;  padding-left: 20px; padding-right: 20px; margin-top:60px;">
-                    <!-- Filter by price -->
-                    <h3 style="font-size: 20px; margin-top: 10px;">Harga</h3>
-                    <div>
-                        <input type="checkbox" id="price-1" style="transform: scale(0.8);">
-                        <label for="price-1" style="font-size: 15px;">Below Rp. 500,000</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="price-2" style="transform: scale(0.8);">
-                        <label for="price-2" style="font-size: 15px;">Rp. 500,000 - Rp. 1,000,000</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="price-3" style="transform: scale(0.8);">
-                        <label for="price-3" style="font-size: 15px;">Above Rp. 1,000,000</label>
-                    </div>
+                <!-- Filter menu -->
+                <div style="width: 300px; margin-right: 50px;">
+                    <!-- Filter content here -->
+                    <div style=" 1px solid #ccc;  padding-left: 20px; padding-right: 20px; margin-top:60px;">
+                        <!-- Filter by price -->
+                        <h3 style="font-size: 20px; margin-top: 10px;">Harga</h3>
 
-                    <!-- Filter by room category -->
-                    <h3 style="margin-top: 20px; font-size:20px;"> Category</h3>
-                    <div>
-                        <input type="checkbox" id="category-1">
-                        <label for="category-1" style="font-size: 15px;">Standard Room</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="category-2">
-                        <label for="category-2" style="font-size: 15px;">Luxury Room</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="category-3">
-                        <label for="category-3" style="font-size: 15px;">Suite</label>
+                        <div>
+                            <input type="checkbox" id="price-2" style="transform: scale(0.8);">
+                            <label for="price-2" style="font-size: 15px;">Rp. 500,000 </label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
+                            <label for="price-3" style="font-size: 15px;"> Rp. 1,000,000</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
+                            <label for="price-3" style="font-size: 15px;"> Rp. 2,000,000</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
+                            <label for="price-3" style="font-size: 15px;"> Rp. 3,000,000</label>
+                        </div>
+
+                        <!-- Filter by room category -->
+                        <h3 style="margin-top: 20px; font-size:20px;"> Category</h3>
+                        <div>
+                            <input type="checkbox" id="category-1">
+                            <label for="category-1" style="font-size: 15px;">Standard Room</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="category-2">
+                            <label for="category-2" style="font-size: 15px;">Luxury Room</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="category-3">
+                            <label for="category-3" style="font-size: 15px;">Family Room</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,7 +71,7 @@
                                 {{ $room->nama_kamar }}
                             </div>
                             <div style="display: flex; align-items: center;">
-                                <img src="{{ asset('storage/kamar/'.$room->path_kamar) }}" 
+                                <img src="{{ asset('storage/kamar/'.$room->path_kamar) }}"
                                     style="max-width: 250px; max-height: 150px;">
                                 <div style="margin-left: 15px; font-family: Poppins; width: 750px; word-wrap: break-word;">
                                     <p style="font-size: 18px;">{{ $room->deskripsi }}</p>
