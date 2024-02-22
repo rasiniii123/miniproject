@@ -14,6 +14,8 @@
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Hind:400,300,500,600%7cMontserrat:400,700" rel='stylesheet'
         type='text/css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- CSS LIBRARY -->
     <link rel="stylesheet" type="text/css" href="css/lib/font-awesome.min.css">
@@ -46,7 +48,7 @@
         <div class="menu-wrap" style="background-color: #283E58;">
             <div class="slider-container">
                 <div class="logo">
-                    <img src="images/kologo.png" alt="Logo" width="100">
+                    <img src="{{asset('images/kologo.png')}}" alt="Logo" width="100">
                 </div>
                 <div class="menu" style="margin-left: 80px;">
                     <ul>
@@ -58,6 +60,7 @@
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth <!-- Cek apakah pengguna sudah login -->
                         <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
+
                         <div class="dropdown" onclick="toggleDropdown()">
                             <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
                             <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="display: none; width: 150px;">
@@ -128,11 +131,17 @@
                             <div style="color: white; font-size: 15px; font-family: Arial; font-weight: 400; line-height: 24px; letter-spacing: 0.30px; word-wrap: break-word">History</div>
                         </div>
                         <div style="width: 1170px; height: 2.67px; border: 1px #71777D solid"></div>
-                        <div style="display: flex; align-items: center; justify-content: flex-end; margin-top: 10px; margin-right: -600px;">
-                            <a href="#" style="color: #fff; margin-right: 10px;"><img src="images/Vector.png" alt="YouTube" style="width: 18px; height: 18px;"></a>
-                            <a href="#" style="color: #fff; margin-right: 10px;"><img src="images/instragram.png" alt="Instagram" style="width: 18px; height: 18px;"></a>
-                            <a href="#" style="color: #fff; margin-right: 10px;"><img src="images/twiter.png" alt="Twitter" style="width: 18px; height: 18px;"></a>
-                            <a href="#" style="color: #fff; margin-right: 10px;"><img src="images/gmail.png" alt="Email" style="width: 18px; height: 18px;"></a>
+                        <div
+                            style="display: flex; align-items: center; justify-content: flex-end; margin-top: 10px; margin-right: -600px;">
+                            <a href="#" style="color: #fff; margin-right: 10px;"><img src="{{asset('images/Vector.png')}}"
+                                    alt="YouTube" style="width: 18px; height: 18px;"></a>
+                            <a href="#" style="color: #fff; margin-right: 10px;"><img
+                                    src="images/instragram.png" alt="Instagram"
+                                    style="width: 18px; height: 18px;"></a>
+                            <a href="#" style="color: #fff; margin-right: 10px;"><img src="{{asset('images/twiter.png')}}"
+                                    alt="Twitter" style="width: 18px; height: 18px;"></a>
+                            <a href="#" style="color: #fff; margin-right: 10px;"><img src="{{asset('images/gmail.png')}}"
+                                    alt="Email" style="width: 18px; height: 18px;"></a>
                         </div>
                     </div>
 
@@ -184,28 +193,68 @@
     <script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
     <!-- Custom jQuery -->
     <script type="text/javascript" src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 
     @if (session('success'))
-    <script>
-    Swal.fire({
-        title: 'Registrasi Berhasil',
-        text: 'Selamat datang di situs kami!',
-        icon: 'success',
-        confirmButtonText: 'Ok'
-    });
-    </script>
+        <script>
+            Swal.fire({
+                title: 'Registrasi Berhasil',
+                text: 'Selamat datang di situs kami!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            });
+        </script>
     @endif
 
     @if (session('logout_success'))
-    <script>
-    Swal.fire({
-        title: 'Logout Berhasil',
-        text: 'Anda telah berhasil keluar.',
-        icon: 'success',
-        confirmButtonText: 'Ok'
-    });
-    </script>
+        <script>
+            Swal.fire({
+                title: 'Logout Berhasil',
+                text: 'Anda telah berhasil keluar.',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            });
+        </script>
     @endif
+    <script>
+        function toggleDropdown() {
+        var dropdown = document.getElementById("userDropdown");
+        if (dropdown.style.display === "none" || dropdown.style.display === "") {
+            dropdown.style.display = "block";
+        } else {
+            dropdown.style.display = "none";
+        }
+    }
+    </script>
+
+    @if (session('profile_success'))
+    <script>
+        Swal.fire({
+            title: 'Berhasil',
+            text: ' Profil telah diperbarui!',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        });
+    </script>
+@endif
+@if (session('profile_error'))
+        <script>
+            Swal.fire({
+                title: 'Gagal',
+                text: 'Data yang anda masukkan tidak valid!',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+        </script>
+    @endif
+    <script>
+        function redirectToProfile() {
+            var userId = "{{ $user->id }}"; // Ambil ID pengguna dari variabel Blade
+            window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
+        }
+    </script>
 
 </body>
 
