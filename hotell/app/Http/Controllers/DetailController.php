@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
@@ -11,7 +13,8 @@ class DetailController extends Controller
      */
     public function index()
     {
-    return view ('user.detail');
+        $rooms = Room::all();
+    return view('user.detail', compact('rooms'));
     }
 
     /**
@@ -27,8 +30,34 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'room_id' => 'required',
+            'path_kamar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'nama_kamar' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required|numeric',
+        ]);
+    
+        if ($request->hasFile('path_kamar')) {
+            $image = $request->file('path_kamar');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/kamar', $imageName);
+    
+            Room::create([
+                'room_id' => $validatedData['room_id'],
+                'path_kamar' => 'kamar/' . $imageName,
+                'nama_kamar' => $validatedData['nama_kamar'],
+                'deskripsi' => $validatedData['deskripsi'],
+                'harga' => $validatedData['harga'],
+            ]);
+           // Redirect pengguna ke halaman yang sesuai atau berikan pesan sukses
+           return redirect()->route('rooms.index')->with('success', 'Room berhasil ditambahkan.');
+       }
+   
+       // Jika tidak ada file gambar diunggah, berikan pesan kesalahan
+       return back()->with('error', 'Gagal menambahkan room. Harap unggah file gambar.');
+   }    
+
 
     /**
      * Display the specified resource.
