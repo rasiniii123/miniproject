@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;

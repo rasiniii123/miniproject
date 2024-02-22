@@ -1,4 +1,8 @@
 @extends('admin.layout.app')
+@section('js')
+    <script src="{{ $chart->cdn() }}"></script>
+    {{ $chart->script() }}
+@endsection
 @section('content')
 <style>
 .mb-1 {
@@ -265,16 +269,7 @@
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <div>
-                                                <p class="mb-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias reprehenderit accusantium minus aperiam, esse rem aliquid cupiditate expedita quod, laborum veritatis praesentium maiores ipsum commodi, saepe rerum sequi autem quas?
-                                                    Cum non et necessitatibus ducimus dolore eos excepturi atque? Ipsum explicabo obcaecati dolore, et maxime aliquam facilis nulla quam accusamus veniam ratione. Temporibus sunt alias asperiores odit animi tempore dignissimos?
-                                                    Magnam et autem fugit hic! Ex dolores numquam beatae voluptates facilis nostrum fugiat sit laboriosam doloremque in, atque nesciunt eaque autem modi aliquam odio id, nihil aspernatur. Harum, quod temporibus.
-                                                    Quisquam repellat quibusdam quis eius veniam cum eligendi maxime cumque ipsam dolore culpa dolorem aliquam, nesciunt ratione natus error laboriosam atque? Recusandae sequi quidem maxime praesentium, expedita ex quia quasi!
-                                                    Ut fugiat quibusdam accusamus eos sed quaerat ipsa iusto vero pariatur impedit error quis quam ipsum sint commodi, dolorum autem quo, praesentium atque voluptates animi? Magnam amet soluta tempora nulla!
-                                                    Tempore iusto explicabo, assumenda eum nobis cum saepe iure quasi voluptatibus deserunt? Voluptates illum, deserunt cupiditate, perspiciatis distinctio sunt veritatis reprehenderit veniam voluptas eum placeat similique unde! Culpa, sequi aspernatur.
-                                                    Tempore iusto necessitatibus, perspiciatis iste non sunt! Excepturi quia nostrum harum, voluptatum repellat non sunt aspernatur, id inventore vitae minus nemo officia sequi possimus fuga voluptas eos eum ducimus aut.
-                                                    Voluptas omnis fugit, sit facere velit vitae repellendus ea porro eligendi, dignissimos ipsam reiciendis quaerat mollitia, eius earum. Voluptate quaerat ullam praesentium cupiditate aspernatur nesciunt consequuntur deleniti at expedita blanditiis!
-                                                    Temporibus minima veritatis eligendi, beatae soluta a quasi, molestias inventore quidem incidunt nulla error similique assumenda. Animi mollitia ab earum porro maxime, consectetur quas doloremque nostrum doloribus, tempora, nobis et.
-                                                    Ab, aut nihil. Odio, id possimus molestias perferendis eligendi illum explicabo provident totam minima nostrum porro eaque eos fugit quo nemo quod. At, laborum expedita accusantium doloribus repellat hic ea!</p>
+                                                {!! $chart->container() !!}
                                             </div>
                                         </div>
                                     </div>
