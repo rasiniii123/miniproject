@@ -14,44 +14,38 @@
         </div>
 
         <div style="display: flex; overflow-x: hidden;">
-                <!-- Filter menu -->
-                <div style="width: 300px; margin-right: 50px;">
-                    <!-- Filter content here -->
-                    <div style=" 1px solid #ccc;  padding-left: 20px; padding-right: 20px; margin-top:60px;">
-                        <!-- Filter by price -->
-                        <h3 style="font-size: 20px; margin-top: 10px;">Harga</h3>
+            <!-- Filter menu -->
+            <div style="width: 300px; margin-right: 50px;">
+                <!-- Filter content here -->
+                <div style=" 1px solid #ccc;  padding-left: 20px; padding-right: 20px; margin-top:60px;">
+                    <!-- Filter by price -->
+                    <form>
+                        <div class="d-flex" id="collapsePriceRange">
+                            <div class="d-flex align-items-center">
+                                <label for="minPrice" class="me-2" style="font-size: 12px;">Min:</label>
+                                <input class="form-control me-2" type="number" placeholder="Min" id="minPrice"
+                                    name="min" value="{{ old('min', $minPrice) }}">
+                                <label for="maxPrice" class="me-2" style="font-size: 12px;">Max:</label>
+                                <input class="form-control me-2" type="number" placeholder="Max" id="maxPrice"
+                                    name="max" value="{{ old('max', $maxPrice) }}">
+                                <button class="btn btn-phoenix-primary border-300 px-3" type="submit">Go</button>
+                            </div>
+                        </div>
+                    </form>
 
-                        <div>
-                            <input type="checkbox" id="price-2" style="transform: scale(0.8);">
-                            <label for="price-2" style="font-size: 15px;">Rp. 500,000 </label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
-                            <label for="price-3" style="font-size: 15px;"> Rp. 1,000,000</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
-                            <label for="price-3" style="font-size: 15px;"> Rp. 2,000,000</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="price-3" style="transform: scale(0.8);">
-                            <label for="price-3" style="font-size: 15px;"> Rp. 3,000,000</label>
-                        </div>
-
-                        <!-- Filter by room category -->
-                        <h3 style="margin-top: 20px; font-size:20px;"> Category</h3>
-                        <div>
-                            <input type="checkbox" id="category-1">
-                            <label for="category-1" style="font-size: 15px;">Standard Room</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="category-2">
-                            <label for="category-2" style="font-size: 15px;">Luxury Room</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="category-3">
-                            <label for="category-3" style="font-size: 15px;">Family Room</label>
-                        </div>
+                    <!-- Filter by room category -->
+                    <h3 style="margin-top: 20px; font-size:20px;"> Category</h3>
+                    <div>
+                        <input type="checkbox" id="category-1">
+                        <label for="category-1" style="font-size: 15px;">Standard Room</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="category-2">
+                        <label for="category-2" style="font-size: 15px;">Luxury Room</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="category-3">
+                        <label for="category-3" style="font-size: 15px;">Suite</label>
                     </div>
                 </div>
             </div>
@@ -83,17 +77,20 @@
                                     </div>
                                     <div style="margin-top: 15px;"></div> <!-- Jarak tambahan -->
                                     <div style="margin-top: 10px; display: flex; justify-content: flex-end;">
-                                        <button onclick="handleButtonClick('{{ route('detail.index', ['id' => $room->id]) }}')" type="button" class="btn btn-primary btn-lg" style="background-color: #283E58;" style="width: 200px;">DETAIL</button>
-                                    </div>                                                                           
+                                  <a href="{{ route('detail.index', ['id' => $room->id]) }}" class="btn btn-primary btn-lg float-end" style="background-color: #283E58; width: -100px;">DETAIL</a>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Tambahkan elemen HTML lainnya sesuai kebutuhan -->
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
 
+                </div>
             </div>
-        </div>
+            <div id="preloader">
+                <span class="preloader-dot"></span>
+            </div>
     </div>
 
 
@@ -125,6 +122,31 @@
         var resetButton = document.getElementById('resetButton');
         resetButton.addEventListener('click', resetCheckboxes);
     </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="price-"]');
+        const rooms = document.querySelectorAll('.hotel');
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                const selectedPrices = Array.from(checkboxes)
+                    .filter(chk => chk.checked)
+                    .map(chk => parseInt(chk.dataset.price));
+
+                rooms.forEach(function(room) {
+                    const harga = parseInt(room.dataset.price);
+
+                    // Mengecek apakah harga kamar berada dalam setiap rentang harga yang dipilih
+                    const showRoom = selectedPrices.length === 0 || selectedPrices.some(
+                        price => harga <= price);
+
+                    // Menampilkan atau menyembunyikan kamar berdasarkan hasil pengecekan
+                    room.style.display = showRoom ? 'flex' : 'none';
+                });
+            });
+        });
+    });
+</script>
 
     <script>
         // Ambil elemen input pencarian
@@ -153,12 +175,4 @@
             });
         });
     </script>
-    <script>
-    function handleButtonClick(roomId) {
-        // Lakukan apa pun yang perlu dilakukan dengan ID kamar ini
-        alert('Button clicked for room with ID: ' + roomId);
-    }
-</script>
-
-   
 @endsection

@@ -18,14 +18,8 @@
                                 </div>
                             </div>
                         </div>
-                        <img src="images/Vector-2.png" alt="Garis bawah" style="width: 100%; margin-top: -5px; color:#92989F">
-                        <!-- Button for detail -->
-                        <div style="margin-top: 10px; display: flex; justify-content: center;">
                             <a href="{{ route('detail.index', ['id' => $room->id]) }}" class="btn btn-primary btn-lg" style="background-color: #283E58; width: 200px;">DETAIL</a>
-                        </div>
-                        
-                    @endforeach
-                </div>
+                            @endforeach
             </div>
         </div>
     </section>

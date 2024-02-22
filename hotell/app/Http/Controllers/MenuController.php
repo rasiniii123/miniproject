@@ -14,7 +14,14 @@ class MenuController extends Controller
     public function index(Request $request)
     {
         $menu = Room::all();
-        return view('user.menu', compact('menu'));
+        $minPrice = $request->input('minPrice', 0);
+        $maxPrice = $request->input('maxPrice', PHP_INT_MAX);
+
+        // Ambil data kamar sesuai dengan rentang harga yang dipilih
+        $menu = Room::whereBetween('harga', [$minPrice, $maxPrice])->get();
+
+        return view('user.menu', compact('menu', 'minPrice', 'maxPrice'));
+
     }
 
     /**
