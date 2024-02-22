@@ -13,13 +13,13 @@
 <!-- beautify ignore:start -->
 
 
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact " dir="ltr" data-theme="theme-default" data-assets-path="../../assets/" data-template="vertical-menu-template">
 
 
 <!-- Mirrored from demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-ecommerce-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 16 Feb 2024 01:35:17 GMT -->
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact " dir="ltr" data-theme="theme-default" data-assets-path="../../assets/" data-template="vertical-menu-template">
 
     <title>eCommerce - Dashboards | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
@@ -110,6 +110,9 @@
 
 
   <!-- Page JS -->
+
+  </body>
+
   <script src="{{ asset('js/app-ecommerce-dashboard.js') }}"></script>
   @if (session('admin_success'))
   <script>
@@ -122,9 +125,6 @@
   </script>
 @endif
 @yield('js')
-
-</body>
-
 
 <!-- Mirrored from demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-ecommerce-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 16 Feb 2024 01:35:20 GMT -->
 </html>

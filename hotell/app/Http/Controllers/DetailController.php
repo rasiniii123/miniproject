@@ -11,10 +11,10 @@ class DetailController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        $details = Room::all(); // Ambil semua data kamar
-        return view('user.detail', compact('details'));
+        $room = Room::findOrFail($id); // Ambil semua data kamar
+        return view('user.detail', compact('room'));
     }
     /**
      * Show the form for creating a new resource.
