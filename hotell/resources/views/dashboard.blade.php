@@ -7,6 +7,34 @@
                     <img src="images/kologo.png" alt="Logo" width="100">
                 </div>
 
+                <style>
+                    .dropdown-container {
+                        position: absolute;
+                        background-color: white;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                        padding: 10px;
+                        z-index: 1000;
+                    }
+                </style>
+
+
+                <script>
+                    function addLoadingEffect() {
+                        var loading = document.getElementById("loading");
+                        if (loading) {
+                            loading.style.display = "block";
+
+                            setTimeout(function() {
+                                loading.style.display = "none";
+                            }, 3000);
+                        } else {
+                            console.error("Element with id 'loading' is not found.");
+                        }
+                    }
+                </script>
+
 
         <li data-transition="fade" style="list-style-type: none">
             <div class="slider-container">
@@ -16,63 +44,78 @@
                 <div class="menu" style="margin-left: 80px; ">
                     <ul>
                         <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
-                        <li><a href="#kamar-section" onclick="addLoadingEffect()">Kamar</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
+                        <li><a href="#kamar-section" onclick="addLoadingEffect()">Kamar</a></li>
                         @auth <!-- Check if the user is authenticated -->
-                        <li><a href="#history-section" onclick="addLoadingEffect()">History</a></li>
-                    @endauth
+                            <li><a href="#history-section" onclick="addLoadingEffect()">History</a></li>
+                        @endauth
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
-                        @auth <!-- Cek apakah pengguna sudah login -->
-                        <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
-                        <div class="dropdown" onclick="toggleDropdown()">
-                            <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
-                            <ul id="userDropdown" class="dropdown-menu dropdown-menu-end dropdown-menu-start" aria-labelledby="profileDropdown" style="display: none;">
-                                <li>
-                                    <a href="{{route('profile')}}" class="dropdown-item bg-transparent btn-secondary btn-lg">
-                                        <i class="fas fa-user-alt fa-lg text-secondary"></i> Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{route('logout')}}" type="button" class="dropdown-item bg-transparent btn-secondary btn-lg">
-                                            <i class="fas fa-sign-out-alt fa-lg text-secondary"></i> Keluar
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        @auth
+                            <div class="dropdown" onclick="toggleDropdown()" style="border-radius: 50px;">
+                                <img src="{{ asset('user-2.png') }}" width="40" height="40" class=""
+                                    style="margin-right: 40px; cursor: pointer;" alt="profile">
+                                <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown"
+                                style="display: none; text-align: center; left: auto; right: 50px; position: absolute; border-radius: 8px; width: 200px; height: 200px;">
+                                    <li class="mx-auto flex-col">
+                                        <form class="bg-transparent" class="" style="margin-top: 10px;">
+                                            @csrf
+                                            <button type="submit" class="btn btn-link"
+                                                style="padding: 0; border: none; background: none;">
+                                                <div class="mx-auto"
+                                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                                    <img src="{{ asset('user-2.png') }}" width="40" height="40"
+                                                        style="margin-bottom: 5px;" class=alt="profile">
+                                                    <span
+                                                        style="font-size: 20px; color: black;">{{ auth()->user()->username }}</span>
+                                                </div>
+                                            </button>
+                                        </form>
+                                        <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 5px;">
+                                            <a href="#" onclick="showProfile()" class="btn btn-link"
+                                                style="font-size: 13px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">Lihat
+                                                Profil</a>
+                                            <a href="#" onclick="showPhotoDetail()" class="btn btn-link"
+                                                style="margin-left: 10px; font-size: 13px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">Lihat
+                                                Foto</a>
+                                        </div>
+                                        <div style="margin-right: 0px;">
+                                            <hr style="border-top: 1px solid #ccc; margin-top: 10px; width: 100%;">
+                                        </div>
+                                        <form action="{{ route('logout') }}" method="get" class="bg-transparent"
+                                            style="margin-top: 10px; margin-right: 20px">
+                                            @csrf
+                                            <div style="display: flex; justify-content: center; margin-right: -20px;">
+                                                <button type="submit" class="btn btn-link"
+                                                    style="padding: 6px 10px; border: 1px solid #ccc; border-radius: 8px; background: none; font-size: 15px; color: #ccc;">
+                                                    <i class="fas fa-sign-out-alt fa-lg"></i> Logout
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+
+                            </div>
                         @else
-                            <!-- Jika pengguna belum login -->
-                            <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Register</a>
-                            <!-- Tautan untuk register -->
-                            <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
+                            <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Registrasi</a>
+                            <a href="{{ route('auth.login') }}">Login</a>
                         @endauth
                     </div>
-                </div>
 
-                <script>
-                    function toggleDropdown() {
-                    var dropdown = document.getElementById("userDropdown");
-                    if (dropdown.style.display === "none" || dropdown.style.display === "") {
-                        dropdown.style.display = "block";
-                    } else {
-                        dropdown.style.display = "none";
-                    }
-                }
-                </script>
-                {{-- <script>
-                    function redirectToProfile() {
-                        var userId = "{{ $user->id }}"; // Ambil ID pengguna dari variabel Blade
-                        window.location.href = "{{ route('profile', ['id' => ':id']) }}".replace(':id', userId);
-                    }
-                </script> --}}
+
+                    <script>
+                        function toggleDropdown() {
+                            var dropdown = document.getElementById("userDropdown");
+                            if (dropdown.style.display === "none") {
+                                dropdown.style.display = "block";
+                            } else {
+                                dropdown.style.display = "none";
+                            }
+                        }
+                    </script>
         </li>
 
 
-
-
-
-        {{-- <div style="position: relative; overflow: hidden; margin-top: -50px;"> --}}
-        {{-- <div style="position: relative; overflow: hidden; margin-top: -30px;"> --}}
         <div id="beranda-section">
             <img src="images/backround.png" data-bgposition="left center" data-duration="14000"
                 data-bgpositionend="right center" alt="">
@@ -86,15 +129,13 @@
                     Temukan Ketenangan, Kenyamanan, dan Inspirasi di Setiap Perjalanan Anda Bersama Kami.
                 <p>
                     @auth
-                        <!-- Jika pengguna sudah login, arahkan ke halaman menu -->
                         <a href="{{ route('menu') }}">
                             <button onclick="addLoadingEffect()"
-                            style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
-                        PESAN SEKARANG
-                    </button>
-                </a>
+                                style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+                                PESAN SEKARANG
+                            </button>
+                        </a>
                     @else
-                        <!-- Jika pengguna belum login, arahkan ke halaman login -->
                         <a href="{{ route('auth.login') }}">
                             <button
                                 style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
@@ -115,7 +156,7 @@
                     <div class="row align-items-start">
                         <div class="col-md-6">
                             <div class="img mb-4">
-                                <a href="#"><img src="images/about/img-1.png" alt="" ></a>
+                                <a href="#"><img src="images/about/img-1.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -168,7 +209,8 @@
                                 <h2 class="heading">KAMAR DAN RATING</h2>
                                 <img src="images/icon-1.png" alt="icon">
                                 <p style="font-size: 20px;">
-                                    Nikmati kenyamanan dan kemewahan di setiap kamar kami yang elegan dan modern, dirancang dengan perhatian terhadap detail untuk memenuhi kebutuhan dan keinginan Anda.
+                                    Nikmati kenyamanan dan kemewahan di setiap kamar kami yang elegan dan modern, dirancang
+                                    dengan perhatian terhadap detail untuk memenuhi kebutuhan dan keinginan Anda.
                                 </p>
                             </div>
                         </div>
@@ -179,15 +221,15 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
+                                        <div class="accomd-modations-room"
+                                            style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a><img src="images/room/img-11.png" alt=""></a>
+                                                <a><img src="images/room/img-3.jpg" alt=""></a>
                                             </div>
                                             <div class="">
-                                                <h2  style="display: flex; justify-content: space-between;">
+                                                <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a
-                                                            style="font-weight: bold; font-size: 16px;">LUXURY ROOM</a>
+                                                        <a style="font-weight: bold; font-size: 16px;">LUXURY ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
                                                                 style="font-size: 17px; font-weight: bold; color: #000000; margin-top: 6px;">
@@ -200,27 +242,37 @@
                                                     </div>
                                                 </h2>
                                                 <div class="d-flex" style="display: flex; justify-content: space-between">
-                                                    <button class="btn btn-primary" style="background-color: #382E2E; width: 199px; height: 38px; font-size: 14px;">Pesan Sekarang</button>
+                                                    <button class="btn btn-primary"
+                                                        style="background-color: #382E2E; width: 199px; height: 38px; font-size: 14px;">Pesan
+                                                        Sekarang</button>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#FFBF43"
                                                             d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
 
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
 
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
 
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
 
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                                                        <path fill="#FFBF43" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        viewBox="0 0 24 24">
+                                                        <path fill="#FFBF43"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z" />
                                                     </svg>
                                                 </div>
                                             </div>
@@ -230,15 +282,15 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
+                                        <div class="accomd-modations-room"
+                                            style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a ><img src="images/room/img-22.png" alt=""></a>
+                                                <a><img src="images/room/img-1.jpg" alt=""></a>
                                             </div>
                                             <div class="">
-                                                <h2 style="display: flex; justify-content: space-between;" >
+                                                <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a
-                                                            style="font-weight: bold; font-size: 16px;">COUPLE ROOM</a>
+                                                        <a style="font-weight: bold; font-size: 16px;">COUPLE ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
                                                                 style="font-size: 17px; font-weight: bold; color: #000000; margin-top: 6px;">
@@ -290,15 +342,15 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
+                                        <div class="accomd-modations-room"
+                                            style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a ><img src="images/room/img-33.png" alt=""></a>
+                                                <a><img src="images/room/img-2.jpg" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a
-                                                            style="font-weight: bold; font-size: 16px;">STANDAR ROOM</a>
+                                                        <a style="font-weight: bold; font-size: 16px;">STANDAR ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
                                                                 style="font-size: 17px; font-weight: bold; color: #000000; margin-top: 6px;">
@@ -350,16 +402,16 @@
                                     <!-- END / ITEM -->
 
                                     <!-- ITEM -->
-                                    <div class="col-xs-4">
-                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
+                                    <div class="col-xs-4" style="margin-bottom: 30px;">
+                                        <div class="accomd-modations-room"
+                                            style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a ><img src="images/room/img-55.webp" alt=""></a>
+                                                <a><img src="images/room/img-9.jpg" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a
-                                                            style="font-weight: bold; font-size: 16px;">FAMILY ROOM</a>
+                                                        <a style="font-weight: bold; font-size: 16px;">FAMILY ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
                                                                 style="font-size: 17px; font-weight: bold; color: #000000; margin-top: 6px;">
@@ -412,15 +464,15 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
+                                        <div class="accomd-modations-room"
+                                            style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a ><img src="images/room/img-44.png" alt=""></a>
+                                                <a><img src="images/room/img-8.jpg" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
                                                     <div>
-                                                        <a
-                                                            style="font-weight: bold; font-size: 16px;">DELUXE ROOM</a>
+                                                        <a style="font-weight: bold; font-size: 16px;">DELUXE ROOM</a>
                                                         <div style="display: flex; align-items: center;">
                                                             <p class="price"
                                                                 style="font-size: 17px; font-weight: bold; color: #000000; margin-top: 6px;">
@@ -474,13 +526,14 @@
 
                                     <!-- ITEM -->
                                     <div class="col-xs-4">
-                                        <div class="accomd-modations-room" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
+                                        <div class="accomd-modations-room"
+                                            style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);">
                                             <div class="img">
-                                                <a ><img src="images/room/img-66.jpg" alt=""></a>
+                                                <a><img src="images/room/img-4.jpg" alt=""></a>
                                             </div>
                                             <div class="">
                                                 <h2 style="display: flex; justify-content: space-between;">
-                                                    <a  style="font-weight: bold; font-size: 16px;">SINGLE
+                                                    <a style="font-weight: bold; font-size: 16px;">SINGLE
                                                         ROOM</a>
                                                 </h2>
                                                 <div style="display: flex; align-items: center;">
@@ -562,9 +615,8 @@
                                 </div>
                             </div>
     </section>
-
-    <!-- GALLERY -->
-    {{-- <section class="section-gallery" style="text-align: center; position: relative; margin-top: -90px;">
+    {{-- GALLERY
+<section class="section-gallery" style="text-align: center; position: relative; margin-top: -90px;">
         <div id="kontak-section">
             <div class="gallery" style="padding-top: 10px; margin-button: 50px">
                 <div style="position: relative; display: flex; justify-content: center;">
@@ -575,8 +627,8 @@
                         <p style="font-size: 24px;">Ada kendala? atau ingin memberikan masukan,</p>
                         <p style="font-size: 24px;">silahkan isi kolom dibawah ini.</p>
                         @auth
-                            <a href="{{ route('kontak.index') }}">
-                                <button style="background-color: #283E58; width: 199px; height: 38px; border-radius: 32px;">
+                              <a href="{{ route('kontak.index') }}">
+                                 <button style="background-color: #283E58; width: 199px; height: 38px; border-radius: 32px;">
                                     <span style="color: white; font-weight: bold;">HUBUNGI KAMI</span>
                                 </button>
                             </a>

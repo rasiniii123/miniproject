@@ -46,7 +46,7 @@
     <!-- HEADER -->
     <menu id="menu">
         <div class="menu-wrap" style="background-color: #283E58;">
-            <div class="slider-container">
+              <div class="slider-container">
                 <div class="logo">
                     <img src="{{asset('images/kologo.png')}}" alt="Logo" width="100">
                 </div>
@@ -58,27 +58,55 @@
                         <li><a href="#about-section" onclick="addLoadingEffect()">History</a></li>
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
-                        @auth <!-- Cek apakah pengguna sudah login -->
-                        <span style="font-size: 20px; color: #fff; margin-right: 10px;">{{ auth()->user()->username }}</span>
-
-                        <div class="dropdown" onclick="toggleDropdown()">
-                            <img src="{{ asset('user-2.png') }}" width="40" height="40" style="margin-right: 10px; cursor: pointer;" alt="profile">
-                            <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="display: none; width: 150px;">
-                                <li>
-                                    <form action="{{ route('logout') }}" method="get">
+                        @auth
+                        <div class="dropdown" onclick="toggleDropdown()" style="border-radius: 50px;">
+                            <img src="{{ asset('user-2.png') }}" width="40" height="40" class=""
+                                style="margin-right: 40px; cursor: pointer;" alt="profile">
+                            <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown"
+                            style="display: none; text-align: center; left: auto; right: 50px; position: absolute; border-radius: 8px; width: 200px; height: 200px;">
+                                <li class="mx-auto flex-col">
+                                    <form class="bg-transparent" class="" style="margin-top: 10px;">
                                         @csrf
-                                        <button type="submit" class="dropdown-item bg-transparent btn-primary btn-lg" style="padding: 8px;">
-                                            <i class="fas fa-sign-out-alt fa-lg text-primary" style="margin-right: 8px;"></i> Keluar
+                                        <button type="submit" class="btn btn-link"
+                                            style="padding: 0; border: none; background: none;">
+                                            <div class="mx-auto"
+                                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                                <img src="{{ asset('user-2.png') }}" width="40" height="40"
+                                                    style="margin-bottom: 5px;" class=alt="profile">
+                                                <span
+                                                    style="font-size: 20px; color: black;">{{ auth()->user()->username }}</span>
+                                            </div>
                                         </button>
+                                    </form>
+                                    <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 10px;">
+                                        <a href="#" onclick="showProfile()" class="btn btn-link"
+                                            style="font-size: 10px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">Lihat
+                                            Profil</a>
+                                        <a href="#" onclick="showPhotoDetail()" class="btn btn-link"
+                                            style="margin-left: 10px; font-size: 10px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">Lihat
+                                            Foto</a>
+                                    </div>
+                                    <div style="margin-right: 0px;">
+                                        <hr style="border-top: 1px solid #ccc; margin-top: 10px; width: 100%;">
+                                    </div>
+                                    <form action="{{ route('logout') }}" method="get" class="bg-transparent"
+                                        style="margin-top: -10px; margin-right: 20px">
+                                        @csrf
+                                        <div style="display: flex; justify-content: center; margin-right: -20px;">
+                                            <button type="submit" class="btn btn-link"
+                                                style="padding: 6px 10px; border: 1px solid #ccc; border-radius: 8px; background: none; font-size: 15px; color: #ccc;">
+                                                <i class="fas fa-sign-out-alt fa-lg"></i> Logout
+                                            </button>
+                                        </div>
                                     </form>
                                 </li>
                             </ul>
+
                         </div>
-                        @else
-                            <!-- Jika pengguna belum login -->
+                        {{-- </div>     <!-- Jika pengguna belum login -->
                             <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Register</a>
                             <!-- Tautan untuk register -->
-                            <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
+                            <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login --> --}}
                         @endauth
                     </div>
                      <script>

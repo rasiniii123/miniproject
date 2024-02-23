@@ -17,7 +17,7 @@
                     style="display: flex; justify-content: center; align-items: center; height: 50vh;">
                     <div
                         style="width: 100%; height: 600px; background:  #D9D9D9; border-radius: 35px; backdrop-filter: blur(30px); padding: 30px; margin-top: -90px; position: relative;">
-                        <a href="{{ route('auth.login') }}"
+                        <a href="{{ route('login') }}"
                             style="color:  #283E58; text-decoration: none; position: absolute; top: 20px; left: 20px;">
                             <span style="font-size: 20px; margin-right: 5px;">&larr;</span> Kembali
                         </a>
@@ -71,7 +71,7 @@
                             </div>
                             <div
                                 style="text-align: center; font-family: Hind; font-size: 13px; font-weight: 400; margin-top: 10px line-height: 18.57px; letter-spacing: 0.20px; margin-top: 10px;">
-                                Sudah punya akun? - <a href="{{ route('auth.login') }}"
+                                Sudah punya akun? - <a href="{{ route('login') }}"
                                     style="text-decoration: none;"> <span style="color: #00A3FF;">Login disini</span> </a>
                             </div>
                         </form>
@@ -101,7 +101,7 @@
                             confirmButtonText: 'OK'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = "{{ route('auth.login') }}";
+                                window.location.href = "{{ route('login') }}";
                             }
                         });
                     },

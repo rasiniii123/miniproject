@@ -32,7 +32,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('auth.store
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::middleware('guest')->group(function () {
+Route::middleware('auth')->group(function () {
 
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
@@ -43,6 +43,7 @@ Route::middleware('guest')->group(function () {
     Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
 
     Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
+    Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
 
     Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
 
@@ -52,7 +53,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
-    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [UserController::class, 'index'])->name('admin.dashboard');
 
     Route::controller(RoomController::class)->prefix('room')->group(function () {
         Route::get('/', 'index')->name('room');
