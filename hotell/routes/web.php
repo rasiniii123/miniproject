@@ -16,7 +16,7 @@ use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 })->name('dashboard');
 
 Route::middleware('auth')->group(function () {

@@ -1,11 +1,9 @@
 @extends('layouts.yss')
 
 @section('content')
-    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <div class="main-content">
         <div class="page-content">
-            
             <div class="search-bar" style="margin-left: 400px; position: relative;">
                 <input type="text" id="searchBar" placeholder="Cari..."
                     style="width: 50%; padding: 5px; border-radius: 20px;">
@@ -19,169 +17,142 @@
             <div style="width: 300px; margin-right: 50px;">
                 <!-- Filter content here -->
                 <div style=" 1px solid #ccc;  padding-left: 20px; padding-right: 20px; margin-top:60px;">
+                    <h3 style="font-size: 25px; margin-bottom: 20px; font-weight: bold;">Filter</h3>
+
                     <!-- Filter by price -->
                     <form>
-                        <div class="d-flex" id="collapsePriceRange">
-                            <div class="d-flex align-items-center">
-                                <label for="minPrice" class="me-2" style="font-size: 12px;">Min:</label>
-                                <input class="form-control me-2" type="number" placeholder="Min" id="minPrice"
-                                    name="min" value="{{ old('min', $minPrice) }}">
-                                <label for="maxPrice" class="me-2" style="font-size: 12px;">Max:</label>
-                                <input class="form-control me-2" type="number" placeholder="Max" id="maxPrice"
-                                    name="max" value="{{ old('max', $maxPrice) }}">
-                                <button class="btn btn-phoenix-primary border-300 px-3" type="submit">Go</button>
-                            </div>
+                        <h3 style="margin-top: 20px; font-size:15px; font-weight:bold; "> Category</h3>
+                        <div>
+                            <input type="checkbox" id="category-1" onclick="toggleCheckbox('category-1')">
+                            <label for="category-1" style="font-size: 15px; margin-top:10px;">Standard Room</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="category-2" onclick="toggleCheckbox('category-2')">
+                            <label for="category-2" style="font-size: 15px;">Luxury Room</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="category-3" onclick="toggleCheckbox('category-3')">
+                            <label for="category-3" style="font-size: 15px;">Suite</label>
                         </div>
                     </form>
-
-                    <!-- Filter by room category -->
-                    <h3 style="margin-top: 20px; font-size:20px;"> Category</h3>
-                    <div>
-                        <input type="checkbox" id="category-1">
-                        <label for="category-1" style="font-size: 15px;">Standard Room</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="category-2">
-                        <label for="category-2" style="font-size: 15px;">Luxury Room</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="category-3">
-                        <label for="category-3" style="font-size: 15px;">Suite</label>
+                    <h3 style="margin-top: 20px; margin-bottom: 10px; font-size:15px; font-weight:bold;">Price range</h3>
+                    <div class="d-flex" id="collapsePriceRange">
+                        <div class="d-flex align-items-center">
+                            <input class="form-control me-2" type="number" placeholder="Min" id="minPrice" name="min" style="margin-bottom: 10px;">
+                            <input class="form-control me-2" type="number" placeholder="Max" id="maxPrice" name="max" style="margin-bottom: 10px;">
+                            <button class="btn btn-phoenix-primary border-300 px-3" type="button" id="filterButton" style="border: 1px solid #ccc; padding: 8px 15px; margin-top: -10px;">Go</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Menu content -->
             <div style="width: 1000px;">
-
-
                 <!-- Vertical line -->
-
                 <div style="border-left: 2px solid #dfd9d9; flex-grow: 1; margin-right: 30px;  margin-top: 40px;"></div>
                 @foreach ($menu as $room)
-                    <div class="hotel" id="room_{{ $room->id }}">
-                        <div class="menu-item" style="display: flex; flex-direction: column; align-items: flex-start;">
-                            <div
-                                style="color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
-                                {{ $room->nama_kamar }}
-                            </div>
-                            <div style="display: flex; align-items: center;">
-                                <img src="{{ asset('storage/kamar/'.$room->path_kamar) }}"
-                                    style="max-width: 250px; max-height: 150px;">
-                                <div style="margin-left: 15px; font-family: Poppins; width: 750px; word-wrap: break-word;">
-                                    <p style="font-size: 18px;">{{ $room->deskripsi }}</p>
-                                    <div style="display: flex; align-items: center; margin-top: 20px;">
-                                        <img src="images/uang.png" alt="Gambar Baru"
-                                            style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                        <div class="harga" style="font-family: Poppins; font-size: 18px;">Rp
-                                            {{ number_format($room->harga, 0, ',', '.') }} <span style="color: #D88F00;">/Malam</span></div>
-                                    </div>
-                                    <div style="margin-top: 15px;"></div> <!-- Jarak tambahan -->
-                                    <div style="margin-top: 10px; display: flex; justify-content: flex-end;">
-                                        <a href="{{ route('detail.index', ['id' => $room->id]) }}" class="btn btn-primary btn-lg float-end" style="background-color: #283E58; margin-right: 50px;">DETAIL</a>
-                                    </div>
+                <div class="hotel" id="room_{{ $room->id }}">
+                    <div class="menu-item" style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <div style="color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
+                            {{ $room->nama_kamar }}
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <img src="{{ asset('storage/kamar/'.$room->path_kamar) }}" style="max-width: 250px; max-height: 150px; margin-top: -20px;">
+                            <div style="margin-left: 15px; font-family: Poppins; width: 700px; word-wrap: break-word;">
+                                <p style="font-size: 18px;">{{ $room->deskripsi }}</p>
+                                <div style="display: flex; align-items: center; margin-top: 10px;">
+                                    <img src="images/uang.png" alt="Gambar Baru" style="max-width: 20px; max-height: 20px; margin-right: 5px;">
+                                    <div class="harga" style="font-family: Poppins; font-size: 18px;">Rp {{ number_format($room->harga, 0, ',', '.') }} <span style="color: #D88F00;">/Malam</span></div>
+                                </div>
+                                <div style="display: flex; align-items: center; margin-top: 10px;">
+                                    <i class="fas fa-bed" style="color: #000; font-size: 20px; margin-right: 10px; margin-top: -3px;"></i>
+                                    <p style="font-size: 18px;">{{ $room->kategori->nama_kategori }}</p>
                                 </div>
                             </div>
-                            <!-- Tambahkan elemen HTML lainnya sesuai kebutuhan -->
+                        </div>
+                        <div style="margin-top: 30px;"></div> <!-- Jarak tambahan -->
+                        <div style="margin-top: -20px; margin-left:800px;">
+                            <a href="{{ route('detail.index', ['id' => $room->id]) }}" class="btn btn-primary btn-lg" style="background-color: #283E58;">DETAIL</a>
                         </div>
                     </div>
-                    @endforeach
-
                 </div>
+                @endforeach
             </div>
-            <div id="preloader">
-                <span class="preloader-dot"></span>
-            </div>
+        </div>
     </div>
-
-
-
-    {{-- <script>
-        // Function to reset checkboxes
-        function resetCheckboxes() {
-            // Get all checkboxes
-            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            // Loop through checkboxes and uncheck them
-            checkboxes.forEach(function(checkbox) {
-                checkbox.checked = false;
-            });
-        }
-
-        <
-        script >
-            // Function to reset checkboxes
-            function resetCheckboxes() {
-                // Get all checkboxes
-                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                // Loop through checkboxes and uncheck them
-                checkboxes.forEach(function(checkbox) {
-                    checkbox.checked = false;
-                });
-            }
-
-        // Add event listener to the reset button
-        var resetButton = document.getElementById('resetButton');
-        resetButton.addEventListener('click', resetCheckboxes);
-    </script> --}}
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="price-"]');
-        const rooms = document.querySelectorAll('.hotel');
-
-        checkboxes.forEach(function(checkbox) {
-            checkbox.addEventListener('change', function() {
-                const selectedPrices = Array.from(checkboxes)
-                    .filter(chk => chk.checked)
-                    .map(chk => parseInt(chk.dataset.price));
-
-                rooms.forEach(function(room) {
-                    const harga = parseInt(room.dataset.price);
-
-                    // Mengecek apakah harga kamar berada dalam setiap rentang harga yang dipilih
-                    const showRoom = selectedPrices.length === 0 || selectedPrices.some(
-                        price => harga <= price);
-
-                    // Menampilkan atau menyembunyikan kamar berdasarkan hasil pengecekan
-                    room.style.display = showRoom ? 'flex' : 'none';
-                });
-            });
-        });
-    });
-</script>
 
     <script>
         // Ambil elemen input pencarian
         const searchBar = document.getElementById('searchBar');
+        const filterButton = document.getElementById('filterButton');
 
-        // Tambahkan event listener untuk event input (ketika pengguna mengetikkan sesuatu)
+        // Tambahkan event listener untuk event input pada searchBar
         searchBar.addEventListener('input', function(event) {
-            const searchTerm = event.target.value
-                .toLowerCase(); // Ambil nilai pencarian dan ubah menjadi huruf kecil
+            const searchTerm = event.target.value.toLowerCase();
 
             // Ambil semua item menu
             const menuItems = document.querySelectorAll('.menu-item');
 
             // Iterasi melalui setiap item menu
             menuItems.forEach(function(menuItem) {
-                const namaHotel = menuItem.textContent
-                    .toLowerCase(); // Ambil teks item menu dan ubah menjadi huruf kecil
-
-                // Periksa apakah teks item menu mengandung kata kunci pencarian
+                const namaHotel = menuItem.querySelector('div:first-child').textContent.toLowerCase();
                 if (namaHotel.includes(searchTerm)) {
-                    menuItem.style.display = 'flex'; // Tampilkan item menu jika cocok dengan pencarian
+                    menuItem.style.display = 'flex';
                 } else {
-                    menuItem.style.display =
-                        'none'; // Sembunyikan item menu jika tidak cocok dengan pencarian
+                    menuItem.style.display = 'none';
                 }
             });
         });
+
+        // Tambahkan event listener untuk event click pada tombol Go
+        filterButton.addEventListener('click', function() {
+            filterRooms();
+        });
+
+        function filterRooms() {
+    const minPrice = parseInt(document.getElementById('minPrice').value);
+    const maxPrice = parseInt(document.getElementById('maxPrice').value);
+    const rooms = document.querySelectorAll('.hotel');
+
+    rooms.forEach(function(room) {
+        const roomPrice = parseInt(room.querySelector('.harga').textContent.replace(/\D/g, ''));
+        if (roomPrice >= minPrice && roomPrice <= maxPrice) {
+            room.style.display = 'flex';
+        } else {
+            room.style.display = 'none';
+        }
+    });
+}
+
+        function toggleCheckbox(checkboxId) {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.id !== checkboxId) {
+                    checkbox.checked = false;
+                }
+            });
+
+            // Mengambil nilai status (checked atau tidak) dari checkbox yang dipilih
+            const isChecked = document.getElementById(checkboxId).checked;
+            const categoryName = document.getElementById(checkboxId).nextElementSibling.textContent.toLowerCase();
+
+            // Ambil semua item kamar
+            const rooms = document.querySelectorAll('.hotel');
+
+            rooms.forEach(function(room) {
+                const roomCategory = room.querySelector('.menu-item p:last-child').textContent.toLowerCase();
+                if (isChecked) {
+                    // Jika checkbox dicentang, tampilkan kamar yang memiliki kategori yang sesuai
+                    if (roomCategory === categoryName) {
+                        room.style.display = 'flex';
+                    } else {
+                        room.style.display = 'none';
+                    }
+                } else {
+                    // Jika checkbox tidak dicentang, tampilkan kembali semua kamar
+                    room.style.display = 'flex';
+                }
+            });
+        }
     </script>
-    {{-- <script>
-    function handleButtonClick(roomId) {
-        // Lakukan apa pun yang perlu dilakukan dengan ID kamar ini
-        alert('Button clicked for room with ID: ' + roomId);
-    }
-</script> --}}
-
-
 @endsection

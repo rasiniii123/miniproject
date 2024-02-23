@@ -40,13 +40,13 @@
                                 <p style="font-size: 18px; margin-left: 140px;">{{ $room->deskripsi }}</p>
                             </div>
                         </div>
-                        <div id="preloader">
-                            <span class="preloader-dot"></span>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div id="preloader">
+        <span class="preloader-dot"></span>
     </div>
 </section>
 

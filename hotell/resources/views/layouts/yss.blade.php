@@ -135,9 +135,8 @@
                             style="display: flex; align-items: center; justify-content: flex-end; margin-top: 10px; margin-right: -600px;">
                             <a href="#" style="color: #fff; margin-right: 10px;"><img src="{{asset('images/Vector.png')}}"
                                     alt="YouTube" style="width: 18px; height: 18px;"></a>
-                            <a href="#" style="color: #fff; margin-right: 10px;"><img
-                                    src="images/instragram.png" alt="Instagram"
-                                    style="width: 18px; height: 18px;"></a>
+                            <a href="#" style="color: #fff; margin-right: 10px;"><img src="{{asset('images/instragram.png')}}"
+                                alt="Instagram" style="width: 18px; height: 18px;"></a>
                             <a href="#" style="color: #fff; margin-right: 10px;"><img src="{{asset('images/twiter.png')}}"
                                     alt="Twitter" style="width: 18px; height: 18px;"></a>
                             <a href="#" style="color: #fff; margin-right: 10px;"><img src="{{asset('images/gmail.png')}}"
@@ -145,30 +144,39 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6" style="display: flex; justify-content: flex-end; margin-top: 50px;">
-                        <div style="width: 300px; height: 70px; padding-bottom: 10px; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; gap: 10px; margin-top: -20px;">
-                            <div style="width: 300px; color: white; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; text-align: right; margin-right: -80px;">Hubungi Kami</div>
-                        </div>
-                        <div style="width: 300px; height: 40px; position: relative;">
-                            <div style="width: 90px; height: 40px; position: absolute; right: 0; top: 0; display: flex; justify-content: center; align-items: center;">
-                                <div style="width: 210px; height: 40px; position: absolute; right: 100px; top: 0; background: white; border-radius: 6px; border: 1px #B3BDC7 solid; display: flex; justify-content: center; align-items: center;">
-                                    <span style="color: #333; font-size: 14px;">hello@everywhere.com</span>
+
+                    <div class="col-md-6" style="display: flex; justify-content: flex-end;  margin-top: 50px;">
+                                <div
+                                    style="width: 300px; height: 70px; padding-bottom: 10px; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; gap: 10px; margin-top: -20px;">
+                                    <div
+                                        style="width: 300px; color: white; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; text-align: right; margin-right: -80px;">
+                                        Hubungi Kami</div>
+                                </div>
+                                <div style="width: 300px; height: 40px; position: relative;">
+                                    <div
+                                        style="width: 90px; height: 40px; position: absolute; right: 0; top: 0; display: flex; justify-content: center; align-items: center;">
+                                        <div
+                                            style="width: 210px; height: 40px; position: absolute; right: 100px; top: 0; background: white; border-radius: 6px; border: 1px #B3BDC7 solid; display: flex; justify-content: center; align-items: center;">
+                                            <span style="color: #333; font-size: 14px;">hello@everywhere.com</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <!-- Footer Bottom -->
+                <footer>
+                    <div class="footer-bottom" style="padding: 7px 0;"> <!-- Atur padding untuk memperbesar footer -->
+                        <div class="container">
+                            <div class="text-center" style="color: white;">Copyright © Everywhere 2024</div>
+                        </div>
+                    </div>
+                </footer>
+
+
         </div>
-        <!-- Footer Bottom -->
-        <footer>
-            <div class="footer-bottom" style="padding: 7px 0; margin-top: 20px;"> <!-- Tambahkan margin-top disini -->
-                <div class="container">
-                    <div class="text-center" style="color: white;">@everywhere</div>
-                </div>
-            </div>
-        </footer>
-    </footer>
+
     <!-- END / FOOTER -->
 
     <!-- LOAD JQUERY -->
