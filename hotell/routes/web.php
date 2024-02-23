@@ -23,32 +23,20 @@ use App\Http\Controllers\AdminDashboardController;
 
 
 Route::get('/login', [UserController::class, 'index'])->name('login');
-
 Route::post('/login', [UserController::class, 'store'])->name('login.submit');
-
 Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');
-
 Route::post('/register', [RegisterController::class, 'store'])->name('auth.store');
-
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-
     Route::get('menu', [MenuController::class, 'index'])->name('menu');
-
     Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
-
     Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
-
     Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
-
     Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
-
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
-
     Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
 });
 
@@ -73,6 +61,7 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
         Route::delete('destroy/{id}', 'destroy')->name('kategori.destroy');
     });
 });
+
 Route::prefix('profile')->middleware('auth')->group(function () {
     Route::get('', [ProfileController::class, 'index'])->name('profile');
     Route::get('create', [ProfileController::class, 'create'])->name('profile.create');
@@ -81,12 +70,3 @@ Route::prefix('profile')->middleware('auth')->group(function () {
     Route::put('edit/{id}', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('destroy/{id}', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('test', function () {
-    return view('user.test');
-});
-
-
-
-    // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-    // Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-    // Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
