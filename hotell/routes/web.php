@@ -15,25 +15,27 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-});
-    
 
-Route::get('/login', [UserController::class, 'index'])->name('auth.login');
+// Route::middleware('auth')->group(function () {
+// });
+
+
+
+
+Route::get('/login', [UserController::class, 'index'])->name('login');
+
 Route::post('/login', [UserController::class, 'store'])->name('login.submit');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');
+
 Route::post('/register', [RegisterController::class, 'store'])->name('auth.store');
 
-Route::middleware('auth')->group(function () {
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::middleware('guest')->group(function () {
 
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-
-    // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-    // Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-    // Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
     Route::get('menu', [MenuController::class, 'index'])->name('menu');
 
@@ -44,7 +46,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
 
     Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
+
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
+
+    Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
 });
 
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
@@ -77,5 +82,11 @@ Route::prefix('profile')->middleware('auth')->group(function () {
     Route::get('destroy/{id}', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('test', function () {
-    return view ('user.test');
+    return view('user.test');
 });
+
+
+
+    // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    // Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
