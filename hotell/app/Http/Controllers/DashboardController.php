@@ -25,13 +25,12 @@ class DashboardController extends Controller
                 $kamar = Room::all();
                 return view('admin.dashboard', ['chart' => $chart->build()], compact('kamar', 'userregister'));
             } else {
-                // Jika pengguna bukan admin, arahkan mereka ke dashboard pengguna
-                // Anda dapat menyesuaikan dengan rute yang sesuai untuk dashboard pengguna
                 return view('dashboard');
             }
-        } else {
+        } 
+        else {
             // Jika pengguna belum login, arahkan mereka ke halaman login
-            return redirect()->route('login');
+            return redirect()->route('auth.login');
         }
     }
 

@@ -1,81 +1,79 @@
 @extends('layouts.yss')
+
 @section('content')
-    <div class="main-content container">
-        <h1 style="text-transform: uppercase; margin-bottom: 10px">Data Profile Anda</h1>
-        <hr>
-        <div class="row d-flex">
-            <div class="col-md-12">
-                <form action="{{ route('profile.update',['id' => $user->id]) }}" method="POST" enctype="multipart/form-data" class="form-container col-md-12">
-                    @csrf
-                    @method('PUT')
+<div class="main-content container">
+    <h1 style="text-transform: uppercase; margin-bottom: 10px">Data Profile Anda</h1>
+    <hr>
+    <div class="row d-flex">
+        <div class="col-md-12">
+            <form action="{{ route('profile.update',['id' => $user->id]) }}" method="POST" enctype="multipart/form-data" class="form-container col-md-12">
+                @csrf
+                @method('PUT')
                 <div class="mx-auto">
                     <input class="d-none" id="avatarFile" type="file" name="profile" accept="image/*" onchange="previewImage()" />
-                        <label class="cursor-pointer avatar avatar-5xl" style="margin-left: 30%; margin-bottom: 12px width: 300px; height: 400px; object-fit: cover;" for="avatarFile">
-                            @if ($user->profile)
-                            <img class="rounded-circle cursor-pointer avatar avatar-5xl" id="avatarPreview" style="margin-left: 30%; margin-bottom: 12px; width: 300px; height: 300px; object-fit: cover;" src="{{ asset('storage/' . $user->profile) }}" alt="" />
-                            @else
-                            <img id="avatarPreview" src="{{asset('images/user2.png')}}"  alt="Default Avatar" width="250" style="margin-left: 38%; margin-bottom: 12px" />
-                                 @endif
-                            </label>
-                        </div>
+                    <label class="cursor-pointer avatar avatar-5xl" style="margin-left: 30%; margin-bottom: 12px width: 300px; height: 400px; object-fit: cover;" for="avatarFile">
+                        @if ($user->profile)
+                        <img class="rounded-circle cursor-pointer avatar avatar-5xl" id="avatarPreview" style="margin-left: 30%; margin-bottom: 12px; width: 300px; height: 300px; object-fit: cover;" src="{{ asset('storage/' . $user->profile) }}" alt="" />
+                        @else
+                        <img id="avatarPreview" src="{{asset('images/user2.png')}}" alt="Default Avatar" width="250" style="margin-left: 38%; margin-bottom: 12px; width: 300px; height: 300px; object-fit: cover;" />
+                        @endif
+                    </label>
+                </div>
 
-                    {{-- Input fields --}}
-                    <div class="col-md-6 " >
-
-                        <div class="input-field col-md-12">
+                {{-- Input fields --}}
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <div class="input-field">
                             <label for="username">Nama:</label>
                             <input type="text" id="username" name="username" class="text-input" value="{{ Auth::user()->username }}" placeholder="Masukkan nama anda">
                             @error('username')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
-
-                        <div class="input-field col-md-12">
+                        <div class="input-field">
                             <label for="email">Email:</label>
                             <input type="email" id="email" name="email" value="{{ Auth::user()->email }}" class="text-input" disabled>
                         </div>
 
-                        <div class="input-field col-md-12">
+                        <div class="input-field">
                             <label for="password">Password:</label>
                             <input type="password" id="password" name="password" class="text-input" placeholder="Masukkan password baru anda">
                             @error('password')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
-                    <div class="col-md-6">
 
+                    <div class="col-md-6">
                         <div class="input-field">
                             <label for="telp">No.Telp:</label>
                             <input type="number" id="telp" name="telp" value="{{ Auth::user()->telp }}" class="text-input" placeholder="Masukkan Nomor telepon anda">
                             @error('telp')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="input-field">
                             <label for="address">Alamat:</label>
                             <textarea id="address" name="address" class="text-input" placeholder="Masukkan alamat anda">{{ Auth::user()->address }}</textarea>
                             @error('address')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                        </div>
-                        <div class="d-flex justify-content-end gap-2">
-
-                            <a href="{{route('profile')}}" class="btn btn-secondary"> Kembali</a>
-                            <button type="submit" class="btn btn-secondary">Simpan perubahan</button>
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
+                </div>
+                {{-- End of Input fields --}}
 
-
-                    {{-- Submit button --}}
-                </form>
-
-            </div>
+                <div class="d-flex justify-content-end gap-2">
+                    <a href="{{route('profile')}}" class="btn btn-secondary"> Kembali</a>
+                    <button type="submit" class="btn btn-secondary">Simpan perubahan</button>
+                </div>
+                {{-- Submit button --}}
+            </form>
         </div>
     </div>
+</div>
 @endsection
-
 <style>
     /* Styling for form elements */
     .form-container {
@@ -142,5 +140,4 @@
         }
     }
 </script>
-
 
