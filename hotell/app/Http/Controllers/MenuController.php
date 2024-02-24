@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\Room;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -13,14 +14,14 @@ class MenuController extends Controller
      */
     public function index(Request $request)
     {
-        $menu = Room::all();
+        $categories = Kategori::all();
         $minPrice = $request->input('minPrice', 0);
         $maxPrice = $request->input('maxPrice', PHP_INT_MAX);
 
         // Ambil data kamar sesuai dengan rentang harga yang dipilih
         $menu = Room::whereBetween('harga', [$minPrice, $maxPrice])->get();
 
-        return view('user.menu', compact('menu', 'minPrice', 'maxPrice'));
+        return view('user.menu', compact('menu', 'minPrice', 'maxPrice', 'categories'));
     }
 
     /**
@@ -34,29 +35,31 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'room_id' => 'required',
+            'kategori_id' => 'required|exists:kategori,id',
+            'path_kamar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'nama_kamar' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required|numeric',
+        ]);
 
-     public function store(Request $request)
-     {
-         $validatedData = $request->validate([
-             'room_id' => 'required',
-             'path_kamar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-             'nama_kamar' => 'required',
-             'deskripsi' => 'required',
-             'harga' => 'required|numeric',
-         ]);
+        if ($request->hasFile('path_kamar')) {
+            $image = $request->file('path_kamar');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/kamar', $imageName);
 
-         if ($request->hasFile('path_kamar')) {
-             $image = $request->file('path_kamar');
-             $imageName = time() . '.' . $image->getClientOriginalExtension();
-             $image->storeAs('public/kamar', $imageName);
+            Room::create([
+                'kategori_id' => $request->input('kategori_id'),
+                'room_id' => $validatedData['room_id'],
+                'path_kamar' => 'kamar/' . $imageName,
+                'nama_kamar' => $validatedData['nama_kamar'],
+                'deskripsi' => $validatedData['deskripsi'],
+                'harga' => $validatedData['harga'],
+            ]);
 
-             Room::create([
-                 'room_id' => $validatedData['room_id'],
-                 'path_kamar' => 'kamar/' . $imageName,
-                 'nama_kamar' => $validatedData['nama_kamar'],
-                 'deskripsi' => $validatedData['deskripsi'],
-                 'harga' => $validatedData['harga'],
-             ]);
             // Redirect pengguna ke halaman yang sesuai atau berikan pesan sukses
             return redirect()->route('rooms.index')->with('success', 'Room berhasil ditambahkan.');
         }
