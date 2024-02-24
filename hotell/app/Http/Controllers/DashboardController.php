@@ -27,13 +27,16 @@ class DashboardController extends Controller
             } else {
                 return view('dashboard');
             }
-        } 
+        }
         else {
             // Jika pengguna belum login, arahkan mereka ke halaman login
-            return redirect()->route('auth.login');
+            return redirect()->route('login');
         }
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     /**
      * Show the form for creating a new resource.

@@ -77,45 +77,5 @@
         });
     </script>
 @endif
-        {{-- <script>
-            $(document).ready(function() {
-                $('.account_form').on('submit', function(e) {
-                    e.preventDefault();
-                    var form = this;
-                    $.ajax({
-                        type: $(form).attr('method'),
-                        url: $(form).attr('action'),
-                        data: $(form).serialize(),
-                        success: function(response) {
-                            // Tampilkan SweetAlert setelah berhasil login
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Login Berhasil!',
-                                text: 'Selamat datang kembali.',
-                                confirmButtonColor: '#283E58',
-                                confirmButtonText: 'OK'
-                            }).then((result) => {
-                                // Redirect ke halaman dashboard setelah menekan tombol OK
-                                if (result.isConfirmed) {
-                                    window.location.href = "{{ route('admin.dashboard') }}";
-                                }
-                            });
-                        },
-                        error: function(xhr) {
-                            // Tangani kesalahan jika ada
-                            console.log(xhr.responseText);
-                            // Contoh penanganan kesalahan dengan menampilkan pesan error dari server
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Email atau password salah. Silakan coba lagi.',
-                                confirmButtonColor: '#283E58',
-                                confirmButtonText: 'OK'
-                            });
-                        }
-                    });
-                });
-            });
-        </script> --}}
     </section>
 @endsection
