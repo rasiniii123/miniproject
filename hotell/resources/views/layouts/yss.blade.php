@@ -78,13 +78,10 @@
                                             </div>
                                         </button>
                                     </form>
-                                    <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 10px;">
+                                    <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 48px;">
                                         <a href="#" onclick="showProfile()" class="btn btn-link"
-                                            style="font-size: 10px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">Lihat
+                                            style="font-size: 13px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">edit
                                             Profil</a>
-                                        <a href="#" onclick="showPhotoDetail()" class="btn btn-link"
-                                            style="margin-left: 10px; font-size: 10px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">Lihat
-                                            Foto</a>
                                     </div>
                                     <div style="margin-right: 0px;">
                                         <hr style="border-top: 1px solid #ccc; margin-top: 10px; width: 100%;">

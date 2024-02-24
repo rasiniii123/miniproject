@@ -33,10 +33,6 @@ class DashboardController extends Controller
             return redirect()->route('login');
         }
     }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
     /**
      * Show the form for creating a new resource.
