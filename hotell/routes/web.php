@@ -6,6 +6,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
@@ -52,13 +53,37 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
         Route::delete('destroy/{id}', 'destroy')->name('room.destroy');
     });
 
-    Route::controller(KategoriController::class)->prefix('kategori')->group(function () {
-        Route::get('', 'index')->name('kategori');
-        Route::get('create', 'create')->name('kategori.create');
-        Route::post('store', 'store')->name('kategori.store');
-        Route::get('edit/{id}', 'edit')->name('kategori.edit');
-        Route::put('edit/{id}', 'update')->name('kategori.update');
-        Route::delete('destroy/{id}', 'destroy')->name('kategori.destroy');
+    Route::middleware(['checkrole:admin'])->group(function () {
+        Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+        Route::controller(RoomController::class)->prefix('room')->group(function () {
+            Route::get('/', 'index')->name('room');
+            Route::get('/create', 'create')->name('room.create');
+            Route::post('/store', 'store')->name('room.store');
+            Route::get('/edit/{id}', 'edit')->name('room.edit');
+            Route::put('/edit/{id}', 'update')->name('room.update');
+            Route::delete('destroy/{id}', 'destroy')->name('room.destroy');
+        });
+
+        Route::controller(KategoriController::class)->prefix('kategori')->group(function () {
+            Route::get('', 'index')->name('kategori');
+            Route::get('create', 'create')->name('kategori.create');
+            Route::post('store', 'store')->name('kategori.store');
+            Route::get('edit/{id}', 'edit')->name('kategori.edit');
+            Route::put('edit/{id}', 'update')->name('kategori.update');
+            Route::delete('destroy/{id}', 'destroy')->name('kategori.destroy');
+        });
+    });
+    Route::prefix('profile')->middleware('auth')->group(function () {
+        Route::get('', [ProfileController::class, 'index'])->name('profile');
+        Route::get('create', [ProfileController::class, 'create'])->name('profile.create');
+        Route::post('store', [ProfileController::class, 'store'])->name('profile.store');
+        Route::get('edit/{id}', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('edit/{id}', [ProfileController::class, 'update'])->name('profile.update');
+        Route::get('destroy/{id}', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    });
+    Route::get('test', function () {
+        return view('user.test');
     });
 });
 

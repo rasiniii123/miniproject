@@ -2,37 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Charts\IncomeChart;
-use App\Models\Room;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class HistoriController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(IncomeChart $chart)
+    public function index()
     {
-        if (Auth::check()) {
-            $userID = Auth::id();
-            $user = User::find($userID);
-
-            if ($user->role === 'admin') {
-                $data['chart'] = $chart->build();
-                $userregister = User::where('role', 'user')->count();
-                $kamar = Room::all();
-                return view ('admin.dashboard', ['chart' => $chart->build()], compact('kamar', 'userregister'));
-            } else {
-                return view('dashboard');
-            }
-        }
-        else {
-            // Jika pengguna belum login, arahkan mereka ke halaman login
-            return redirect()->route('login');
-        }
+      return view('user.histori');  
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -81,6 +62,3 @@ class DashboardController extends Controller
         //
     }
 }
-
-
-
