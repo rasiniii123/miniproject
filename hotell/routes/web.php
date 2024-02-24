@@ -32,7 +32,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('auth.store
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::middleware('guest')->group(function () {
+Route::middleware('auth')->group(function () {
 
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
