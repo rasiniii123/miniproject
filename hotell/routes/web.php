@@ -6,7 +6,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\UlasanController;
-use App\Http\Controllers\HistoriController;
+
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
@@ -14,6 +14,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailmenuController;
+use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\AdminDashboardController;
 
 
@@ -23,9 +24,11 @@ use App\Http\Controllers\AdminDashboardController;
 
 
 
-
-
-
+Route::get('/histori', [HistoriController::class, 'index'])->name('histori');
+Route::get('/login', [UserController::class, 'index'])->name('login');
+Route::post('/login', [UserController::class, 'store'])->name('login.submit');
+Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');
+Route::post('/register', [RegisterController::class, 'store'])->name('auth.store');
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -47,7 +50,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
         Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
         Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
-        Route::get('/histori', [HistoriController::class, 'index'])->name('histori');
     });
 
     Route::middleware(['CheckRole:admin'])->group(function () {

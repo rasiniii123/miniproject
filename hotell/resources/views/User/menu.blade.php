@@ -78,6 +78,9 @@
                 </div>
                 @endforeach
             </div>
+            <div id="preloader">
+                <span class="preloader-dot"></span>
+            </div>
         </div>
     </div>
 
