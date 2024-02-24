@@ -9,21 +9,26 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdminMiddleware
 {
-    public function handle($request, Closure $next)
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle(Request $request, Closure $next)
     {
-        // Cek apakah pengguna sudah terotentikasi
         if (Auth::check()) {
-            // Cek apakah peran pengguna adalah 'admin'
-            if (Auth::user()->role === 'admin') {
-                // Jika iya, lanjutkan permintaan
+            $user = Auth::user();
+
+            // Periksa peran pengguna
+            if ($user->role === 'admin') {
                 return $next($request);
-            } else {
-                // Jika peran pengguna bukan 'admin', alihkan ke dashboard dengan pesan kesalahan
-                return redirect()->route('dashboard')->with('error', 'Anda tidak memiliki izin sebagai admin.');
             }
-        } else {
-            // Jika pengguna belum terotentikasi, alihkan ke halaman login
-            return redirect()->route('auth.login')->with('error', 'Anda harus masuk untuk mengakses halaman ini.');
         }
+        
+
+        // Jika pengguna bukan admin atau belum login, Anda dapat mengembalikan respons yang sesuai
+        return redirect()->route('admin.dashboard')->with('error', 'Anda tidak memiliki akses ke halaman ini.');
     }
 }
