@@ -11,19 +11,19 @@ class UserController extends Controller
      * Display a listing of the resource.
      */
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        if (Auth::check()) {
-            return redirect('/');
-        }
-
-        return view('auth.login');
+ * Display a listing of the resource.
+ */
+public function index()
+{
+    if (Auth::check()) {
+        return redirect('/'); // Ubah '/' sesuai dengan halaman beranda yang diinginkan
     }
 
-    /**
-     * Show the form for creating a new resource.
+    return view('auth.login');
+}
+
+    /** 
+     * Show the form for creating a n   ew resource.
      */
     public function create()
     {

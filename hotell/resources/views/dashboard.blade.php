@@ -44,7 +44,7 @@
                             <!-- Jika pengguna belum login -->
                             <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Register</a>
                             <!-- Tautan untuk register -->
-                            <a href="{{ route('auth.login') }}">Login</a> <!-- Tautan untuk login -->
+                            <a href="{{ route('login') }}">Login</a> <!-- Tautan untuk login -->
                         @endauth
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                 </a>
                     @else
                         <!-- Jika pengguna belum login, arahkan ke halaman login -->
-                        <a href="{{ route('auth.login') }}">
+                        <a href="{{ route('login') }}">
                             <button
                                 style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
                                 MENU LAINNYA
@@ -142,7 +142,7 @@
                                         </button>
                                     </a>
                                 @else
-                                    <a href="{{ route('auth.login') }}">
+                                    <a href="{{ route('login') }}">
                                         <button
                                             style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 30px;">
                                             Baca Selengkapnya
@@ -547,7 +547,7 @@
                                                 </a>
                                             @else
                                                 <!-- Jika pengguna belum login, arahkan ke halaman login -->
-                                                <a href="{{ route('auth.login') }}">
+                                                <a href="{{ route('login') }}">
                                                     <button
                                                         style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
                                                         LIHAT MENU LAINNYA
