@@ -13,7 +13,6 @@ class DashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-            $user = User::find($userID);
 
 public function index(IncomeChart $chart)
 {
