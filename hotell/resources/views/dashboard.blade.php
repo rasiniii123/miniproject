@@ -71,13 +71,13 @@
                                                 </div>
                                             </button>
                                         </form>
-                                        <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 5px;">
-                                            <a href="#" onclick="showProfile()" class="btn btn-link"
-                                                style="font-size: 13px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">Lihat
+                                        <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 50px;">
+                                            <a href" onclick="showProfile()" class="btn btn-link"
+                                                style="font-size: 13px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">edit
                                                 Profil</a>
-                                            <a href="#" onclick="showPhotoDetail()" class="btn btn-link"
+                                            {{-- <a href="#" onclick="showPhotoDetail()" class="btn btn-link"
                                                 style="margin-left: 10px; font-size: 13px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">Lihat
-                                                Foto</a>
+                                                Foto</a> --}}
                                         </div>
                                         <div style="margin-right: 0px;">
                                             <hr style="border-top: 1px solid #ccc; margin-top: 10px; width: 100%;">
