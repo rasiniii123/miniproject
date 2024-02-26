@@ -21,7 +21,10 @@
 
                     <!-- Filter by price -->
                     <form>
-                        <h3 style="margin-top: 20px; font-size:15px; font-weight:bold; "> Category</h3>
+                        <details open>
+                            <summary style="margin-top: 20px; font-size: 15px; font-weight: bold; cursor: pointer; position: relative;"> Kategory
+                                <span style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 20px;">▾</span>
+                            </summary>
                         <div>
                             <input type="checkbox" id="category-1" onclick="toggleCheckbox('category-1')">
                             <label for="category-1" style="font-size: 15px; margin-top:10px;">Standard Room</label>
@@ -34,8 +37,20 @@
                             <input type="checkbox" id="category-3" onclick="toggleCheckbox('category-3')">
                             <label for="category-3" style="font-size: 15px;">Suite</label>
                         </div>
+                        <div>
+                            <input type="checkbox" id="category-3" onclick="toggleCheckbox('category-3')">
+                            <label for="category-3" style="font-size: 15px;">family</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="category-3" onclick="toggleCheckbox('category-3')">
+                            <label for="category-3" style="font-size: 15px;">room</label>
+                        </div>
+                        </details>
                     </form>
-                    <h3 style="margin-top: 20px; margin-bottom: 10px; font-size:15px; font-weight:bold;">Price range</h3>
+                    <details open>
+                        <summary style="margin-top: 20px; font-size: 15px; font-weight: bold; cursor: pointer; position: relative;"> Harga
+                            <span style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 20px;">▾</span>
+                          </summary>
                     <div class="d-flex" id="collapsePriceRange">
                         <div class="d-flex align-items-center">
                             <input class="form-control me-2" type="number" placeholder="Min" id="minPrice" name="min" style="margin-bottom: 10px;">
@@ -45,6 +60,7 @@
                     </div>
                 </div>
             </div>
+
 
             <!-- Menu content -->
             <div style="width: 1000px;">
@@ -112,14 +128,14 @@
             filterRooms();
         });
 
-        function filterRooms() {
-    const minPrice = parseInt(document.getElementById('minPrice').value);
-    const maxPrice = parseInt(document.getElementById('maxPrice').value);
+function filterRooms() {
+    const minPrice = document.getElementById('minPrice').value.trim(); // Menghilangkan spasi di awal dan akhir string
+    const maxPrice = document.getElementById('maxPrice').value.trim(); // Menghilangkan spasi di awal dan akhir string
     const rooms = document.querySelectorAll('.hotel');
 
     rooms.forEach(function(room) {
         const roomPrice = parseInt(room.querySelector('.harga').textContent.replace(/\D/g, ''));
-        if (roomPrice >= minPrice && roomPrice <= maxPrice) {
+        if ((minPrice === '' || roomPrice >= parseInt(minPrice)) && (maxPrice === '' || roomPrice <= parseInt(maxPrice))) {
             room.style.display = 'flex';
         } else {
             room.style.display = 'none';

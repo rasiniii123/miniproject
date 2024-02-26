@@ -170,7 +170,7 @@
                     </div>
 
 
-                    <div class="col-md-6" style="display: flex; justify-content: flex-end;  margin-top: 50px;">
+                    {{-- <div class="col-md-6" style="display: flex; justify-content: flex-end;  margin-top: 50px;">
                                 <div
                                     style="width: 300px; height: 70px; padding-bottom: 10px; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; gap: 10px; margin-top: -20px;">
                                     <div
@@ -184,7 +184,7 @@
                                             style="width: 210px; height: 40px; position: absolute; right: 100px; top: 0; background: white; border-radius: 6px; border: 1px #B3BDC7 solid; display: flex; justify-content: center; align-items: center;">
                                             <span style="color: #333; font-size: 14px;">hello@everywhere.com</span>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
