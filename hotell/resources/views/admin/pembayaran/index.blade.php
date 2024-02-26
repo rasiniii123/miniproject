@@ -1,8 +1,24 @@
 @extends('admin.layout.app')
 @section('content')
-    @php
-        use Carbon\Carbon;
-    @endphp
+@if (session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: "{{ session('success') }}"
+    });
+</script>
+@endif
+
+@if (session('error'))
+<script>
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "{{ session('error') }}",
+    });
+</script>
+@endif
     <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
@@ -79,21 +95,21 @@
                         </a>
                     </li>
                     <!-- e-commerce-app menu start -->
-                    <li class="menu-item active open">
+                    <li class="menu-item">
                         <a href="{{ route('room') }}" class="menu-link">
                             <i class="menu-icon fa-solid fa-bed"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="{{ route('kategori') }}" class="menu-link">
+                    <li class="menu-item active open">
+                        <a href="{{ route('admin.dashboard') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div class="text-truncate" data-i18n="Dashboards">Category</div>
                             {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('kategori') }}" class="menu-link">
+                        <a href="{{ route('payment') }}" class="menu-link">
                             <i class='menu-icon tf-icons bx bxs-credit-card'></i>
                             <div class="text-truncate" data-i18n="Dashboards">Payment</div>
                             {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
@@ -172,6 +188,8 @@
                             placeholder="Search..." aria-label="Search...">
                         <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
                     </div>
+
+
                 </nav>
 
 
@@ -188,7 +206,7 @@
 
 
                         <h4 class="py-3 mb-4">
-                            <span class="text-muted fw-light"></span> Room list
+                            <span class="text-muted fw-light"></span> Payment
                         </h4>
 
                         <!-- Product List Table -->
@@ -202,10 +220,10 @@
                                 </div>
                             </div> --}}
                             <div class="card-header">
-                                <a href="{{ route('room.create') }}">
+                                <a href="{{ route('payment.create') }}">
                                     <button class="btn btn-secondary add-new btn-primary">
                                         <span><i class="bx bx-plus me-0 me-sm-1"></i>
-                                            <span class="d-none d-sm-inline-block">Add Room</span>
+                                            <span class="d-none d-sm-inline-block">Add Payment</span>
                                         </span>
                                     </button>
                                 </a>
@@ -213,73 +231,31 @@
                             <div class="card-datatable table-responsive">
                                 <table class="datatables-products table border-top">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center">
                                             <th style="color: black; font-weight: bold">No</th>
-                                            <th style="color: black; font-weight: bold">Room</th>
-                                            <th style="color: black; font-weight: bold">Category</th>
-                                            <th style="color: black; font-weight: bold">Price</th>
-                                            <th style="color: black; font-weight: bold">Description</th>
-                                            <th style="color: black; font-weight: bold">Status</th>
+                                            <th style="color: black; font-weight: bold">Payment</th>
                                             <th style="color: black; font-weight: bold">actions</th>
-                                            <th style="color: black; font-weight: bold"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($kamar as $kamars)
-                                            <tr class="odd">
+                                        @if ($payments->count() > 0)
+                                            @foreach ($payments as $payment)
+                                            <tr class="odd text-center">
                                                 <td class="control">
                                                     <span>{{ $loop->iteration }}</span>
                                                 </td>
                                                 <td class="sorting_1">
-                                                    <div
-                                                        class="d-flex justify-content-start align-items-center product-name">
-                                                        <div class="avatar-wrapper">
-                                                            <div class="avatar avatar me-2 rounded-2 bg-label-secondary">
-                                                                <img src="{{ asset('storage/kamar/' . $kamars->path_kamar) }}"
-                                                                    alt="Product-9" class="rounded-2"
-                                                                    style="object-fit: cover; min-width: 50px;">
-                                                            </div>
-                                                        </div>
-                                                        <div class="d-flex flex-column">
-                                                            <h6 class="text-body text-nowrap mb-0 ms-2">
-                                                                {{ ucfirst($kamars->nama_kamar) }}</h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <span class="text-truncate d-flex align-items-center">
-                                                        {{ $kamars->kategori ? $kamars->kategori->nama_kategori : 'Tidak Ada Kategori' }}
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        class="text-truncate d-flex align-items-center">Rp.{{ number_format($kamars->harga, 0, ',', '.') }}</span>
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
-                                                </td>
-                                                {{-- <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ $kamars->stok }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
-                                            </td> --}}
-                                                <td>
-                                                    <span class="badge bg-label-danger">{{ $kamars->status }}</span>
+                                                    <h5>{{ $payment-> payment }}</h5>
                                                 </td>
                                                 <td class="" style="">
                                                     <div class="d-inline-block text-nowrap d-flex justify-content-center">
-                                                        <a href="{{ route('room.edit', $kamars->id) }}">
+                                                        <a href="{{ route('payment.edit', $payment->id) }}">
                                                             <button class="btn btn-sm btn-icon">
                                                                 <i class="bx bx-edit"></i>
                                                             </button>
                                                         </a>
-                                                        <form action="{{ route('room.destroy', $kamars->id) }}"
-                                                            method="POST">
-                                                            <button type="button"
-                                                                class="btn btn-sm btn-icon dropdown-toggle hide-arrow hapus"
-                                                                data-bs-toggle="dropdown">
+                                                        <form action="{{ route('payment.destroy', $payment->id) }}" method="POST">
+                                                            <button type="button" class="btn btn-sm btn-icon dropdown-toggle hide-arrow hapus" data-bs-toggle="dropdown">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <i class="bx bx-trash"></i>
@@ -287,30 +263,9 @@
                                                         </form>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <form action="{{ route('roomenable', $kamars->id) }}" method="POST">
-                                                        @method('put')
-                                                        @csrf
-                                                        @php
-                                                            if (isset($pesanan[$kamars->id])) {
-                                                                if (Carbon::now('Asia/Jakarta')->isAfter(Carbon::parse($pesanan[$kamars->id], 'Asia/Jakarta'))) {
-                                                                    // echo 'disabled';
-                                                        @endphp
-                                                            <button class="btn btn-primary" type="submit">Selesai</button>
-                                                        @php
-                                                                }
-                                                                else {
-                                                        @endphp
-                                                            <button class="btn btn-primary" type="submit" disabled>Selesai</button>
-                                                        @php
-                                                                }
-                                                            }
-                                                            // print_r($pesanan);
-                                                        @endphp
-                                                    </form>
-                                                </td>
                                             </tr>
-                                        @endforeach
+                                            @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

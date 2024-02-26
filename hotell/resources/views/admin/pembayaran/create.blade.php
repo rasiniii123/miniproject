@@ -1,9 +1,5 @@
 @extends('admin.layout.app')
 @section('content')
-    @php
-        use Carbon\Carbon;
-    @endphp
-    <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -64,8 +60,8 @@
                     </a>
 
                     {{-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
-                    </a> --}}
+                <i class="bx bx-chevron-left bx-sm align-middle"></i>
+            </a> --}}
                 </div>
 
                 <div class="menu-inner-shadow"></div>
@@ -79,26 +75,19 @@
                         </a>
                     </li>
                     <!-- e-commerce-app menu start -->
-                    <li class="menu-item active open">
+                    <li class="menu-item">
                         <a href="{{ route('room') }}" class="menu-link">
                             <i class="menu-icon fa-solid fa-bed"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
                         </a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item active open">
                         <a href="{{ route('kategori') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div class="text-truncate" data-i18n="Dashboards">Category</div>
-                            {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
+                            <i class="menu-icon fa-solid fa-bed"></i>
+                            <div class="text-truncate" data-i18n="eCommerce">Category</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="{{ route('kategori') }}" class="menu-link">
-                            <i class='menu-icon tf-icons bx bxs-credit-card'></i>
-                            <div class="text-truncate" data-i18n="Dashboards">Payment</div>
-                            {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
-                        </a>
-                    </li>
+                </ul>
             </aside>
             <!-- / Menu -->
             <!-- Layout container -->
@@ -112,15 +101,15 @@
                     </div>
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         {{-- <!-- Search -->
-        <div class="navbar-nav align-items-center">
-          <div class="nav-item navbar-search-wrapper mb-0">
-            <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
-              <i class="bx bx-search bx-sm"></i>
-              <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
-            </a>
-          </div>
-        </div>
-        <!-- /Search --> --}}
+<div class="navbar-nav align-items-center">
+  <div class="nav-item navbar-search-wrapper mb-0">
+    <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
+      <i class="bx bx-search bx-sm"></i>
+      <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
+    </a>
+  </div>
+</div>
+<!-- /Search --> --}}
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -172,13 +161,17 @@
                             placeholder="Search..." aria-label="Search...">
                         <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
                     </div>
+
+
                 </nav>
 
 
 
                 <!-- / Navbar -->
 
-                <!-- Content wrapper -->
+
+
+
                 <div class="content-wrapper">
 
                     <!-- Content -->
@@ -188,131 +181,52 @@
 
 
                         <h4 class="py-3 mb-4">
-                            <span class="text-muted fw-light"></span> Room list
+                            <span> Add payment</span>
                         </h4>
 
-                        <!-- Product List Table -->
-                        <div class="card">
-                            {{-- <div class="card-header">
-                                <h5 class="card-title">Filter</h5>
-                                <div class="d-flex justify-content-between align-items-center row py-3 gap-3 gap-md-0">
-                                    <div class="col-md-4 product_status"></div>
-                                    <div class="col-md-4 product_category"></div>
-                                    <div class="col-md-4 product_stock"></div>
+                        <div class="app-ecommerce">
+
+                            <!-- Add Product -->
+                            <form action="{{ route('payment.store') }}" method="POST">
+                                @csrf
+                            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+
+                                <div class="d-flex flex-column justify-content-center">
+                                    <h4 class="mb-1 mt-3">Add a new payment</h4>
+                                    <p class="text-muted">Orders placed across your store</p>
                                 </div>
-                            </div> --}}
-                            <div class="card-header">
-                                <a href="{{ route('room.create') }}">
-                                    <button class="btn btn-secondary add-new btn-primary">
-                                        <span><i class="bx bx-plus me-0 me-sm-1"></i>
-                                            <span class="d-none d-sm-inline-block">Add Room</span>
-                                        </span>
-                                    </button>
-                                </a>
+                                <div class="d-flex align-content-center flex-wrap gap-3">
+                                    <button class="btn btn-label-secondary">Discard</button>
+                                    <button type="submit" class="btn btn-primary">Publish payment</button>
+                                </div>
+
                             </div>
-                            <div class="card-datatable table-responsive">
-                                <table class="datatables-products table border-top">
-                                    <thead>
-                                        <tr>
-                                            <th style="color: black; font-weight: bold">No</th>
-                                            <th style="color: black; font-weight: bold">Room</th>
-                                            <th style="color: black; font-weight: bold">Category</th>
-                                            <th style="color: black; font-weight: bold">Price</th>
-                                            <th style="color: black; font-weight: bold">Description</th>
-                                            <th style="color: black; font-weight: bold">Status</th>
-                                            <th style="color: black; font-weight: bold">actions</th>
-                                            <th style="color: black; font-weight: bold"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($kamar as $kamars)
-                                            <tr class="odd">
-                                                <td class="control">
-                                                    <span>{{ $loop->iteration }}</span>
-                                                </td>
-                                                <td class="sorting_1">
-                                                    <div
-                                                        class="d-flex justify-content-start align-items-center product-name">
-                                                        <div class="avatar-wrapper">
-                                                            <div class="avatar avatar me-2 rounded-2 bg-label-secondary">
-                                                                <img src="{{ asset('storage/kamar/' . $kamars->path_kamar) }}"
-                                                                    alt="Product-9" class="rounded-2"
-                                                                    style="object-fit: cover; min-width: 50px;">
+
+                            <div class="row">
+                                <!-- First column-->
+                                <div class="col-12 col-lg-12">
+                                    <!-- Product Information -->
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <h5 class="card-tile mb-0">payment information</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="ecommerce-product-name">Payment</label>
+                                                    <input type="text" class="form-control @error('payment') is-invalid @enderror" id="ecommerce-product-name"
+                                                        placeholder="Room title" name="payment" aria-label="Product title">
+                                                        @error('payment')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
                                                             </div>
-                                                        </div>
-                                                        <div class="d-flex flex-column">
-                                                            <h6 class="text-body text-nowrap mb-0 ms-2">
-                                                                {{ ucfirst($kamars->nama_kamar) }}</h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <span class="text-truncate d-flex align-items-center">
-                                                        {{ $kamars->kategori ? $kamars->kategori->nama_kategori : 'Tidak Ada Kategori' }}
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        class="text-truncate d-flex align-items-center">Rp.{{ number_format($kamars->harga, 0, ',', '.') }}</span>
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
-                                                </td>
-                                                {{-- <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ $kamars->stok }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
-                                            </td> --}}
-                                                <td>
-                                                    <span class="badge bg-label-danger">{{ $kamars->status }}</span>
-                                                </td>
-                                                <td class="" style="">
-                                                    <div class="d-inline-block text-nowrap d-flex justify-content-center">
-                                                        <a href="{{ route('room.edit', $kamars->id) }}">
-                                                            <button class="btn btn-sm btn-icon">
-                                                                <i class="bx bx-edit"></i>
-                                                            </button>
-                                                        </a>
-                                                        <form action="{{ route('room.destroy', $kamars->id) }}"
-                                                            method="POST">
-                                                            <button type="button"
-                                                                class="btn btn-sm btn-icon dropdown-toggle hide-arrow hapus"
-                                                                data-bs-toggle="dropdown">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <i class="bx bx-trash"></i>
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <form action="{{ route('roomenable', $kamars->id) }}" method="POST">
-                                                        @method('put')
-                                                        @csrf
-                                                        @php
-                                                            if (isset($pesanan[$kamars->id])) {
-                                                                if (Carbon::now('Asia/Jakarta')->isAfter(Carbon::parse($pesanan[$kamars->id], 'Asia/Jakarta'))) {
-                                                                    // echo 'disabled';
-                                                        @endphp
-                                                            <button class="btn btn-primary" type="submit">Selesai</button>
-                                                        @php
-                                                                }
-                                                                else {
-                                                        @endphp
-                                                            <button class="btn btn-primary" type="submit" disabled>Selesai</button>
-                                                        @php
-                                                                }
-                                                            }
-                                                            // print_r($pesanan);
-                                                        @endphp
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                                        @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- /Product Information -->
+                                </div>
+                                <!-- /Second column -->
                             </div>
                         </div>
                     </div>
@@ -347,6 +261,7 @@
                     </footer>
                     <!-- / Footer -->
 
+
                     <div class="content-backdrop fade"></div>
                 </div>
                 <!-- Content wrapper -->
@@ -354,30 +269,14 @@
             <!-- / Layout page -->
         </div>
 
+
+
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
+
 
         <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
 
     </div>
-    <script>
-        $('.hapus').click(function() {
-            var form = $(this).closest('form');
-
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You will delete this product. This action cannot be undone!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, accept!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
-            });
-        });
-    </script>
 @endsection

@@ -78,11 +78,16 @@
                                             </div>
                                         </button>
                                     </form>
-                                    <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 48px;">
-                                        <a href="#" onclick="showProfile()" class="btn btn-link"
-                                            style="font-size: 13px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">edit
-                                            Profil</a>
+                                    <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 40px;">
+                                        <button onclick="redirectToProfile()" class="btn btn-secondary btn-sm" style="margin-left: 10%; font-size: 14px; padding: 5px 10px;">Edit Profile</button>
                                     </div>
+
+                                    <script>
+                                        function redirectToProfile() {
+                                            window.location.href = "/profile"; // Arahkan ke rute editprofile
+                                        }
+                                    </script>
+
                                     <div style="margin-right: 0px;">
                                         <hr style="border-top: 1px solid #ccc; margin-top: 10px; width: 100%;">
                                     </div>
