@@ -19,8 +19,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $userID = Auth::id();
-        $userS = User::find($userID);
+
         $user = auth()->user();
         $query = DB::table('rooms')
             ->join('pesanan', 'rooms.id', '=', 'pesanan.roooms_id')
@@ -38,6 +37,8 @@ class RoomController extends Controller
         }
         $kamar = Room::all();
         // dd($datapesanan);
+        $userID = Auth::id();
+        $users = User::find($userID);
         return view("admin.kamar.index", compact('kamar', 'pesanan','users','userID'));
     }
 
