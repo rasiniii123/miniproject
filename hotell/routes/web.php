@@ -21,10 +21,16 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
 
-// Route::middleware('auth')->group(function () {
-// });
-
-
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
 Route::get('/', function () {
     return view('dashboard');
@@ -68,7 +74,6 @@ Route::middleware([adminmiddleware::class])->group(function () {
         });
         Route::put('/roomenable/{id}', [RoomEnabledController::class, 'update'])->name('roomenable');
 
-
         Route::controller(KategoriController::class)->prefix('kategori')->group(function () {
             Route::get('', 'index')->name('kategori');
             Route::get('create', 'create')->name('kategori.create');
@@ -76,8 +81,6 @@ Route::middleware([adminmiddleware::class])->group(function () {
             Route::get('edit/{id}', 'edit')->name('kategori.edit');
             Route::put('edit/{id}', 'update')->name('kategori.update');
             Route::delete('destroy/{id}', 'destroy')->name('kategori.destroy');
-
-
         });
     Route::prefix('profile')->middleware('auth')->group(function () {
         Route::get('', [ProfileController::class, 'index'])->name('profile');
