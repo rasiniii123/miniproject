@@ -23,13 +23,6 @@ use App\Http\Controllers\RoomEnabledController;
 
 
 
-Route::get('/histori', [HistoriController::class, 'index'])->name('histori');
-Route::get('/login', [UserController::class, 'index'])->name('login');
-Route::post('/login', [UserController::class, 'store'])->name('login.submit');
-Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');
-Route::post('/register', [RegisterController::class, 'store'])->name('auth.store');
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/login', [UserController::class, 'index'])->name('login');
     Route::post('/login', [UserController::class, 'store'])->name('login.submit');
@@ -56,11 +49,8 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware(['CheckRole:user'])->group(function () {
         Route::get('menu', [MenuController::class, 'index'])->name('menu');
-        Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
         Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
         Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
-        Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
-        Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
         Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
     });
 
