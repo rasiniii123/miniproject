@@ -130,7 +130,7 @@
             preview.src = '{{ asset('images/user2.png') }}';
             preview.style.borderRadius = '50%';
             preview.style.width = '310px';
-            preview.style.height = '310px'; 
+            preview.style.height = '310px';
         }
     }
 </script>
