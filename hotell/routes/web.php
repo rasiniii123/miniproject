@@ -49,8 +49,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
         Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
         Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
+        Route::get('/pesanan', [PesananController::class, 'store'])->name('pesanan.store');
 
-        Route::get('/ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
+        Route::post('/ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
 
 
     });

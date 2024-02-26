@@ -32,27 +32,31 @@ class UlasanController extends Controller
      */
     public function store(Request $request)
     {
-        {
-            // Validasi data ulasan
-            $validatedData = $request->validate([
-                'rating' => 'required|integer|min:1|max:5',
-                'ulasan' => 'required|string',
-                'produk_id' => 'required|exists:produk,id',
-                'user_id' => 'required|exists:users,id',
-            ]);
 
-            // Simpan ulasan ke dalam database
-            // Contoh:
-            $Ulasan = new Ulasan();
-            $Ulasan->rating = $validatedData['rating'];
-             $Ulasan->ulasan = $validatedData['ulasan'];
-             $Ulasan->produk_id = $validatedData['produk_id'];
-            $Ulasan->user_id = $validatedData['user_id'];
-             $Ulasan->save();
+        // Validate the request data
+        $validatedData = $request->validate([
+            'rating' => 'required|integer|min:1|max:5',
+            'ulasan' => 'required|string',
+            'pesanan_id' => 'required|exists:pesanan,id', // Assuming pesanan_id is the correct field name
+            'user_id' => 'required|exists:users,id',
+        ]);
 
-             return redirect()->route('histori')->with("success", "Product data added successfully!");
-        }
+        // Create a new Ulasan instance
+        $ulasan = new Ulasan();
+        $ulasan->rating = $validatedData['rating'];
+        $ulasan->ulasan = $validatedData['ulasan'];
+        $ulasan->pesanan_id = $validatedData['pesanan_id'];
+        $ulasan->user_id = $validatedData['user_id'];
+
+        // Save the Ulasan instance to the database
+        $ulasan->save();
+
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'Ulasan berhasil disimpan.');
     }
+
+
+
 
     /**
      * Display the specified resource.
