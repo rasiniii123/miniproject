@@ -60,8 +60,13 @@
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth
                         <div class="dropdown" onclick="toggleDropdown()" style="border-radius: 50px;">
-                            <img src="{{ asset('user-2.png') }}" width="40" height="40" class=""
-                                style="margin-right: 40px; cursor: pointer;" alt="profile">
+                            @if ($user->profile)
+                            <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle"
+                                style="margin-right: 40px; cursor: pointer; border-radius: 50px; width: 50px; height: 50px" alt="profile">
+                                @else
+                            <img src="{{asset('images/user2.png')}}" class="rounded-circle"
+                                style="margin-right: 40px; cursor: pointer; border-radius: 50px; width: 50px; height: 50px" alt="profile">
+                                @endif
                             <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown"
                             style="display: none; text-align: center; left: auto; right: 50px; position: absolute; border-radius: 8px; width: 200px; height: 200px;">
                                 <li class="mx-auto flex-col">
@@ -71,8 +76,13 @@
                                             style="padding: 0; border: none; background: none;">
                                             <div class="mx-auto"
                                                 style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                                                <img src="{{ asset('user-2.png') }}" width="40" height="40"
-                                                    style="margin-bottom: 5px;" class=alt="profile">
+                                                @if ($user->profile)
+                                                <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle" width="40" height="40"
+                                                    style="margin-bottom: 10px border-radius: 50px; width: 50px; height: 50px;" alt="profile">
+                                                    @else
+                                                <img src="{{asset('images/user2.png')}}" class="rounded-circle" width="40" height="40"
+                                                    style="margin-bottom: 10px border-radius: 50px; width: 50px; height: 50px;" alt="profile">
+                                                    @endif
                                                 <span
                                                     style="font-size: 20px; color: black;">{{ auth()->user()->username }}</span>
                                             </div>

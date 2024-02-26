@@ -15,7 +15,7 @@
                         @if ($user->profile)
                         <img class="rounded-circle cursor-pointer avatar avatar-5xl" id="avatarPreview" style="margin-left: 30%; margin-bottom: 12px; width: 300px; height: 300px; object-fit: cover;" src="{{ asset('storage/' . $user->profile) }}" alt="" />
                         @else
-                        <img id="avatarPreview" src="{{asset('images/user2.png')}}" alt="Default Avatar" width="250" style="margin-left: 38%; margin-bottom: 12px; width: 300px; height: 300px; object-fit: cover;" />
+                        <img id="avatarPreview" src="{{asset('images/user2.png')}}" alt="Default Avatar"  style="margin-left: 30%; margin-bottom: 12px; width: 300px; height: 300px; object-fit: cover;" />
                         @endif
                     </label>
                 </div>
@@ -62,23 +62,19 @@
                         </div>
                     </div>
                 </div>
-                {{-- End of Input fields --}}
 
                 <div class="d-flex justify-content-end gap-2">
                     <a href="{{route('profile')}}" class="btn btn-secondary"> Kembali</a>
                     <button type="submit" class="btn btn-secondary">Simpan perubahan</button>
                 </div>
-                {{-- Submit button --}}
             </form>
         </div>
     </div>
 </div>
 @endsection
 <style>
-    /* Styling for form elements */
     .form-container {
 
-        /* Adjust as needed */
 
 
     }
@@ -92,7 +88,6 @@
         margin-bottom: 5px;
         font-weight: bold;
         color: #283E58;
-        /* Sesuaikan dengan warna teks lainnya di layout */
     }
 
     .text-input {
@@ -124,19 +119,18 @@
 
             reader.onloadend = function() {
                 preview.src = reader.result;
-                preview.style.borderRadius = '50%'; // Menambahkan gaya border-radius langsung dari JavaScript
-                preview.style.width = '300px'; // Menetapkan lebar gambar
-                preview.style.height = '300px'; // Menetapkan tinggi gambar
+                preview.style.borderRadius = '50%';
+                preview.style.width = '300px';
+                preview.style.height = '300px';
             }
 
             reader.readAsDataURL(file);
 
         } else {
-            // Jika tidak ada file yang dipilih, tampilkan gambar placeholder atau default
             preview.src = '{{ asset('images/user2.png') }}';
-            preview.style.borderRadius = '50%'; // Menambahkan gaya border-radius langsung dari JavaScript
-            preview.style.width = '240px'; // Menetapkan lebar gambar
-            preview.style.height = '240px'; // Menetapkan tinggi gambar
+            preview.style.borderRadius = '50%';
+            preview.style.width = '310px';
+            preview.style.height = '310px'; 
         }
     }
 </script>
