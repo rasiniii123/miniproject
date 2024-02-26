@@ -32,7 +32,11 @@
                             </div>
                             <div style="margin-top: 20px;"></div> <!-- Jarak tambahan -->
                             <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
-                                <a href="{{ route('pesanan', ['id' => $room->id]) }}" class="btn btn-primary float-end" style="background-color: #283E58; display: inline-block; margin-right: 580px;">PESAN SEKARANG</a>
+                                @if ($room->status == 'available')
+                                    <a href="{{ route('pesanan', ['id' => $room->id]) }}" class="btn btn-primary float-end" style="background-color: #283E58; display: inline-block; margin-right: 580px;" >PESAN SEKARANG</a>
+                                @else
+                                    <h5>Kamar ini udh dipesen</h5>
+                                @endif
                             </div>
                             <hr style="margin-top: 50px; margin-right:20px;">
                             <div style="margin-left: -130px; font-family: Poppins; width: 750px; word-wrap: break-word; margin-top:30; overflow-x: auto;">

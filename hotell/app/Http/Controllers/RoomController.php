@@ -6,6 +6,7 @@ use App\Models\Room;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,9 +17,24 @@ class RoomController extends Controller
      */
     public function index()
     {
-
+        $user = auth()->user();
+        $query = DB::table('rooms')
+            ->join('pesanan', 'rooms.id', '=', 'pesanan.roooms_id')
+            ->select(
+                'pesanan.roooms_id',
+                'pesanan.tanggal_akhir',
+            )
+            ->where(
+                'rooms.status', 'booked'
+            );
+        $datapesanan = $query->get();
+        $pesanan = [];
+        foreach ($datapesanan as $value) {
+            $pesanan[$value->roooms_id] = $value->tanggal_akhir;
+        }
         $kamar = Room::all();
-        return view("admin.kamar.index", compact('kamar'));
+        // dd($datapesanan);
+        return view("admin.kamar.index", compact('kamar', 'pesanan'));
     }
 
     /**
@@ -121,7 +137,7 @@ class RoomController extends Controller
 
         if ($request->hasFile('path_kamar')) {
             $file = $request->file('path_kamar');
-            $fileName = Str::random('10') .'.'. $file->getClientOriginalExtension();
+            $fileName = Str::random('10') . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('storage/kamar'), $fileName);
 
             $produk->update(['path_kamar' => $fileName]);

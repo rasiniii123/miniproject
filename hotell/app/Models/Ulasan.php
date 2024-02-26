@@ -11,9 +11,13 @@ class Ulasan extends Model
 
     protected $table = 'ulasan';
     protected $fillable = [
-        'ulasan',
         'rating',
+        'ulasan',
+        'pesanan_id',
     ];
 
-    
+    public function pesanan()
+    {
+        return $this->belongsTo(Pesanan::class);
+    }
 }

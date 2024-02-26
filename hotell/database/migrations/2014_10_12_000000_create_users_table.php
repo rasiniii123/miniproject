@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('telp')->nullable();
             $table->string('password');
-            $table->enum('role', ['admin', 'user','semiadmin'])->default('user');
+            $table->enum('role', ['admin', 'user'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

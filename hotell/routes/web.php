@@ -16,8 +16,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\AdminDashboardController;
-
-
+use App\Http\Controllers\RoomEnabledController;
 
 // Route::middleware('auth')->group(function () {
 // });
@@ -33,14 +32,27 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/login', [UserController::class, 'index'])->name('login');
-
     Route::post('/login', [UserController::class, 'store'])->name('login.submit');
-
     Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');
-
     Route::post('/register', [RegisterController::class, 'store'])->name('auth.store');
 
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('menu', [MenuController::class, 'index'])->name('menu');
+    Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
+    Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
+    Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
+    Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
+    Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
+
+    Route::controller(PesananController::class)->prefix('pesanan')->group(function () {
+        Route::get('', 'index')->name('pesanan');
+        Route::get('create', 'create')->name('pesanan.create');
+        Route::post('store', 'store')->name('pesanan.store');
+        Route::get('edit/{id}', 'edit')->name('pesanan.edit');
+        Route::put('edit/{id}', 'update')->name('pesanan.update');
+        Route::delete('destroy/{id}', 'destroy')->name('pesanan.destroy');
+    });
+});
 
     Route::middleware(['CheckRole:user'])->group(function () {
         Route::get('menu', [MenuController::class, 'index'])->name('menu');
@@ -63,6 +75,7 @@ Route::middleware('auth')->group(function () {
             Route::put('/edit/{id}', 'update')->name('room.update');
             Route::delete('destroy/{id}', 'destroy')->name('room.destroy');
         });
+        Route::put('/roomenable/{id}', [RoomEnabledController::class, 'update'])->name('roomenable');
 
         Route::controller(KategoriController::class)->prefix('kategori')->group(function () {
             Route::get('', 'index')->name('kategori');
@@ -84,10 +97,3 @@ Route::middleware('auth')->group(function () {
     Route::get('test', function () {
         return view('user.test');
     });
-});
-
-
-
-    // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-    // Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-    // Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');

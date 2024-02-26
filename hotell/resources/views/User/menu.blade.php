@@ -1,6 +1,16 @@
 @extends('layouts.yss')
 
 @section('content')
+@if (session('error'))
+<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: "{{ session('error') }}"
+    });
+</script>
+@endif
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <div class="main-content">
         <div class="page-content">
@@ -53,16 +63,18 @@
                 @foreach ($menu as $room)
                 <div class="hotel" id="room_{{ $room->id }}">
                     <div class="menu-item" style="display: flex; flex-direction: column; align-items: flex-start;">
-                        <div style="color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
-                            {{ $room->nama_kamar }}
+                        <div style="margin-bottom: 15px; color: black; font-size: 15px; font-family: Poppins; font-weight: 600; line-height: 36px; letter-spacing: 0.20px; word-wrap: break-word; margin-right: 800px;">
+                            <span>
+                                {{ $room->nama_kamar }}
+                            </span>
                         </div>
                         <div style="display: flex; align-items: center;">
-                            <img src="{{ asset('storage/kamar/'.$room->path_kamar) }}" style="max-width: 250px; max-height: 150px; margin-top: -20px;">
+                            <img src="{{ asset('storage/kamar/' . $room->path_kamar) }}" style="max-width: 250px; max-height: 150px; margin-top: -20px;">
                             <div style="margin-left: 15px; font-family: Poppins; width: 700px; word-wrap: break-word;">
                                 <p style="font-size: 18px;">{{ $room->deskripsi }}</p>
                                 <div style="display: flex; align-items: center; margin-top: 10px;">
                                     <img src="images/uang.png" alt="Gambar Baru" style="max-width: 20px; max-height: 20px; margin-right: 5px;">
-                                    <div class="harga" style="font-family: Poppins; font-size: 18px;">Rp {{ number_format($room->harga, 0, ',', '.') }} <span style="color: #D88F00;">/Malam</span></div>
+                                    <div class="harga" style="font-family: Poppins; font-size: 18px;">Rp {{ number_format($room->harga, 0, ',', '.') }}<span style="color: #D88F00;">/Malam</span></div>
                                 </div>
                                 <div style="display: flex; align-items: center; margin-top: 10px;">
                                     <i class="fas fa-bed" style="color: #000; font-size: 20px; margin-right: 10px; margin-top: -3px;"></i>
