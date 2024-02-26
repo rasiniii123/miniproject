@@ -10,9 +10,9 @@ class Authenticate
     public function handle(Request $request, Closure $next, ...$guards)
     {
         if (Auth::check() && $request->routeIs('login')) {
-            return redirect('/dashboard'); // Ubah '/home' sesuai dengan halaman setelah login yang diinginkan
-        }
+            return redirect('/dashboard');
 
         return $next($request);
     }
+}
 }
