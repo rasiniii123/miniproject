@@ -53,8 +53,8 @@
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth
                             <div class="dropdown" onclick="toggleDropdown()" style="border-radius: 50px;">
-                                @If ($user->profile)
-                                <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle"
+                                @If (auth()->user()->profile)
+                                <img src="{{ asset('storage/' . auth()->user()->profile) }}" class="rounded-circle"
                                     style="margin-right: 40px; cursor: pointer; border-radius: 50px; width: 50px; height: 50px" alt="profile">
                                     @else
                                 <img src="{{asset('images/user2.png')}}" class="rounded-circle"
@@ -68,8 +68,8 @@
                                                 style="padding: 0; border: none; background: none;">
                                                 <div class="mx-auto"
                                                     style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                                                    @if ($user->profile)
-                                                    <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle"
+                                                    @if (auth()->user()->profile)
+                                                    <img src="{{ asset('storage/' . auth()->user()->profile) }}" class="rounded-circle"
                                                         style="margin-bottom: 5px; object-fit: cover; border-radius: 50px; width: 50px; height: 50px" alt="profile">
                                                         @else
                                                     <img src="{{asset('images/user2.png')}}" class="rounded-circle"
@@ -116,7 +116,7 @@
 
                     <script>
                         function redirectToProfile() {
-                            var userId = "{{ $user->id }}";
+                            var userId = "{{ auth()->user()->id }}";
                             window.location.href = "{{ route('profile', ['id' => ':id']) }}".replace(':id', userId);
                         }
                     </script>
@@ -132,7 +132,7 @@
                     </script>
                     <script>
                         function redirectToProfileEdit() {
-                            var userId = "{{ $user->id }}";
+                            var userId = "{{ auth()->user()->id }}";
                             window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
                         }
                     </script>
