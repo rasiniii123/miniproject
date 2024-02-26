@@ -13,6 +13,7 @@ class Ulasan extends Model
     protected $fillable = [
         'rating',
         'ulasan',
+        'user_id',
         'pesanan_id',
     ];
 

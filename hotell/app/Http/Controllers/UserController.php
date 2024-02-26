@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,7 @@ public function index()
     return view('auth.login');
 }
 
-    /** 
+    /**
      * Show the form for creating a n   ew resource.
      */
     public function create()

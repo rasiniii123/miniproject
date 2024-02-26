@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->enum('rating', [1, 2, 3, 4, 5]);
             $table->string('ulasan');
+            $table->foreignId('user_id');
             $table->foreignId('pesanan_id');
             $table->timestamps();
         });

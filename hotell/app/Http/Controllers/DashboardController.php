@@ -25,7 +25,7 @@ class DashboardController extends Controller
                 $kamar = Room::all();
                 return view ('admin.dashboard', ['chart' => $chart->build()], compact('kamar', 'userregister'));
             } else {
-                return view('dashboard');
+                return view('dashboard', compact('user','userID'));
             }
         }
         else {

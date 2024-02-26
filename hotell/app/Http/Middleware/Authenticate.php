@@ -11,8 +11,7 @@ class Authenticate
     {
         if (Auth::check() && $request->routeIs('login')) {
             return redirect('/dashboard');
-
+        }
         return $next($request);
     }
-}
 }

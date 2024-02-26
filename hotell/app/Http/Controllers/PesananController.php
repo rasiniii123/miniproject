@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Room;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Pesanan;
 use Illuminate\Http\Request;
@@ -18,10 +19,12 @@ class PesananController extends Controller
 
     public function index(Request $request)
     {
+        $userID = Auth::id();
+        $user = User::find($userID);
         $kamar = Room::findOrFail($request->id);
         if ($kamar->status != 'booked') {
             $pesanan = Pesanan::all();
-            return view('user.pesanan', compact('pesanan', 'kamar'));
+            return view('user.pesanan', compact('pesanan', 'kamar','user','userID'));
         } else {
             return redirect()->route('menu')->with("error", "mana bisa gtu");
         }

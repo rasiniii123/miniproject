@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,6 +14,8 @@ class HistoriController extends Controller
      */
     public function index()
     {
+        $userID = Auth::id();
+        $users = User::find($userID);
         $user = auth()->user();
         $query = DB::table('rooms')
             ->join('pesanan', 'rooms.id', '=', 'pesanan.roooms_id')
@@ -30,7 +34,7 @@ class HistoriController extends Controller
             );
         $pesanan = $query->get();
         // dd($pesanan);
-        return view('user.histori', compact('pesanan', 'user'));
+        return view('user.histori', compact('pesanan', 'user','users','userID'));
     }
 
     /**

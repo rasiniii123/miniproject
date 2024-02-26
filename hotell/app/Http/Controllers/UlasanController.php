@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Ulasan;
 use Illuminate\Http\Request;
 
@@ -20,9 +22,9 @@ class UlasanController extends Controller
      */
     public function create()
     {
-        
+
             return view('ulasan');
-    
+
     }
 
     /**
@@ -30,20 +32,27 @@ class UlasanController extends Controller
      */
     public function store(Request $request)
     {
-        try {
+        {
+            // Validasi data ulasan
             $validatedData = $request->validate([
-                'ulasan' => 'required',
                 'rating' => 'required|integer|min:1|max:5',
+                'ulasan' => 'required|string',
+                'produk_id' => 'required|exists:produk,id',
+                'user_id' => 'required|exists:users,id',
             ]);
-    
-            Ulasan::create($validatedData);
-    
-            return redirect('/detail')->with('success', 'Ulasan berhasil ditambahkan');
-        } catch (\Exception $e) {
-            return redirect()->back()->withInput()->withErrors(['error' => 'Gagal menambahkan ulasan. Silakan coba lagi.']);
+
+            // Simpan ulasan ke dalam database
+            // Contoh:
+            $Ulasan = new Ulasan();
+            $Ulasan->rating = $validatedData['rating'];
+             $Ulasan->ulasan = $validatedData['ulasan'];
+             $Ulasan->produk_id = $validatedData['produk_id'];
+            $Ulasan->user_id = $validatedData['user_id'];
+             $Ulasan->save();
+
+             return redirect()->route('histori')->with("success", "Product data added successfully!");
         }
     }
-    
 
     /**
      * Display the specified resource.

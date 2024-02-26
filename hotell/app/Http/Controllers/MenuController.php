@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\Room;
 use App\Models\Kategori;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -17,11 +19,13 @@ class MenuController extends Controller
         $categories = Kategori::all();
         $minPrice = $request->input('minPrice', 0);
         $maxPrice = $request->input('maxPrice', PHP_INT_MAX);
+        $userID = Auth::id();
+        $user = User::find($userID);
 
         // Ambil data kamar sesuai dengan rentang harga yang dipilih
         $menu = Room::whereBetween('harga', [$minPrice, $maxPrice])->get();
 
-        return view('user.menu', compact('menu', 'minPrice', 'maxPrice', 'categories'));
+        return view('user.menu', compact('menu', 'minPrice', 'maxPrice', 'categories','user','userID'));
     }
 
     /**

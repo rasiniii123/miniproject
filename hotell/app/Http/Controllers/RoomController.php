@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Room;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
@@ -17,6 +19,8 @@ class RoomController extends Controller
      */
     public function index()
     {
+        $userID = Auth::id();
+        $userS = User::find($userID);
         $user = auth()->user();
         $query = DB::table('rooms')
             ->join('pesanan', 'rooms.id', '=', 'pesanan.roooms_id')
@@ -34,7 +38,7 @@ class RoomController extends Controller
         }
         $kamar = Room::all();
         // dd($datapesanan);
-        return view("admin.kamar.index", compact('kamar', 'pesanan'));
+        return view("admin.kamar.index", compact('kamar', 'pesanan','users','userID'));
     }
 
     /**
