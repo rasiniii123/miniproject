@@ -83,7 +83,7 @@
                                             </a>
                                         </form>
                                         <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 40px;">
-                                            <button onclick="redirectToProfileedit()" class="btn btn-secondary btn-sm" style="margin-left: 10%; font-size: 14px; padding: 5px 10px;">Edit Profile</button>
+                                            <button onclick="redirectToProfileEdit()" class="btn btn-secondary btn-sm" style="margin-left: 10%; font-size: 14px; padding: 5px 10px;">Edit Profile</button>
                                         </div>
 
                                             {{-- <a href="#" onclick="showPhotoDetail()" class="btn btn-link"
