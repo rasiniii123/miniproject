@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\detailmenu;
 use Illuminate\Http\Request;
 
@@ -12,8 +14,10 @@ class DetailmenuController extends Controller
      */
     public function index()
     {
+        $userID = Auth::id();
+        $user = User::find($userID);
         $detail = detailmenu::all();
-        return view('user.detailmenu', compact('detail'));
+        return view('user.detailmenu', compact('detail','user','userID'));
     }
 
     /**

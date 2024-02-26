@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 
@@ -12,8 +14,10 @@ class PaymentController extends Controller
      */
     public function index()
     {
+        $userID = Auth::id();
+        $user = User::find($userID);
         $payments = Payment::all();
-        return view('admin.pembayaran.index', compact('payments'));
+        return view('admin.pembayaran.index', compact('payments','user','userID'));
     }
 
 

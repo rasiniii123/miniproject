@@ -4,37 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Room;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class HistoriController extends Controller
+class RoomEnabledController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $userID = Auth::id();
-        $users = User::find($userID);
-        $user = auth()->user();
-        $query = DB::table('rooms')
-            ->join('pesanan', 'rooms.id', '=', 'pesanan.roooms_id')
-            ->join('kategori', 'kategori.id', '=', 'rooms.kategori_id')
-            ->select(
-                'pesanan.id',
-                'pesanan.harga_pesanan',
-                'rooms.nama_kamar',
-                'rooms.path_kamar',
-                'rooms.status',
-                'kategori.nama_kategori',
-                DB::raw('rooms.id AS id_kamar')
-            )
-            ->where(
-                'pesanan.email', $user->email
-            );
-        $pesanan = $query->get();
-        // dd($pesanan);
-        return view('user.histori', compact('pesanan', 'user','users','userID'));
+        //
     }
 
     /**
@@ -74,7 +54,13 @@ class HistoriController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $produk = Room::find($id);
+
+        $produk->update([
+            'status' => 'available',
+        ]);
+
+        return redirect()->route('room')->with("success", "Room data updated successfully.");
     }
 
     /**

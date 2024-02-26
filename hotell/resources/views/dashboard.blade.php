@@ -53,33 +53,39 @@
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth
                             <div class="dropdown" onclick="toggleDropdown()" style="border-radius: 50px;">
-                                <img src="{{ asset('user-2.png') }}" width="40" height="40" class=""
-                                    style="margin-right: 40px; cursor: pointer;" alt="profile">
+                                @If ($user->profile)
+                                <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle"
+                                    style="margin-right: 40px; cursor: pointer; border-radius: 50px; width: 50px; height: 50px" alt="profile">
+                                    @else
+                                <img src="{{asset('images/user2.png')}}" class="rounded-circle"
+                                    style="margin-right: 40px; cursor: pointer; border-radius: 50px; width: 50px; height: 50px" alt="profile">
+                                    @endif
                                 <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown"
                                 style="display: none; text-align: center; left: auto; right: 50px; position: absolute; border-radius: 8px; width: 200px; height: 200px;">
                                     <li class="mx-auto flex-col">
                                         <form class="bg-transparent" class="" style="margin-top: 10px;">
-                                            @csrf
-                                            <button type="submit" class="btn btn-link"
+                                            <a href="{{route('profile')}}" type="button" class="btn btn-link"
                                                 style="padding: 0; border: none; background: none;">
                                                 <div class="mx-auto"
                                                     style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                                                    <img src="{{ asset('user-2.png') }}" width="40" height="40"
-                                                        style="margin-bottom: 5px;" class=alt="profile">
+                                                    @if ($user->profile)
+                                                    <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle"
+                                                        style="margin-bottom: 5px; object-fit: cover; border-radius: 50px; width: 50px; height: 50px" alt="profile">
+                                                        @else
+                                                    <img src="{{asset('images/user2.png')}}" class="rounded-circle"
+                                                        style="margin-bottom: 5px; object-fit: cover; border-radius: 50px; width: 50px; height: 50px" alt="profile">
+                                                        @endif
                                                     <span
-                                                        style="font-size: 20px; color: black;">{{ auth()->user()->username }}</span>
+                                                        style="font-size: 20px; color: black; font-weight: bold">{{ auth()->user()->username }}</span>
+
+
                                                 </div>
-                                            </button>
+                                            </a>
                                         </form>
                                         <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 40px;">
                                             <button onclick="redirectToProfileedit()" class="btn btn-secondary btn-sm" style="margin-left: 10%; font-size: 14px; padding: 5px 10px;">Edit Profile</button>
                                         </div>
 
-                                        <script>
-                                            function redirectToProfileedit() {
-                                                window.location.href = "/profile.update"; // Arahkan ke rute editprofile
-                                            }
-                                        </script>
                                             {{-- <a href="#" onclick="showPhotoDetail()" class="btn btn-link"
                                                 style="margin-left: 10px; font-size: 13px; border: 1px solid #ccc; border-radius: 8px; background-color: #ccc; color: black;">Lihat
                                                 Foto</a> --}}
@@ -109,6 +115,12 @@
 
 
                     <script>
+                        function redirectToProfile() {
+                            var userId = "{{ $user->id }}";
+                            window.location.href = "{{ route('profile', ['id' => ':id']) }}".replace(':id', userId);
+                        }
+                    </script>
+                    <script>
                         function toggleDropdown() {
                             var dropdown = document.getElementById("userDropdown");
                             if (dropdown.style.display === "none") {
@@ -116,6 +128,12 @@
                             } else {
                                 dropdown.style.display = "none";
                             }
+                        }
+                    </script>
+                    <script>
+                        function redirectToProfileEdit() {
+                            var userId = "{{ $user->id }}";
+                            window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
                         }
                     </script>
         </li>

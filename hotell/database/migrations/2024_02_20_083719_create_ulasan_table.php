@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('ulasan', function (Blueprint $table) {
             $table->id();
-            $table->text('ulasan');
-            $table->integer('rating');
+            $table->enum('rating', [1, 2, 3, 4, 5]);
+            $table->string('ulasan');
+            $table->foreignId('user_id');
+            $table->foreignId('pesanan_id');
             $table->timestamps();
         });
     }

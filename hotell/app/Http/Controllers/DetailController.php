@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,10 @@ class DetailController extends Controller
      */
     public function index($id)
     {
+        $userID = Auth::id();
+        $user = User::find($userID);
         $room = Room::findOrFail($id); // Ambil semua data kamar
-        return view('user.detail', compact('room'));
+        return view('user.detail', compact('room','user','userID'));
     }
     /**
      * Show the form for creating a new resource.

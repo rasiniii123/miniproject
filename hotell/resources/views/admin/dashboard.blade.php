@@ -158,12 +158,8 @@
                                 </ul>
                             </li>
                             <!--/ User -->
-
-
                         </ul>
                     </div>
-
-
                     <!-- Search Small Screens -->
                     <div class="navbar-search-wrapper search-input-wrapper  d-none">
                         <input type="text" class="form-control search-input container-xxl border-0"
@@ -293,40 +289,27 @@
                                     target="_blank" class="footer-link fw-medium">ThemeSelection</a>
                             </div>
                             <div class="d-none d-lg-inline-block">
-
                                 <a href="https://themeselection.com/license/" class="footer-link me-4"
                                     target="_blank">License</a>
                                 <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
                                     Themes</a>
-
                                 <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
                                     target="_blank" class="footer-link me-4">Documentation</a>
-
-
                                 <a href="https://themeselection.com/support/" target="_blank"
                                     class="footer-link d-none d-sm-inline-block">Support</a>
-
                             </div>
                         </div>
                     </footer>
                     <!-- / Footer -->
-
-
                     <div class="content-backdrop fade"></div>
                 </div>
                 <!-- Content wrapper -->
             </div>
             <!-- / Layout page -->
         </div>
-
-
-
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
-
-
         <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
-
     </div>
 @endsection

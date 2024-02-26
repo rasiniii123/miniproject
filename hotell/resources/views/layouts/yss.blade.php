@@ -60,8 +60,13 @@
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth
                         <div class="dropdown" onclick="toggleDropdown()" style="border-radius: 50px;">
-                            <img src="{{ asset('user-2.png') }}" width="40" height="40" class=""
-                                style="margin-right: 40px; cursor: pointer;" alt="profile">
+                            @if ($user->profile)
+                            <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle"
+                                style="margin-right: 40px; cursor: pointer; border-radius: 50px; width: 50px; height: 50px" alt="profile">
+                                @else
+                            <img src="{{asset('images/user2.png')}}" class="rounded-circle"
+                                style="margin-right: 40px; cursor: pointer; border-radius: 50px; width: 50px; height: 50px" alt="profile">
+                                @endif
                             <ul id="userDropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown"
                             style="display: none; text-align: center; left: auto; right: 50px; position: absolute; border-radius: 8px; width: 200px; height: 200px;">
                                 <li class="mx-auto flex-col">
@@ -71,8 +76,13 @@
                                             style="padding: 0; border: none; background: none;">
                                             <div class="mx-auto"
                                                 style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                                                <img src="{{ asset('user-2.png') }}" width="40" height="40"
-                                                    style="margin-bottom: 5px;" class=alt="profile">
+                                                @if ($user->profile)
+                                                <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle" width="40" height="40"
+                                                    style="margin-bottom: 10px border-radius: 50px; width: 50px; height: 50px;" alt="profile">
+                                                    @else
+                                                <img src="{{asset('images/user2.png')}}" class="rounded-circle" width="40" height="40"
+                                                    style="margin-bottom: 10px border-radius: 50px; width: 50px; height: 50px;" alt="profile">
+                                                    @endif
                                                 <span
                                                     style="font-size: 20px; color: black;">{{ auth()->user()->username }}</span>
                                             </div>
@@ -175,7 +185,7 @@
                     </div>
 
 
-                    <div class="col-md-6" style="display: flex; justify-content: flex-end;  margin-top: 50px;">
+                    {{-- <div class="col-md-6" style="display: flex; justify-content: flex-end;  margin-top: 50px;">
                                 <div
                                     style="width: 300px; height: 70px; padding-bottom: 10px; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; gap: 10px; margin-top: -20px;">
                                     <div
@@ -189,7 +199,7 @@
                                             style="width: 210px; height: 40px; position: absolute; right: 100px; top: 0; background: white; border-radius: 6px; border: 1px #B3BDC7 solid; display: flex; justify-content: center; align-items: center;">
                                             <span style="color: #333; font-size: 14px;">hello@everywhere.com</span>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -287,12 +297,12 @@
             });
         </script>
     @endif
-    {{-- <script>
+    <script>
         function redirectToProfile() {
             var userId = "{{ $user->id }}"; // Ambil ID pengguna dari variabel Blade
             window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
         }
-    </script> --}}
+    </script>
     @if(session('alert'))
     <script>
         swal({

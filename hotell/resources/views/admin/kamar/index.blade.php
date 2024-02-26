@@ -1,5 +1,8 @@
 @extends('admin.layout.app')
 @section('content')
+    @php
+        use Carbon\Carbon;
+    @endphp
     <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
@@ -218,63 +221,95 @@
                                             <th style="color: black; font-weight: bold">Description</th>
                                             <th style="color: black; font-weight: bold">Status</th>
                                             <th style="color: black; font-weight: bold">actions</th>
+                                            <th style="color: black; font-weight: bold"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($kamar as $kamars)
-                                        <tr class="odd">
-                                            <td class="control">
-                                                <span>{{ $loop->iteration }}</span>
-                                            </td>
-                                            <td class="sorting_1">
-                                                <div class="d-flex justify-content-start align-items-center product-name">
-                                                    <div class="avatar-wrapper">
-                                                        <div class="avatar avatar me-2 rounded-2 bg-label-secondary">
-                                                            <img src="{{ asset('storage/kamar/' . $kamars->path_kamar) }}" alt="Product-9" class="rounded-2" style="object-fit: cover; min-width: 50px;">
+                                            <tr class="odd">
+                                                <td class="control">
+                                                    <span>{{ $loop->iteration }}</span>
+                                                </td>
+                                                <td class="sorting_1">
+                                                    <div
+                                                        class="d-flex justify-content-start align-items-center product-name">
+                                                        <div class="avatar-wrapper">
+                                                            <div class="avatar avatar me-2 rounded-2 bg-label-secondary">
+                                                                <img src="{{ asset('storage/kamar/' . $kamars->path_kamar) }}"
+                                                                    alt="Product-9" class="rounded-2"
+                                                                    style="object-fit: cover; min-width: 50px;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex flex-column">
+                                                            <h6 class="text-body text-nowrap mb-0 ms-2">
+                                                                {{ ucfirst($kamars->nama_kamar) }}</h6>
                                                         </div>
                                                     </div>
-                                                    <div class="d-flex flex-column">
-                                                        <h6 class="text-body text-nowrap mb-0 ms-2">{{ ucfirst($kamars->nama_kamar )}}</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">
-                                                    {{ $kamars->kategori ? $kamars->kategori->nama_kategori : 'Tidak Ada Kategori' }}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">Rp.{{ number_format($kamars->harga, 0, ',', '.') }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
-                                            </td>
-                                            {{-- <td>
+                                                </td>
+                                                <td>
+                                                    <span class="text-truncate d-flex align-items-center">
+                                                        {{ $kamars->kategori ? $kamars->kategori->nama_kategori : 'Tidak Ada Kategori' }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="text-truncate d-flex align-items-center">Rp.{{ number_format($kamars->harga, 0, ',', '.') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
+                                                </td>
+                                                {{-- <td>
                                                 <span class="text-truncate d-flex align-items-center">{{ $kamars->stok }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
                                             </td> --}}
-                                            <td>
-                                                <span class="badge bg-label-danger">{{ $kamars->status }}</span>
-                                            </td>
-                                            <td class="" style="">
-                                                <div class="d-inline-block text-nowrap d-flex justify-content-center">
-                                                    <a href="{{ route('room.edit', $kamars->id) }}">
-                                                        <button class="btn btn-sm btn-icon">
-                                                            <i class="bx bx-edit"></i>
-                                                        </button>
-                                                    </a>
-                                                    <form action="{{ route('room.destroy', $kamars->id) }}" method="POST">
-                                                        <button type="button" class="btn btn-sm btn-icon dropdown-toggle hide-arrow hapus" data-bs-toggle="dropdown">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <i class="bx bx-trash"></i>
-                                                        </button>
+                                                <td>
+                                                    <span class="badge bg-label-danger">{{ $kamars->status }}</span>
+                                                </td>
+                                                <td class="" style="">
+                                                    <div class="d-inline-block text-nowrap d-flex justify-content-center">
+                                                        <a href="{{ route('room.edit', $kamars->id) }}">
+                                                            <button class="btn btn-sm btn-icon">
+                                                                <i class="bx bx-edit"></i>
+                                                            </button>
+                                                        </a>
+                                                        <form action="{{ route('room.destroy', $kamars->id) }}"
+                                                            method="POST">
+                                                            <button type="button"
+                                                                class="btn btn-sm btn-icon dropdown-toggle hide-arrow hapus"
+                                                                data-bs-toggle="dropdown">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <i class="bx bx-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <form action="{{ route('roomenable', $kamars->id) }}" method="POST">
+                                                        @method('put')
+                                                        @csrf
+                                                        @php
+                                                            if (isset($pesanan[$kamars->id])) {
+                                                                if (Carbon::now('Asia/Jakarta')->isAfter(Carbon::parse($pesanan[$kamars->id], 'Asia/Jakarta'))) {
+                                                                    // echo 'disabled';
+                                                        @endphp
+                                                            <button class="btn btn-primary" type="submit">Selesai</button>
+                                                        @php
+                                                                }
+                                                                else {
+                                                        @endphp
+                                                            <button class="btn btn-primary" type="submit" disabled>Selesai</button>
+                                                        @php
+                                                                }
+                                                            }
+                                                            // print_r($pesanan);
+                                                        @endphp
                                                     </form>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-class HistoriController extends Controller
+class UserDashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,26 +14,10 @@ class HistoriController extends Controller
     public function index()
     {
         $userID = Auth::id();
-        $users = User::find($userID);
-        $user = auth()->user();
-        $query = DB::table('rooms')
-            ->join('pesanan', 'rooms.id', '=', 'pesanan.roooms_id')
-            ->join('kategori', 'kategori.id', '=', 'rooms.kategori_id')
-            ->select(
-                'pesanan.id',
-                'pesanan.harga_pesanan',
-                'rooms.nama_kamar',
-                'rooms.path_kamar',
-                'rooms.status',
-                'kategori.nama_kategori',
-                DB::raw('rooms.id AS id_kamar')
-            )
-            ->where(
-                'pesanan.email', $user->email
-            );
-        $pesanan = $query->get();
-        // dd($pesanan);
-        return view('user.histori', compact('pesanan', 'user','users','userID'));
+        $user = User::find($userID);
+        $users = User::where('role', 'user')->count();
+        return view('dashboard', compact('user','userID','users'));
+
     }
 
     /**
