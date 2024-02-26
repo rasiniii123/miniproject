@@ -51,15 +51,29 @@ Route::middleware([UserMiddleware::class])->group(function () {
     Route::post('/pesanan', [PesananController::class, 'store'])->name('pesanan.store');
 });
 
-Route::middleware([adminmiddleware::class])->group(function () {
+Route::middleware([adminmiddleware::class])->group (function () {
 
-    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::middleware('auth')->group (function () {
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
+    Route::middleware(['CheckRole:user'])->group(function () {
+        Route::get('menu', [MenuController::class, 'index'])->name('menu');
+        Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
+        Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
+        Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
+        Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
+        Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
+        Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
+        Route::get('/pesanan', [PesananController::class, 'store'])->name('pesanan.store');
+
+        Route::post('/ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
+
 
     });
 
     Route::middleware(['CheckRole:admin'])->group(function () {
         Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-
+    });
         Route::controller(RoomController::class)->prefix('room')->group(function () {
             Route::get('/', 'index')->name('room');
             Route::get('/create', 'create')->name('room.create');
@@ -98,3 +112,6 @@ Route::middleware([adminmiddleware::class])->group(function () {
         Route::put('edit/{id}', 'update')->name('payment.update');
         Route::delete('destroy/{id}', 'destroy')->name('payment.destroy');
     });
+});
+
+
