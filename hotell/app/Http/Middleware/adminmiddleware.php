@@ -12,23 +12,17 @@ class AdminMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            $user = Auth::user();
-
-            // Periksa peran pengguna
-            if ($user->role === 'admin') {
+            if (Auth::user()->role === 'admin') {
                 return $next($request);
             }
+            return redirect()->back()->with('error', "Anda tidak memiliki akses ke halaman ini");
         }
-        
 
-        // Jika pengguna bukan admin atau belum login, Anda dapat mengembalikan respons yang sesuai
-        return redirect()->route('admin.dashboard')->with('error', 'Anda tidak memiliki akses ke halaman ini.');
+        return redirect('/')->with('error', "anda harus login");
     }
 }

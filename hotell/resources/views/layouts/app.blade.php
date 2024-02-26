@@ -257,7 +257,7 @@
         <script>
             Swal.fire({
                 title: 'Login Berhasil',
-                text: 'Selamat datang Dihalaman Dashboard Kasir!',
+                text: 'Selamat datang Dihalaman Dashboard User!',
                 icon: 'success',
                 confirmButtonText: 'Ok',
                 customClass: {
@@ -286,6 +286,16 @@
             }
         });
     </script>
+@endif
+    @if(session('alert'))
+    <script>
+        swal({
+            title: "{{ session('alert')['title'] }}",
+            text: "{{ session('alert')['text'] }}",
+            icon: "{{ session('alert')['icon'] }}",
+            timer: 3000
+        });
+</script>
 @endif
 </body>
 

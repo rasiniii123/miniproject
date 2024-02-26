@@ -19,7 +19,7 @@ class CheckRole
     {
         if (!$request->user() || $request->user()->role !== $role) {
             // Jika pengguna tidak memiliki peran yang diizinkan, arahkan mereka ke halaman yang sesuai
-            return redirect()->route('dashboard')->with('error', 'Anda tidak diizinkan mengakses halaman ini.');
+            return redirect('/')->with('login_success', 'Selamat datang di dashboard !');
         }
 
         return $next($request);

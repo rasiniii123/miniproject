@@ -125,6 +125,16 @@
   </script>
 @endif
 @yield('js')
+@if(session('alert'))
+<script>
+    swal({
+        title: "{{ session('alert')['title'] }}",
+        text: "{{ session('alert')['text'] }}",
+        icon: "{{ session('alert')['icon'] }}",
+        timer: 3000
+    });
+</script>
+@endif
 
 <!-- Mirrored from demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-ecommerce-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 16 Feb 2024 01:35:20 GMT -->
 </html>

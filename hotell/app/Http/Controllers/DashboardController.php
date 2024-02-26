@@ -27,11 +27,10 @@ class DashboardController extends Controller
             } else {
                 return view('dashboard', compact('user','userID'));
             }
+        } else {
+            return view('dashboard');
         }
-        else {
-            // Jika pengguna belum login, arahkan mereka ke halaman login
-            return redirect()->route('login');
-        }
+       
     }
     /**
      * Show the form for creating a new resource.
@@ -81,6 +80,3 @@ class DashboardController extends Controller
         //
     }
 }
-
-
-
