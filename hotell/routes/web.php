@@ -48,6 +48,7 @@ Route::middleware([UserMiddleware::class])->group(function () {
     Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
     Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
+    Route::post('/pesanan', [PesananController::class, 'store'])->name('pesanan.store');
 });
 
 Route::middleware([adminmiddleware::class])->group(function () {

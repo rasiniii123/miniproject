@@ -106,7 +106,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <p>Tipe kamar</p>
-                                        <p>lorwfwknfwkfnwkfnwjfjfnwjfnwjfnwjfnjwefwfjn</p>
+                                        <strong><span>{{$kamar->kategori->nama_kategori}}</span></strong>
                                     </div>
                                     <div class="col-md-6">
                                         <p>Nomor Kamar</p>

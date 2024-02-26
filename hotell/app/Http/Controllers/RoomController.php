@@ -38,7 +38,7 @@ class RoomController extends Controller
         }
         $kamar = Room::all();
         // dd($datapesanan);
-        return view("admin.kamar.index", compact('kamar', 'pesanan','users','userID'));
+        return view("admin.kamar.index", compact('kamar', 'pesanan', 'userID'));
     }
 
     /**
