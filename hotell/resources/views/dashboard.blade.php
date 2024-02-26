@@ -103,7 +103,7 @@
                             </div>
                         @else
                             <a href="{{ route('auth.register') }}" style="margin-right: 10px;">Registrasi</a>
-                            <a href="{{ route('auth.login') }}">Login</a>
+                            <a href="{{ route('login') }}">Login</a>
                         @endauth
                     </div>
 
@@ -141,7 +141,7 @@
                             </button>
                         </a>
                     @else
-                        <a href="{{ route('auth.login') }}">
+                        <a href="{{ route('login') }}">
                             <button
                                 style="background-color: #283E58; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px;">
                                 MENU LAINNYA

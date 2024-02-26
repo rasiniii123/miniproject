@@ -11,7 +11,7 @@
                     style="display: flex; justify-content: center; align-items: center; height: 50vh;">
                     <div
                         style="width: 100%; background: #D9D9D9; border-radius: 35px; backdrop-filter: blur(30px); padding: 30px; margin-top: -100px; position: relative;">
-                        <a href="{{ route('dashboard') }}"
+                        <a href="/"
                             style="color: #283E58; text-decoration: none; position: absolute; top: 20px; left: 20px;">
                             <span style="font-size: 20px; margin-right: 5px;">&larr;</span> Kembali
                         </a>

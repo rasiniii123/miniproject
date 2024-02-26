@@ -52,7 +52,7 @@
                 </div>
                 <div class="menu" style="margin-left: 80px;">
                     <ul>
-                        <li><a href="{{ route('dashboard') }}" onclick="addLoadingEffect()">Beranda</a></li>
+                        <li><a href="/" onclick="addLoadingEffect()">Beranda</a></li>
                         <li><a href=" #hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
                         <li><a href="#about-section" onclick="addLoadingEffect()">History</a></li>
@@ -293,6 +293,16 @@
             window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
         }
     </script> --}}
+    @if(session('alert'))
+    <script>
+        swal({
+            title: "{{ session('alert')['title'] }}",
+            text: "{{ session('alert')['text'] }}",
+            icon: "{{ session('alert')['icon'] }}",
+            timer: 3000
+        });
+</script>
+@endif
 
 </body>
 

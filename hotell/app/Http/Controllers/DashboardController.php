@@ -24,14 +24,11 @@ class DashboardController extends Controller
                 $userregister = User::where('role', 'user')->count();
                 $kamar = Room::all();
                 return view ('admin.dashboard', ['chart' => $chart->build()], compact('kamar', 'userregister'));
-            } else {
-                return view('dashboard');
             }
+        } else {
+            return view('dashboard');
         }
-        else {
-            // Jika pengguna belum login, arahkan mereka ke halaman login
-            return redirect()->route('login');
-        }
+       
     }
     /**
      * Show the form for creating a new resource.
@@ -81,6 +78,3 @@ class DashboardController extends Controller
         //
     }
 }
-
-
-

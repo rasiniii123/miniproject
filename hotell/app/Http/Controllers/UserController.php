@@ -11,16 +11,16 @@ class UserController extends Controller
      * Display a listing of the resource.
      */
     /**
- * Display a listing of the resource.
- */
-public function index()
-{
-    if (Auth::check()) {
-        return redirect('/'); // Ubah '/' sesuai dengan halaman beranda yang diinginkan
-    }
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        if (Auth::check()) {
+            return redirect('/'); // Ubah '/' sesuai dengan halaman beranda yang diinginkan
+        }
 
-    return view('auth.login');
-}
+        return view('auth.login');
+    }
 
     /** 
      * Show the form for creating a n   ew resource.
@@ -52,14 +52,23 @@ public function index()
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             if ($user->role === 'admin') {
-                return redirect()->route('admin.dashboard')->with('admin_success', 'Selamat datang di dashboard admin!');
+
+
+                return redirect()->route('admin.dashboard')->with('admin_success', 'Selamat datang di dashboard, Admin!');
             } else {
-                return redirect()->route('dashboard')->with('login_success', 'Selamat datang di dashboard admin!');
+
+
+                return redirect('/')->with('login_success', 'Selamat datang, ' . $user->username . '!');
             }
         } else {
+
+
+            // Jika login gagal
             return back()->withErrors(['email' => 'Login gagal. Email atau password salah.']);
         }
     }
+
+
 
     function logout()
     {
