@@ -1,29 +1,27 @@
 @extends('admin.layout.app')
 @section('content')
-@if (session('success'))
-<script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: "{{ session('success') }}"
-    });
-</script>
-@endif
-
-@if (session('error'))
-<script>
-    Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "{{ session('error') }}",
-    });
-</script>
-@endif
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: "{{ session('success') }}"
+            });
+        </script>
+    @endif
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "{{ session('error') }}",
+            });
+        </script>
+    @endif
     <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar  ">
         <div class="layout-container">
@@ -74,16 +72,13 @@
                                     </g>
                                 </g>
                             </svg>
-
                         </span>
                         <span class="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
                     </a>
-
                     {{-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a> --}}
                 </div>
-
                 <div class="menu-inner-shadow"></div>
                 <ul class="menu-inner py-1">
                     <!-- Dashboards -->
@@ -137,10 +132,7 @@
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
-                                    <div class="avatar">
-                                        <img src="{{ asset('img/avatars/1.png') }}" alt
-                                            class="w-px-40 h-auto rounded-circle">
-                                    </div>
+                                    <i class="fa-solid fa-user fa-lg"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
@@ -148,13 +140,13 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar">
-                                                        <img src="{{ asset('img/avatars/1.png') }}" alt
+                                                        <img src="{{ asset('img/avatars/apple.jpg') }}" alt
                                                             class="w-px-40 h-auto rounded-circle">
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-medium d-block">John Doe</span>
-                                                    <small class="text-muted">Admin</small>
+                                                    <span class="fw-medium d-block mt-2 ">{{ Auth::user()->username }}</span>
+                                                    {{-- <small class="text-muted">Admin</small> --}}
                                                 </div>
                                             </div>
                                         </a>
@@ -171,39 +163,23 @@
                                 </ul>
                             </li>
                             <!--/ User -->
-
-
                         </ul>
                     </div>
-
-
                     <!-- Search Small Screens -->
                     <div class="navbar-search-wrapper search-input-wrapper  d-none">
                         <input type="text" class="form-control search-input container-xxl border-0"
                             placeholder="Search..." aria-label="Search...">
                         <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
                     </div>
-
-
                 </nav>
-
-
-
                 <!-- / Navbar -->
-
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
-
                     <!-- Content -->
-
                     <div class="container-xxl flex-grow-1 container-p-y">
-
-
-
                         <h4 class="py-3 mb-4">
                             <span class="text-muted fw-light"></span> Payment
                         </h4>
-
                         <!-- Product List Table -->
                         <div class="card">
                             {{-- <div class="card-header">
@@ -267,7 +243,6 @@
                         </div>
                     </div>
                     <!-- / Content -->
-
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
@@ -279,42 +254,32 @@
                                     target="_blank" class="footer-link fw-medium">ThemeSelection</a>
                             </div>
                             <div class="d-none d-lg-inline-block">
-
                                 <a href="https://themeselection.com/license/" class="footer-link me-4"
                                     target="_blank">License</a>
                                 <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
                                     Themes</a>
-
                                 <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
                                     target="_blank" class="footer-link me-4">Documentation</a>
-
-
                                 <a href="https://themeselection.com/support/" target="_blank"
                                     class="footer-link d-none d-sm-inline-block">Support</a>
-
                             </div>
                         </div>
                     </footer>
                     <!-- / Footer -->
-
                     <div class="content-backdrop fade"></div>
                 </div>
                 <!-- Content wrapper -->
             </div>
             <!-- / Layout page -->
         </div>
-
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
-
         <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
-
     </div>
     <script>
         $('.hapus').click(function() {
             var form = $(this).closest('form');
-
             Swal.fire({
                 title: "Are you sure?",
                 text: "You will delete this product. This action cannot be undone!",
