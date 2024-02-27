@@ -31,35 +31,27 @@
         border-radius: 20px;
         display: inline-block;
     }
+    .star-label.checked {
+        color: yellow; /* Atur warna kuning untuk bintang yang dipilih */
+    }
     .rating {
-    display: flex;
+    display: inline-block;
 }
 
-.star-label {
-    color: #ccc; /* Warna default untuk bintang tidak dipilih */
+.rating input{
+    display:none;
+}
+
+.rating label{
     font-size: 24px;
+    color: #dddddd
     cursor: pointer;
 }
 
-input[type="radio"] {
-    display: none; /* Sembunyikan input radio */
-}
-
-/* Warna kuning untuk bintang yang dipilih */
-input[type="radio"]:checked ~ .star-label {
-    color: #ffc107;
-}
-
-/* Warna kuning untuk bintang yang dipilih atau sedang dihover */
-.star-label:hover,
-input[type="radio"]:hover ~ .star-label:checked ~ .star-label {
-    color: #ffc107;
-}
-
-/* Warna abu-abu untuk bintang yang belum dipilih */
-.star-label:hover ~ .star-label,
-input[type="radio"]:hover ~ .star-label {
-    color: #ccc;
+.rating label:hover,
+.rating label:hover~label,
+.rating input:checked~label{
+    color: #ffcc00
 }
 </style>
 
@@ -105,14 +97,21 @@ input[type="radio"]:hover ~ .star-label {
                                 <form id="commentForm-{{ $item->id }}" method="POST" action="{{ route('ulasan.store') }}">
                                     @csrf
                                     <div class="mb-3">
-                                        <div class="rating">
-                                            <input type="radio" name="rating-{{ $item->id }}" id="star5-{{ $item->id }}" value="5">
-                                            <label for="star5-{{ $item->id }}" class="star-label">&#9733;</label>
-                                            <!-- Sisipkan input radio lainnya di sini -->
+                                        <div class="rating" style="rotate: 180deg">
+                                            <input type="radio" name="rating" class="star-rating" id="star5" value="5">
+                                            <label for="star5" class="star-label" style="rotate: 35deg">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star4" value="4" >
+                                            <label for="star4" class="star-label" style="rotate: 35deg">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star3" value="3" >
+                                            <label for="star3" class="star-label" style="rotate: 35deg">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star2" value="2" >
+                                            <label for="star2" class="star-label" style="rotate: 35deg">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star1" value="1" >
+                                            <label for="star1" class="star-label" style="rotate: 35deg">&#9733;</label>
                                         </div>
                                     </div>
                                     <label for="commentInput-{{ $item->id }}">Your Comment</label>
-                                    <textarea class="form-control" id="commentInput-{{ $item->id }}" rows="3" name="ulasan-{{ $item->id }}"></textarea>
+                                    <textarea class="form-control" id="commentInput-{{ $item->id }}" rows="3" name="ulasan"></textarea>
                                     <input type="hidden" name="pesanan_id" value="{{ $item->id }}">
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -134,14 +133,14 @@ input[type="radio"]:hover ~ .star-label {
                     // AJAX form submission logic
                     $.ajax({
                         url: $(this).attr('action'), // URL from the form's action attribute
-                        method: 'POST', // HTTP method set to 'POST'
+                        method: 'GET', // HTTP method set to 'POST'
                         data: $(this).serialize(), // Serialize form data
                         success: function(response){
                             // Show a success message
                             alert('Ulasan berhasil disimpan!');
 
                             // Redirect to the detail page
-                            window.location.href = "{{ route('detail.index', ['id' => $item->id]) }}"; // Assuming this is the correct route
+                            window.location.href = "{{ route('ulasan', ['id' => $item->id]) }}"; // Assuming this is the correct route
                         },
                         error: function(xhr, status, error) {
                             // Show an error message
@@ -151,14 +150,22 @@ input[type="radio"]:hover ~ .star-label {
                 });
             });
         </script>
+    <script>
+       const ratingInputs = document.querySelectorAll('.rating input');
+
+       ratingInputs.forEach(input =>{
+        input.addEventListener('change', (event ) =>);
+       });
+    </script>
+
         @endpush
 
         @endforeach
     </tbody>
 </table>
 
-@endsection
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z5vIOIj46qvYIu1z9r1T+rPqLWj+2jz5qmi1gg" crossorigin="anonymous"></script>
+@endsection
+
 

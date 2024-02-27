@@ -97,7 +97,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <img src="{{ asset('storage/kamar/' . $kamar->path_kamar) }}" alt="">
+                                        <img src="{{ asset('storage/kamar/' . $kamar->path_kamar) }}" alt="" class="img-fluid">
                                     </div>
                                     <div class="col-md-6">
                                         <span>{{ $kamar->nama_kamar }}</span>
@@ -106,7 +106,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <p>Tipe kamar</p>
-                                        <p>lorwfwknfwkfnwkfnwjfjfnwjfnwjfnwjfnjwefwfjn</p>
+                                        <strong><span>{{$kamar->kategori->nama_kategori}}</span></strong>
                                     </div>
                                     <div class="col-md-6">
                                         <p>Nomor Kamar</p>

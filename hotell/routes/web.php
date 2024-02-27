@@ -50,7 +50,7 @@ Route::middleware([UserMiddleware::class])->group(function () {
     Route::post('/pesanan', [PesananController::class, 'store'])->name('pesanan.store');
     Route::get('/histori', [HistoriController::class, 'index'])->name('histori');
     Route::post('/histori', [HistoriController::class, 'store'])->name('histori.store');
-    Route::get('/ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
+    Route::post('/ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
 });
 
 Route::middleware([adminmiddleware::class])->group(function () {

@@ -47,7 +47,7 @@
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
                         <li><a href="#kamar-section" onclick="addLoadingEffect()">Kamar</a></li>
                         @auth <!-- Check if the user is authenticated -->
-                            <li><a href="#history-section" onclick="addLoadingEffect()">History</a></li>
+                            <li><a  href="{{ route('histori') }}" onclick="addLoadingEffect()">History</a></li>
                         @endauth
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
@@ -114,7 +114,7 @@
                     </div>
 
 
-                    <script>
+                    {{-- <script>
                         function redirectToProfile() {
                             var userId = "{{ auth()->user()->id }}";
                             window.location.href = "{{ route('profile', ['id' => ':id']) }}".replace(':id', userId);
@@ -135,7 +135,7 @@
                             var userId = "{{ auth()->user()->id }}";
                             window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
                         }
-                    </script>
+                    </script> --}}
         </li>
 
 
