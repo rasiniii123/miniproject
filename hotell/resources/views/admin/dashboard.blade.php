@@ -116,25 +116,17 @@
                         </a>
                     </div>
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        {{-- <!-- Search -->
                         <div class="navbar-nav align-items-center">
-                        <div class="nav-item navbar-search-wrapper mb-0">
-                            <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
-                            <i class="bx bx-search bx-sm"></i>
-                            <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
-                            </a>
+                            <div class="nav-item navbar-search-wrapper mb-0">
+                                <h5 class="text-center align-items-center mb-0">Dragonspine Resort</h5>
+                            </div>
                         </div>
-                        </div>
-                        <!-- /Search --> --}}
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
-                                    <div class="avatar">
-                                        <img src="{{ asset('img/avatars/1.png') }}" alt
-                                            class="w-px-40 h-auto rounded-circle">
-                                    </div>
+                                    <i class="fa-solid fa-user fa-lg"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
@@ -142,13 +134,13 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar">
-                                                        <img src="{{ asset('img/avatars/1.png') }}" alt
+                                                        <img src="{{ asset('img/avatars/apple.jpg') }}" alt
                                                             class="w-px-40 h-auto rounded-circle">
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-medium d-block">John Doe</span>
-                                                    <small class="text-muted">Admin</small>
+                                                    <span class="fw-medium d-block mt-2 ">{{ Auth::user()->username }}</span>
+                                                    {{-- <small class="text-muted">Admin</small> --}}
                                                 </div>
                                             </div>
                                         </a>
