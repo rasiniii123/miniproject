@@ -41,9 +41,6 @@
                             <h4>Alamat: (Belum diisi)</h4>
                         </div>
                         @endif
-
-
-
                     </div>
                     <div class="col-md-12" style="margin-bottom: 100px;">
                         <a href="{{ route('profile.edit', ['id' => ':id']) }}" class="btn btn-secondary btn-lg" style=" margin-left: 10%;">Edit Profile</a>

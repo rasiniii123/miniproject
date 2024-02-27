@@ -203,8 +203,8 @@
                                         <p class="text-muted">Orders placed across your store</p>
                                     </div>
                                     <div class="d-flex align-content-center flex-wrap gap-3">
-                                        <button class="btn btn-label-secondary">Discard</button>
-                                        <button type="submit" class="btn btn-primary">Publish room</button>
+                                        <a href="{{ route('room') }}" class="btn btn-label-danger">Discard</a>
+                                        <button type="submit" class="btn btn-warning">Edit room</button>
                                     </div>
 
                                 </div>
