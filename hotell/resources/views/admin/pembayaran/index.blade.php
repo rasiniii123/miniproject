@@ -102,7 +102,7 @@
                         </a>
                     </li>
                     <li class="menu-item ">
-                        <a href="{{ route('admin.dashboard') }}" class="menu-link">
+                        <a href="{{ route('kategori') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div class="text-truncate" data-i18n="Dashboards">Category</div>
                             {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}

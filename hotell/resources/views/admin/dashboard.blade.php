@@ -98,7 +98,7 @@
                     </li>
                     <li class="menu-item">
                         <a href="{{ route('payment') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <i class="menu-icon tf-icons bx bxs-credit-card"></i>
                             <div class="text-truncate" data-i18n="Dashboards">Payment</div>
                             {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
                         </a>
