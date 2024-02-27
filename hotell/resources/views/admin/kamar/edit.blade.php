@@ -204,7 +204,7 @@
                                     </div>
                                     <div class="d-flex align-content-center flex-wrap gap-3">
                                         <a href="{{ route('room') }}" class="btn btn-label-danger">Discard</a>
-                                        <button type="submit" class="btn btn-primary">Publish room</button>
+                                        <button type="submit" class="btn btn-warning">Edit room</button>
                                     </div>
 
                                 </div>

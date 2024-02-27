@@ -84,7 +84,7 @@
                     <li class="menu-item ">
                         <a href="{{ route('kategori') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div class="text-truncate" data-i18n="eCommerce">Payment</div>
+                            <div class="text-truncate" data-i18n="eCommerce">Category</div>
                         </a>
                     </li>
                     <li class="menu-item active open">
@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="d-flex align-content-center flex-wrap gap-3">
                                     <a href="{{ route('payment') }}" class="btn btn-label-danger">Discard</a>
-                                    <button type="submit" class="btn btn-primary">Publish Payment</button>
+                                    <button type="submit" class="btn btn-warning">Edit Payment</button>
                                 </div>
 
                             </div>
