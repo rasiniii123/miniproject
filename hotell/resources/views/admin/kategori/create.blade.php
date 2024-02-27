@@ -203,7 +203,7 @@
                                     <p class="text-muted">Orders placed across your store</p>
                                 </div>
                                 <div class="d-flex align-content-center flex-wrap gap-3">
-                                    <button class="btn btn-label-secondary">Discard</button>
+                                    <a href="{{ route('kategori') }}" class="btn btn-label-danger">Discard</a>
                                     <button type="submit" class="btn btn-primary">Publish category</button>
                                 </div>
 
