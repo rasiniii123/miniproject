@@ -81,10 +81,17 @@
                             <div class="text-truncate" data-i18n="eCommerce">Room</div>
                         </a>
                     </li>
-                    <li class="menu-item active open">
+                    <li class="menu-item ">
                         <a href="{{ route('kategori') }}" class="menu-link">
-                            <i class="menu-icon fa-solid fa-bed"></i>
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div class="text-truncate" data-i18n="eCommerce">Payment</div>
+                        </a>
+                    </li>
+                    <li class="menu-item active open">
+                        <a href="{{ route('payment') }}" class="menu-link">
+                            <i class='menu-icon tf-icons bx bxs-credit-card'></i>
+                            <div class="text-truncate" data-i18n="Dashboards">Payment</div>
+                            {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
                         </a>
                     </li>
                 </ul>
