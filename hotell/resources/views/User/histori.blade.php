@@ -1,7 +1,5 @@
 @extends('layouts.yss')
-
 @section('content')
-
 <style>
     .gambar-kamar {
         max-width: 100px;
@@ -159,7 +157,6 @@
     </script>
 
         @endpush
-
         @endforeach
     </tbody>
 </table>

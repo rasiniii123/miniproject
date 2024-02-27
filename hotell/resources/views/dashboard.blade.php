@@ -116,8 +116,11 @@
 
                     {{-- <script>
                         function redirectToProfile() {
+                            @auth
+
                             var userId = "{{ auth()->user()->id }}";
                             window.location.href = "{{ route('profile', ['id' => ':id']) }}".replace(':id', userId);
+                            @endauth
                         }
                     </script>
                     <script>
@@ -132,8 +135,10 @@
                     </script>
                     <script>
                         function redirectToProfileEdit() {
+                            @auth
                             var userId = "{{ auth()->user()->id }}";
                             window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
+                            @endauth
                         }
                     </script> --}}
         </li>
