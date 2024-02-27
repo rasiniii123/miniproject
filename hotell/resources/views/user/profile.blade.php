@@ -44,8 +44,7 @@
                     </div>
                     <div class="col-md-12" style="margin-bottom: 100px;">
                         <a href="{{ route('profile.edit', ['id' => ':id']) }}" class="btn btn-secondary btn-lg" style=" margin-left: 10%;">Edit Profile</a>
-                        <a href="{{route('dashboard')}}" class="btn btn-danger btn-lg" style="margin-left: 60%;">Kembali</a>
-                    </div>
+                        <a href="{{ redirect()->back()->getTargetUrl() }}" class="btn btn-danger btn-lg" style="margin-left: 60%;">Kembali</a>                    </div>
                 </div>
             </div>
         </div>

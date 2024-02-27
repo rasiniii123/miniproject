@@ -48,19 +48,19 @@
                             <label for="category-3" style="font-size: 15px;">Suite</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="category-3" onclick="toggleCheckbox('category-3')">
-                            <label for="category-3" style="font-size: 15px;">family</label>
+                            <input type="checkbox" id="category-4" onclick="toggleCheckbox('category-4')">
+                            <label for="category-4" style="font-size: 15px;">family</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="category-3" onclick="toggleCheckbox('category-3')">
-                            <label for="category-3" style="font-size: 15px;">room</label>
+                            <input type="checkbox" id="category-5" onclick="toggleCheckbox('category-5')">
+                            <label for="category-5" style="font-size: 15px;">room</label>
                         </div>
                         </details>
                     </form>
                     <details open>
                         <summary style="margin-top: 20px; font-size: 15px; font-weight: bold; cursor: pointer; position: relative;"> Harga
                             <span style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 20px;">▾</span>
-                          </summary>
+                        </summary>
                     <div class="d-flex" id="collapsePriceRange">
                         <div class="d-flex align-items-center">
                             <input class="form-control me-2" type="number" placeholder="Min" id="minPrice" name="min" style="margin-bottom: 10px;">
@@ -70,7 +70,6 @@
                     </div>
                 </div>
             </div>
-
 
             <!-- Menu content -->
             <div style="width: 1000px;">
@@ -98,7 +97,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 30px;"></div> <!-- Jarak tambahan -->
+                        <div style="margin-top: 30px;"></div>
                         <div style="margin-top: -20px; margin-left:800px;">
                             <a href="{{ route('detail.index', ['id' => $room->id]) }}" class="btn btn-primary btn-lg" style="background-color: #283E58;">DETAIL</a>
                         </div>
