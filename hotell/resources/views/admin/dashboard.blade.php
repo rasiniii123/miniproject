@@ -5,11 +5,11 @@
 @endsection
 @section('content')
 <style>
-.mb-1 {
+/* .mb-1 {
     background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
+} */
 </style>
     <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
@@ -230,7 +230,7 @@
                                                 <span class="avatar-initial rounded bg-label-success"><i
                                                         class="fa-regular fa-circle-check"></i></span>
                                             </div>
-                                            <h4 class="ms-1 mb-0 text-success">27</h4>
+                                            <h4 class="ms-1 mb-0 text-success">{{ $available }}</h4>
                                         </div>
                                         <p class="mb-1">Active Room</p>
                                         {{-- <p class="mb-0">
@@ -248,7 +248,7 @@
                                                 <span class="avatar-initial rounded bg-label-danger"><i
                                                         class="fa-regular fa-circle-xmark"></i></span>
                                             </div>
-                                            <h4 class="ms-1 mb-0 text-danger">13</h4>
+                                            <h4 class="ms-1 mb-0 text-danger">{{ $booked }}</h4>
                                         </div>
                                         <p class="mb-1">Empty Room</p>
                                         {{-- <p class="mb-0">
