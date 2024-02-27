@@ -80,9 +80,13 @@
             <td>Rp {{ number_format($item->harga_pesanan, 0, ',', '.') }}</td>
             <td>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $item->id }}">
+                <button id="tambahUlasanBtn-{{ $item->id }}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $item->id }}">
                     Tambah Ulasan
                 </button>
+
+                <!-- Script JavaScript -->
+
+
 
                 <!-- Modal -->
                 <div class="modal" style="z-index: 100000000" id="exampleModal-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,6 +121,9 @@
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
+                            {{-- <div id="preloader">
+                                <span class="preloader-dot"></span>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -129,7 +136,7 @@
                 // Prevent the default form submission
                 $("form#commentForm-{{ $item->id }}").submit(function(event){
                     event.preventDefault();
-        
+
                     // AJAX form submission logic
                     $.ajax({
                         url: $(this).attr('action'), // URL from the form's action attribute
@@ -158,6 +165,38 @@
        });
     </script>
 
+<script>
+    // Fungsi untuk menampilkan alert ketika ulasan berhasil ditambahkan
+    function tampilkanAlert() {
+        alert("Ulasan berhasil ditambahkan!");
+    }
+
+    // Fungsi untuk mengubah teks tombol menjadi "Selesai" dan menonaktifkannya
+    function ubahTombolSelesai(itemId) {
+        var tombol = document.getElementById("tambahUlasanBtn-" + itemId);
+        if (tombol) { // Pastikan tombol ditemukan
+            tombol.innerHTML = "Selesai";
+            tombol.disabled = true;
+            console.log("Tombol berhasil diubah menjadi Selesai"); // Periksa apakah fungsi ini dieksekusi
+        } else {
+            console.error("Tidak dapat menemukan tombol dengan ID: tambahUlasanBtn-" + itemId);
+        }
+    }
+
+    // Memberikan event listener untuk menangani klik tombol
+    document.addEventListener("DOMContentLoaded", function () {
+        var tambahUlasanBtns = document.querySelectorAll('[id^="tambahUlasanBtn-"]');
+        tambahUlasanBtns.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                var itemId = this.id.split("-")[1]; // Mendapatkan id item
+                console.log("Item ID: ", itemId); // Periksa apakah ID berhasil diekstraksi
+                tampilkanAlert(); // Memanggil fungsi untuk menampilkan alert
+                ubahTombolSelesai(itemId); // Memanggil fungsi untuk mengubah tombol menjadi "Selesai"
+            });
+        });
+    });
+</script>
+
         @endpush
 
         @endforeach
@@ -167,5 +206,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z5vIOIj46qvYIu1z9r1T+rPqLWj+2jz5qmi1gg" crossorigin="anonymous"></script>
 @endsection
-
-

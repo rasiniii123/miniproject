@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use App\Models\User;
 use App\Models\Ulasan;
 use Illuminate\Http\Request;
@@ -43,16 +44,19 @@ class UlasanController extends Controller
         ]);
     
         try {
+            $semuaKamar = Room::all();
+
             // Simpan ulasan ke dalam database
+            foreach ($semuaKamar as $kamar) {
             $ulasan = new Ulasan;
             $ulasan->rating = $validatedData['rating'];
             $ulasan->ulasan = $validatedData['ulasan'];
             $ulasan->pesanan_id = $validatedData['pesanan_id'];
             $ulasan->user_id = $validatedData['user_id'];
             $ulasan->save();
-    
+            }
             // Jika penyimpanan berhasil, arahkan ke halaman detail
-            return Redirect::route('nama_rute_detail', ['id' => $validatedData['pesanan_id']])
+            return Redirect::route('detail.index', ['id' => $validatedData['pesanan_id']])
                 ->with('success', 'Ulasan berhasil disimpan');
         } catch (\Exception $e) {
             // Jika terjadi kesalahan, tangani dengan memberikan pesan kesalahan

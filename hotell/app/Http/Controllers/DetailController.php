@@ -19,7 +19,7 @@ class DetailController extends Controller
         $user = User::find($userID);
         $room = Room::findOrFail($id); 
         $ulasans = Ulasan::all();
-        return view('user.detail', compact('room','user','userID', 'ulasans'));
+        return view('user.detail', compact('room','user','userID','ulasans'));
     }
     /**
      * Show the form for creating a new resource.
@@ -55,7 +55,7 @@ class DetailController extends Controller
                 'harga' => $validatedData['harga'],
             ]);
            // Redirect pengguna ke halaman yang sesuai atau berikan pesan sukses
-           return redirect()->route('r      ex')->with('success', 'Room berhasil ditambahkan.');
+           return redirect()->route('rooms.index')->with('success', 'Room berhasil ditambahkan.');
        }
 
        // Jika tidak ada file gambar diunggah, berikan pesan kesalahan
