@@ -1,7 +1,5 @@
 @extends('layouts.yss')
-
 @section('content')
-
 <style>
     .gambar-kamar {
         max-width: 100px;
@@ -216,8 +214,39 @@
     });
 </script>
 
-        @endpush
+<script>
+    // Fungsi untuk menampilkan alert ketika ulasan berhasil ditambahkan
+    function tampilkanAlert() {
+        alert("Ulasan berhasil ditambahkan!");
+    }
 
+    // Fungsi untuk mengubah teks tombol menjadi "Selesai" dan menonaktifkannya
+    function ubahTombolSelesai(itemId) {
+        var tombol = document.getElementById("tambahUlasanBtn-" + itemId);
+        if (tombol) { // Pastikan tombol ditemukan
+            tombol.innerHTML = "Selesai";
+            tombol.disabled = true;
+            console.log("Tombol berhasil diubah menjadi Selesai"); // Periksa apakah fungsi ini dieksekusi
+        } else {
+            console.error("Tidak dapat menemukan tombol dengan ID: tambahUlasanBtn-" + itemId);
+        }
+    }
+
+    // Memberikan event listener untuk menangani klik tombol
+    document.addEventListener("DOMContentLoaded", function () {
+        var tambahUlasanBtns = document.querySelectorAll('[id^="tambahUlasanBtn-"]');
+        tambahUlasanBtns.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                var itemId = this.id.split("-")[1]; // Mendapatkan id item
+                console.log("Item ID: ", itemId); // Periksa apakah ID berhasil diekstraksi
+                tampilkanAlert(); // Memanggil fungsi untuk menampilkan alert
+                ubahTombolSelesai(itemId); // Memanggil fungsi untuk mengubah tombol menjadi "Selesai"
+            });
+        });
+    });
+</script>
+
+        @endpush
         @endforeach
     </tbody>
 </table>
@@ -225,5 +254,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z5vIOIj46qvYIu1z9r1T+rPqLWj+2jz5qmi1gg" crossorigin="anonymous"></script>
 @endsection
-
-

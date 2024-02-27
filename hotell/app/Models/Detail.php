@@ -14,6 +14,8 @@ class Detail extends Model
         'nama_kamar',
         'deskripsi',
         'harga',
+        'rating',
+        'ulasan',
     ];
     public function room()
     {

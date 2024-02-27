@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
+use App\Models\Room;
 use App\Models\User;
 use App\Models\Ulasan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class UlasanController extends Controller
 {
@@ -32,30 +34,37 @@ class UlasanController extends Controller
      */
     public function store(Request $request)
     {
-
-
         // Validate the request data
         // dd($request);
         $validatedData = $request->validate([
-            'rating' => 'required|integer|min:1|max:5',
+            'rating' => 'required|numeric',
             'ulasan' => 'required|string',
-            'pesanan_id' => 'required|exists:pesanan,id', // Assuming pesanan_id is the correct field name
+            'pesanan_id' => 'required|exists:pesanan,id',
             'user_id' => 'required|exists:users,id',
         ]);
+    
+        try {
+            $semuaKamar = Room::all();
 
-        // Create a new Ulasan instance
-        $ulasan = new Ulasan();
-        $ulasan->rating = $validatedData['rating'];
-        $ulasan->ulasan = $validatedData['ulasan'];
-        $ulasan->pesanan_id = $validatedData['pesanan_id'];
-        $ulasan->user_id = $validatedData['user_id'];
-
-        // Save the Ulasan instance to the database
-        $ulasan->save();
-
-        // Redirect back with success message
-        return redirect()->back()->with('success', 'Ulasan berhasil disimpan.');
+            // Simpan ulasan ke dalam database
+            foreach ($semuaKamar as $kamar) {
+            $ulasan = new Ulasan;
+            $ulasan->rating = $validatedData['rating'];
+            $ulasan->ulasan = $validatedData['ulasan'];
+            $ulasan->pesanan_id = $validatedData['pesanan_id'];
+            $ulasan->user_id = $validatedData['user_id'];
+            $ulasan->save();
+            }
+            // Jika penyimpanan berhasil, arahkan ke halaman detail
+            return Redirect::route('detail.index', ['id' => $validatedData['pesanan_id']])
+                ->with('success', 'Ulasan berhasil disimpan');
+        } catch (\Exception $e) {
+            // Jika terjadi kesalahan, tangani dengan memberikan pesan kesalahan
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
+    
+
 
 
 

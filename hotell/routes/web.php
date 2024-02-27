@@ -48,7 +48,6 @@ Route::middleware([UserMiddleware::class])->group(function () {
 
     Route::get('menu', [MenuController::class, 'index'])->name('menu');
     Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
-    Route::get('detailmenu', [DetailmenuController::class, 'index'])->name('detailmenu');
     Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
     Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');

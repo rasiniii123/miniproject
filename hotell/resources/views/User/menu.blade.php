@@ -60,7 +60,7 @@
                     <details open>
                         <summary style="margin-top: 20px; font-size: 15px; font-weight: bold; cursor: pointer; position: relative;"> Harga
                             <span style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 20px;">▾</span>
-                          </summary>
+                        </summary>
                     <div class="d-flex" id="collapsePriceRange">
                         <div class="d-flex align-items-center">
                             <input class="form-control me-2" type="number" placeholder="Min" id="minPrice" name="min" style="margin-bottom: 10px;">
@@ -70,7 +70,6 @@
                     </div>
                 </div>
             </div>
-
 
             <!-- Menu content -->
             <div style="width: 1000px;">
@@ -98,7 +97,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 30px;"></div> <!-- Jarak tambahan -->
+                        <div style="margin-top: 30px;"></div>
                         <div style="margin-top: -20px; margin-left:800px;">
                             <a href="{{ route('detail.index', ['id' => $room->id]) }}" class="btn btn-primary btn-lg" style="background-color: #283E58;">DETAIL</a>
                         </div>

@@ -23,7 +23,9 @@ class DashboardController extends Controller
                 $data['chart'] = $chart->build();
                 $userregister = User::where('role', 'user')->count();
                 $kamar = Room::all();
-                return view ('admin.dashboard', ['chart' => $chart->build()], compact('kamar', 'userregister','user','userID'));
+                $available = Room::where('status', 'available')->count();
+                $booked = Room::where('status', 'booked')->count();
+                return view('admin.dashboard', ['chart' => $chart->build()], compact('kamar', 'userregister' ,'user' ,'userID', 'booked', 'available'));
             }
         }
     }

@@ -38,8 +38,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="tanggal_awal" class="col-md-4 col-form-label text-md-right">Tanggal
-                                            Awal:</label>
+                                        <label for="tanggal_awal" class="col-md-4 col-form-label text-md-right">Tanggal Awal:</label>
                                         <div class="col-md-6">
                                             <input id="tanggal_awal" type="datetime-local" class="form-control  @error('tanggal_awal') is-invalid @enderror" name="tanggal_awal"
                                                 value="{{ old('tanggal_awal', $data['tanggal_awal'] ?? '') }}">

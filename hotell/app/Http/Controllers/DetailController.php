@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use App\Models\Room;
+use App\Models\User;
+use App\Models\Ulasan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DetailController extends Controller
 {
@@ -16,8 +17,9 @@ class DetailController extends Controller
     {
         $userID = Auth::id();
         $user = User::find($userID);
-        $room = Room::findOrFail($id); // Ambil semua data kamar
-        return view('user.detail', compact('room','user','userID'));
+        $room = Room::findOrFail($id); 
+        $ulasans = Ulasan::all();
+        return view('user.detail', compact('room','user','userID','ulasans'));
     }
     /**
      * Show the form for creating a new resource.
