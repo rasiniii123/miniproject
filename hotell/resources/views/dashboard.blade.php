@@ -116,10 +116,14 @@
 
                     <script>
                         function redirectToProfile() {
-                            var userId = "{{ auth()->user()->id }}";
-                            window.location.href = "{{ route('profile', ['id' => ':id']) }}".replace(':id', userId);
+                            @auth
+                                var userId = "{{ auth()->user()->id }}";
+                                window.location.href = "{{ route('profile', ['id' => ':id']) }}".replace(':id', userId);
+                            @else
+                            @endauth
                         }
                     </script>
+                    
                     <script>
                         function toggleDropdown() {
                             var dropdown = document.getElementById("userDropdown");
@@ -132,10 +136,15 @@
                     </script>
                     <script>
                         function redirectToProfileEdit() {
-                            var userId = "{{ auth()->user()->id }}";
-                            window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
+                            @auth
+                                var userId = "{{ auth()->user()->id }}";
+                                window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
+                            @else
+                               
+                            @endauth
                         }
                     </script>
+                    
         </li>
 
 

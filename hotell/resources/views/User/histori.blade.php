@@ -130,7 +130,7 @@ input[type="radio"]:hover ~ .star-label {
                 // Prevent the default form submission
                 $("form#commentForm-{{ $item->id }}").submit(function(event){
                     event.preventDefault();
-
+        
                     // AJAX form submission logic
                     $.ajax({
                         url: $(this).attr('action'), // URL from the form's action attribute
@@ -139,9 +139,9 @@ input[type="radio"]:hover ~ .star-label {
                         success: function(response){
                             // Show a success message
                             alert('Ulasan berhasil disimpan!');
-
-                            // Redirect to the detail page
-                            window.location.href = "{{ route('detail.index', ['id' => $item->id]) }}"; // Assuming this is the correct route
+        
+                            // Redirect to the detailmenu page
+                            window.location.href = "{{ route('detailmenu') }}"; // Assuming this is the correct route for detailmenu
                         },
                         error: function(xhr, status, error) {
                             // Show an error message
@@ -151,6 +151,7 @@ input[type="radio"]:hover ~ .star-label {
                 });
             });
         </script>
+        
         @endpush
 
         @endforeach
