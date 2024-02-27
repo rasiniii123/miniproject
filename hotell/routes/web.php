@@ -1,4 +1,3 @@
-
 <?php
 
 use App\Http\Controllers\RoomEnabledController;
@@ -22,10 +21,16 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailmenuController;
 use App\Http\Controllers\AdminDashboardController;
 
-// Route::middleware('auth')->group(function () {
-// });
-
-
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
 Route::get('/', function () {
     return view('dashboard');
@@ -47,10 +52,11 @@ Route::middleware([UserMiddleware::class])->group(function () {
     Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
     Route::get('/tentangkami', [TentangController::class, 'index'])->name('tentang.index');
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail.index');
-    Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
-    Route::post('/pesanan',[PesananController::class,'store'])->name('pesanan.store');
-    Route::get('/histori',[HistoriController::class,'index'])->name('histori');
-    Route::post('/ulasan',[UlasanController::class,'store'])->name('ulasan.store');
+    Route::get('/pesanan/{id}', [PesananController::class, 'index'])->name('pesanan');
+    Route::post('/pesanan', [PesananController::class, 'store'])->name('pesanan.store');
+    Route::get('/histori', [HistoriController::class, 'index'])->name('histori');
+    Route::post('/histori', [HistoriController::class, 'store'])->name('histori.store');
+    Route::post('/ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
 });
 
 Route::middleware([adminmiddleware::class])->group(function () {
@@ -68,7 +74,6 @@ Route::middleware([adminmiddleware::class])->group(function () {
         });
         Route::put('/roomenable/{id}', [RoomEnabledController::class, 'update'])->name('roomenable');
 
-
         Route::controller(KategoriController::class)->prefix('kategori')->group(function () {
             Route::get('', 'index')->name('kategori');
             Route::get('create', 'create')->name('kategori.create');
@@ -76,8 +81,6 @@ Route::middleware([adminmiddleware::class])->group(function () {
             Route::get('edit/{id}', 'edit')->name('kategori.edit');
             Route::put('edit/{id}', 'update')->name('kategori.update');
             Route::delete('destroy/{id}', 'destroy')->name('kategori.destroy');
-
-
         });
     Route::prefix('profile')->middleware('auth')->group(function () {
         Route::get('', [ProfileController::class, 'index'])->name('profile');
@@ -95,4 +98,3 @@ Route::middleware([adminmiddleware::class])->group(function () {
         Route::put('edit/{id}', 'update')->name('payment.update');
         Route::delete('destroy/{id}', 'destroy')->name('payment.destroy');
     });
-

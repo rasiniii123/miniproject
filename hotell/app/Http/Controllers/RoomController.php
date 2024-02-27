@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use App\Models\Room;
+use App\Models\User;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class RoomController extends Controller
 {
@@ -160,24 +161,27 @@ class RoomController extends Controller
      */
     public function destroy(string $id)
     {
-        $kamar = Room::findOrfail($id);
-        // return dd($kamar);
+        try {
+            $kamar = Room::findOrFail($id);
 
-        if ($kamar) {
-            $path_buku = $kamar->path_kamar;
-            $path = public_path($path_buku);
+            if ($kamar) {
+                $path_buku = $kamar->path_kamar;
+                $path = public_path($path_buku);
 
-            // return dd($path);
+                if (File::exists($path)) {
+                    File::delete($path);
+                }
 
-            if (File::exists($path)) {
-                File::delete($path);
+                $kamar->delete();
+
+                return redirect()->route("room")->with("success", "Data produk berhasil dihapus!");
+            } else {
+                return redirect()->route("room")->with("warning", "Produk not found or already deleted.");
             }
-
-            $kamar->delete();
-
-            return redirect()->route("room")->with("success", "Data produk berhasil dihapus!");
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route("room")->with("warning", "Produk not found or already deleted.");
+        } catch (\Exception $e) {
+            return redirect()->route("room")->with("error", "Kamar sedang di booking. Tidak bisa menghapus kamar");
         }
-
-        return redirect()->route("room")->with("warning", "Produk not found or already deleted.");
     }
 }

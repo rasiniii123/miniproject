@@ -1,5 +1,34 @@
 @extends('admin.layout.app')
 @section('content')
+@if (session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: "{{ session('success') }}"
+    });
+</script>
+@endif
+
+@if (session('error'))
+<script>
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "{{ session('error') }}",
+    });
+</script>
+@endif
+
+@if (session('warning'))
+<script>
+    Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "{{ session('warning') }}",
+    });
+</script>
+@endif
     @php
         use Carbon\Carbon;
     @endphp
@@ -152,7 +181,7 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
+                                        <a class="dropdown-item" href="{{ route('logout') }}">
                                             <i class="bx bx-power-off me-2"></i>
                                             <span class="align-middle">Log Out</span>
                                         </a>

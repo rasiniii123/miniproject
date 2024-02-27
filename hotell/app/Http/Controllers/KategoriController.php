@@ -83,7 +83,7 @@ class KategoriController extends Controller
      */
     public function destroy(string $id)
     {
-        $kategori = kategori::find($id);
+        $kategori = Kategori::find($id);
         try {
             //code...
             $kategori->delete();

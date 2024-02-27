@@ -47,14 +47,14 @@
                         <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
                         <li><a href="#kamar-section" onclick="addLoadingEffect()">Kamar</a></li>
                         @auth <!-- Check if the user is authenticated -->
-                            <li><a href="#history-section" onclick="addLoadingEffect()">History</a></li>
+                            <li><a  href="{{ route('histori') }}" onclick="addLoadingEffect()">History</a></li>
                         @endauth
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth
                             <div class="dropdown" onclick="toggleDropdown()" style="border-radius: 50px;">
                                 @If (auth()->user()->profile)
-                                <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle"
+                                <img src="{{ asset('storage/' . auth()->user()->profile) }}" class="rounded-circle"
                                     style="margin-right: 40px; cursor: pointer; border-radius: 50px; width: 50px; height: 50px" alt="profile">
                                     @else
                                 <img src="{{asset('images/user2.png')}}" class="rounded-circle"
@@ -68,8 +68,8 @@
                                                 style="padding: 0; border: none; background: none;">
                                                 <div class="mx-auto"
                                                     style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                                                    @If (auth()->user()->profile)
-                                                    <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle"
+                                                    @if (auth()->user()->profile)
+                                                    <img src="{{ asset('storage/' . auth()->user()->profile) }}" class="rounded-circle"
                                                         style="margin-bottom: 5px; object-fit: cover; border-radius: 50px; width: 50px; height: 50px" alt="profile">
                                                         @else
                                                     <img src="{{asset('images/user2.png')}}" class="rounded-circle"
@@ -114,7 +114,7 @@
                     </div>
 
 
-                    <script>
+                     <script>
                         function redirectToProfile() {
                             @auth
                                 var userId = "{{ auth()->user()->id }}";

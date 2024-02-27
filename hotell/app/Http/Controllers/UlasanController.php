@@ -34,6 +34,7 @@ class UlasanController extends Controller
     public function store(Request $request)
     {
         // Validate the request data
+        // dd($request);
         $validatedData = $request->validate([
             'rating' => 'required|numeric',
             'ulasan' => 'required|string',

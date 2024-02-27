@@ -13,10 +13,10 @@ class UserDashboardController extends Controller
      */
     public function index()
     {
-        $userID = Auth::id();
-        $user = User::find($userID);
-        $users = User::where('role', 'user')->count();
-        return view('dashboard', compact('user','userID','users'));
+        // $userID = Auth::id();
+        // $user = User::find($userID);
+        // $users = User::where('role', 'user')->count();
+        // return view('dashboard', compact('user','userID','users'));
 
     }
 
