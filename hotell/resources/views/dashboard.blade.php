@@ -114,7 +114,7 @@
                     </div>
 
 
-                    {{-- <script>
+                    <script>
                         function redirectToProfile() {
                             var userId = "{{ auth()->user()->id }}";
                             window.location.href = "{{ route('profile', ['id' => ':id']) }}".replace(':id', userId);
@@ -135,7 +135,7 @@
                             var userId = "{{ auth()->user()->id }}";
                             window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
                         }
-                    </script> --}}
+                    </script>
         </li>
 
 

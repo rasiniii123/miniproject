@@ -209,7 +209,7 @@
                 <footer>
                     <div class="footer-bottom" style="padding: 7px 0;"> <!-- Atur padding untuk memperbesar footer -->
                         <div class="container">
-                            <div class="text-center" style="color: white;">Copyright © Everywhere 2024</div>
+                            <div class="text-center" style="color: rgb(15, 15, 15);">Copyright © Everywhere 2024</div>
                         </div>
                     </div>
                 </footer>

@@ -48,12 +48,12 @@
                             <label for="category-3" style="font-size: 15px;">Suite</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="category-3" onclick="toggleCheckbox('category-3')">
-                            <label for="category-3" style="font-size: 15px;">family</label>
+                            <input type="checkbox" id="category-4" onclick="toggleCheckbox('category-4')">
+                            <label for="category-4" style="font-size: 15px;">family</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="category-3" onclick="toggleCheckbox('category-3')">
-                            <label for="category-3" style="font-size: 15px;">room</label>
+                            <input type="checkbox" id="category-5" onclick="toggleCheckbox('category-5')">
+                            <label for="category-5" style="font-size: 15px;">room</label>
                         </div>
                         </details>
                     </form>

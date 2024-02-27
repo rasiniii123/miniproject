@@ -80,9 +80,13 @@
             <td>Rp {{ number_format($item->harga_pesanan, 0, ',', '.') }}</td>
             <td>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $item->id }}">
+                <button id="tambahUlasanBtn-{{ $item->id }}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $item->id }}">
                     Tambah Ulasan
                 </button>
+
+                <!-- Script JavaScript -->
+
+
 
                 <!-- Modal -->
                 <div class="modal" style="z-index: 100000000" id="exampleModal-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,6 +121,9 @@
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
+                            {{-- <div id="preloader">
+                                <span class="preloader-dot"></span>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -150,13 +157,64 @@
                 });
             });
         </script>
-    <script>
-       const ratingInputs = document.querySelectorAll('.rating input');
+   <script>
+    // Function to show an alert when a review is successfully added
+    function showAlert() {
+        alert("Ulasan berhasil ditambahkan!");
+    }
 
-       ratingInputs.forEach(input =>{
-        input.addEventListener('change', (event ) =>);
-       });
-    </script>
+    // Function to update the button to "Selesai" and disable it
+    function updateButton(itemId) {
+        var button = document.getElementById("tambahUlasanBtn-" + itemId);
+        if (button) {
+            button.innerHTML = "Selesai";
+            button.disabled = true;
+        } else {
+            console.error("Tidak dapat menemukan tombol dengan ID: tambahUlasanBtn-" + itemId);
+        }
+    }
+
+    // Add event listeners to handle button clicks and form submissions
+    document.addEventListener("DOMContentLoaded", function () {
+        var tambahUlasanBtns = document.querySelectorAll('[id^="tambahUlasanBtn-"]');
+        tambahUlasanBtns.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                var itemId = this.id.split("-")[1]; // Extract item ID
+                showAlert(); // Show alert when review is added
+                updateButton(itemId); // Update button to "Selesai"
+            });
+
+            var form = document.getElementById("commentForm-" + btn.id.split("-")[1]);
+            if (form) {
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    // Perform AJAX form submission
+                    var formData = new FormData(form);
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            showAlert(); // Show alert when review is added
+                            var itemId = form.id.split("-")[1]; // Extract item ID
+                            updateButton(itemId); // Update button to "Selesai"
+                            form.reset(); // Reset form fields
+                            localStorage.setItem('ulasanSelesai_' + itemId, 'true'); // Store in local storage
+                        } else {
+                            throw new Error('Terjadi kesalahan saat menyimpan ulasan');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Terjadi kesalahan saat menyimpan ulasan: ' + error.message);
+                    });
+                });
+            }
+        });
+    });
+</script>
 
         @endpush
 
