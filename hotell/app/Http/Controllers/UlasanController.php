@@ -8,6 +8,7 @@ use App\Models\Ulasan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class UlasanController extends Controller
 {
@@ -24,51 +25,39 @@ class UlasanController extends Controller
      */
     public function create()
     {
-
-            return view('ulasan');
-
+        return view('ulasan');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        // Validate the request data
-        // dd($request);
-        $validatedData = $request->validate([
-            'rating' => 'required|numeric',
-            'ulasan' => 'required|string',
-            'pesanan_id' => 'required|exists:pesanan,id',
-            'user_id' => 'required|exists:users,id',
-        ]);
-    
-        try {
-            $semuaKamar = Room::all();
+{
+    // Validate the request data
+    $validator = Validator::make($request->all(), [
+        'rating' => 'required|integer|min:1|max:5',
+        'ulasan' => 'required|string|max:255',
+        'pesanan_id' => 'required|exists:pesanan,id',
+        'user_id' => 'required|exists:users,id',
+    ]);
 
-            // Simpan ulasan ke dalam database
-            foreach ($semuaKamar as $kamar) {
-            $ulasan = new Ulasan;
-            $ulasan->rating = $validatedData['rating'];
-            $ulasan->ulasan = $validatedData['ulasan'];
-            $ulasan->pesanan_id = $validatedData['pesanan_id'];
-            $ulasan->user_id = $validatedData['user_id'];
-            $ulasan->save();
-            }
-            // Jika penyimpanan berhasil, arahkan ke halaman detail
-            return Redirect::route('detail.index', ['id' => $validatedData['pesanan_id']])
-                ->with('success', 'Ulasan berhasil disimpan');
-        } catch (\Exception $e) {
-            // Jika terjadi kesalahan, tangani dengan memberikan pesan kesalahan
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
     }
-    
 
+    // Buat ulasan baru atau perbarui jika sudah ada
+    Ulasan::updateOrCreate(
+        ['pesanan_id' => $request->pesanan_id], // Jika ulasan untuk pesanan ini sudah ada, perbarui, jika tidak, buat baru
+        [
+            'rating' => $request->rating,
+            'ulasan' => $request->ulasan,
+            'user_id' => $request->user_id,
+        ]
+    );
 
-
-
-
+    // Redirect ke halaman detail kamar dengan ID kamar yang sesuai
+    return redirect()->route('detail.index', ['id' => $request->pesanan_id])->with("success", "Review data added successfully!");
+}
     /**
      * Display the specified resource.
      */

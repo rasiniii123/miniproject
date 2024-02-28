@@ -62,12 +62,14 @@
                                                     style="font-size: 24px; font-weight: bold; margin-bottom: 10px; margin-top:30px; margin-right: 500px; text-align: right;">
                                                     Ulasan</h3>
                                                 @foreach ($ulasans as $ulasan)
-                                                    <div>
-                                                        <p style="font-size: 18px; margin-left: 140px;">Rating:
-                                                            {{ $ulasan->rating }}</p>
-                                                        <p style="font-size: 18px; margin-left: 140px;">Ulasan:
-                                                            {{ $ulasan->ulasan }}</p>
-                                                    </div>
+                                                <div style="border: 1px solid black; padding: 10px; margin-top: 20px;">
+                                                    <p style="font-size: 18px; margin-left: 140px;">Rating:
+                                                        @for ($i = 0; $i < $ulasan->rating; $i++)
+                                                            <span style="color: yellow;">&#9733;</span>
+                                                        @endfor
+                                                    </p>
+                                                    <p style="font-size: 18px; margin-left: 140px;">Ulasan: {{ $ulasan->ulasan }}</p>
+                                                </div>
                                                 @endforeach
                                             </div>
 

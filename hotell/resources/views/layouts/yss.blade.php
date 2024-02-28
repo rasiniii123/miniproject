@@ -60,7 +60,7 @@
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth
                         <div class="dropdown" onclick="toggleDropdown()" style="border-radius: 50px;">
-                            @if ($user->profile)
+                            @if (auth()->user()->profile)
                             <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle"
                                 style="margin-right: 40px; cursor: pointer; border-radius: 50px; width: 50px; height: 50px" alt="profile">
                                 @else
@@ -76,7 +76,7 @@
                                             style="padding: 0; border: none; background: none;">
                                             <div class="mx-auto"
                                                 style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                                                @if ($user->profile)
+                                                @if (auth()->user()->profile)
                                                 <img src="{{ asset('storage/' . $user->profile) }}" class="rounded-circle" width="40" height="40"
                                                     style="margin-bottom: 10px border-radius: 50px; width: 50px; height: 50px;" alt="profile">
                                                     @else
@@ -299,7 +299,7 @@
     @endif
     <script>
         function redirectToProfile() {
-            var userId = "{{ $user->id }}"; // Ambil ID pengguna dari variabel Blade
+            var userId = "{{ auth()->user()->id }}"; // Ambil ID pengguna dari variabel Blade
             window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
         }
     </script>

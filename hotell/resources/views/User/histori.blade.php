@@ -1,5 +1,7 @@
 @extends('layouts.yss')
+
 @section('content')
+
 <style>
     .gambar-kamar {
         max-width: 100px;
@@ -36,20 +38,22 @@
     display: inline-block;
 }
 
-.rating input{
-    display:none;
+.rating input {
+    display: none;
 }
 
-.rating label{
+.rating label {
     font-size: 24px;
-    color: #dddddd
+    color: #dddddd;
     cursor: pointer;
 }
 
+/* Warna tetap pada bintang yang diklik */
+.rating input:checked~label,
+/* Warna tetap pada bintang yang dihover */
 .rating label:hover,
-.rating label:hover~label,
-.rating input:checked~label{
-    color: #ffcc00
+.rating input:checked~label:hover~label {
+    color: #ffcc00; /* Ganti dengan warna yang diinginkan */
 }
 </style>
 
@@ -98,18 +102,19 @@
                                 <!-- Form untuk tambah ulasan -->
                                 <form id="commentForm-{{ $item->id }}" method="POST" action="{{ route('ulasan.store') }}">
                                     @csrf
+                                    <input type="hidden" name="pesanan_id" value="{{ $item->id }}">
                                     <div class="mb-3">
-                                        <div class="rating" style="rotate: 180deg">
-                                            <input type="radio" name="rating" class="star-rating" id="star5" value="5">
-                                            <label for="star5" class="star-label" style="rotate: 35deg">&#9733;</label>
-                                            <input type="radio" name="rating" class="star-rating" id="star4" value="4" >
-                                            <label for="star4" class="star-label" style="rotate: 35deg">&#9733;</label>
-                                            <input type="radio" name="rating" class="star-rating" id="star3" value="3" >
-                                            <label for="star3" class="star-label" style="rotate: 35deg">&#9733;</label>
-                                            <input type="radio" name="rating" class="star-rating" id="star2" value="2" >
-                                            <label for="star2" class="star-label" style="rotate: 35deg">&#9733;</label>
-                                            <input type="radio" name="rating" class="star-rating" id="star1" value="1" >
-                                            <label for="star1" class="star-label" style="rotate: 35deg">&#9733;</label>
+                                        <div class="rating">
+                                            <input type="radio" name="rating" class="star-rating" id="star1-{{ $item->id }}" value="1">
+                                            <label for="star1-{{ $item->id }}" class="star-label">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star2-{{ $item->id }}" value="2" >
+                                            <label for="star2-{{ $item->id }}" class="star-label">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star3-{{ $item->id }}" value="3" >
+                                            <label for="star3-{{ $item->id }}" class="star-label">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star4-{{ $item->id }}" value="4" >
+                                            <label for="star4-{{ $item->id }}" class="star-label">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star5-{{ $item->id }}" value="5" >
+                                            <label for="star5-{{ $item->id }}" class="star-label">&#9733;</label>
                                         </div>
                                     </div>
                                     <label for="commentInput-{{ $item->id }}">Your Comment</label>
@@ -155,98 +160,36 @@
                 });
             });
         </script>
-   <script>
-    // Function to show an alert when a review is successfully added
-    function showAlert() {
-        alert("Ulasan berhasil ditambahkan!");
-    }
-
-    // Function to update the button to "Selesai" and disable it
-    function updateButton(itemId) {
-        var button = document.getElementById("tambahUlasanBtn-" + itemId);
-        if (button) {
-            button.innerHTML = "Selesai";
-            button.disabled = true;
-        } else {
-            console.error("Tidak dapat menemukan tombol dengan ID: tambahUlasanBtn-" + itemId);
-        }
-    }
-
-    // Add event listeners to handle button clicks and form submissions
+   {{-- <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var tambahUlasanBtns = document.querySelectorAll('[id^="tambahUlasanBtn-"]');
-        tambahUlasanBtns.forEach(function (btn) {
-            btn.addEventListener("click", function () {
-                var itemId = this.id.split("-")[1]; // Extract item ID
-                showAlert(); // Show alert when review is added
-                updateButton(itemId); // Update button to "Selesai"
-            });
-
-            var form = document.getElementById("commentForm-" + btn.id.split("-")[1]);
-            if (form) {
-                form.addEventListener("submit", function (event) {
-                    event.preventDefault(); // Prevent default form submission
-
-                    // Perform AJAX form submission
-                    var formData = new FormData(form);
-                    fetch(form.action, {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            showAlert(); // Show alert when review is added
-                            var itemId = form.id.split("-")[1]; // Extract item ID
-                            updateButton(itemId); // Update button to "Selesai"
-                            form.reset(); // Reset form fields
-                            localStorage.setItem('ulasanSelesai_' + itemId, 'true'); // Store in local storage
-                        } else {
-                            throw new Error('Terjadi kesalahan saat menyimpan ulasan');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Terjadi kesalahan saat menyimpan ulasan: ' + error.message);
-                    });
+        var forms = document.querySelectorAll('form');
+        forms.forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                var formData = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Ulasan berhasil disimpan!');
+                        window.location.reload(); // Refresh page after submitting form
+                    } else {
+                        throw new Error('Terjadi kesalahan saat menyimpan ulasan');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Terjadi kesalahan saat menyimpan ulasan: ' + error.message);
                 });
-            }
-        });
-    });
-</script>
-
-<script>
-    // Fungsi untuk menampilkan alert ketika ulasan berhasil ditambahkan
-    function tampilkanAlert() {
-        alert("Ulasan berhasil ditambahkan!");
-    }
-
-    // Fungsi untuk mengubah teks tombol menjadi "Selesai" dan menonaktifkannya
-    function ubahTombolSelesai(itemId) {
-        var tombol = document.getElementById("tambahUlasanBtn-" + itemId);
-        if (tombol) { // Pastikan tombol ditemukan
-            tombol.innerHTML = "Selesai";
-            tombol.disabled = true;
-            console.log("Tombol berhasil diubah menjadi Selesai"); // Periksa apakah fungsi ini dieksekusi
-        } else {
-            console.error("Tidak dapat menemukan tombol dengan ID: tambahUlasanBtn-" + itemId);
-        }
-    }
-
-    // Memberikan event listener untuk menangani klik tombol
-    document.addEventListener("DOMContentLoaded", function () {
-        var tambahUlasanBtns = document.querySelectorAll('[id^="tambahUlasanBtn-"]');
-        tambahUlasanBtns.forEach(function (btn) {
-            btn.addEventListener("click", function () {
-                var itemId = this.id.split("-")[1]; // Mendapatkan id item
-                console.log("Item ID: ", itemId); // Periksa apakah ID berhasil diekstraksi
-                tampilkanAlert(); // Memanggil fungsi untuk menampilkan alert
-                ubahTombolSelesai(itemId); // Memanggil fungsi untuk mengubah tombol menjadi "Selesai"
             });
         });
     });
-</script>
+</script> --}}
 
         @endpush
+
         @endforeach
     </tbody>
 </table>
@@ -254,3 +197,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z5vIOIj46qvYIu1z9r1T+rPqLWj+2jz5qmi1gg" crossorigin="anonymous"></script>
 @endsection
+
+
