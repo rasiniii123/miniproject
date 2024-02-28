@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Ulasan;
 use App\Models\Pesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -54,7 +55,17 @@ class HistoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ulasan = new Ulasan();
+    
+        $ulasan->pesanan_id = $request->pesanan_id;
+        $ulasan->save();
+
+        $pesanan = Pesanan::find($request->pesanan_id);
+        if ($pesanan) {
+            $pesanan->adaulasan = true;
+            $pesanan->save();
+        }
+    
     }
 
     /**
