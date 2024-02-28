@@ -98,9 +98,9 @@
                             </div>
                         </div>
                         <div style="margin-top: 30px;"></div>
-                        <div style="margin-top: -20px; margin-left:800px;">
+                        <div style="margin-top: -20px; margin-left: 800px; margin-bottom: 20px;">
                             <a href="{{ route('detail.index', ['id' => $room->id]) }}" class="btn btn-primary btn-lg" style="background-color: #283E58;">DETAIL</a>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
                 @endforeach

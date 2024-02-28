@@ -62,14 +62,16 @@
                                                     style="font-size: 24px; font-weight: bold; margin-bottom: 10px; margin-top:30px; margin-right: 500px; text-align: right;">
                                                     Ulasan</h3>
                                                 @foreach ($ulasans as $ulasan)
-                                                <div style="border: 1px solid black; padding: 10px; margin-top: 20px;">
-                                                    <p style="font-size: 18px; margin-left: 140px;">Rating:
-                                                        @for ($i = 0; $i < $ulasan->rating; $i++)
-                                                            <span style="color: yellow;">&#9733;</span>
-                                                        @endfor
-                                                    </p>
-                                                    <p style="font-size: 18px; margin-left: 140px;">Ulasan: {{ $ulasan->ulasan }}</p>
-                                                </div>
+                                                <div class="card" style="width: 400px; margin-top: 20px; margin-left: 150px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+                                                    <div class="card-body">
+                                                        <p class="card-text">
+                                                            @for ($i = 0; $i < $ulasan->rating; $i++)
+                                                            <span style="color: yellow; font-size: 24px;">&#9733;</span>
+                                                            @endfor                                                        
+                                                        </p>
+                                                        <p class="card-text">Ulasan: {{ $ulasan->ulasan }}</p>
+                                                    </div>
+                                                </div>                                                                                                
                                                 @endforeach
                                             </div>
 

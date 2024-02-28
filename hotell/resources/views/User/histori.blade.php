@@ -86,7 +86,7 @@
                     <td>Rp {{ number_format($item->harga_pesanan, 0, ',', '.') }}</td>
                     <td>
                         
-                        @if ($item->adaulasan=='true')>
+                        @if ($item->adaulasan=='true')
                             <span class="btn btn-success">Selesai</span>
                         @else
                             <button id="tambahUlasanBtn-{{ $item->id }}" type="button" class="btn btn-primary"
