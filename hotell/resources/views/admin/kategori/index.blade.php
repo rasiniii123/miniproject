@@ -74,16 +74,13 @@
                                     </g>
                                 </g>
                             </svg>
-
                         </span>
                         <span class="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
                     </a>
-
                     {{-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a> --}}
                 </div>
-
                 <div class="menu-inner-shadow"></div>
                 <ul class="menu-inner py-1">
                     <!-- Dashboards -->
@@ -102,8 +99,8 @@
                         </a>
                     </li>
                     <li class="menu-item active open">
-                        <a href="{{ route('admin.dashboard') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                        <a href="{{ route('kategori') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-list-ul"></i>
                             <div class="text-truncate" data-i18n="Dashboards">Category</div>
                             {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
                         </a>
@@ -170,8 +167,6 @@
                             <!--/ User -->
                         </ul>
                     </div>
-
-
                     <!-- Search Small Screens -->
                     <div class="navbar-search-wrapper search-input-wrapper  d-none">
                         <input type="text" class="form-control search-input container-xxl border-0"
