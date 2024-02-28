@@ -24,7 +24,7 @@ class PesananController extends Controller
         $kamar = Room::findOrFail($request->id);
         if ($kamar->status != 'booked') {
             $pesanan = Pesanan::all();
-            return view('user.pesanan', compact('pesanan', 'kamar','user','userID'));
+            return view('user.pesanan', compact('pesanan', 'kamar', 'user', 'userID'));
         } else {
             return redirect()->route('menu')->with("error", "mana bisa gtu");
         }
@@ -87,12 +87,18 @@ class PesananController extends Controller
         $pesanan->roooms_id = $kamar;
         $pesanan->metode_pembayaran = $request->metode_pembayaran;
         $pesanan->harga_pesanan = $totalharga;
+        if ($request->has('ulasan')) {
+            $pesanan->ulasan = $request->ulasan;
+            $pesanan->adaulasan = true;
+        } else {
+            $pesanan->adaulasan = false;
+        }
         $pesanan->save();
-
+        
         Room::findOrFail($kamar)->update(['status' => 'booked']);
 
         return redirect()->route('histori')->with("success", "Product data added successfully!");
-    }
+    }       
 
     /**
      * Display the specified resource.

@@ -17,6 +17,7 @@ class Pesanan extends Model
         'tanggal_akhir',
         'fasilitas',
         'metode_pembayaran',
+        'adaulasan',
     ];
     public function user()
     {
