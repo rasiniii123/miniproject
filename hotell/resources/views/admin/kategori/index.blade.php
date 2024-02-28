@@ -74,16 +74,13 @@
                                     </g>
                                 </g>
                             </svg>
-
                         </span>
                         <span class="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
                     </a>
-
                     {{-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a> --}}
                 </div>
-
                 <div class="menu-inner-shadow"></div>
                 <ul class="menu-inner py-1">
                     <!-- Dashboards -->
@@ -102,8 +99,8 @@
                         </a>
                     </li>
                     <li class="menu-item active open">
-                        <a href="{{ route('admin.dashboard') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                        <a href="{{ route('kategori') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-list-ul"></i>
                             <div class="text-truncate" data-i18n="Dashboards">Category</div>
                             {{-- <span class="badge badge-center rounded-pill bg-danger ms-auto">5</span> --}}
                         </a>
@@ -127,25 +124,17 @@
                         </a>
                     </div>
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        {{-- <!-- Search -->
-        <div class="navbar-nav align-items-center">
-          <div class="nav-item navbar-search-wrapper mb-0">
-            <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
-              <i class="bx bx-search bx-sm"></i>
-              <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
-            </a>
-          </div>
-        </div>
-        <!-- /Search --> --}}
+                        <div class="navbar-nav align-items-center">
+                            <div class="nav-item navbar-search-wrapper mb-0">
+                                <h5 class="text-center align-items-center mb-0">Dragonspine Resort</h5>
+                            </div>
+                        </div>
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
-                                    <div class="avatar">
-                                        <img src="{{ asset('img/avatars/1.png') }}" alt
-                                            class="w-px-40 h-auto rounded-circle">
-                                    </div>
+                                    <i class="fa-solid fa-user fa-lg"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
@@ -153,13 +142,13 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar">
-                                                        <img src="{{ asset('img/avatars/1.png') }}" alt
+                                                        <img src="{{ asset('img/avatars/apple.jpg') }}" alt
                                                             class="w-px-40 h-auto rounded-circle">
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-medium d-block">John Doe</span>
-                                                    <small class="text-muted">Admin</small>
+                                                    <span class="fw-medium d-block mt-2 ">{{ Auth::user()->username }}</span>
+                                                    {{-- <small class="text-muted">Admin</small> --}}
                                                 </div>
                                             </div>
                                         </a>
@@ -176,12 +165,8 @@
                                 </ul>
                             </li>
                             <!--/ User -->
-
-
                         </ul>
                     </div>
-
-
                     <!-- Search Small Screens -->
                     <div class="navbar-search-wrapper search-input-wrapper  d-none">
                         <input type="text" class="form-control search-input container-xxl border-0"

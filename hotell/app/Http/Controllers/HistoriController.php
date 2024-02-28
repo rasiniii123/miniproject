@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HistoriController extends Controller
 {
@@ -27,23 +28,26 @@ class HistoriController extends Controller
                 'rooms.path_kamar',
                 'rooms.status',
                 'kategori.nama_kategori',
+                'pesanan.adaulasan',
                 DB::raw('rooms.id AS id_kamar')
             )
             ->where(
-                'pesanan.email', $user->email
+                'pesanan.email',
+                $user->email
             );
         $pesanan = $query->get();
         // dd($pesanan);
-        return view('user.histori', compact('pesanan', 'user','users','userID'));
+        return view('user.histori', compact('pesanan', 'user', 'users', 'userID'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
+        public function create(Request $request)
+
+        {
+            //
+        }
 
     /**
      * Store a newly created resource in storage.

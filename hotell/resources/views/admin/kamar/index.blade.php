@@ -87,16 +87,13 @@
                                     </g>
                                 </g>
                             </svg>
-
                         </span>
                         <span class="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
                     </a>
-
                     {{-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
                         <i class="bx bx-chevron-left bx-sm align-middle"></i>
                     </a> --}}
                 </div>
-
                 <div class="menu-inner-shadow"></div>
                 <ul class="menu-inner py-1">
                     <!-- Dashboards -->
@@ -132,33 +129,23 @@
             <!-- / Menu -->
             <!-- Layout container -->
             <div class="layout-page">
-                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-                    id="layout-navbar">
-                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
-                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                            <i class="bx bx-menu bx-sm"></i>
-                        </a>
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-block ">
                     </div>
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        {{-- <!-- Search -->
-        <div class="navbar-nav align-items-center">
-          <div class="nav-item navbar-search-wrapper mb-0">
-            <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
-              <i class="bx bx-search bx-sm"></i>
-              <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
-            </a>
-          </div>
-        </div>
-        <!-- /Search --> --}}
+                        <!-- Search -->
+                        <div class="navbar-nav align-items-center">
+                            <div class="nav-item navbar-search-wrapper mb-0">
+                                <h5 class="text-center align-items-center mb-0">Dragonspine Resort</h5>
+                            </div>
+                        </div>
+                        <!-- /Search -->
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
-                                    <div class="avatar">
-                                        <img src="{{ asset('img/avatars/1.png') }}" alt
-                                            class="w-px-40 h-auto rounded-circle">
-                                    </div>
+                                    <i class="fa-solid fa-user fa-lg"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
@@ -166,13 +153,13 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar">
-                                                        <img src="{{ asset('img/avatars/1.png') }}" alt
+                                                        <img src="{{ asset('img/avatars/apple.jpg') }}" alt
                                                             class="w-px-40 h-auto rounded-circle">
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-medium d-block">John Doe</span>
-                                                    <small class="text-muted">Admin</small>
+                                                    <span class="fw-medium d-block mt-2 ">{{ Auth::user()->username }}</span>
+                                                    {{-- <small class="text-muted">Admin</small> --}}
                                                 </div>
                                             </div>
                                         </a>
@@ -189,12 +176,8 @@
                                 </ul>
                             </li>
                             <!--/ User -->
-
-
                         </ul>
                     </div>
-
-
                     <!-- Search Small Screens -->
                     <div class="navbar-search-wrapper search-input-wrapper  d-none">
                         <input type="text" class="form-control search-input container-xxl border-0"
@@ -202,24 +185,14 @@
                         <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
                     </div>
                 </nav>
-
-
-
                 <!-- / Navbar -->
-
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
-
                     <!-- Content -->
-
                     <div class="container-xxl flex-grow-1 container-p-y">
-
-
-
                         <h4 class="py-3 mb-4">
                             <span class="text-muted fw-light"></span> Room list
                         </h4>
-
                         <!-- Product List Table -->
                         <div class="card">
                             {{-- <div class="card-header">
@@ -288,12 +261,6 @@
                                                     <span
                                                         class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
                                                 </td>
-                                                {{-- <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ $kamars->stok }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-truncate d-flex align-items-center">{{ strip_tags(Str::limit($kamars->deskripsi, 10, $end = '...')) }}</span>
-                                            </td> --}}
                                                 <td>
                                                     <span class="badge bg-label-danger">{{ $kamars->status }}</span>
                                                 </td>

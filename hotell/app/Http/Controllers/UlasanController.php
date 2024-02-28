@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Room;
 use App\Models\User;
 use App\Models\Ulasan;
 use Illuminate\Http\Request;
@@ -25,6 +24,7 @@ class UlasanController extends Controller
      */
     public function create()
     {
+
         return view('ulasan');
     }
 
@@ -32,6 +32,7 @@ class UlasanController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
+
 {
     // Validate the request data
     $validator = Validator::make($request->all(), [
@@ -44,6 +45,12 @@ class UlasanController extends Controller
     if ($validator->fails()) {
         return redirect()->back()->withErrors($validator)->withInput();
     }
+
+
+
+
+
+
 
     // Buat ulasan baru atau perbarui jika sudah ada
     Ulasan::updateOrCreate(
