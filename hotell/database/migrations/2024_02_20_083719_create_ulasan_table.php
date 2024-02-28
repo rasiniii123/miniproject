@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('ulasan');
             $table->foreignId('user_id');
             $table->foreignId('pesanan_id');
+            $table->foreignId('rooms_id')->constrained('rooms')->restrictOnDelete();
             $table->timestamps();
         });
     }

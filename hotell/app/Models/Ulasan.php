@@ -15,10 +15,19 @@ class Ulasan extends Model
         'ulasan',
         'user_id',
         'pesanan_id',
+        'rooms_id'
     ];
 
     public function pesanan()
     {
         return $this->belongsTo(Pesanan::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
     }
 }

@@ -84,21 +84,15 @@ class PesananController extends Controller
         $pesanan->telp = $request->no_tlp;
         $pesanan->tanggal_awal = $tglawal;
         $pesanan->tanggal_akhir = $tglakhir;
-        $pesanan->roooms_id = $kamar;
+        $pesanan->rooms_id = $kamar;
         $pesanan->metode_pembayaran = $request->metode_pembayaran;
         $pesanan->harga_pesanan = $totalharga;
-        if ($request->has('ulasan')) {
-            $pesanan->ulasan = $request->ulasan;
-            $pesanan->adaulasan = true;
-        } else {
-            $pesanan->adaulasan = false;
-        }
         $pesanan->save();
-        
+
         Room::findOrFail($kamar)->update(['status' => 'booked']);
 
         return redirect()->route('histori')->with("success", "Product data added successfully!");
-    }       
+    }
 
     /**
      * Display the specified resource.

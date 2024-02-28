@@ -19,7 +19,7 @@ class HistoriController extends Controller
         $users = User::find($userID);
         $user = auth()->user();
         $query = DB::table('rooms')
-            ->join('pesanan', 'rooms.id', '=', 'pesanan.roooms_id')
+            ->join('pesanan', 'rooms.id', '=', 'pesanan.rooms_id')
             ->join('kategori', 'kategori.id', '=', 'rooms.kategori_id')
             ->select(
                 'pesanan.id',

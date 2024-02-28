@@ -31,4 +31,8 @@ class Room extends Model
     {
         return $this->hasMany(Pesanan::class);
     }
+    public function Ulasan(): HasMany
+    {
+        return $this->hasMany(Ulasan::class);
+    }
 }

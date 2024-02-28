@@ -19,7 +19,7 @@ return new class extends Migration
             $table->dateTime('tanggal_awal');
             $table->dateTime('tanggal_akhir');
             $table->string('metode_pembayaran');
-            $table->foreignId('roooms_id')->constrained('rooms')->restrictOnDelete();
+            $table->foreignId('rooms_id')->constrained('rooms')->restrictOnDelete();
             $table->bigInteger('harga_pesanan');
             $table->enum('adaulasan', ['true', 'false'])->default('false');
             $table->timestamps();

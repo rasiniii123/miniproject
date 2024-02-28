@@ -17,7 +17,7 @@ class DetailController extends Controller
     {
         $userID = Auth::id();
         $user = User::find($userID);
-        $room = Room::findOrFail($id); 
+        $room = Room::findOrFail($id);
         $ulasans = Ulasan::all();
         return view('user.detail', compact('room','user','userID','ulasans'));
     }

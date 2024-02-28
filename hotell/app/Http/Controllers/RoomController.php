@@ -23,9 +23,9 @@ class RoomController extends Controller
 
         $user = auth()->user();
         $query = DB::table('rooms')
-            ->join('pesanan', 'rooms.id', '=', 'pesanan.roooms_id')
+            ->join('pesanan', 'rooms.id', '=', 'pesanan.rooms_id')
             ->select(
-                'pesanan.roooms_id',
+                'pesanan.rooms_id',
                 'pesanan.tanggal_akhir',
             )
             ->where(
@@ -34,7 +34,7 @@ class RoomController extends Controller
         $datapesanan = $query->get();
         $pesanan = [];
         foreach ($datapesanan as $value) {
-            $pesanan[$value->roooms_id] = $value->tanggal_akhir;
+            $pesanan[$value->rooms_id] = $value->tanggal_akhir;
         }
         $kamar = Room::all();
         // dd($datapesanan);

@@ -85,11 +85,7 @@
                 <button id="tambahUlasanBtn-{{ $item->id }}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $item->id }}">
                     Tambah Ulasan
                 </button>
-
                 <!-- Script JavaScript -->
-
-
-
                 <!-- Modal -->
                 <div class="modal" style="z-index: 100000000" id="exampleModal-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -103,18 +99,20 @@
                                 <form id="commentForm-{{ $item->id }}" method="POST" action="{{ route('ulasan.store') }}">
                                     @csrf
                                     <input type="hidden" name="pesanan_id" value="{{ $item->id }}">
+                                    {{-- @dd($item) --}}
+                                    <input type="hidden" name="rooms_id" value="{{ $item->id_kamar }}">
                                     <div class="mb-3">
-                                        <div class="rating">
+                                        <div class="rating" style="transform: rotate(180deg)">
                                             <input type="radio" name="rating" class="star-rating" id="star1-{{ $item->id }}" value="1">
-                                            <label for="star1-{{ $item->id }}" class="star-label">&#9733;</label>
-                                            <input type="radio" name="rating" class="star-rating" id="star2-{{ $item->id }}" value="2" >
-                                            <label for="star2-{{ $item->id }}" class="star-label">&#9733;</label>
-                                            <input type="radio" name="rating" class="star-rating" id="star3-{{ $item->id }}" value="3" >
-                                            <label for="star3-{{ $item->id }}" class="star-label">&#9733;</label>
-                                            <input type="radio" name="rating" class="star-rating" id="star4-{{ $item->id }}" value="4" >
-                                            <label for="star4-{{ $item->id }}" class="star-label">&#9733;</label>
-                                            <input type="radio" name="rating" class="star-rating" id="star5-{{ $item->id }}" value="5" >
-                                            <label for="star5-{{ $item->id }}" class="star-label">&#9733;</label>
+                                            <label for="star1-{{ $item->id }}" class="star-label" style="rotate: 180deg">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star2-{{ $item->id }}" value="2">
+                                            <label for="star2-{{ $item->id }}" class="star-label" style="rotate: 180deg">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star3-{{ $item->id }}" value="3">
+                                            <label for="star3-{{ $item->id }}" class="star-label" style="rotate: 180deg">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star4-{{ $item->id }}" value="4">
+                                            <label for="star4-{{ $item->id }}" class="star-label" style="rotate: 180deg">&#9733;</label>
+                                            <input type="radio" name="rating" class="star-rating" id="star5-{{ $item->id }}" value="5">
+                                            <label for="star5-{{ $item->id }}" class="star-label" style="rotate: 180deg">&#9733;</label>
                                         </div>
                                     </div>
                                     <label for="commentInput-{{ $item->id }}">Your Comment</label>
@@ -124,9 +122,9 @@
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
-                            {{-- <div id="preloader">
+                            <div id="preloader">
                                 <span class="preloader-dot"></span>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -140,54 +138,25 @@
                 $("form#commentForm-{{ $item->id }}").submit(function(event){
                     event.preventDefault();
 
-                    // AJAX form submission logic
-                    $.ajax({
-                        url: $(this).attr('action'), // URL from the form's action attribute
-                        method: 'GET', // HTTP method set to 'POST'
-                        data: $(this).serialize(), // Serialize form data
-                        success: function(response){
-                            // Show a success message
-                            alert('Ulasan berhasil disimpan!');
+                    // Serialize form data
+                    var formData = $(this).serializeArray();
+                    // Menambahkan id ke data yang dikirimkan
+                    formData.push({ name: 'rooms_id', value: '{{ $item->id }}' });
 
-                            // Redirect to the detail page
-                            window.location.href = "{{ route('ulasan', ['id' => $item->id]) }}"; // Assuming this is the correct route
+                    $.ajax({
+                        url: $(this).attr('action'),
+                        method: 'POST',
+                        data: formData,
+                        success: function(response){
+                            // Handle success
                         },
                         error: function(xhr, status, error) {
-                            // Show an error message
-                            alert('Terjadi kesalahan saat menyimpan ulasan: ' + error);
+                            // Handle error
                         }
                     });
                 });
             });
         </script>
-   {{-- <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var forms = document.querySelectorAll('form');
-        forms.forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                var formData = new FormData(form);
-                fetch(form.action, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Ulasan berhasil disimpan!');
-                        window.location.reload(); // Refresh page after submitting form
-                    } else {
-                        throw new Error('Terjadi kesalahan saat menyimpan ulasan');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Terjadi kesalahan saat menyimpan ulasan: ' + error.message);
-                });
-            });
-        });
-    });
-</script> --}}
-
         @endpush
 
         @endforeach
@@ -197,5 +166,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z5vIOIj46qvYIu1z9r1T+rPqLWj+2jz5qmi1gg" crossorigin="anonymous"></script>
 @endsection
-
-
