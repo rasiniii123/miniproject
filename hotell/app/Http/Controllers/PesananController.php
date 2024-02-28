@@ -77,7 +77,6 @@ class PesananController extends Controller
         }
 
         $totalharga = $totalinap * $tarif;
-
         $pesanan = new Pesanan;
         $pesanan->email = $request->email;
         $pesanan->username = $request->username;
@@ -88,7 +87,6 @@ class PesananController extends Controller
         $pesanan->metode_pembayaran = $request->metode_pembayaran;
         $pesanan->harga_pesanan = $totalharga;
         $pesanan->save();
-
         Room::findOrFail($kamar)->update(['status' => 'booked']);
 
         return redirect()->route('histori')->with("success", "Product data added successfully!");
