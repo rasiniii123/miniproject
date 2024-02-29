@@ -43,9 +43,10 @@
                 </div>
                 <div class="menu" style="margin-left: 80px; ">
                     <ul>
+
                         <li><a href="#beranda-section" onclick="addLoadingEffect()">Beranda</a></li>
-                        <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
-                        <li><a href="#kamar-section" onclick="addLoadingEffect()">Kamar</a></li>
+                        <li><a href="{{ route('menu') }}" onclick="addLoadingEffect()">Kamar</a></li>
+                        <li><a href="{{ route('tentang.index') }}" onclick="addLoadingEffect()">Tentang Kami</></li>
                         @auth <!-- Check if the user is authenticated -->
                             <li><a  href="{{ route('histori') }}" onclick="addLoadingEffect()">History</a></li>
                         @endauth

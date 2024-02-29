@@ -53,9 +53,11 @@
                 <div class="menu" style="margin-left: 80px;">
                     <ul>
                         <li><a href="/" onclick="addLoadingEffect()">Beranda</a></li>
-                        <li><a href=" #hotel-section" onclick="addLoadingEffect()">Hotel</a></li>
-                        <li><a href="#about-section" onclick="addLoadingEffect()">Tentang Kami</a></li>
-                        <li><a href="#about-section" onclick="addLoadingEffect()">History</a></li>
+                        <li><a href="{{ route('menu') }}" onclick="addLoadingEffect()">Kamar</a></li>
+                        <li><a href="{{ route('tentang.index') }}" onclick="addLoadingEffect()">Tentang Kami</a></li>
+                        @auth <!-- Check if the user is authenticated -->
+                            <li><a  href="{{ route('histori') }}" onclick="addLoadingEffect()">History</a></li>
+                        @endauth
                     </ul>
                     <div class="user-actions" style="display: flex; align-items: center;">
                         @auth
