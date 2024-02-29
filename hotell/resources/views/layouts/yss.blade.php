@@ -72,7 +72,7 @@
                                 <li class="mx-auto flex-col">
                                     <form class="bg-transparent" class="" style="margin-top: 10px;">
                                         @csrf
-                                        <button type="submit" class="btn btn-link"
+                                        <a href="{{route('profile')}}" class="btn btn-link"
                                             style="padding: 0; border: none; background: none;">
                                             <div class="mx-auto"
                                                 style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
@@ -86,15 +86,15 @@
                                                 <span
                                                     style="font-size: 20px; color: black;">{{ auth()->user()->username }}</span>
                                             </div>
-                                        </button>
+                                        </a>
                                     </form>
                                     <div style="display: flex; align-items: center; margin-top: 10px; margin-left: 40px;">
-                                        <button onclick="redirectToProfile()" class="btn btn-secondary btn-sm" style="margin-left: 10%; font-size: 14px; padding: 5px 10px;">Edit Profile</button>
+                                        <button onclick="redirectToProfileEdit()" class="btn btn-secondary btn-sm" style="margin-left: 10%; font-size: 14px; padding: 5px 10px;">Edit Profile</button>
                                     </div>
 
                                     <script>
                                         function redirectToProfile() {
-                                            window.location.href = "/profile"; // Arahkan ke rute editprofile
+                                            window.location.href = "/profile"; /
                                         }
                                     </script>
 
@@ -209,7 +209,7 @@
                 <footer>
                     <div class="footer-bottom" style="padding: 7px 0;"> <!-- Atur padding untuk memperbesar footer -->
                         <div class="container">
-                            <div class="text-center" style="color: rgb(15, 15, 15);">Copyright © Everywhere 2024</div>
+                            <div class="text-center" style="color: rgb(15, 15, 15);">Copyright © Dragonspine 2024</div>
                         </div>
                     </div>
                 </footer>
