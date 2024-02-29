@@ -1,34 +1,34 @@
 @extends('admin.layout.app')
 @section('content')
-@if (session('success'))
-<script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: "{{ session('success') }}"
-    });
-</script>
-@endif
+    @if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: "{{ session('success') }}"
+        });
+    </script>
+    @endif
 
-@if (session('error'))
-<script>
-    Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "{{ session('error') }}",
-    });
-</script>
-@endif
+    @if (session('error'))
+    <script>
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "{{ session('error') }}",
+        });
+    </script>
+    @endif
 
-@if (session('warning'))
-<script>
-    Swal.fire({
-        icon: "warning",
-        title: "Oops...",
-        text: "{{ session('warning') }}",
-    });
-</script>
-@endif
+    @if (session('warning'))
+    <script>
+        Swal.fire({
+            icon: "warning",
+            title: "Oops...",
+            text: "{{ session('warning') }}",
+        });
+    </script>
+    @endif
     @php
         use Carbon\Carbon;
     @endphp
@@ -36,7 +36,6 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DDHKGP" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar  ">
         <div class="layout-container">
@@ -313,7 +312,6 @@
                         </div>
                     </div>
                     <!-- / Content -->
-
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
@@ -324,30 +322,32 @@
                                     target="_blank" class="footer-link fw-medium">Dragonspine</a>
                             </div>
                             <div class="d-none d-lg-inline-block">
-
+                                <a href="https://themeselection.com/license/" class="footer-link me-4"
+                                    target="_blank">License</a>
+                                <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
+                                    Themes</a>
+                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
+                                    target="_blank" class="footer-link me-4">Documentation</a>
+                                <a href="https://themeselection.com/support/" target="_blank"
+                                    class="footer-link d-none d-sm-inline-block">Support</a>
                             </div>
                         </div>
                     </footer>
                     <!-- / Footer -->
-
                     <div class="content-backdrop fade"></div>
                 </div>
                 <!-- Content wrapper -->
             </div>
             <!-- / Layout page -->
         </div>
-
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
-
         <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
-
     </div>
     <script>
         $('.hapus').click(function() {
             var form = $(this).closest('form');
-
             Swal.fire({
                 title: "Are you sure?",
                 text: "You will delete this product. This action cannot be undone!",

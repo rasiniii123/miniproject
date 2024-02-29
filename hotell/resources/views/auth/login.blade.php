@@ -45,37 +45,35 @@
                                     <span style="display: inline-block; width: 50%;">Login</span>
                                 </button>
                             </div>
-
-                            <div
+                            {{-- <div
                                 style="width: 459.50px; height: 81px; position: relative">
                                 <div style="width: 459.50px; height: 0px; left: 0px; top: 30px; position: absolute; border: 1px #283E58 solid"></div>
                                 <div style="width: 50px; height: 22px; left: 190px; top: 30px; position: absolute; background: #D9D9D9"></div>
                                 <div style="left: 200px; top: 15px;; position: absolute; color: #283E58; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 30.60px; letter-spacing: 0.36px; word-wrap: break-word">OR</div>
-                              </div>
-                              <div
-                              style="text-align: center; font-family: Hind; font-size: 13px; font-weight: 400; margin-top: 200px line-height: 18.57px; letter-spacing: 0.20px; margin-top: 10px;">
-                              Saya tidak punya akun- <a href="{{ route('auth.register') }}"
-                                  style="text-decoration: none;"> <span style="color: #00A3FF;">daftar disini</span> </a>
-                          </div>
+                            </div> --}}
+                            <div
+                            style="text-align: center; font-family: Hind; font-size: 13px; font-weight: 400; margin-top: 200px line-height: 18.57px; letter-spacing: 0.20px; margin-top: 10px;">
+                            Saya tidak punya akun <a href="{{ route('auth.register') }}"
+                                style="text-decoration: none;"> <span style="color: #00A3FF;">daftar disini</span> </a>
+                            </div>
                             {{-- <div style="height: 0px;"></div> --}}
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.20/sweetalert2.all.min.js"></script>
         @if(session('success'))
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Sukses!',
-            text: '{{ session('success') }}',
-            confirmButtonColor: '#283E58',
-            confirmButtonText: 'OK'
-        });
-    </script>
-@endif
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sukses!',
+                    text: '{{ session('success') }}',
+                    confirmButtonColor: '#283E58',
+                    confirmButtonText: 'OK'
+                });
+            </script>
+        @endif
     </section>
 @endsection

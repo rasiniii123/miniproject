@@ -3,7 +3,6 @@
     <div class="main-content container">
         <h1 style="text-transform: uppercase; margin-bottom: 10px">Data Profile Anda</h1>
         <hr>
-
         <div class="row align-items-center">
             @csrf
             <div class="col-md-4 text-center">
@@ -44,13 +43,12 @@
                     </div>
                     <div class="col-md-12" style="margin-bottom: 100px;">
                         <a href="{{ route('profile.edit', ['id' => ':id']) }}" class="btn btn-secondary btn-lg" style=" margin-left: 10%;">Edit Profile</a>
-                        <a href="/" class="btn btn-danger btn-lg" style="margin-left: 60%;">Kembali</a>
+                        <a href="{{ url()->previous() }}" class="btn btn-danger btn-lg" style="margin-left: 60%;">Kembali</a>
                     </div>
                 </div>
             </div>
         </div>
         @endsection
-
     <style>
     .form-container {
 
@@ -121,4 +119,3 @@
         window.location.href = "{{ route('profile.edit', ['id' => ':id']) }}".replace(':id', userId);
     }
 </script>
-

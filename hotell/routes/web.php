@@ -7,7 +7,6 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\adminmiddleware;
-
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\HistoriController;
@@ -35,8 +34,6 @@ use App\Http\Controllers\AdminDashboardController;
 Route::get('/', function () {
     return view('dashboard');
 });
-
-
 
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::get('/register', [RegisterController::class, 'index'])->name('auth.register');

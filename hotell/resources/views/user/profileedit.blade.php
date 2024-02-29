@@ -88,7 +88,7 @@
                     </div>
 
                     <div class="d-flex justify-content-end gap-2">
-                        <a href="{{ route('profile') }}" class="btn btn-secondary"> Kembali</a>
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary"> Kembali</a>
                         <button type="submit" class="btn btn-secondary">Simpan perubahan</button>
                     </div>
                 </form>
